@@ -26,7 +26,20 @@ import { EditIcon, ArrowLeftIcon } from 'lucide-react-native';
 type MyButtonStory = ComponentStory<typeof Button>;
 
 const ButtonStory: MyButtonStory = ({ text = 'Button', ...props }: any) => {
-  return <Button {...props}>{text}</Button>;
+  return (
+    <Button
+      {...props}
+      bg="blue.500"
+      _dark={{
+        bg: 'green.500',
+        _hover: {
+          bg: 'red.400',
+        },
+      }}
+    >
+      {text}
+    </Button>
+  );
 };
 
 export default ButtonStory;
