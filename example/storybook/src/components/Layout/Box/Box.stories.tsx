@@ -7,7 +7,7 @@ const BoxMeta: ComponentMeta<typeof Box> = {
   title: 'stories/LAYOUT/Box',
   component: Box,
 
-  args: { bg: 'red500', w: 100, h: 100 },
+  args: { bg: 'red.500', w: 100, h: 100 },
   parameters: {
     docs: {
       page: () => (

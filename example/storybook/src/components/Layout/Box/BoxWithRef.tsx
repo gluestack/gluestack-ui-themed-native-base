@@ -18,7 +18,7 @@ const BoxWithRefExample: MyCustomBoxStory = ({ ...props }: any) => {
     });
   }, [myRef]);
 
-  return <Box {...props} sx={{ h: 100, w: 100, bg: '$red500' }} ref={myRef} />;
+  return <Box {...props} sx={{ h: 100, w: 100, bg: 'red.500' }} ref={myRef} />;
 };
 
 export default BoxWithRefExample;
