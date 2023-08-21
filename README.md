@@ -31,10 +31,10 @@ You can find detailed documentation for each component, including a list of prop
 
 ## Installing **gluestack-ui**
 
-To use gluestack-ui components, all you need to install `@gluestack-ui/themed` and its dependencies
+To use gluestack-ui components, all you need to install `@gluestack-ui/themed-native-base` and its dependencies
 
 ```bash
-npm i @gluestack-ui/themed react-native-svg@13.4.0
+npm i @gluestack-ui/themed-native-base react-native-svg@13.4.0
 ```
 
 ## Tech Stack
@@ -46,10 +46,10 @@ JavaScript, React, React Native, Styled System
 To use the `gluestack-ui` in your project, follow these steps:
 
 1. Wrap your application with the `GluestackUIProvider` provided by
-   **@gluestack-ui/themed**.
+   **@gluestack-ui/themed-native-base**.
 
 ```jsx
-import { GluestackUIProvider, config } from '@gluestack-ui/themed';
+import { GluestackUIProvider, config } from '@gluestack-ui/themed-native-base';
 
 // Write this code snippet at the root of your application
 function App({ children }) {
@@ -62,7 +62,7 @@ function App({ children }) {
 2. Now you can start using components!:
 
 ```jsx
-import { Button } from '@gluestack-ui/themed';
+import { Button } from '@gluestack-ui/themed-native-base';
 
 function Example() {
   return (
