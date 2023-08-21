@@ -1,5 +1,5 @@
 {
-  "name": "@gluestack-ui/themed",
+  "name": "@gluestack-ui/themed-native-base",
   "version": "0.1.1",
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
