@@ -10,7 +10,7 @@ const BoxStory: any = ({
   return (
     <Box
       {...props}
-      bg={`$${bg}`}
+      bg={`${bg}`}
       h={h}
       w={w}
       justifyContent="center"
