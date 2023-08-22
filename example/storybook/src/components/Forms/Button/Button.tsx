@@ -29,13 +29,14 @@ const ButtonStory: MyButtonStory = ({ text = 'Button', ...props }: any) => {
   return (
     <Button
       {...props}
-      bg="blue.500"
+      // bg="blue.500"
       _dark={{
-        bg: 'green.500',
+        bg: ['red.200', 'blue', 'green'],
         _hover: {
           bg: 'red.400',
         },
       }}
+      // bg={{ base: 'red.200', sm: 'blue', md: 'green' }}
     >
       {text}
     </Button>
