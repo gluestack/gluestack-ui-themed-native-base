@@ -16,13 +16,14 @@ import {
   RemoveIcon,
   Box,
   FormControl,
+  AddIcon,
 } from '@gluestack-ui/themed';
 
 const CheckboxStory = ({ ...props }: any) => {
   const [values, setValues] = React.useState(['Label 1']);
 
   return (
-    <CheckboxGroup
+    <Checkbox.Group
       accessibilityLabel="Checkbox Group"
       isDisabled={props.isDisabled}
       isReadOnly={props.isReadOnly}
@@ -32,7 +33,8 @@ const CheckboxStory = ({ ...props }: any) => {
       nativeID="checkbox-group"
     >
       <Checkbox
-        m="$2"
+        icon={<Icon as={AddIcon} size="md" />}
+        mb="$2"
         size={props.size}
         isInvalid={props.isInvalid}
         isIndeterminate
@@ -44,31 +46,23 @@ const CheckboxStory = ({ ...props }: any) => {
           console.log(isSelected, '###')
         }
         nativeID="checkbox-1"
-      >
-        <CheckboxIndicator mr="$2">
-          <CheckboxIcon as={CheckIcon} />
-        </CheckboxIndicator>
-        <CheckboxLabel>Label 1</CheckboxLabel>
-      </Checkbox>
+      />
       <Checkbox
-        m="$2"
-        isInvalid={props.isInvalid}
         size={props.size}
-        aria-label="Label 2"
+        isInvalid={props.isInvalid}
+        isIndeterminate
         value="Label 2"
+        aria-label="Label 2"
         accessibilityLabel="Checkbox"
         onChange={(isSelected: boolean) =>
           // eslint-disable-next-line no-console
           console.log(isSelected, '###')
         }
-        nativeID="checkbox-2"
+        nativeID="checkbox-1"
       >
-        <CheckboxIndicator mr="$2">
-          <CheckboxIcon as={CheckIcon} />
-        </CheckboxIndicator>
-        <CheckboxLabel>Label 2</CheckboxLabel>
+        Label 2
       </Checkbox>
-    </CheckboxGroup>
+    </Checkbox.Group>
   );
 };
 

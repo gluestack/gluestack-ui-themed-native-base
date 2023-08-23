@@ -2704,7 +2704,7 @@
     "@react-native-aria/focus" "^0.2.8"
     "@react-native-aria/interactions" "^0.2.10"
 
-"@gluestack-ui/checkbox@^0.1.12":
+"@gluestack-ui/checkbox@^0.1.12", "@gluestack-ui/checkbox@^0.1.17":
   version "0.1.17"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/checkbox/-/checkbox-0.1.17.tgz#4ebadec4b428d3d65b8983a6d4547bdae7a5f3ee"
   integrity sha512-6MpJgG306jKp3iip+EgkXcwYxqVkxuE+XW75+8TfOE3ZI3p0JZCuGNRSKaAOJDmwxPVPO40vm1GFPrREJvoi4g==
@@ -2818,7 +2818,7 @@
     "@react-native-aria/focus" "^0.2.7"
     react-native-svg "13.4.0"
 
-"@gluestack-ui/input@^0.1.5":
+"@gluestack-ui/input@^0.1.10", "@gluestack-ui/input@^0.1.5":
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/input/-/input-0.1.10.tgz#10b40c633b43fdd45cae69a7693dacdb15f44fd3"
   integrity sha512-+441f6chxsPYdphsvJw3J+EvA2GGuuo1JLIJUEfNV3d2vuzG9nlRxlIXde2YuLu7W/kNuCHh0g0zKYNnHahlUA==
