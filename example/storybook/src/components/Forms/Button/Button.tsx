@@ -31,9 +31,12 @@ const ButtonStory: MyButtonStory = ({ text = 'Button', ...props }: any) => {
       {...props}
       // bg="blue.500"
       _dark={{
-        bg: ['red.200', 'blue', 'green'],
+        bg: ['red.500', 'blue', 'green'],
         _hover: {
-          bg: 'red.400',
+          bg: 'red.600',
+        },
+        _active: {
+          bg: 'red.800',
         },
       }}
       // bg={{ base: 'red.200', sm: 'blue', md: 'green' }}

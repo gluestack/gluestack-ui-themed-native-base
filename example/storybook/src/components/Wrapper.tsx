@@ -1,6 +1,6 @@
 import React from 'react';
 import { config } from '@gluestack-ui/themed';
-import { StyledProvider } from '@gluestack-ui/themed';
+import { StyledProvider, NativeBaseProvider } from '@gluestack-ui/themed';
 import { createProvider } from '@gluestack-ui/themed';
 import { Box } from '@gluestack-ui/themed';
 
@@ -11,7 +11,7 @@ Provider.displayName = 'Provider';
 
 const Wrapper = ({ children, ...props }: any) => {
   return (
-    <Provider config={config.theme} {...props}>
+    <NativeBaseProvider config={config.theme} {...props}>
       <Box
         sx={{
           _ios: {
@@ -22,7 +22,7 @@ const Wrapper = ({ children, ...props }: any) => {
       >
         <Center h="100%">{children}</Center>
       </Box>
-    </Provider>
+    </NativeBaseProvider>
   );
 };
 
