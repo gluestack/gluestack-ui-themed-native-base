@@ -11,10 +11,10 @@ const VStackStory = ({ space, reversed, ...props }: any) => {
       reversed={reversed}
       {...props}
     >
-      <Box sx={{ w: 100, h: 100, rounded: '$sm', bg: '$blue300' }} />
-      <Box sx={{ w: 100, h: 100, rounded: '$sm', bg: '$blue400' }} />
-      <Box sx={{ w: 100, h: 100, rounded: '$sm', bg: '$blue500' }} />
-      <Box sx={{ w: 100, h: 100, rounded: '$sm', bg: '$blue600' }} />
+      <Box w={100} h={100} bg="success.500" />
+      <Box w={100} h={100} bg="blue.400" />
+      <Box w={100} h={100} bg="blue.100" />
+      <Box w={100} h={100} bg="blue.800" />
     </VStack>
   );
 };

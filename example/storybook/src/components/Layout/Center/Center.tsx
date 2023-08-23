@@ -6,8 +6,8 @@ type MyCenterStory = ComponentStory<typeof Center>;
 
 const CenterStory: MyCenterStory = () => {
   return (
-    <Center bg="$primary500" h={200} w={300}>
-      <Text color="white" fontWeight="$bold">
+    <Center bg="primary.500" h={200} w={300}>
+      <Text color="rose.400" fontWeight="$bold">
         This is the center.
       </Text>
     </Center>
