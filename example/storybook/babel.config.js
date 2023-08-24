@@ -24,7 +24,9 @@ module.exports = function (api) {
 function getAliases() {
   return {
     // For development, we want to alias the library to the source
-    '@gluestack-ui/themed': path.join(__dirname, '../../packages/themed-native-base/src'),
-    
+    '@gluestack-ui/themed': path.join(
+      __dirname,
+      '../../packages/themed-native-base/src'
+    ),
   };
 }
