@@ -16,7 +16,7 @@ type CustomAvatarStory = ComponentStory<typeof Avatar>;
 const AvatarGroupExample: CustomAvatarStory = ({ size = 'md', badge }: any) => {
   return (
     <HStack space="md" h="100%" justifyContent="center" alignItems="center">
-      <AvatarGroup>
+      <AvatarGroup max={1}>
         <Avatar size={size}>
           <AvatarFallbackText>John Doe</AvatarFallbackText>
           <AvatarImage
