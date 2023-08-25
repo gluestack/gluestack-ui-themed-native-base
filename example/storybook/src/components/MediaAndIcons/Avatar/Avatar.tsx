@@ -12,6 +12,7 @@ import {
   Icon,
   Heading,
   Text,
+  AccessibleAvatar,
 } from '@gluestack-ui/themed';
 import { User } from 'lucide-react-native';
 
@@ -21,28 +22,30 @@ const AvatarStory: CustomAvatarStory = ({
   size = 'md',
   uri = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
   badge = true,
-  fallbackText = 'John Doe',
+  fallbackText,
 }: any) => {
   return (
     <HStack space="md" h="100%" justifyContent="center" alignItems="center">
-      <Avatar size={size}>
-        <AvatarFallbackText>{fallbackText}</AvatarFallbackText>
-        <AvatarImage
+      <Avatar
+        size={size}
+        source={{
+          uri: uri,
+        }}
+      >
+        {fallbackText}
+        {badge && <Avatar.Badge bg="red" />}
+      </Avatar>
+      <AccessibleAvatar size={size}>
+        <AccessibleAvatar.Image
           source={{
             uri: uri,
           }}
         />
-        {badge && <AvatarBadge />}
-      </Avatar>
-      <Avatar size={size}>
-        <AvatarFallbackText>{fallbackText}</AvatarFallbackText>
-        <AvatarImage
-          source={{
-            uri: 'https://broken.link',
-          }}
-        />
-        {badge && <AvatarBadge />}
-      </Avatar>
+        <AccessibleAvatar.FallbackText>
+          {fallbackText}
+        </AccessibleAvatar.FallbackText>
+        <Avatar.Badge />
+      </AccessibleAvatar>
     </HStack>
   );
 };
