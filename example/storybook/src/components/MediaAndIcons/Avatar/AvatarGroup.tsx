@@ -16,7 +16,7 @@ type CustomAvatarStory = ComponentStory<typeof Avatar>;
 const AvatarGroupExample: CustomAvatarStory = ({ size = 'md', badge }: any) => {
   return (
     <HStack space="md" h="100%" justifyContent="center" alignItems="center">
-      <Avatar.Group max={0}>
+      <Avatar.Group max={2}>
         <Avatar
           size={size}
           source={{
