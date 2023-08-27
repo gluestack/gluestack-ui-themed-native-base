@@ -11,7 +11,6 @@ import {
   AlertDialogBody,
   Button,
   ButtonText,
-  ButtonGroup,
   Text,
   Center,
   Icon,
@@ -52,7 +51,7 @@ const AlertDialogStory = ({
         </AlertDialogBody>
         <AlertDialogFooter>
           <Button
-            variant="outline"
+            variant="solid"
             action="secondary"
             onPress={handleClose}
             mr="$3"
@@ -80,7 +79,6 @@ export {
   AlertDialogBody,
   Button,
   ButtonText,
-  ButtonGroup,
   Text,
   CloseIcon,
   Center,
