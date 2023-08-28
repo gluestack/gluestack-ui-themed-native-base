@@ -1,20 +1,6 @@
 //@ts-nocheck
 import React, { useState } from 'react';
-import {
-  CloseIcon,
-  AlertDialog,
-  Button,
-  // ButtonText,
-  Text,
-  Center,
-  Icon,
-  Heading,
-  AlertCircleIcon,
-  CheckCircleIcon,
-  HStack,
-} from '@gluestack-ui/themed';
-
-import { AlertTriangleIcon } from 'lucide-react-native';
+import { AlertDialog, Button, Center } from '@gluestack-ui/themed';
 
 const AlertDialogStory = ({
   showAlertDialog: showAlertDialogProp = false,
@@ -64,18 +50,3 @@ const AlertDialogStory = ({
 };
 
 export default AlertDialogStory;
-
-export {
-  AlertDialog,
-  Button,
-  // ButtonText,
-  Text,
-  CloseIcon,
-  Center,
-  Heading,
-  Icon,
-  AlertCircleIcon,
-  HStack,
-  AlertTriangleIcon,
-  CheckCircleIcon,
-};

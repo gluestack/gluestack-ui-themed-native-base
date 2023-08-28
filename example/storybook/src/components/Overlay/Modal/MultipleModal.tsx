@@ -1,37 +1,15 @@
 import React from 'react';
 
-import {
-  Center,
-  Button,
-  ButtonText,
-  CloseIcon,
-  Text,
-  Icon,
-} from '@gluestack-ui/themed';
-import {
-  Modal,
-  ModalBackdrop,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  VStack,
-  HStack,
-  Heading,
-} from '@gluestack-ui/themed';
+import { Center, Button, Text } from '@gluestack-ui/themed';
+import { Modal, VStack, HStack, Heading } from '@gluestack-ui/themed';
 
 const MultipleModalStory = ({ ...props }: any) => {
   const [showModal, setShowModal] = React.useState(false);
   const [showModal2, setShowModal2] = React.useState(false);
 
   return (
-    <>
-      <Center>
-        <Button onPress={() => setShowModal(true)}>
-          <ButtonText>Button</ButtonText>
-        </Button>
-      </Center>
+    <Center>
+      <Button onPress={() => setShowModal(true)}>Button</Button>
 
       <Modal
         isOpen={showModal}
@@ -40,16 +18,11 @@ const MultipleModalStory = ({ ...props }: any) => {
         }}
         {...props}
       >
-        <ModalBackdrop />
-        <ModalContent>
-          <ModalHeader>
-            <Heading>Order</Heading>
-            <ModalCloseButton>
-              <Icon as={CloseIcon} />
-            </ModalCloseButton>
-          </ModalHeader>
-          <ModalBody>
-            <VStack space="sm">
+        <Modal.Content>
+          <Modal.CloseButton />
+          <Modal.Header>Order</Modal.Header>
+          <Modal.Body>
+            <VStack space="sm" flex={1}>
               <HStack alignItems="center" justifyContent="space-between">
                 <Text fontWeight="$medium">Sub Total</Text>
                 <Text color="$blueGray400">$298.77</Text>
@@ -63,8 +36,8 @@ const MultipleModalStory = ({ ...props }: any) => {
                 <Text color="$green500">$337.61</Text>
               </HStack>
             </VStack>
-          </ModalBody>
-          <ModalFooter>
+          </Modal.Body>
+          <Modal.Footer>
             <Button
               variant="outline"
               action="secondary"
@@ -73,17 +46,17 @@ const MultipleModalStory = ({ ...props }: any) => {
               }}
               sx={{ mr: '$3' }}
             >
-              <ButtonText>Cancel</ButtonText>
+              Cancel
             </Button>
             <Button
               onPress={() => {
                 setShowModal2(true);
               }}
             >
-              <ButtonText>Continue</ButtonText>
+              Continue
             </Button>
-          </ModalFooter>
-        </ModalContent>
+          </Modal.Footer>
+        </Modal.Content>
       </Modal>
 
       <Modal
@@ -92,31 +65,26 @@ const MultipleModalStory = ({ ...props }: any) => {
           setShowModal2(false);
         }}
       >
-        <ModalBackdrop />
-        <ModalContent {...props}>
-          <ModalHeader>
-            <Heading>Order</Heading>
-            <ModalCloseButton>
-              <Icon as={CloseIcon} />
-            </ModalCloseButton>
-          </ModalHeader>
-          <ModalBody>
+        <Modal.Content {...props}>
+          <Modal.CloseButton />
+          <Modal.Header>Order</Modal.Header>
+          <Modal.Body>
             <Center h={100}>
               <Heading>Second Modal</Heading>
             </Center>
-          </ModalBody>
-          <ModalFooter>
+          </Modal.Body>
+          <Modal.Footer>
             <Button
               onPress={() => {
                 setShowModal2(false);
               }}
             >
-              <ButtonText>Cancel</ButtonText>
+              Cancel
             </Button>
-          </ModalFooter>
-        </ModalContent>
+          </Modal.Footer>
+        </Modal.Content>
       </Modal>
-    </>
+    </Center>
   );
 };
 
