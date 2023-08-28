@@ -20,7 +20,7 @@ const AlertDialogMeta: ComponentMeta<typeof AlertDialog> = {
   },
   args: {
     size: 'md',
-    showAlertDialog: true,
+    showAlertDialog: false,
   },
   parameters: {
     docs: {

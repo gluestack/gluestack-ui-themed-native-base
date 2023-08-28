@@ -1,16 +1,10 @@
+//@ts-nocheck
 import React, { useState } from 'react';
-
 import {
   CloseIcon,
   AlertDialog,
-  AlertDialogBackdrop,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogCloseButton,
-  AlertDialogFooter,
-  AlertDialogBody,
   Button,
-  ButtonText,
+  // ButtonText,
   Text,
   Center,
   Icon,
@@ -23,47 +17,51 @@ import {
 import { AlertTriangleIcon } from 'lucide-react-native';
 
 const AlertDialogStory = ({
-  showAlertDialog: showAlertDialogProp = true,
+  showAlertDialog: showAlertDialogProp = false,
   ...props
 }) => {
   const [showAlertDialog, setShowAlertDialog] = useState(false);
   const handleClose = () => setShowAlertDialog(!showAlertDialog);
   return (
-    <AlertDialog
-      isOpen={showAlertDialog || showAlertDialogProp}
-      onClose={handleClose}
-      {...props}
-    >
-      <AlertDialogBackdrop />
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <Heading>Return Policy</Heading>
-          <AlertDialogCloseButton>
+    <Center h="100vh" w="100vw" bg="pink">
+      <Button
+        onPress={() => {
+          setShowAlertDialog(true);
+        }}
+      >
+        click me
+      </Button>
+      <AlertDialog
+        isOpen={showAlertDialog || showAlertDialogProp}
+        onClose={handleClose}
+        {...props}
+      >
+        <AlertDialog.Content>
+          <AlertDialog.CloseButton>
             <Icon as={CloseIcon} />
-          </AlertDialogCloseButton>
-        </AlertDialogHeader>
-        <AlertDialogBody>
-          <Text>
+          </AlertDialog.CloseButton>
+          <AlertDialog.Header>Return Policy</AlertDialog.Header>
+          <AlertDialog.Body>
             Whoa, slow down there! This modal is like a red light at an
             intersection, reminding you to stop and think before you proceed. Is
             deleting this folder the right choice?
-          </Text>
-        </AlertDialogBody>
-        <AlertDialogFooter>
-          <Button
-            variant="solid"
-            action="secondary"
-            onPress={handleClose}
-            mr="$3"
-          >
-            <ButtonText>Cancel</ButtonText>
-          </Button>
-          <Button action="negative" onPress={handleClose}>
-            <ButtonText>Delete</ButtonText>
-          </Button>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+          </AlertDialog.Body>
+          <AlertDialog.Footer>
+            <Button
+              variant="solid"
+              action="secondary"
+              onPress={handleClose}
+              mr="$3"
+            >
+              Cancel
+            </Button>
+            <Button action="negative" onPress={handleClose}>
+              Delete
+            </Button>
+          </AlertDialog.Footer>
+        </AlertDialog.Content>
+      </AlertDialog>
+    </Center>
   );
 };
 
@@ -71,14 +69,8 @@ export default AlertDialogStory;
 
 export {
   AlertDialog,
-  AlertDialogBackdrop,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogCloseButton,
-  AlertDialogFooter,
-  AlertDialogBody,
   Button,
-  ButtonText,
+  // ButtonText,
   Text,
   CloseIcon,
   Center,
