@@ -37,9 +37,7 @@ const AlertDialogStory = ({
         {...props}
       >
         <AlertDialog.Content>
-          <AlertDialog.CloseButton>
-            <Icon as={CloseIcon} />
-          </AlertDialog.CloseButton>
+          <AlertDialog.CloseButton />
           <AlertDialog.Header>Return Policy</AlertDialog.Header>
           <AlertDialog.Body>
             Whoa, slow down there! This modal is like a red light at an
