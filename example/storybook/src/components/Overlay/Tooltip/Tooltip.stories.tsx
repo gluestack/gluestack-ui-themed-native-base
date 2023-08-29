@@ -30,7 +30,7 @@ const TooltipMeta: ComponentMeta<typeof Tooltip> = {
   args: {
     text: 'Hello world',
     placement: 'bottom',
-    showTooltip: true,
+    showTooltip: false,
   },
   parameters: {
     docs: {

@@ -10,7 +10,6 @@ const MultipleModalStory = ({ ...props }: any) => {
   return (
     <Center>
       <Button onPress={() => setShowModal(true)}>Button</Button>
-
       <Modal
         isOpen={showModal}
         onClose={() => {

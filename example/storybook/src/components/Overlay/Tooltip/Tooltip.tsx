@@ -1,68 +1,24 @@
 import React from 'react';
-import {
-  Center,
-  Button,
-  ButtonText,
-  Tooltip,
-  TooltipContent,
-  TooltipText,
-  Text,
-  Avatar,
-  AvatarGroup,
-  AvatarFallbackText,
-  Box,
-  Heading,
-  VStack,
-  HStack,
-  Icon,
-} from '@gluestack-ui/themed';
-import { Edit, Command } from 'lucide-react-native';
+import { Button, Center, Tooltip } from '@gluestack-ui/themed';
 
 const TooltipStory = ({
-  showTooltip: showTooltipProp = true,
+  showTooltip: showTooltipProp = false,
   placement = 'bottom',
   text = 'Hello world',
 }: any) => {
   2;
   return (
-    <Tooltip
-      offset={10}
-      placement={placement}
-      isOpen={showTooltipProp}
-      // eslint-disable-next-line react/no-unstable-nested-components
-      trigger={(triggerProps: any) => {
-        return (
-          <Button {...triggerProps}>
-            <ButtonText>More</ButtonText>
-          </Button>
-        );
-      }}
-    >
-      <TooltipContent>
-        <TooltipText>{text}</TooltipText>
-      </TooltipContent>
-    </Tooltip>
+    <Center h="100vh" w="100vw">
+      <Tooltip
+        offset={10}
+        placement={placement}
+        label={text}
+        isOpen={showTooltipProp}
+      >
+        <Button>More</Button>
+      </Tooltip>
+    </Center>
   );
 };
 
 export default TooltipStory;
-
-export {
-  Tooltip,
-  TooltipContent,
-  TooltipText,
-  Center,
-  Button,
-  ButtonText,
-  Text,
-  Avatar,
-  AvatarGroup,
-  AvatarFallbackText,
-  Box,
-  Heading,
-  Edit,
-  VStack,
-  Command,
-  HStack,
-  Icon,
-};

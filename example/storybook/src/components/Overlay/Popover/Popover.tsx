@@ -1,113 +1,45 @@
 import React, { useState } from 'react';
-import {
-  Text,
-  Button,
-  ButtonText,
-  ButtonGroup,
-  Popover,
-  PopoverBackdrop,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverCloseButton,
-  CloseIcon,
-  Icon,
-  Box,
-  Center,
-  Heading,
-  Pressable,
-  HStack,
-  VStack,
-  Avatar,
-  AvatarFallbackText,
-  CircleIcon,
-  AddIcon,
-} from '@gluestack-ui/themed';
-
-import { PhoneIcon, Clock3Icon, MailIcon } from 'lucide-react-native';
+import { Button, Popover, Center, Text } from '@gluestack-ui/themed';
 
 const PopoverStory = ({
-  showPopover: showPopoverProp = true,
+  showPopover: showPopoverProp = false,
   placement = 'bottom',
 }: any) => {
+  const [show, setShow] = useState(false);
   return (
-    <Center w={1200} h={800}>
+    <Center w="90vw" h="90vh" bg="pink">
       <Popover
         offset={10}
-        isOpen={showPopoverProp}
+        isOpen={showPopoverProp || show}
+        onClose={() => {
+          setShow(false);
+        }}
         placement={placement}
         // eslint-disable-next-line react/no-unstable-nested-components
         trigger={(triggerProps) => {
-          return (
-            <Button {...triggerProps}>
-              <ButtonText>Popover</ButtonText>
-            </Button>
-          );
+          return <Button {...triggerProps}>Popover</Button>;
         }}
       >
-        <PopoverBackdrop />
-        <PopoverContent maxWidth="$96">
-          <PopoverHeader>
-            <Heading>Welcome!</Heading>
-            <PopoverCloseButton>
-              <Icon as={CloseIcon} />
-            </PopoverCloseButton>
-          </PopoverHeader>
-          <PopoverBody>
-            <Text>
-              Join the product tour and start creating your own checklist. Are
-              you ready to jump in?
-            </Text>
-          </PopoverBody>
-          <PopoverFooter>
-            <Text size="xs" flex={1}>
-              Step 2 of 3
-            </Text>
-            {/* @ts-ignore */}
-            <ButtonGroup space="md">
-              <Button variant="outline" action="secondary">
-                <ButtonText>Back</ButtonText>
-              </Button>
-              <Button>
-                <ButtonText>Next</ButtonText>
-              </Button>
-            </ButtonGroup>
-          </PopoverFooter>
-        </PopoverContent>
+        <Popover.Content>
+          <Popover.CloseButton />
+          <Popover.Header>Welcome!</Popover.Header>
+          <Popover.Body>
+            Join the product tour and start creating your own checklist. Are you
+            ready to jump in?
+          </Popover.Body>
+          <Popover.Footer justifyContent="space-between">
+            <Text>Step 2 of 3</Text>
+            {/*
+            //@ts-ignore */}
+            <Button.Group space="md">
+              <Button action="secondary">Back</Button>
+              <Button>Next</Button>
+            </Button.Group>
+          </Popover.Footer>
+        </Popover.Content>
       </Popover>
     </Center>
   );
 };
 
 export default PopoverStory;
-
-export {
-  Text,
-  Popover,
-  PopoverBackdrop,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverCloseButton,
-  Button,
-  ButtonGroup,
-  ButtonText,
-  CloseIcon,
-  Box,
-  Heading,
-  Icon,
-  Pressable,
-  HStack,
-  VStack,
-  Avatar,
-  AvatarFallbackText,
-  CircleIcon,
-  AddIcon,
-  Center,
-  PhoneIcon,
-  Clock3Icon,
-  MailIcon,
-  useState,
-};
