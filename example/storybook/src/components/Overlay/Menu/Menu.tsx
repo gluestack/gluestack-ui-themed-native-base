@@ -2,15 +2,9 @@ import React from 'react';
 
 import {
   Button,
-  ButtonText,
   GlobeIcon,
-  HStack,
   Menu,
-  MenuIcon,
-  MenuItem,
-  MenuItemLabel,
   Icon,
-  Text,
   SettingsIcon,
   AddIcon,
   Center,
@@ -21,58 +15,40 @@ const MenuStory = ({ placement = 'bottom' }: any) => {
   return (
     <Center>
       <Menu
-        isOpen={true}
+        // isOpen={true}
         placement={placement}
         disabledKeys={['Settings']}
+        // onSelectionChange={(something) => {
+        //   console.log('something', something);
+        // }}
         // eslint-disable-next-line react/no-unstable-nested-components
         trigger={({ ...triggerProps }) => {
-          return (
-            <Button {...triggerProps}>
-              <ButtonText>Menu</ButtonText>
-            </Button>
-          );
+          return <Button {...triggerProps}>Menu</Button>;
         }}
       >
-        <MenuItem key="Community" textValue="Community">
+        <Menu.Item key="Community" textValue="Community">
           <Icon as={GlobeIcon} size="sm" mr="$2" />
-          <MenuItemLabel size="sm">Community</MenuItemLabel>
-        </MenuItem>
-        <MenuItem key="Plugins" textValue="Plugins">
+          <Menu.ItemLabel size="sm">Community</Menu.ItemLabel>
+        </Menu.Item>
+        <Menu.Item key="Plugins" textValue="Plugins">
           <Icon as={PuzzleIcon} size={16} mr="$2" />
-          <MenuItemLabel size="sm">Plugins</MenuItemLabel>
-        </MenuItem>
-        <MenuItem key="Theme" textValue="Theme">
+          <Menu.ItemLabel size="sm">Plugins</Menu.ItemLabel>
+        </Menu.Item>
+        <Menu.Item key="Theme" textValue="Theme">
           <Icon as={PaintBucket} size={16} mr="$2" />
-          <MenuItemLabel size="sm">Theme</MenuItemLabel>
-        </MenuItem>
-        <MenuItem key="Settings" textValue="Settings">
+          <Menu.ItemLabel size="sm">Theme</Menu.ItemLabel>
+        </Menu.Item>
+        <Menu.Item key="Settings" textValue="Settings">
           <Icon as={SettingsIcon} size="sm" mr="$2" />
-          <MenuItemLabel size="sm">Settings</MenuItemLabel>
-        </MenuItem>
-        <MenuItem key="Add account" textValue="Add account">
+          <Menu.ItemLabel size="sm">Settings</Menu.ItemLabel>
+        </Menu.Item>
+        <Menu.Item key="Add account" textValue="Add account">
           <Icon as={AddIcon} size="sm" mr="$2" />
-          <MenuItemLabel size="sm">Add account</MenuItemLabel>
-        </MenuItem>
+          <Menu.ItemLabel size="sm">Add account</Menu.ItemLabel>
+        </Menu.Item>
       </Menu>
     </Center>
   );
 };
 
 export default MenuStory;
-
-export {
-  Button,
-  ButtonText,
-  GlobeIcon,
-  HStack,
-  Menu,
-  MenuIcon,
-  MenuItem,
-  MenuItemLabel,
-  Icon,
-  Text,
-  SettingsIcon,
-  AddIcon,
-  PaintBucket,
-  PuzzleIcon,
-};
