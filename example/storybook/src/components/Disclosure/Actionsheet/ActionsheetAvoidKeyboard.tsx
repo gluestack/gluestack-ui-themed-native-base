@@ -7,7 +7,6 @@ import {
   ActionsheetDragIndicator,
   ActionsheetDragIndicatorWrapper,
   Button,
-  ButtonText,
   VStack,
   Input,
   InputIcon,
@@ -22,7 +21,7 @@ import {
   Icon,
 } from '@gluestack-ui/themed';
 import { KeyboardAvoidingView, Platform } from 'react-native';
-import { createIcon } from '@gluestack-ui/themed';
+import { createIcon } from '@gluestack-ui/icon';
 import { Svg, Path } from 'react-native-svg';
 import { styled, AsForwarder } from '@gluestack-ui/themed';
 
@@ -124,7 +123,7 @@ function ActionsheetExample({
                 <InputInput placeholder="CVC/CVV" />
               </Input>
               <Button onPress={handleClose} mt={20}>
-                <ButtonText>Pay $1000</ButtonText>
+                Pay $1000
               </Button>
             </FormControl>
           </VStack>
