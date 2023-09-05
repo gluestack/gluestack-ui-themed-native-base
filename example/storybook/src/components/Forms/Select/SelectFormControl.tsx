@@ -15,13 +15,6 @@ import {
   SelectTrigger,
   Icon,
   FormControl,
-  FormControlLabel,
-  FormControlLabelText,
-  FormControlHelper,
-  FormControlHelperText,
-  FormControlError,
-  FormControlErrorIcon,
-  FormControlErrorText,
   AlertCircleIcon,
 } from '@gluestack-ui/themed';
 
@@ -46,9 +39,7 @@ const SelectStory = ({ size, variant, ...props }: any) => {
   const [selected, setSelected] = React.useState(colors[0]);
   return (
     <FormControl {...props}>
-      <FormControlLabel>
-        <FormControlLabelText>Choose your favorite color</FormControlLabelText>
-      </FormControlLabel>
+      <FormControl.Label>Choose your favorite color</FormControl.Label>
       <Select
         selectedValue={selected.value}
         selectedLabel={selected.label}
@@ -72,35 +63,16 @@ const SelectStory = ({ size, variant, ...props }: any) => {
           </SelectContent>
         </SelectPortal>
       </Select>
-      <FormControlHelper>
-        <FormControlHelperText>
-          You can only select one option
-        </FormControlHelperText>
-      </FormControlHelper>
-      <FormControlError>
-        <FormControlErrorIcon>
-          <Icon as={AlertCircleIcon} />
-        </FormControlErrorIcon>
-        <FormControlErrorText>Mandatory field</FormControlErrorText>
-      </FormControlError>
+      <FormControl.HelperText>
+        You can only select one option
+      </FormControl.HelperText>
+      <FormControl.ErrorMessage leftIcon={AlertCircleIcon}>
+        Mandatory field
+      </FormControl.ErrorMessage>
     </FormControl>
   );
 };
 
 export default SelectStory;
 
-export {
-  Center,
-  Select,
-  Icon,
-  ChevronDownIcon,
-  FormControl,
-  FormControlLabel,
-  FormControlLabelText,
-  FormControlHelper,
-  FormControlHelperText,
-  FormControlError,
-  FormControlErrorIcon,
-  FormControlErrorText,
-  AlertCircleIcon,
-};
+export { Center, Select, Icon, ChevronDownIcon, FormControl, AlertCircleIcon };
