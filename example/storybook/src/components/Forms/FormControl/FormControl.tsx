@@ -1,22 +1,11 @@
 import React from 'react';
-import {
-  FormControl,
-  Input,
-  InputInput,
-  AlertCircleIcon,
-} from '@gluestack-ui/themed';
+import { FormControl, Input, AlertCircleIcon } from '@gluestack-ui/themed';
 
 const FormControlStory = ({ ...props }) => {
   return (
     <FormControl {...props}>
       <FormControl.Label>Password</FormControl.Label>
-      <Input>
-        <InputInput
-          type="password"
-          defaultValue="12345"
-          placeholder="password"
-        />
-      </Input>
+      <Input type="password" defaultValue="12345" placeholder="password" />
       <FormControl.HelperText>
         Must be atleast 6 characters.
       </FormControl.HelperText>

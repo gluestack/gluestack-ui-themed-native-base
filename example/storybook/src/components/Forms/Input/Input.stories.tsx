@@ -12,7 +12,7 @@ const InputMeta: ComponentMeta<typeof Input> = {
     },
     variant: {
       control: 'select',
-      options: ['outline', 'underlined', 'rounded'],
+      options: ['outline', 'underlined', 'filled', 'rounded', 'unstyled'],
     },
     isInvalid: {
       control: 'boolean',
@@ -28,7 +28,7 @@ const InputMeta: ComponentMeta<typeof Input> = {
     },
   },
   args: {
-    size: 'sm',
+    size: 'md',
     variant: 'outline',
     isInvalid: false,
     isDisabled: false,
