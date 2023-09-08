@@ -7,16 +7,9 @@ const PressableStory = ({ ...props }: any) => {
       // eslint-disable-next-line no-console
       onPress={() => console.log('Hello')}
       {...props}
-      sx={{ h: 100, w: 200 }}
     >
-      <Center
-        sx={{
-          h: '100%',
-          w: '100%',
-          bg: '$primary500',
-        }}
-      >
-        <Text sx={{ color: '$white' }}>PRESSABLE</Text>
+      <Center p={100} bg="primary.500">
+        <Text color="white">PRESSABLE</Text>
       </Center>
     </Pressable>
   );
