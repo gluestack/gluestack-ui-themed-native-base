@@ -6,14 +6,14 @@ const DividerStory = () => {
     <VStack space="md" justifyContent="center" alignItems="center">
       <HStack h={40} justifyContent="center" alignItems="center">
         <Text>Simple</Text>
-        <Divider orientation="vertical" sx={{ mx: '$3' }} />
+        <Divider orientation="vertical" mx="$3" />
         <Text>Easy</Text>
-        <Divider sx={{ mx: '$3' }} orientation="vertical" />
+        <Divider m="$3" orientation="vertical" />
         <Text>Beautiful</Text>
       </HStack>
       <VStack w="100%" justifyContent="center" alignItems="center">
         <Text>Firefox</Text>
-        <Divider thickness={10} orientation="horizontal" sx={{ my: '$2' }} />
+        <Divider thickness={10} orientation="horizontal" my="$3" />
         <Text>Chrome</Text>
       </VStack>
     </VStack>
