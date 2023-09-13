@@ -1,21 +1,6 @@
 import React from 'react';
 /* eslint-disable no-console */
-// @ts-ignore
-import { CircleIcon } from '@gluestack-ui/themed';
-import {
-  Center,
-  Radio,
-  RadioGroup,
-  RadioIcon,
-  RadioIndicator,
-  RadioLabel,
-  VStack,
-  HStack,
-  Box,
-  Heading,
-  Text,
-  FormControl,
-} from '@gluestack-ui/themed';
+import { Radio } from '@gluestack-ui/themed';
 
 const RadioStory = ({
   size,
@@ -27,7 +12,7 @@ const RadioStory = ({
   const [values, setValues] = React.useState();
 
   return (
-    <RadioGroup
+    <Radio.Group
       isDisabled={isDisabled}
       isReadOnly={isReadOnly}
       value={values}
@@ -42,10 +27,11 @@ const RadioStory = ({
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
       >
-        <RadioIndicator>
+        Label 1
+        {/* <RadioIndicator>
           <RadioIcon as={CircleIcon} />
         </RadioIndicator>
-        <RadioLabel>Label 1</RadioLabel>
+        <RadioLabel>Label 1</RadioLabel> */}
       </Radio>
       <Radio
         isDisabled={isDisabled}
@@ -55,10 +41,11 @@ const RadioStory = ({
         accessibilityLabel="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
       >
-        <RadioIndicator>
+        Label 2
+        {/* <RadioIndicator>
           <RadioIcon as={CircleIcon} />
         </RadioIndicator>
-        <RadioLabel>Label 2</RadioLabel>
+        <RadioLabel>Label 2</RadioLabel> */}
       </Radio>
       <Radio
         isDisabled={isDisabled}
@@ -70,29 +57,14 @@ const RadioStory = ({
           console.log(isSelected, 'isSelected')
         }
       >
-        <RadioIndicator>
+        Label 3
+        {/* <RadioIndicator>
           <RadioIcon as={CircleIcon} />
         </RadioIndicator>
-        <RadioLabel>Label 3</RadioLabel>
+        <RadioLabel>Label 3</RadioLabel> */}
       </Radio>
-    </RadioGroup>
+    </Radio.Group>
   );
 };
 
 export default RadioStory;
-
-export {
-  Radio,
-  RadioGroup,
-  RadioIcon,
-  RadioIndicator,
-  RadioLabel,
-  CircleIcon,
-  Center,
-  VStack,
-  HStack,
-  Box,
-  Heading,
-  Text,
-  FormControl,
-};
