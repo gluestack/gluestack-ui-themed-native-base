@@ -42,7 +42,7 @@ const CheckboxStory = ({ ...props }: any) => {
           // eslint-disable-next-line no-console
           console.log(isSelected, '###')
         }
-        nativeID="checkbox-1"
+        nativeID="checkbox-2"
       >
         Label 2
       </Checkbox>
