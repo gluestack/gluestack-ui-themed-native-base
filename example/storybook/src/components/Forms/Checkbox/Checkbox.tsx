@@ -1,23 +1,6 @@
 import React from 'react';
 
-import {
-  Center,
-  Text,
-  CheckIcon,
-  Icon,
-  HStack,
-  Checkbox,
-  CheckboxGroup,
-  CheckboxIndicator,
-  CheckboxIcon,
-  CheckboxLabel,
-  Heading,
-  VStack,
-  RemoveIcon,
-  Box,
-  FormControl,
-  AddIcon,
-} from '@gluestack-ui/themed';
+import { Checkbox, AddIcon } from '@gluestack-ui/themed';
 
 const CheckboxStory = ({ ...props }: any) => {
   const [values, setValues] = React.useState(['Label 1']);
@@ -33,7 +16,7 @@ const CheckboxStory = ({ ...props }: any) => {
       nativeID="checkbox-group"
     >
       <Checkbox
-        icon={<Icon as={AddIcon} size="md" />}
+        icon={AddIcon}
         mb="$2"
         size={props.size}
         isInvalid={props.isInvalid}
@@ -51,6 +34,7 @@ const CheckboxStory = ({ ...props }: any) => {
         size={props.size}
         isInvalid={props.isInvalid}
         isIndeterminate
+        colorScheme="success"
         value="Label 2"
         aria-label="Label 2"
         accessibilityLabel="Checkbox"
@@ -67,21 +51,3 @@ const CheckboxStory = ({ ...props }: any) => {
 };
 
 export default CheckboxStory;
-
-export {
-  Center,
-  Text,
-  CheckIcon,
-  Checkbox,
-  CheckboxGroup,
-  CheckboxIndicator,
-  CheckboxIcon,
-  CheckboxLabel,
-  VStack,
-  Icon,
-  HStack,
-  RemoveIcon,
-  Heading,
-  Box,
-  FormControl,
-};
