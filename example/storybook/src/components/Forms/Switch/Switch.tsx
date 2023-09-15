@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Switch, VStack, Text, HStack } from '@gluestack-ui/themed';
+import { Switch } from '@gluestack-ui/themed';
 
 const SwitchStory = ({ isDisabled = false, ...props }: any) => {
   const [isEnabled, setIsEnabled] = useState(true);
   return (
     <Switch
       defaultValue={true}
+      // onThumbColor="$red.500"
       value={isEnabled}
       onValueChange={(val: any) => setIsEnabled(val)}
       isDisabled={isDisabled}
@@ -15,5 +16,3 @@ const SwitchStory = ({ isDisabled = false, ...props }: any) => {
 };
 
 export default SwitchStory;
-
-export { Switch, VStack, Text, HStack };
