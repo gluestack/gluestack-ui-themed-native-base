@@ -7,27 +7,30 @@ import ButtonSizesExample from './ButtonSizes';
 import ButtonStylesExample from './ButtonStyles';
 import ButtonWithIconsTemp from './ButtonWithIcon';
 
+import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils';
+
 const ButtonMeta: ComponentMeta<any> = {
   title: 'stories/FORMS/Button',
   component: Button,
   args: {
-    action: 'primary',
+    colorScheme: 'primary',
     variant: 'solid',
     text: 'Button',
     size: 'md',
+    isLoading: false,
   },
   argTypes: {
-    action: {
+    colorScheme: {
       control: 'select',
       description: 'The action of button.',
-      options: ['primary', 'secondary'],
+      options: colorScheme,
       table: {
         defaultValue: { summary: 'primary' },
       },
     },
     variant: {
       control: 'select',
-      options: ['link', 'outline', 'solid'],
+      options: ['link', 'outline', 'solid', 'ghost', 'subtle'],
       description: 'The style of button.',
       table: {
         defaultValue: { summary: 'solid' },
@@ -40,6 +43,10 @@ const ButtonMeta: ComponentMeta<any> = {
       table: {
         defaultValue: { summary: 'md' },
       },
+    },
+    isLoading: {
+      constrol: 'select',
+      options: [true, false],
     },
   },
   parameters: {

@@ -5,8 +5,21 @@ import { Button } from '@gluestack-ui/themed';
 
 type MyButtonStory = ComponentStory<typeof Button>;
 
-const ButtonStory: MyButtonStory = ({ text = 'Button', ...props }: any) => {
-  return <Button {...props}>{text}</Button>;
+const ButtonStory: MyButtonStory = ({
+  text = 'Button',
+  isLoading = false,
+  ...props
+}: any) => {
+  return (
+    <Button
+      {...props}
+      isLoading={isLoading}
+      isLoadingText="loading"
+      spinnerPlacement="start"
+    >
+      {text}
+    </Button>
+  );
 };
 
 export default ButtonStory;
