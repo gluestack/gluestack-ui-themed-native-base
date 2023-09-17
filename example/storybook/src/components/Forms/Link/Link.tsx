@@ -1,16 +1,13 @@
 import React from 'react';
 
-import { Link, LinkText, Icon, HStack, Text } from '@gluestack-ui/themed';
-import { ArrowUpRightIcon } from 'lucide-react-native';
+import { Link } from '@gluestack-ui/themed';
 
 const LinkStory = () => {
   return (
-    <Link href="https://google.com" isExternal>
-      <LinkText>Gluestack</LinkText>
+    <Link href="https://ui.gluestack.io" isExternal>
+      Gluestack
     </Link>
   );
 };
 
 export default LinkStory;
-
-export { Link, LinkText, ArrowUpRightIcon, Icon, HStack, Text };
