@@ -1,7 +1,6 @@
 import type { ComponentMeta } from '@storybook/react-native';
 import Slider from './Slider';
-
-// import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils/NBsupport';
+import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils/NBsupport';
 
 const SliderMeta: ComponentMeta<typeof Slider> = {
   title: 'stories/FORMS/Slider',
@@ -11,6 +10,12 @@ const SliderMeta: ComponentMeta<typeof Slider> = {
       control: { type: 'number', min: 1, max: 100 },
     },
     //@ts-ignore
+    colorScheme: {
+      control: 'select',
+      description: 'The action of button.',
+      options: colorScheme,
+      defaultValue: 'primary',
+    },
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],

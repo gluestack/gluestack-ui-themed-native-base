@@ -1,7 +1,7 @@
 import type { ComponentStory } from '@storybook/react-native';
 import React from 'react';
 
-import { Button } from '@gluestack-ui/themed';
+import { AddIcon, Button } from '@gluestack-ui/themed';
 
 type MyButtonStory = ComponentStory<typeof Button>;
 
@@ -16,6 +16,7 @@ const ButtonStory: MyButtonStory = ({
       isLoading={isLoading}
       isLoadingText="loading"
       spinnerPlacement="start"
+      leftIcon={AddIcon}
     >
       {text}
     </Button>
