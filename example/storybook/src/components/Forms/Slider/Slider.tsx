@@ -1,21 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  VStack,
-  HStack,
-  Box,
-  Icon,
-  Heading,
-  Tooltip,
-  Button,
-  Center,
-} from '@gluestack-ui/themed';
-
-import { Volume, Volume2Icon, LightbulbIcon } from 'lucide-react-native';
+import { Slider, Box } from '@gluestack-ui/themed';
 
 const SliderStory = ({
   value: valueProp = 60,
@@ -43,32 +27,13 @@ const SliderStory = ({
         }}
         {...props}
       >
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
+        <Slider.Track>
+          <Slider.FilledTrack />
+        </Slider.Track>
+        <Slider.Thumb />
       </Slider>
     </Box>
   );
 };
 
 export default SliderStory;
-
-export {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  VStack,
-  Volume,
-  HStack,
-  Volume2Icon,
-  Text,
-  Box,
-  LightbulbIcon,
-  Icon,
-  Heading,
-  Tooltip,
-  Button,
-  Center,
-};
