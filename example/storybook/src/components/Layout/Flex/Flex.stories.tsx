@@ -1,16 +1,16 @@
 import React from 'react';
 import type { ComponentMeta } from '@storybook/react-native';
-import Box from './Box';
-import BoxWithRef from './BoxWithRef';
+import Flex from './Flex';
+import FlexWithRef from './FlexWithRef';
 
 const style = {
   backgroundColor: '#bbf7d0',
   padding: 12,
 };
 
-const BoxMeta: ComponentMeta<typeof Box> = {
-  title: 'stories/LAYOUT/Box',
-  component: Box,
+const FlexMeta: ComponentMeta<typeof Flex> = {
+  title: 'stories/LAYOUT/Flex',
+  component: Flex,
 
   args: { bg: 'red.500', w: 100, h: 100 },
   parameters: {
@@ -18,7 +18,7 @@ const BoxMeta: ComponentMeta<typeof Box> = {
       page: () => (
         <>
           <div style={style}>
-            <p>Tip: Common use cases for Box component are:</p>
+            <p>Tip: Common use cases for Flex component are:</p>
             <ul>
               <li>Create responsive layouts with ease.</li>
               <li>
@@ -33,14 +33,14 @@ const BoxMeta: ComponentMeta<typeof Box> = {
   },
 };
 
-BoxWithRef.parameters = {
+FlexWithRef.parameters = {
   controls: {
     exclude: /.*/g,
   },
 };
 
-export default BoxMeta;
+export default FlexMeta;
 
-export { Box };
+export { Flex };
 
-export { BoxWithRef };
+export { FlexWithRef };

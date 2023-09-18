@@ -24,5 +24,3 @@ const BoxStory: any = ({
 };
 
 export default BoxStory;
-
-export { Text, Box };
