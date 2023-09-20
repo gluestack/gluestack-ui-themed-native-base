@@ -1,53 +1,44 @@
 import React from 'react';
-import { BellIcon, Center } from '@gluestack-ui/themed';
+import { Center } from '@gluestack-ui/themed';
 
-import { Alert, AlertIcon, AlertText } from '@gluestack-ui/themed';
+import { Alert, Text } from '@gluestack-ui/themed';
 import {
   AlertCircleIcon,
-  Info,
+  InfoIcon,
   CheckCircle2Icon,
-  XCircle,
+  XCircleIcon,
 } from 'lucide-react-native';
 
 function AlertVariants({ variant }: any) {
   return (
     <Center>
-      <Alert action="info" variant={variant} mb={4}>
-        <AlertIcon as={Info} mr="$3" />
-        <AlertText>
-          Unlock the power of knowledge with the following information. Get
-        </AlertText>
+      <Alert status="info" variant={variant} mb={4}>
+        <Alert.Icon as={InfoIcon} mr="$3" />
+        <Text>
+          Unlock the power of knowledge with the following information.
+        </Text>
       </Alert>
-      <Alert action="success" variant={variant} mb={4}>
-        <AlertIcon as={CheckCircle2Icon} mr="$3" />
-        <AlertText>
+      <Alert status="success" variant={variant} mb={4}>
+        <Alert.Icon as={CheckCircle2Icon} mr="$3" />
+        <Text>
           Boom! You did it! Please take a moment to pat yourself on the back.
           You've earned it! Boom! You did it! Please take a moment to pat
           yourself on the back. You've earned it!
-        </AlertText>
+        </Text>
       </Alert>
-      <Alert action="error" variant={variant} mb={4}>
-        <AlertIcon as={XCircle} mr="$3" />
-        <AlertText>
+      <Alert status="error" variant={variant} mb={4}>
+        <Alert.Icon as={XCircleIcon} mr="$3" />
+        <Text>
           Uh-oh! It looks like the matrix has glitched. Our team of tech ninjas
           are already on the case. Please hold tight while we fix the issue
-        </AlertText>
+        </Text>
       </Alert>
-      <Alert action="warning" variant={variant} mb={4}>
-        <AlertIcon as={AlertCircleIcon} mr="$3" />
-
-        <AlertText>
+      <Alert status="warning" variant={variant} mb={4}>
+        <Alert.Icon as={AlertCircleIcon} mr="$3" />
+        <Text>
           Warning: Reading the following content may cause spontaneous outbursts
           of 'aha!' moments
-        </AlertText>
-      </Alert>
-      <Alert action="muted" variant={variant}>
-        <AlertIcon as={BellIcon} mr="$3" />
-        <AlertText>
-          Need a helping hand? Your help alert has just been activated, and
-          we're here to lend you our expertise, our experience, and our
-          enthusiasm. Let's do this!
-        </AlertText>
+        </Text>
       </Alert>
     </Center>
   );
