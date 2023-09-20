@@ -1,10 +1,19 @@
 import type { ComponentMeta } from '@storybook/react-native';
 import Fab from './Fab';
+import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils';
 
 const FabMeta: ComponentMeta<typeof Fab> = {
   title: 'stories/OTHERS/Fab',
   component: Fab,
   argTypes: {
+    colorScheme: {
+      control: 'select',
+      description: 'The action of button.',
+      options: colorScheme,
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+    },
     placement: {
       control: 'select',
       options: [
@@ -32,6 +41,7 @@ const FabMeta: ComponentMeta<typeof Fab> = {
     showLabel: true,
     showIcon: true,
     size: 'md',
+    colorScheme: 'primary',
   },
 };
 

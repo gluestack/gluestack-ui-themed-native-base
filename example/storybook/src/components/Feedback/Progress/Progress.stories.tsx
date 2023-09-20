@@ -1,5 +1,6 @@
 import type { ComponentMeta } from '@storybook/react-native';
 import Progress from './Progress';
+import { colorScheme } from '../../../../../../packages/themed-native-base/build/utils';
 
 const ProgressMeta: ComponentMeta<typeof Progress> = {
   title: 'stories/FEEDBACK/Progress',
@@ -13,10 +14,12 @@ const ProgressMeta: ComponentMeta<typeof Progress> = {
       control: 'select',
       options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
     },
+    colorScheme: { control: 'select', options: colorScheme },
   },
   args: {
     value: 40,
     size: 'md',
+    colorScheme: 'primary',
   },
 };
 
