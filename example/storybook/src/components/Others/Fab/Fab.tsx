@@ -1,27 +1,6 @@
 import React from 'react';
 
-import {
-  AddIcon,
-  Fab,
-  FabIcon,
-  FabLabel,
-  Box,
-  MenuIcon,
-  Checkbox,
-  CheckboxIndicator,
-  CheckboxLabel,
-  SearchIcon,
-  Link,
-  VStack,
-  HStack,
-  Avatar,
-  Heading,
-  Text,
-  Divider,
-  Image,
-} from '@gluestack-ui/themed';
-
-import { CheckIcon, EditIcon, ShoppingCartIcon } from 'lucide-react-native';
+import { Fab, Box, ThreeDotsIcon } from '@gluestack-ui/themed';
 
 const FabStory = ({
   placement = 'bottom right',
@@ -30,42 +9,17 @@ const FabStory = ({
   ...props
 }: any) => {
   return (
-    <Box
-      position="relative"
-      bg="$trueGray200"
-      h="$full"
-      w="$full"
-      sx={{ _web: { w: 300, h: 300 } }}
-    >
-      <Fab placement={placement} {...props}>
-        {showIcon && <FabIcon as={MenuIcon} mr="$1" />}
-        {showLabel && <FabLabel>Menu</FabLabel>}
-      </Fab>
+    <Box bg="$trueGray200" h={300} w={300} borderWidth={1} bgColor="amber.200">
+      <Fab
+        placement={placement}
+        icon={showIcon && ThreeDotsIcon}
+        label={showLabel && 'Menu'}
+        // colorScheme="pink"
+        variant="solid"
+        {...props}
+      />
     </Box>
   );
 };
 
 export default FabStory;
-
-export {
-  Fab,
-  FabIcon,
-  FabLabel,
-  SearchIcon,
-  EditIcon,
-  Box,
-  VStack,
-  HStack,
-  Avatar,
-  Heading,
-  Text,
-  Divider,
-  AddIcon,
-  Checkbox,
-  CheckboxIndicator,
-  CheckboxLabel,
-  CheckIcon,
-  Image,
-  Link,
-  ShoppingCartIcon,
-};

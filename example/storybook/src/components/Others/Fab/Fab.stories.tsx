@@ -18,7 +18,7 @@ const FabMeta: ComponentMeta<typeof Fab> = {
     },
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['xs', 'sm', 'md', 'lg'],
     },
     showLabel: {
       control: 'boolean',
