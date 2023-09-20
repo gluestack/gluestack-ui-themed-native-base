@@ -1,19 +1,13 @@
 import React from 'react';
 import {
   Button,
-  ButtonText,
   Toast,
-  ToastTitle,
-  ToastDescription,
   useToast,
   Icon,
   CloseIcon,
   VStack,
-  CheckIcon,
   Pressable,
-  Center,
 } from '@gluestack-ui/themed';
-import { MessageCircle, AlertTriangleIcon } from 'lucide-react-native';
 
 const ToastStory = ({ placement = 'top', ...props }: any) => {
   const toast = useToast();
@@ -28,10 +22,10 @@ const ToastStory = ({ placement = 'top', ...props }: any) => {
               <>
                 <Toast nativeID={id} {...props}>
                   <VStack space="xs">
-                    <ToastTitle>Hello World Toast </ToastTitle>
-                    <ToastDescription>
-                      Please create a support tibnnbcket from the support page
-                    </ToastDescription>
+                    <Toast.Title>Hello World Toast </Toast.Title>
+                    <Toast.Description>
+                      Please create a support ticket from the support page
+                    </Toast.Description>
                   </VStack>
                   <Pressable onPress={() => toast.close(id)}>
                     <Icon as={CloseIcon} color="$coolGray50" />
@@ -43,26 +37,9 @@ const ToastStory = ({ placement = 'top', ...props }: any) => {
         });
       }}
     >
-      <ButtonText>Press Me</ButtonText>
+      Press Me
     </Button>
   );
 };
 
 export default ToastStory;
-
-export {
-  Toast,
-  ToastTitle,
-  ToastDescription,
-  useToast,
-  Icon,
-  CloseIcon,
-  VStack,
-  CheckIcon,
-  MessageCircle,
-  AlertTriangleIcon,
-  Button,
-  ButtonText,
-  Pressable,
-  Center,
-};
