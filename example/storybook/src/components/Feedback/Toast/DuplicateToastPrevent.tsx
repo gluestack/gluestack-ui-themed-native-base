@@ -1,8 +1,8 @@
 import React from 'react';
 import {
   Button,
-  ButtonText,
   Toast,
+  ToastDescription,
   ToastTitle,
   useToast,
 } from '@gluestack-ui/themed';
@@ -18,10 +18,15 @@ const DuplicateToastPrevent = ({ placement = 'top', ...props }: any) => {
           toast.show({
             id: idTest,
             placement: placement,
+            // title: 'ID' + idTest,
+            // description: 'Hello World Toast.',
             render: ({ id }) => {
               return (
-                <Toast>
-                  <ToastTitle>Hello World Toast {id}</ToastTitle>
+                <Toast nativeID={id}>
+                  <ToastTitle>ID: {id}</ToastTitle>
+                  <ToastDescription>
+                    You can not clone me till I die
+                  </ToastDescription>
                 </Toast>
               );
             },
@@ -29,7 +34,7 @@ const DuplicateToastPrevent = ({ placement = 'top', ...props }: any) => {
         }
       }}
     >
-      <ButtonText>Press Me</ButtonText>
+      Press Me
     </Button>
   );
 };
