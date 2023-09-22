@@ -1,6 +1,6 @@
 import type { ComponentMeta } from '@storybook/react-native';
 import Progress from './Progress';
-import { colorScheme } from '../../../../../../packages/themed-native-base/build/utils';
+import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils';
 
 const ProgressMeta: ComponentMeta<typeof Progress> = {
   title: 'stories/FEEDBACK/Progress',
