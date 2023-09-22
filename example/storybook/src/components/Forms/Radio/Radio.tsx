@@ -21,21 +21,40 @@ const RadioStory = ({
     >
       <Radio
         size={size}
-        isInvalid
         value="Label 1"
+        isInvalid={isInvalid}
         accessibilityLabel="Radio"
         aria-label="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
-        _hover={{
-          bg: 'red',
-        }}
+        colorScheme="primary"
       >
         Label 1
-        {/* <RadioIndicator>
-          <RadioIcon as={CircleIcon} />
-        </RadioIndicator>
-        <RadioLabel>Label 1</RadioLabel> */}
+      </Radio>
+
+      <Radio
+        size={size}
+        value="Label 2"
+        isInvalid={isInvalid}
+        accessibilityLabel="Radio"
+        aria-label="Radio"
+        onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
+        {...props}
+        colorScheme="primary"
+      >
+        Label 2
+      </Radio>
+      <Radio
+        size={size}
+        value="Label 3"
+        isInvalid={isInvalid}
+        accessibilityLabel="Radio"
+        aria-label="Radio"
+        onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
+        {...props}
+        colorScheme="primary"
+      >
+        Label 3
       </Radio>
     </Radio.Group>
   );
