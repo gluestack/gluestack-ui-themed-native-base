@@ -22,7 +22,7 @@ const ButtonMeta: ComponentMeta<any> = {
   argTypes: {
     colorScheme: {
       control: 'select',
-      description: 'The action of button.',
+      description: 'The colorScheme of button.',
       options: colorScheme,
       table: {
         defaultValue: { summary: 'primary' },

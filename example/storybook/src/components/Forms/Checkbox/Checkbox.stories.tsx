@@ -1,5 +1,6 @@
 import type { ComponentMeta } from '@storybook/react-native';
 import Checkbox from './Checkbox';
+import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils';
 
 const CheckboxMeta: ComponentMeta<typeof Checkbox> = {
   title: 'stories/FORMS/Checkbox',
@@ -11,6 +12,14 @@ const CheckboxMeta: ComponentMeta<typeof Checkbox> = {
       description: 'The size of the button.',
       table: {
         defaultValue: { summary: 'md' },
+      },
+    },
+    colorScheme: {
+      control: 'select',
+      description: 'The colorScheme of button.',
+      options: colorScheme,
+      table: {
+        defaultValue: { summary: 'primary' },
       },
     },
     isInvalid: {
@@ -28,6 +37,7 @@ const CheckboxMeta: ComponentMeta<typeof Checkbox> = {
     isInvalid: false,
     isDisabled: false,
     isReadOnly: false,
+    colorScheme: 'primary',
   },
 };
 

@@ -24,11 +24,11 @@
   "dependencies": {
     "@expo/html-elements": "^0.4.2",
     "@gluestack-style/animation-plugin": "latest",
-    "@gluestack-style/react": "^0.2.46",
+    "@gluestack-style/react": "0.2.51",
     "@gluestack-ui/actionsheet": "latest",
     "@gluestack-ui/alert-dialog": "latest",
     "@gluestack-ui/pressable": "latest",
-    "@gluestack-ui/themed": "^0.1.9",
+    "@gluestack-ui/radio": "^0.1.18",
     "@gluestack-ui/transitions": "^0.1.9",
     "@gluestack/design-system": "^0.4.28",
     "@legendapp/motion": "^2.2.0",

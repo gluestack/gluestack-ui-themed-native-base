@@ -12,7 +12,6 @@ const CheckboxStory = ({ ...props }: any) => {
       isReadOnly={props.isReadOnly}
       value={values}
       onChange={setValues}
-      {...props}
       nativeID="checkbox-group"
     >
       <Checkbox
@@ -29,6 +28,7 @@ const CheckboxStory = ({ ...props }: any) => {
           console.log(isSelected, '###')
         }
         nativeID="checkbox-1"
+        {...props}
       />
       <Checkbox
         size={props.size}

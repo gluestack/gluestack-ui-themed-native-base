@@ -15,53 +15,27 @@ const RadioStory = ({
     <Radio.Group
       isDisabled={isDisabled}
       isReadOnly={isReadOnly}
+      isInvalid={isInvalid}
       value={values}
       onChange={setValues}
     >
       <Radio
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
         size={size}
+        isInvalid
         value="Label 1"
         accessibilityLabel="Radio"
+        aria-label="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
+        _hover={{
+          bg: 'red',
+        }}
       >
         Label 1
         {/* <RadioIndicator>
           <RadioIcon as={CircleIcon} />
         </RadioIndicator>
         <RadioLabel>Label 1</RadioLabel> */}
-      </Radio>
-      <Radio
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        size={size}
-        value="Label 2"
-        accessibilityLabel="Radio"
-        onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
-      >
-        Label 2
-        {/* <RadioIndicator>
-          <RadioIcon as={CircleIcon} />
-        </RadioIndicator>
-        <RadioLabel>Label 2</RadioLabel> */}
-      </Radio>
-      <Radio
-        isDisabled={isDisabled}
-        isInvalid={isInvalid}
-        size={size}
-        value="Label 3"
-        accessibilityLabel="Radio"
-        onChange={(isSelected: boolean) =>
-          console.log(isSelected, 'isSelected')
-        }
-      >
-        Label 3
-        {/* <RadioIndicator>
-          <RadioIcon as={CircleIcon} />
-        </RadioIndicator>
-        <RadioLabel>Label 3</RadioLabel> */}
       </Radio>
     </Radio.Group>
   );
