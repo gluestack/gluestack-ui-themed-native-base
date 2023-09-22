@@ -1,18 +1,7 @@
 import type { ComponentStory } from '@storybook/react-native';
 import React from 'react';
 
-import {
-  VStack,
-  Avatar,
-  AvatarGroup,
-  AvatarBadge,
-  HStack,
-  Icon,
-  Heading,
-  Text,
-  AccessibleAvatar,
-} from '@gluestack-ui/themed';
-import { User } from 'lucide-react-native';
+import { Avatar, HStack } from '@gluestack-ui/themed';
 
 type CustomAvatarStory = ComponentStory<typeof Avatar>;
 
@@ -25,7 +14,6 @@ const AvatarStory: CustomAvatarStory = ({
   return (
     <HStack space="md" h="100%" justifyContent="center" alignItems="center">
       <Avatar
-        bg="red"
         size={size}
         source={{
           uri: uri,
@@ -34,31 +22,8 @@ const AvatarStory: CustomAvatarStory = ({
         {fallbackText}
         {badge && <Avatar.Badge />}
       </Avatar>
-      <AccessibleAvatar size={size}>
-        <AccessibleAvatar.Image
-          source={{
-            uri: uri,
-          }}
-        />
-        <AccessibleAvatar.FallbackText>
-          {fallbackText}
-        </AccessibleAvatar.FallbackText>
-        <Avatar.Badge />
-      </AccessibleAvatar>
     </HStack>
   );
 };
 
 export default AvatarStory;
-
-export {
-  HStack,
-  VStack,
-  Avatar,
-  AvatarGroup,
-  AvatarBadge,
-  Icon,
-  Heading,
-  User,
-  Text,
-};
