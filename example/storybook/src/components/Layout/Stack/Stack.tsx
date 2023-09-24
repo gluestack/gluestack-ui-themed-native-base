@@ -7,7 +7,7 @@ const StackStory = ({ space, reversed, direction }: any) => {
   return (
     <Stack
       space={space}
-      mt="$5"
+      mt="5"
       //@ts-ignore
       direction={flexDirection}
     >
