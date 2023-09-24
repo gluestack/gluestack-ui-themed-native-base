@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react';
 import { Alert, Text } from '@gluestack-ui/themed';
 import {
@@ -16,7 +17,7 @@ function AlertStory({ ...props }: any) {
   };
   return (
     <Alert {...props}>
-      <Alert.Icon as={Icon()} mr="$3" />
+      <Alert.Icon mr="0" as={Icon()} />
       <Text>Selection successfully moved!</Text>
     </Alert>
   );
