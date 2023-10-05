@@ -2597,7 +2597,7 @@
     tsconfig "7"
     typescript "^4.9.4"
 
-"@gluestack-ui/radio@^0.1.11", "@gluestack-ui/radio@latest":
+"@gluestack-ui/radio@^0.1.11", "@gluestack-ui/radio@^0.1.18", "@gluestack-ui/radio@latest":
   version "0.1.19"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/radio/-/radio-0.1.19.tgz#2213dd5084e4a913e552cfd2e2fe7fe754463c40"
   integrity sha512-fvbMcmEZQlzxwYDoZpn5EsK6ZNHQPgrhy0wh2AwtV6WUhOg1n71DirZQ3MtDTei5CrKyg/y9fF4ERGuvvn3RCw==
