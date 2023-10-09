@@ -2503,6 +2503,15 @@
     "@gluestack-ui/utils" "^0.1.5"
     "@react-native-aria/focus" "^0.2.7"
 
+"@gluestack-ui/image@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/image/-/image-0.1.2.tgz#cb729ec6bb79ed5cf61348106510b9f3734db652"
+  integrity sha512-97mePIc6dm2xhv4jSmkoTB7jEI0P2HePPso/iat3xVRCj9nU6L45VxDt1/I9cZ0eNpMlN4hnETNmXtEgAeDQ+w==
+  dependencies:
+    "@gluestack-ui/utils" "0.1.9"
+    "@react-native-aria/focus" "^0.2.8"
+    "@react-native-aria/interactions" "^0.2.10"
+
 "@gluestack-ui/input@^0.1.5", "@gluestack-ui/input@latest":
   version "0.1.17"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/input/-/input-0.1.17.tgz#0d3565a84f9d2f0a737d5693283416ae15c0b7f8"
