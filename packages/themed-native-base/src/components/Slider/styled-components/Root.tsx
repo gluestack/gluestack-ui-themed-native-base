@@ -199,7 +199,7 @@ export default styled(
     descendantStyle: ['_thumb', '_track', '_filledTrack'],
   } as const,
   {
-    plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
+    // plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
   }
 );
 

@@ -48,7 +48,10 @@ const NewButton = forwardRef(
         ref={ref}
         isDisabled={isLoading || isDisabled}
       >
-        {!isLoading && ((leftIcon && leftIcon) ?? (startIcon && startIcon))}
+        <AccessibleButton.Text>{children}</AccessibleButton.Text>
+
+        {/* {children} */}
+        {/* {!isLoading && ((leftIcon && leftIcon) ?? (startIcon && startIcon))}
         {isLoading && spinnerPlacement === 'start' && (
           <AccessibleButton.Spinner />
         )}
@@ -64,7 +67,7 @@ const NewButton = forwardRef(
         {isLoading && spinnerPlacement === 'end' && (
           <AccessibleButton.Spinner />
         )}
-        {!isLoading && ((rightIcon && rightIcon) ?? (endIcon && endIcon))}
+        {!isLoading && ((rightIcon && rightIcon) ?? (endIcon && endIcon))} */}
       </AccessibleButton>
     );
   }

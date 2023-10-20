@@ -30,7 +30,7 @@ export default styled(
     descendantStyle: ['_icon', '_text'],
   },
   {
-    plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
+    // plugins: [new ColorSchemeResolver(colorSchemeResolveFn, 'alert')],
   }
 );
 

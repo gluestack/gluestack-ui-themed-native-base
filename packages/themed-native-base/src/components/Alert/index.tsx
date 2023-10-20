@@ -55,18 +55,18 @@ const AlertNew = forwardRef(
 );
 
 const AlertNewIcon = forwardRef(({ as, ...props }: any, ref?: any) => {
-  let asIcon;
-  const resolvedProps = usePropResolution(props);
-  const { status } = useContext(AlertContext);
-  if (as) {
-    asIcon = as;
-  } else if (status) {
-    asIcon = InfoIcon;
-    if (status === 'success') asIcon = CheckCircleIcon;
-    if (status === 'warning') asIcon = WarningIcon;
-    if (status === 'error') asIcon = WarningTwoIcon;
-  }
-  return <AccessibleAlert.Icon {...resolvedProps} as={asIcon} ref={ref} />;
+  // let asIcon;
+  // const resolvedProps = usePropResolution(props);
+  // const { status } = useContext(AlertContext);
+  // if (as) {
+  //   asIcon = as;
+  // } else if (status) {
+  //   asIcon = InfoIcon;
+  //   if (status === 'success') asIcon = CheckCircleIcon;
+  //   if (status === 'warning') asIcon = WarningIcon;
+  //   if (status === 'error') asIcon = WarningTwoIcon;
+  // }
+  return <AccessibleAlert.Icon {...props} as={as} ref={ref} />;
 });
 
 const AlertTemp = AlertNew as any;

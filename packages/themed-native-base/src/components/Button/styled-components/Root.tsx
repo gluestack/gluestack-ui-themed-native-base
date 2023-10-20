@@ -5,6 +5,8 @@ import { ColorSchemeResolver } from '../../../plugins/colorScheme/colorScheme';
 export default styled(
   Pressable,
   {
+    // 'bg': '$red.300',
+    // 'p': '$10',
     'borderRadius': '$sm',
     'flexDirection': 'row',
     'justifyContent': 'center',
@@ -104,8 +106,9 @@ export default styled(
     descendantStyle: ['_text', '_spinner', '_icon'],
     ancestorStyle: ['_button'],
   } as const,
+
   {
-    plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
+    plugins: [new ColorSchemeResolver(colorSchemeResolveFn, 'button')],
   }
 );
 

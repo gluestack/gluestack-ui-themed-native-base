@@ -45,7 +45,7 @@ export default styled(
     descendantStyle: ['_filledTrack'],
   } as const,
   {
-    plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
+    // plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
   }
 );
 

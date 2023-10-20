@@ -134,7 +134,7 @@ export default styled(
     descendantStyle: ['_text', '_icon'],
   } as const,
   {
-    plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
+    // plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
   }
 );
 

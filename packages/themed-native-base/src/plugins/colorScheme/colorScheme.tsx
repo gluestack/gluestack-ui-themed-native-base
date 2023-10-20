@@ -1,5 +1,8 @@
 import React, { forwardRef } from 'react';
 import type { IStyledPlugin } from '@gluestack-style/react';
+import { styled } from '@gluestack-style/react';
+import { View, Pressable } from 'react-native';
+const NewComp = styled(Pressable, {});
 
 export class ColorSchemeResolver implements IStyledPlugin {
   name: string;
@@ -18,48 +21,63 @@ export class ColorSchemeResolver implements IStyledPlugin {
   }
 
   inputMiddleWare(...args: any) {
+    console.log(this.from, 'inputMiddleWare');
+
     return args;
   }
 
   componentMiddleWare({ Component }: any) {
-    return forwardRef(({ key, ...componentProps }: any, ref?: any) => {
-      const colorSchemeSx: any = {};
-      const colorSchemePassingPropsSx: any = {};
+    if (Component.displayName === 'Pressable') {
+      console.log(Component, '>>>> ***');
 
-      const { sx, colorScheme, ...restProps } = componentProps;
+      const StyledComponent = styled(Component, {});
+      return StyledComponent;
+      return forwardRef(({ key, ...componentProps }: any, ref?: any) => {
+        // return <NewComp />;
 
-      if (colorScheme) {
-        const colorSchemeStyle = this.callback(componentProps);
+        const colorSchemeSx: any = {};
+        const colorSchemePassingPropsSx: any = {};
 
-        Object.keys(colorSchemeStyle).forEach((styleKey) => {
-          if (
-            styleKey.startsWith('_') ||
-            styleKey.startsWith(':') ||
-            styleKey.startsWith('@')
-          ) {
-            colorSchemeSx[styleKey] = colorSchemeStyle[styleKey];
-          } else {
-            colorSchemePassingPropsSx[styleKey] = colorSchemeStyle[styleKey];
-          }
-        });
-      }
+        const { sx, colorScheme, ...restProps } = componentProps;
 
-      const toBeAppliedSx = {
-        ...sx,
-        ...colorSchemeSx,
-        props: {
-          sx: colorSchemePassingPropsSx,
-        },
-      };
+        if (colorScheme) {
+          const colorSchemeStyle = this.callback(componentProps);
 
-      return (
-        <Component
-          {...restProps}
-          key={key ?? key + '_' + colorScheme}
-          ref={ref}
-          sx={toBeAppliedSx}
-        />
-      );
-    });
+          Object.keys(colorSchemeStyle).forEach((styleKey) => {
+            if (
+              styleKey.startsWith('_') ||
+              styleKey.startsWith(':') ||
+              styleKey.startsWith('@')
+            ) {
+              colorSchemeSx[styleKey] = colorSchemeStyle[styleKey];
+            } else {
+              colorSchemePassingPropsSx[styleKey] = colorSchemeStyle[styleKey];
+            }
+          });
+        }
+
+        const toBeAppliedSx = {
+          ...sx,
+          ...colorSchemeSx,
+          props: {
+            sx: colorSchemePassingPropsSx,
+          },
+        };
+
+        console.log('>>>>>', restProps, Component, '>>>>>');
+
+        return (
+          <Component
+            {...restProps}
+            key={key ?? key + '_' + colorScheme}
+            ref={ref}
+            sx={toBeAppliedSx}
+          />
+        );
+      });
+    } else {
+      return Component;
+    }
+    // return styled(Component, {});
   }
 }
