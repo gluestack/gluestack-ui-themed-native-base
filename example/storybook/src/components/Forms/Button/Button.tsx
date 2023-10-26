@@ -6,7 +6,7 @@ import { AddIcon, Button } from '@gluestack-ui/themed';
 type MyButtonStory = ComponentStory<typeof Button>;
 
 const ButtonStory: MyButtonStory = ({
-  text = 'Button sddd',
+  text = 'Button',
   isLoading = false,
   ...props
 }: any) => {
@@ -16,6 +16,7 @@ const ButtonStory: MyButtonStory = ({
       isLoading={isLoading}
       isLoadingText="loading"
       spinnerPlacement="start"
+      // _icon={{ color: 'red.500' }}
       leftIcon={<AddIcon />}
       // bg="red.500"
     >
