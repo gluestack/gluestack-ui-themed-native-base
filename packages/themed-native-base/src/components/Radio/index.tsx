@@ -24,7 +24,7 @@ const AccessibleRadioGroup = forwardRef(
 const RadioTemp = forwardRef(
   ({ colorScheme = 'primary', children, ...props }: any, ref?: any) => {
     const resolvedProps = usePropResolution(props);
-
+    console.log(resolvedProps, "RADIO")
     return (
       <AccessibleRadio colorScheme={colorScheme} {...resolvedProps} ref={ref}>
         {typeof children === 'string' && (

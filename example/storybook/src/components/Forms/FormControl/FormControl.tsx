@@ -9,7 +9,7 @@ const FormControlStory = ({ ...props }) => {
       <FormControl.HelperText>
         Must be atleast 6 characters.
       </FormControl.HelperText>
-      <FormControl.ErrorMessage leftIcon={AlertCircleIcon}>
+      <FormControl.ErrorMessage leftIcon={AlertCircleIcon}  >
         Atleast 6 characters are required.
       </FormControl.ErrorMessage>
     </FormControl>

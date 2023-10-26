@@ -1,8 +1,9 @@
 import { createIcon as createIconUI } from '@gluestack-ui/icon';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import { createIcon, Root } from './styled-components';
 import { GenericComponentType } from '../../types';
 import { usePropResolution } from '../../hooks/usePropResolution';
+import { MaterialIcons } from "react-native-vector-icons"
 
 const AccessibleIcon = createIconUI({
   Root: Root,
@@ -19,6 +20,17 @@ const IconTemp = forwardRef(
     ref?: any
   ) => {
     const resolvedProps = usePropResolution(props);
+    // console.log(resolvedProps)
+
+    function getForwardRefComponent(IconForward: any) {
+      return React.forwardRef((props, ref) => (
+        <IconForward ref={ref}  {...props} />
+      ));
+    }
+
+    function isReactElement(component: any) {
+      return typeof component === 'object' && component !== null && component.$$typeof === Symbol.for('react.element');
+    }
     let IconForward;
     let sizeProp = {};
     if (typeof props.size === 'number') {
@@ -26,6 +38,12 @@ const IconTemp = forwardRef(
     }
     if (as) {
       IconForward = as;
+      // console.log(typeof IconForward === 'object' && IconForward !== null)
+      // if (isReactElement(as)) {
+      //   IconForward = getForwardRefComponent(IconForward)
+      //   console.log(IconForward)
+      // }
+
     } else if (typeof viewBox === 'string') {
       const NewIcon = createIcon({
         viewBox: viewBox,
@@ -35,13 +53,20 @@ const IconTemp = forwardRef(
     } else if (children) {
       IconForward = children;
     }
+
     return (
-      <AccessibleIcon
+      <>
+        {/* <MaterialIcons name="person" /> */}
+        {/* <IconForward /> */}
+
+        <IconForward {...resolvedProps} {...sizeProp} ref={ref} />
+        {/* <AccessibleIcon
         as={IconForward}
         {...resolvedProps}
         {...sizeProp}
         ref={ref}
-      />
+      />  */}
+      </>
     );
   }
 );

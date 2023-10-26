@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import type { IStyledPlugin, } from '@gluestack-style/react';
+import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from "@gluestack-style/react"
 
 export class ColorSchemeResolver implements IStyledPlugin {
@@ -53,7 +53,7 @@ export class ColorSchemeResolver implements IStyledPlugin {
             }
           });
         }
-
+        console.log(componentProps)
         const toBeAppliedSx = {
           ...sx,
           ...colorSchemeSx,
@@ -61,7 +61,7 @@ export class ColorSchemeResolver implements IStyledPlugin {
             sx: colorSchemePassingPropsSx,
           },
         };
-
+        console.log(toBeAppliedSx)
         return (
           <StyledComponent
             {...restProps}

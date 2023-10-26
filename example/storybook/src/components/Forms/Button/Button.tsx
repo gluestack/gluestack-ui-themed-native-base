@@ -10,14 +10,45 @@ const ButtonStory: MyButtonStory = ({
   isLoading = false,
   ...props
 }: any) => {
+  const obj = {
+    "_text": {
+      "color": "$text.50"
+    },
+    "_icon": {
+      "color": "$text.50"
+    },
+    "_spinner": {
+      "props": {
+        "color": "$text.50"
+      }
+    },
+    "bg": "$primary.600",
+    ":hover": {
+      "backgroundColor": "$primary.700"
+    },
+    ":active": {
+      "backgroundColor": "$primary.800"
+    },
+    "_dark": {
+      "bg": "$primary.600",
+      ":hover": {
+        "backgroundColor": "$primary.700"
+      },
+      ":active": {
+        "backgroundColor": "$primary.800"
+      }
+    }
+  }
   return (
     <Button
-      {...props}
       isLoading={isLoading}
       isLoadingText="loading"
       spinnerPlacement="start"
-      leftIcon={AddIcon}
-      bg="red.500"
+      // leftIcon={AddIcon}
+      // bg="red.500"
+      // {...obj}
+      {...props}
+
     >
       {text}
     </Button>

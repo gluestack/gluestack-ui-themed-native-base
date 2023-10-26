@@ -6,7 +6,7 @@ export default styled(
   View,
   {
     'flexDirection': 'row',
-    'justifyContent': 'flex-start',
+    'justifyContent': 'center',
     'alignItems': 'center',
     //TODO: fix gap typing
     //@ts-ignore

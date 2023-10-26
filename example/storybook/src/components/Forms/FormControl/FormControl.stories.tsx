@@ -11,7 +11,7 @@ const FormControlMeta: ComponentMeta<typeof FormControl> = {
     },
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg', 'xl'],
+      options: ['sm', 'md', 'lg',],
     },
     isDisabled: {
       control: 'boolean',

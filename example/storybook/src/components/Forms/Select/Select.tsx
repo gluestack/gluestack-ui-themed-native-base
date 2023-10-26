@@ -19,7 +19,17 @@ import {
 const SelectStory = ({ size = 'md', variant = 'outline', ...props }: any) => {
   return (
     <Select {...props}>
-      <SelectTrigger size={size} variant={variant}>
+      {/* <Select selectedValue={service} minWidth="200" accessibilityLabel="Choose Service" placeholder="Choose Service" _selectedItem={{
+        bg: "teal.600",
+        endIcon: <CheckIcon size="5" />
+      }} mt={1} onValueChange={itemValue => setService(itemValue)}> */}
+      <Select.Item label="UX Research" value="ux" />
+      <Select.Item label="Web Development" value="web" />
+      <Select.Item label="Cross Platform Development" value="cross" />
+      <Select.Item label="UI Designing" value="ui" />
+      <Select.Item label="Backend Development" value="backend" />
+      {/* </Select> */}
+      {/* <SelectTrigger size={size} variant={variant}>
         <SelectInput placeholder="Select option" />
         <SelectIcon
           mr={variant === 'underlined' ? 0 : '$3'}
@@ -46,7 +56,7 @@ const SelectStory = ({ size = 'md', variant = 'outline', ...props }: any) => {
           />
           <SelectItem label="Backend Development" value="Backend Development" />
         </SelectContent>
-      </SelectPortal>
+      </SelectPortal> */}
     </Select>
   );
 };

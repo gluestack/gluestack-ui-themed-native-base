@@ -8,7 +8,7 @@ const InputMeta: ComponentMeta<typeof Input> = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg', 'xl'],
+      options: ["xs", 'sm', 'md', 'lg', 'xl', "2xl"],
     },
     variant: {
       control: 'select',

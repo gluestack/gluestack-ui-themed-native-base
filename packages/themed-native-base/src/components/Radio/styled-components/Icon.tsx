@@ -6,6 +6,7 @@ export default styled(
   {
     height: '$full',
     width: '$full',
+    color: "$red.700"
   },
   {
     componentName: 'RadioIcon',

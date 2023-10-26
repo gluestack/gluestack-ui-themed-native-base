@@ -15,7 +15,7 @@ const CheckboxStory = ({ ...props }: any) => {
       nativeID="checkbox-group"
     >
       <Checkbox
-        icon={AddIcon}
+        // icon={AddIcon}
         mb="$2"
         size={props.size}
         isInvalid={props.isInvalid}
@@ -29,12 +29,12 @@ const CheckboxStory = ({ ...props }: any) => {
         }
         nativeID="checkbox-1"
         {...props}
-      />
+      >Label 0</Checkbox>
       <Checkbox
         size={props.size}
         isInvalid={props.isInvalid}
         isIndeterminate
-        colorScheme="success"
+        // colorScheme="success"
         value="Label 2"
         aria-label="Label 2"
         accessibilityLabel="Checkbox"
@@ -46,7 +46,7 @@ const CheckboxStory = ({ ...props }: any) => {
       >
         Label 2
       </Checkbox>
-    </Checkbox.Group>
+    </Checkbox.Group >
   );
 };
 

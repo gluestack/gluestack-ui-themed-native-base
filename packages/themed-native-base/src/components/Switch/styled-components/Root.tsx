@@ -25,11 +25,14 @@ export default styled(
       },
     },
     'props': {
-      thumbColor: '$muted.50',
+      thumbColor: '$red.500',
       activeThumbColor: '$muted.50',
       trackColor: { false: '$muted.300', true: '$primary.600' },
       // for ios specifically in unchecked state
       ios_backgroundColor: '$muted.300',
+      onThumbColor: '$red.500',
+      // offThumbColor: 'muted.50',
+      // offTrackColor: 'muted.300',
     },
     ':hover': {
       props: {
@@ -110,7 +113,7 @@ export default styled(
 
     'defaultProps': {
       size: 'md',
-      colorScheme: 'primary',
+      // colorScheme: 'primary',
     },
   },
   {
@@ -155,7 +158,10 @@ function colorSchemeResolveFn({ ...props }: any) {
     const color = props.colorScheme;
 
     const value = {
-      'props': { trackColor: { true: `${color}.600` } },
+      'props': {
+        trackColor: { true: `${color}.600` },
+        onTrackColor: `${color}.600`,
+      },
       ':hover': {
         props: { trackColor: { true: `${color}.700` } },
       },
@@ -166,8 +172,10 @@ function colorSchemeResolveFn({ ...props }: any) {
           props: { trackColor: { true: `${color}.400` } },
         },
       },
+
     };
     return value;
+
   }
   return {};
 }

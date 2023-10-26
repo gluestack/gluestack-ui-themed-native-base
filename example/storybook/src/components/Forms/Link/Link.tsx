@@ -4,9 +4,11 @@ import { Link } from '@gluestack-ui/themed';
 
 const LinkStory = () => {
   return (
-    <Link href="https://ui.gluestack.io" isExternal>
+    <Link href="https://ui.gluestack.io" _text={{
+      color: "red.500"
+    }}>
       Gluestack
-    </Link>
+    </Link >
   );
 };
 

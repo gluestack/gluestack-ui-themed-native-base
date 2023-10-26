@@ -24,7 +24,7 @@ const InputStory = ({ ...props }: any) => {
         }}
         value={value}
         placeholder="Enter Text here"
-        InputLeftElement={SearchIcon}
+      // InputLeftElement={SearchIcon}
       />
       <InputRightAddon>rightAddon</InputRightAddon>
     </InputGroup>

@@ -36,7 +36,9 @@ import {
   WarningIcon,
   WarningTwoIcon,
   WarningOutlineIcon,
+  Box,
 } from '@gluestack-ui/themed';
+import { MaterialIcons } from "react-native-vector-icons"
 // import {
 //   AtSignIcon,
 //   AlertCircleIcon,
@@ -108,9 +110,9 @@ const IconStory = () => {
   ];
 
   return (
-    <HStack flexWrap="wrap" gap={5}>
-      <VStack space="sm">
-        <Icon w="$4" h="$4" viewBox="0 0 900 900">
+    <VStack flexWrap="wrap" gap={5}>
+      <VStack space="2" justifyContent='center' alignItems='center'>
+        <Icon h="$8" w="$8" viewBox="0 0 900 900">
           <G fillRule="nonzero" stroke="none" strokeWidth={1} fill="none">
             <Path
               d="M435 .1C194.8.1.1 194.8.1 435c0 187.3 118.4 346.9 284.4 408.1 3.3-29.9 15-57.2 32.7-79.6 12.1-15.4 26.9-28.5 43.9-38.4 2.1-5 4.6-10.6 7.1-16.6-50.3-26-84.7-78.1-84.7-138.6 0-51.7 25.3-97.7 64-125.9-10.9-20.6-21.3-40.2-31.8-58.2-18.1-31.5-46.7-59.7-68.4-78.9-21 11.9-47.8 4.7-59.7-16.3-11.9-21-4.7-47.8 16.3-59.7 21-11.9 47.4-4.7 59.7 15.9v.4c7.2 12.7 7.2 27.5 1.8 39.8 22.8 19.5 56.8 52.5 77.8 89 9.8 17 19.5 34.7 29.3 53.5 20.3-9.4 42.7-14.8 66.2-14.8 21.3 0 41.6 4.3 60.1 11.9 9.8-18.5 19.5-36.2 28.9-52.8 21-36.2 54.6-68.7 77.4-88.3-5.4-12.3-5.4-26.8 1.8-39.4v-.4c12.3-20.6 38.7-27.9 59.3-15.9 21 11.9 28.2 38.7 16.3 59.3-11.9 21-38.4 28.2-59.3 16.3-21.7 18.8-49.9 47.4-68 78.5-10.1 17.4-20.3 36.5-30.8 56.4 42 27.9 69.8 75.3 69.8 129.5 0 63-36.9 116.9-90.4 141.5.9 2.7 2 4.9 3 7.2 47 22.3 81.1 67.4 87.9 121.1C755.9 776 869.9 618.8 869.9 435 869.9 194.8 675.2.1 435 .1z"
@@ -130,19 +132,24 @@ const IconStory = () => {
         </Icon>
         <Text color="grey">svg-Child</Text>
       </VStack>
-      <VStack space="sm">
-        <Icon w="$4" h="$4">
+
+      <VStack space="2" justifyContent='center' alignItems='center'>
+        <Icon h="$8" w="$8">
           {AddIcon}
         </Icon>
         <Text color="grey">Icon-Child</Text>
       </VStack>
-      {iconsList.map((child, index) => (
-        <VStack space="sm" key={index}>
-          <Icon as={child} w="$4" h="$4" />
-          <Text color="grey">{child.displayName}</Text>
-        </VStack>
-      ))}
-    </HStack>
+
+      <HStack space="4" flexWrap='wrap'  >
+        {iconsList.map((child, index) => (
+          <VStack space="2" justifyContent='center' alignItems='center' m="$2" >
+            <Icon as={child} w="$4" h="$4" />
+            <Text color="grey">{child.displayName}</Text>
+          </VStack>
+        ))}
+      </HStack>
+
+    </VStack>
   );
 };
 

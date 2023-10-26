@@ -31,10 +31,11 @@ const InputTemp = forwardRef(
     { InputLeftElement, InputRightElement, placeholder, ...props }: any,
     ref?: any
   ) => {
+    console.log(InputLeftElement)
     const resolvedProps = usePropResolution(props);
     // const stateProps = {};
     return (
-      <AccessibleInput ref={ref} {...resolvedProps}>
+      <AccessibleInput ref={ref} {...resolvedProps} secureTextEntry={true}>
         {InputLeftElement && InputLeftElement}
         <AccessibleInput.Input placeholder={placeholder} />
         {InputRightElement && InputRightElement}

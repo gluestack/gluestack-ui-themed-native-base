@@ -3,6 +3,7 @@ import { Root } from './styled-components';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import React, { forwardRef } from 'react';
 import { GenericComponentType } from '../../types';
+import { deepMerge } from '../../utils';
 
 const AccessibleSwitch = createSwitch({
   Root,
@@ -22,25 +23,27 @@ type IExtraProps = {
 const SwitchTemp = forwardRef(
   (
     {
-      // offTrackColor,
-      // onTrackColor,
-      // onThumbColor,
-      // offThumbColor,
+      offTrackColor,
+      onTrackColor,
+      onThumbColor,
+      offThumbColor,
       ...props
     }: ISwitchProps & IExtraProps,
     ref?: any
   ) => {
     const resolvedProps = usePropResolution(props);
-    // const sx = {
-    //   _web: {
-    //     props: {
-    //       trackColor: { false: offTrackColor, true: onTrackColor },
-    //       thumbColor: offThumbColor,
-    //       activeThumbColor: onThumbColor,
-    //     },
-    //   },
-    // };
-    return <AccessibleSwitch {...resolvedProps} ref={ref} />;
+    // console.log(offTrackColor, onTrackColor, onThumbColor, offThumbColor);
+    const sx = {
+      _web: {
+        props: {
+          trackColor: { false: offTrackColor, true: onTrackColor },
+          thumbColor: offThumbColor,
+          activeThumbColor: onThumbColor,
+        },
+      },
+    };
+
+    return <AccessibleSwitch {...deepMerge(resolvedProps, sx)} ref={ref} />;
   }
 );
 
