@@ -28,5 +28,9 @@ function getAliases() {
       __dirname,
       '../../packages/themed-native-base/src'
     ),
+    // '@gluestack-style/react': path.join(
+    //   __dirname,
+    //   '../../../dank-style/packages/react/src'
+    // ),
   };
 }
