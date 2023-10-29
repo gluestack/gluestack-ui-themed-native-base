@@ -25,7 +25,7 @@
     "@expo/html-elements": "^0.4.2",
     "@expo/webpack-config": "^0.17.2",
     "@gluestack-style/animation-plugin": "latest",
-    "@gluestack-style/react": "^1.0.9-alpha.1",
+    "@gluestack-style/react": "^1.0.9-alpha.6",
     "@gluestack-ui/actionsheet": "latest",
     "@gluestack-ui/alert-dialog": "latest",
     "@gluestack-ui/pressable": "latest",
