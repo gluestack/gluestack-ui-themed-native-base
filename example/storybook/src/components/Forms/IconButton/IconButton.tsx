@@ -6,7 +6,7 @@ import { AddIcon, IconButton } from '@gluestack-ui/themed';
 type MyButtonStory = ComponentStory<typeof IconButton>;
 
 const ButtonStory: MyButtonStory = ({ ...props }: any) => {
-  return <IconButton {...props} icon={AddIcon} />;
+  return <IconButton {...props} icon={<AddIcon />} />;
 };
 
 export default ButtonStory;

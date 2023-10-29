@@ -5,7 +5,7 @@ import DocsContainer from '@storybook/addon-docs';
 
 import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils';
 
-const ButtonMeta: ComponentMeta<any> = {
+const IconButtonMeta: ComponentMeta<any> = {
   title: 'stories/FORMS/IconButton',
   component: IconButton,
   args: {
@@ -52,6 +52,6 @@ const ButtonMeta: ComponentMeta<any> = {
   },
 };
 
-export default ButtonMeta;
+export default IconButtonMeta;
 
 export { IconButton };
