@@ -2267,6 +2267,11 @@
   dependencies:
     "@legendapp/motion" "^2.2.0"
 
+"@gluestack-style/animation-resolver@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/animation-resolver/-/animation-resolver-1.0.2.tgz#c889d82dbe99d6280c7c074fcd21e68b232a74ef"
+  integrity sha512-eWHm092eP4Z0DH4C1sxPkivBou89ZEG6zBUDEHtQsrW9xf9XN8wunda+ahsTvV2HkI8SsZ2sl/M38HkrKrcmtw==
+
 "@gluestack-style/babel-plugin-styled-resolver@^0.1.15-alpha.0":
   version "0.1.15-alpha.0"
   resolved "https://registry.yarnpkg.com/@gluestack-style/babel-plugin-styled-resolver/-/babel-plugin-styled-resolver-0.1.15-alpha.0.tgz#776e0ba60cbdaeefcd966b6708dd0408d4a57213"
@@ -2279,6 +2284,11 @@
     "@babel/preset-typescript" "^7.18.6"
     "@babel/traverse" "^7.20.5"
     lodash.merge "^4.6.2"
+
+"@gluestack-style/legend-motion-animation-driver@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/legend-motion-animation-driver/-/legend-motion-animation-driver-1.0.2.tgz#051c26b0d501e03b12e4dbfe01b292eee5c29c8f"
+  integrity sha512-rB5HIhVzpgPQ9C1JJvY30a1bP0sQRWWFgUHVaiefH8dA/XRAQpmAIMF48JDctrvoBi/tKp5xN10mLE5CtnDRHg==
 
 "@gluestack-style/react@^0.2.16":
   version "0.2.51"
