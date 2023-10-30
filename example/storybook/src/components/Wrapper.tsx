@@ -11,7 +11,7 @@ Provider.displayName = 'Provider';
 
 const Wrapper = ({ children, ...props }: any) => {
   return (
-    <NativeBaseProvider config={config.theme} {...props}>
+    <NativeBaseProvider theme={config.theme} {...props}>
       <Box
         sx={{
           _ios: {
