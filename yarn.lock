@@ -5980,6 +5980,11 @@
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.9.tgz#1481a4236267dd2d0ca2a637adb90f0ccb3d69c4"
   integrity sha512-fOHIwZua0sRltqWzODGUM6b4ffZrf/vzGUmNXdR+4DzuJP42PMbM5dLKcdzlYvv8bMJ3GALOzkk1q7cDm2zPyA==
 
+"@types/tinycolor2@^1.4.5":
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/@types/tinycolor2/-/tinycolor2-1.4.5.tgz#f6da74c161150bcd2f3dc1bbbcede43590dec2d3"
+  integrity sha512-uLJijDHN5E6j5n1qefF9oaeplgszXglWXWTviMoFr/YxgvbyrkFil20yDT7ljhCiTQ/BfCYtxfJS81LdTro5DQ==
+
 "@types/tough-cookie@*":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-4.0.3.tgz#3d06b6769518450871fbc40770b7586334bdfd90"
