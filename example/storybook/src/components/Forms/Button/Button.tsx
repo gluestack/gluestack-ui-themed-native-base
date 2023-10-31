@@ -17,7 +17,8 @@ const ButtonStory: MyButtonStory = ({
       isLoadingText="loading"
       spinnerPlacement="start"
       leftIcon={<AddIcon />}
-      // bg="red.500"
+    // bg="red.500"
+    // _text={{ color: "$white" }}
     >
       {text}
     </Button>
