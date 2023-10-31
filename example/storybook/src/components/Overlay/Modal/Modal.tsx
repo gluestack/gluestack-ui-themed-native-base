@@ -6,7 +6,7 @@ const ModalStory = ({ showModal: showModalProp = false, ...props }) => {
   const [showModal, setShowModal] = React.useState(false);
   const ref = React.useRef(null);
   return (
-    <Center h="100vh" w="100vw" bg="pink">
+    <Center height="100vh" w="100vw" bg="pink">
       <Button
         onPress={() => {
           setShowModal(true);
@@ -34,7 +34,6 @@ const ModalStory = ({ showModal: showModalProp = false, ...props }) => {
             <Button
               variant="outline"
               size="sm"
-              action="secondary"
               mr="$3"
               onPress={() => {
                 setShowModal(false);
