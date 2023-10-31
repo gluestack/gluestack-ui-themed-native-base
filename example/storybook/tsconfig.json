@@ -3,7 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@gluestack-ui/themed": ["../../packages/themed-native-base/src"]
+      "@gluestack-ui/themed": ["../../packages/themed-native-base/src"],
+      "@gluestack-ui/themed-default": [
+        "../../node_modules/@gluestack-ui/themed"
+      ]
     },
     "emitDeclarationOnly": true,
     "noEmit": false,
