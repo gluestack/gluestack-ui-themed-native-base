@@ -2298,6 +2298,14 @@
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
 
+"@gluestack-style/react@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.10.tgz#eeea8a0117b9450555d043588862353cc75c2e9f"
+  integrity sha512-eh+PEHKdqwfvO/Q2dmu9RcxW3bkDsB53s2xLIM4PzFbilElK8THoMjtdGuWAQM5kRKlW+kCAcFqfrObNaO9g7w==
+  dependencies:
+    inline-style-prefixer "^6.0.1"
+    normalize-css-color "^1.0.2"
+
 "@gluestack-style/react@^1.0.9-alpha.6":
   version "1.0.9-alpha.6"
   resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.9-alpha.6.tgz#e33efebe9e21284a741e60801ec6eb3704339c51"
@@ -2306,10 +2314,10 @@
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
 
-"@gluestack-ui/actionsheet@^0.2.7", "@gluestack-ui/actionsheet@latest":
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.27.tgz#0a592ed91bceba5be17c283596406be2cb1c63c9"
-  integrity sha512-q+H1uOW/cq14NqEDy7aEx66PATV2PWcIWL8FaxS219D69lMDc02OYSST+5dZ8Qyev/6eVSNEUEeOxoPa8KppSg==
+"@gluestack-ui/actionsheet@0.2.25":
+  version "0.2.25"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.25.tgz#ac90d00d3eee68c23172994df3f9333f3d7bff83"
+  integrity sha512-/PxmZZx/bMShyZczI5pKg2w6vk5jte1uNjvGS+JCIpDhJqSBXxBlE2Y3xVuiaWyx+GOOAymzVcKmHZ26y0Is8A==
   dependencies:
     "@gluestack-ui/hooks" "^0.1.2"
     "@gluestack-ui/overlay" "^0.1.7"
@@ -2318,6 +2326,19 @@
     "@react-native-aria/dialog" "0.1.1"
     "@react-native-aria/focus" "^0.2.8"
     "@react-native-aria/interactions" "^0.2.10"
+
+"@gluestack-ui/actionsheet@^0.2.7", "@gluestack-ui/actionsheet@latest":
+  version "0.2.30"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.30.tgz#9fa902bc5f91f81a24035d7d478bc3e0b0fa3c69"
+  integrity sha512-+Bw8j+O3FOekdME53kWSaxuX8kssfQJjrWSr+v/OJGOYDGzZzEOZvZHwV1FO0HBFmR/rdcedzPdV9gQ38bh9Mg==
+  dependencies:
+    "@gluestack-ui/hooks" "^0.1.7"
+    "@gluestack-ui/overlay" "^0.1.12"
+    "@gluestack-ui/transitions" "^0.1.10"
+    "@gluestack-ui/utils" "^0.1.12"
+    "@react-native-aria/dialog" "^0.0.3"
+    "@react-native-aria/focus" "^0.2.9"
+    "@react-native-aria/interactions" "^0.2.11"
 
 "@gluestack-ui/alert-dialog@^0.1.8", "@gluestack-ui/alert-dialog@latest":
   version "0.1.20"
@@ -2392,6 +2413,11 @@
   resolved "https://registry.yarnpkg.com/@gluestack-ui/hooks/-/hooks-0.1.5.tgz#fab6e6772011e9b41fc7edb38d44d28bf835b6a7"
   integrity sha512-9uWGsKGjt6/fxsWP3aDpLdK3SEvAoNeWDcXCWClAM5kqrsmA5XqxMWDa1bltRnQs7RlGtrKCKoQJRe2a39GSkQ==
 
+"@gluestack-ui/hooks@^0.1.7":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/hooks/-/hooks-0.1.10.tgz#96cb9277fe65ce37bd7204662f53267cc8829fae"
+  integrity sha512-/FCvXn/YeKztXgaad38xeHqApEqqFaFPFQdGrNdcM2b8GfMb55wwEyOVGs3qEhpZIFlfLPw3gC/ZdWMdBdsZ8Q==
+
 "@gluestack-ui/hstack@^0.1.6", "@gluestack-ui/hstack@latest":
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/hstack/-/hstack-0.1.12.tgz#97e896a5dc7137bbded67785c14b36d45820aaf3"
@@ -2463,6 +2489,15 @@
     "@react-native-aria/focus" "^0.2.8"
     "@react-native-aria/interactions" "^0.2.10"
     "@react-native-aria/overlays" "0.3.7"
+
+"@gluestack-ui/overlay@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/overlay/-/overlay-0.1.12.tgz#b8d373875e0cf8e1bbc244dfafdcbb76525fa424"
+  integrity sha512-rENETe40IRIrFW7rQKBsVotJ0J7DxTmY4xZGyMM/dct6TXnnZa2vIE+mqOK0CQs3cEIWypvDrQrJ0mHWHK1xig==
+  dependencies:
+    "@react-native-aria/focus" "^0.2.9"
+    "@react-native-aria/interactions" "^0.2.11"
+    "@react-native-aria/overlays" "^0.3.10"
 
 "@gluestack-ui/overlay@^0.1.3", "@gluestack-ui/overlay@^0.1.7", "@gluestack-ui/overlay@latest":
   version "0.1.10"
@@ -2620,7 +2655,7 @@
     "@react-native-aria/interactions" "^0.2.10"
     "@react-native-aria/overlays" "0.3.7"
 
-"@gluestack-ui/transitions@^0.1.6", "@gluestack-ui/transitions@^0.1.8", "@gluestack-ui/transitions@^0.1.9":
+"@gluestack-ui/transitions@^0.1.10", "@gluestack-ui/transitions@^0.1.6", "@gluestack-ui/transitions@^0.1.8", "@gluestack-ui/transitions@^0.1.9":
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/transitions/-/transitions-0.1.10.tgz#53e563dc0030bac020437ec3493e1bcda5373bab"
   integrity sha512-oOwYAmbebAowDCDZyRdGwhK2of46b642OZQxBBkln/BX7YEvY4PhQIfup0HUCG9YA5IzlQnw0iwqREbaVNKIgA==
@@ -2636,6 +2671,13 @@
   integrity sha512-VG0ai84YHuWpePDoa+UrgJTFERJBXbM3rGPRCtHIMjvGMWviyzQXSVU7k5iu5YUgaLhADSK+c/pww9bK9MZzgw==
   dependencies:
     "@react-native-aria/focus" "^0.2.7"
+
+"@gluestack-ui/utils@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/utils/-/utils-0.1.12.tgz#0bb3400c9315fb6c0fd1bc697b20d80f82cd3899"
+  integrity sha512-OhOkljhr7foCUJP//8LwMN3EX4/pniFWmQpk1yDJMQL9DaTJbP7s3HsnTM7UzH2kp9DR1Utoz9Y9WscH3ajLpQ==
+  dependencies:
+    "@react-native-aria/focus" "^0.2.9"
 
 "@gluestack-ui/utils@^0.1.3", "@gluestack-ui/utils@^0.1.5", "@gluestack-ui/utils@^0.1.9", "@gluestack-ui/utils@latest":
   version "0.1.10"
@@ -3668,10 +3710,27 @@
     "@react-types/dialog" "*"
     "@react-types/shared" "*"
 
+"@react-native-aria/dialog@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/dialog/-/dialog-0.0.3.tgz#62388983268f6a6c3a5cfa06c3eaccb996112009"
+  integrity sha512-EXDS2IfB6n8LlelfMZjMntuHC7e6iRTWLxrYIyHm5d2gdmRVD37dris03Zsw/iMBhb/Z8ZYKQ/O5APioN6Uovg==
+  dependencies:
+    "@react-aria/dialog" "*"
+    "@react-native-aria/utils" "*"
+    "@react-types/dialog" "*"
+    "@react-types/shared" "*"
+
 "@react-native-aria/focus@^0.2.7", "@react-native-aria/focus@^0.2.8":
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/@react-native-aria/focus/-/focus-0.2.8.tgz#60192ae9b60e6833c964cd9dd296b557189ddf58"
   integrity sha512-1dIby+o37J2m4oV59TkjlirOXvn5SWtr8Z2dYkHvPe8oip8pEzH/jIl8uXFyvQJmRYA9n7Ju5ucThJJ/4Py8hw==
+  dependencies:
+    "@react-aria/focus" "^3.2.3"
+
+"@react-native-aria/focus@^0.2.9":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/focus/-/focus-0.2.9.tgz#bdfa84f9711843df771877ac436ee3b4f8878b74"
+  integrity sha512-zVgOIzKwnsyyurUxlZnzUKB2ekK/cmK64sQJIKKUlkJKVxd2EAFf7Sjz/NVEoMhTODN3qGRASTv9bMk/pBzzVA==
   dependencies:
     "@react-aria/focus" "^3.2.3"
 
@@ -3683,6 +3742,15 @@
     "@react-aria/interactions" "^3.3.2"
     "@react-aria/utils" "^3.6.0"
     "@react-native-aria/utils" "^0.2.6"
+
+"@react-native-aria/interactions@^0.2.11":
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/interactions/-/interactions-0.2.11.tgz#033ed9675d67add72deaf6eeae02b005d0785276"
+  integrity sha512-qfdkD3DwYQm8UurvGLfdLFXPlU2QFdjYA0WWcDCKZD3R++rkpnFthExdws7kmsF1riKTaYcIN/R1MPTM4KZrsA==
+  dependencies:
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/utils" "^0.2.10"
 
 "@react-native-aria/menu@^0.2.7":
   version "0.2.7"
@@ -3722,6 +3790,18 @@
     "@react-native-aria/utils" "^0.2.6"
     "@react-stately/overlays" "^3.1.1"
     "@react-types/overlays" "^3.4.0"
+
+"@react-native-aria/overlays@^0.3.10":
+  version "0.3.10"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/overlays/-/overlays-0.3.10.tgz#8123935f67acb3ab86b7cd3e947c0ba756f28dd3"
+  integrity sha512-x4+b+RblNe0hwlPFR6qzcmNixqB5/1b5xcN33IP6/BR6F04zHlsmWpHT5PT1qiYQPXLekqw6HGiWp3MC3ItsOw==
+  dependencies:
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/overlays" "^3.7.0"
+    "@react-native-aria/utils" "^0.2.10"
+    "@react-stately/overlays" "^3.1.1"
+    "@react-types/overlays" "^3.4.0"
+    dom-helpers "^5.0.0"
 
 "@react-native-aria/overlays@^0.3.7":
   version "0.3.8"
@@ -3776,6 +3856,14 @@
     "@react-native-aria/utils" "^0.2.6"
     "@react-stately/toggle" "^3.2.1"
     "@react-types/checkbox" "^3.2.1"
+
+"@react-native-aria/utils@*", "@react-native-aria/utils@^0.2.10":
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/utils/-/utils-0.2.10.tgz#818c8940fb97850c0aff6ac4ae3004ccb1dff432"
+  integrity sha512-jaXMt9NEuLtOIWeHzOupVROVcNT9aZHhvHDMzoXzmWZ47/FUrAykXtilCpOiKTxYbcwuWKCvpDVjd/syoPyuYQ==
+  dependencies:
+    "@react-aria/ssr" "^3.0.1"
+    "@react-aria/utils" "^3.3.0"
 
 "@react-native-aria/utils@^0.2.6", "@react-native-aria/utils@^0.2.8":
   version "0.2.8"
