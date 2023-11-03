@@ -9,6 +9,7 @@ import {
   // AddIcon,
   // Center,
   Pressable,
+  Text,
 } from '@gluestack-ui/themed';
 // import { PaintBucket, PuzzleIcon } from 'lucide-react-native';
 
@@ -29,17 +30,13 @@ const MenuStory = ({ _placement = 'bottom' }: any) => {
       trigger={(triggerProps) => {
         return (
           <Pressable accessibilityLabel="More options menu" {...triggerProps}>
-            Hello
+            <Text>Hello</Text>
           </Pressable>
         );
       }}
     >
-      <Menu.Item>
-        <Menu.ItemLabel>Arial</Menu.ItemLabel>
-      </Menu.Item>
-      <Menu.Item>
-        <Menu.ItemLabel>Nunito Sans</Menu.ItemLabel>
-      </Menu.Item>
+      <Menu.Item>Arial</Menu.Item>
+      <Menu.Item>Nunito Sans</Menu.Item>
       <Menu.Item>Roboto</Menu.Item>
       <Menu.Item>Poppins</Menu.Item>
       <Menu.Item>SF Pro</Menu.Item>
