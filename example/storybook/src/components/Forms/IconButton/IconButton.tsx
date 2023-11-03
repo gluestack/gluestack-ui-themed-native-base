@@ -1,12 +1,18 @@
 import type { ComponentStory } from '@storybook/react-native';
 import React from 'react';
 
-import { AddIcon, IconButton } from '@gluestack-ui/themed';
+import { IconButton, Icon } from '@gluestack-ui/themed';
+import { Entypo } from '@expo/vector-icons';
 
 type MyButtonStory = ComponentStory<typeof IconButton>;
 
 const ButtonStory: MyButtonStory = ({ ...props }: any) => {
-  return <IconButton {...props} icon={<AddIcon />} />;
+  return (
+    <IconButton
+      {...props}
+      icon={<Icon as={Entypo} name="minus" size="xs" color="trueGray.400" />}
+    />
+  );
 };
 
 export default ButtonStory;
