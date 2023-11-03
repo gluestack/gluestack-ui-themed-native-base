@@ -4,16 +4,9 @@ import {
   Center,
   ChevronDownIcon,
   Select,
-  // SelectIcon,
-  // SelectTrigger,
-  // SelectInput,
-  // SelectPortal,
-  // SelectBackdrop,
-  // SelectContent,
-  // SelectDragIndicatorWrapper,
-  // SelectDragIndicator,
-  // SelectItem,
   Icon,
+  AddIcon,
+  HamburgerIcon,
   // CheckIcon,
 } from '@gluestack-ui/themed';
 
@@ -36,6 +29,8 @@ const SelectStory = ({
       // }}
       mt={1}
       onValueChange={(itemValue) => setService(itemValue)}
+      dropdownIcon={<AddIcon />}
+      dropdownCloseIcon={<HamburgerIcon />}
     >
       <Select.Item label="UX Research" value="ux" />
       <Select.Item label="Web Development" value="web" />
