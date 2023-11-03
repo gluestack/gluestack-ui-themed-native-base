@@ -11,7 +11,7 @@ Provider.displayName = 'Provider';
 
 const Wrapper = ({ children, ...props }: any) => {
   const nbConfig = {
-    ...config.theme,
+    // ...config.theme,
     dependencies: {
       // For Expo projects (Bare or managed workflow)
       'linear-gradient': require('expo-linear-gradient').LinearGradient,
@@ -20,7 +20,7 @@ const Wrapper = ({ children, ...props }: any) => {
     },
   };
   return (
-    <NativeBaseProvider theme={config.theme} {...props}>
+    <NativeBaseProvider theme={config.theme} config={nbConfig} {...props}>
       <Box
         sx={{
           _ios: {

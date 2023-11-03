@@ -2290,22 +2290,6 @@
   resolved "https://registry.yarnpkg.com/@gluestack-style/legend-motion-animation-driver/-/legend-motion-animation-driver-1.0.2.tgz#051c26b0d501e03b12e4dbfe01b292eee5c29c8f"
   integrity sha512-rB5HIhVzpgPQ9C1JJvY30a1bP0sQRWWFgUHVaiefH8dA/XRAQpmAIMF48JDctrvoBi/tKp5xN10mLE5CtnDRHg==
 
-"@gluestack-style/react@1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.8.tgz#9f8b1d287e7403d7e1d5b6ffb6c51bd7254177b2"
-  integrity sha512-dmOOBnk+0UtIrYPOcLShF1QNk01VZGBXtQvgBMnDYBKJikf93tOfcAmObZxy2xSxN5BXDl9xvZgtRGbwkkfquQ==
-  dependencies:
-    inline-style-prefixer "^6.0.1"
-    normalize-css-color "^1.0.2"
-
-"@gluestack-style/react@1.0.9-alpha.6":
-  version "1.0.9-alpha.6"
-  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.9-alpha.6.tgz#e33efebe9e21284a741e60801ec6eb3704339c51"
-  integrity sha512-IYt6zTpRRh3YIcoeabTJcIptjhjgV4j5kMGD+d6QQUezVh7JzCH4fDCfVr/mPE1Z2h8MK8TpITaqlZV6IatTeQ==
-  dependencies:
-    inline-style-prefixer "^6.0.1"
-    normalize-css-color "^1.0.2"
-
 "@gluestack-style/react@^0.2.16":
   version "0.2.51"
   resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-0.2.51.tgz#0cfcca4f97f908ed3a352bd7e2336d436cc22415"
@@ -2318,6 +2302,34 @@
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.10.tgz#eeea8a0117b9450555d043588862353cc75c2e9f"
   integrity sha512-eh+PEHKdqwfvO/Q2dmu9RcxW3bkDsB53s2xLIM4PzFbilElK8THoMjtdGuWAQM5kRKlW+kCAcFqfrObNaO9g7w==
+  dependencies:
+    inline-style-prefixer "^6.0.1"
+    normalize-css-color "^1.0.2"
+
+"@gluestack-style/react@^1.0.9-alpha.6":
+  version "1.0.9-alpha.6"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.9-alpha.6.tgz#e33efebe9e21284a741e60801ec6eb3704339c51"
+  integrity sha512-IYt6zTpRRh3YIcoeabTJcIptjhjgV4j5kMGD+d6QQUezVh7JzCH4fDCfVr/mPE1Z2h8MK8TpITaqlZV6IatTeQ==
+  dependencies:
+    "@gluestack-ui/hooks" "^0.1.7"
+    "@gluestack-ui/overlay" "^0.1.12"
+    "@gluestack-ui/utils" "^0.1.12"
+    "@react-native-aria/dialog" "^0.0.3"
+    "@react-native-aria/focus" "^0.2.9"
+    "@react-native-aria/interactions" "^0.2.11"
+
+"@gluestack-style/react@^0.2.16":
+  version "0.2.51"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-0.2.51.tgz#0cfcca4f97f908ed3a352bd7e2336d436cc22415"
+  integrity sha512-21TLr+e7KneP8N1d1iMKG6npMdYb/oPN/t5KZ/2kns2mg9NVCrfVmVuuMYKo+Xcej95BFOHuGuomskzLwdK1HQ==
+  dependencies:
+    inline-style-prefixer "^6.0.1"
+    normalize-css-color "^1.0.2"
+
+"@gluestack-ui/actionsheet@^0.2.30", "@gluestack-ui/actionsheet@^0.2.7", "@gluestack-ui/actionsheet@latest":
+  version "0.2.30"
+  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.30.tgz#9fa902bc5f91f81a24035d7d478bc3e0b0fa3c69"
+  integrity sha512-+Bw8j+O3FOekdME53kWSaxuX8kssfQJjrWSr+v/OJGOYDGzZzEOZvZHwV1FO0HBFmR/rdcedzPdV9gQ38bh9Mg==
   dependencies:
     "@gluestack-ui/hooks" "^0.1.7"
     "@gluestack-ui/overlay" "^0.1.12"
@@ -2339,50 +2351,7 @@
     "@react-native-aria/focus" "^0.2.9"
     "@react-native-aria/interactions" "^0.2.11"
 
-"@gluestack-ui/actionsheet@0.2.25":
-  version "0.2.25"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.25.tgz#ac90d00d3eee68c23172994df3f9333f3d7bff83"
-  integrity sha512-/PxmZZx/bMShyZczI5pKg2w6vk5jte1uNjvGS+JCIpDhJqSBXxBlE2Y3xVuiaWyx+GOOAymzVcKmHZ26y0Is8A==
-  dependencies:
-    "@gluestack-ui/hooks" "^0.1.2"
-    "@gluestack-ui/overlay" "^0.1.7"
-    "@gluestack-ui/transitions" "^0.1.8"
-    "@gluestack-ui/utils" "^0.1.5"
-    "@react-native-aria/dialog" "0.1.1"
-    "@react-native-aria/focus" "^0.2.8"
-    "@react-native-aria/interactions" "^0.2.10"
-
-"@gluestack-ui/actionsheet@^0.2.7", "@gluestack-ui/actionsheet@latest":
-  version "0.2.30"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/actionsheet/-/actionsheet-0.2.30.tgz#9fa902bc5f91f81a24035d7d478bc3e0b0fa3c69"
-  integrity sha512-+Bw8j+O3FOekdME53kWSaxuX8kssfQJjrWSr+v/OJGOYDGzZzEOZvZHwV1FO0HBFmR/rdcedzPdV9gQ38bh9Mg==
-  dependencies:
-    "@gluestack-ui/hooks" "^0.1.7"
-    "@gluestack-ui/overlay" "^0.1.12"
-    "@gluestack-ui/transitions" "^0.1.10"
-    "@gluestack-ui/utils" "^0.1.12"
-    "@react-native-aria/dialog" "^0.0.3"
-    "@react-native-aria/focus" "^0.2.9"
-    "@react-native-aria/interactions" "^0.2.11"
-
-"@gluestack-ui/alert-dialog@^0.1.8", "@gluestack-ui/alert-dialog@latest":
-  version "0.1.20"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/alert-dialog/-/alert-dialog-0.1.20.tgz#d5979a2f6703b85df9461bc058652edfd0cb8823"
-  integrity sha512-cSoMpfgJXhCs56BgVQbCmmU0HGKNYrm59rCHfwKnhtamnlplTy2QJ9NXrvO9ijvfM3VmT74VB+aloHhaD6y4vw==
-  dependencies:
-    "@gluestack-ui/hooks" "^0.1.2"
-    "@gluestack-ui/overlay" "^0.1.7"
-    "@gluestack-ui/utils" "^0.1.5"
-    "@react-native-aria/dialog" "^0.1.1"
-    "@react-native-aria/focus" "^0.2.8"
-    "@react-native-aria/interactions" "^0.2.10"
-
-"@gluestack-ui/alert@^0.1.4", "@gluestack-ui/alert@latest":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@gluestack-ui/alert/-/alert-0.1.10.tgz#c75f15aebbb97b709d6dfc10a5e4427f5c950d51"
-  integrity sha512-38alKxo+NFml9GF1L0VPMthJrRlqnJ9muFBAoDWaHO3x+wGQSetUZLHBB24ky4vw7kf1DJCyqA2HE/S+s+qY1g==
-
-"@gluestack-ui/avatar@^0.1.6", "@gluestack-ui/avatar@latest":
+"@gluestack-ui/alert@^0.1.12", "@gluestack-ui/alert@^0.1.4", "@gluestack-ui/alert@latest":
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/@gluestack-ui/alert/-/alert-0.1.12.tgz#ef7efd7c978809da55cb7dc07c5f3db33b6b6aec"
   integrity sha512-oiJfxryKh7+WKKx9PjIX088wgIQTXD9llC52h5HiK1dPUJiswjgGKbFHZbX7uoh9VMiXthBoUvzOIVMv0i5feA==
@@ -6085,9 +6054,9 @@
   integrity sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==
 
 "@types/tapable@^1", "@types/tapable@^1.0.5":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.10.tgz#5203aad08455c6988f7b2347715023e3935b1056"
-  integrity sha512-q8F20SdXG5fdVJQ5yxsVlH+f+oekP42QeHv4s5KlrxTMT0eopXn7ol1rhxMcksf8ph7XNv811iVDE2hOpUvEPg==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.9.tgz#1481a4236267dd2d0ca2a637adb90f0ccb3d69c4"
+  integrity sha512-fOHIwZua0sRltqWzODGUM6b4ffZrf/vzGUmNXdR+4DzuJP42PMbM5dLKcdzlYvv8bMJ3GALOzkk1q7cDm2zPyA==
 
 "@types/tinycolor2@^1.4.5":
   version "1.4.5"
