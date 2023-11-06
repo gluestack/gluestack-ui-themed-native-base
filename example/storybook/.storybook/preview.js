@@ -159,13 +159,13 @@ export const decorators = [
       </NativeBaseProvider>
     );
 
-    return (
-      <GluestackUIProvider config={config.theme} colorMode={getColorMode()}>
-        <Center>
-          <Story />
-        </Center>
-      </GluestackUIProvider>
-    );
+    // return (
+    //   <GluestackUIProvider config={config.theme} colorMode={getColorMode()}>
+    //     <Center>
+    //       <Story />
+    //     </Center>
+    //   </GluestackUIProvider>
+    // );
   },
 ];
 
@@ -190,9 +190,9 @@ addParameters({
       }
       return (
         <DocsContainer context={context}>
-          <GluestackUIProvider config={config.theme} colorMode={getColorMode()}>
-            {children}
-          </GluestackUIProvider>
+          {/* <GluestackUIProvider config={config.theme} colorMode={getColorMode()}> */}
+          {children}
+          {/* </GluestackUIProvider> */}
         </DocsContainer>
       );
     },
