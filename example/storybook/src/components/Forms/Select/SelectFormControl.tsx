@@ -4,15 +4,6 @@ import {
   Center,
   ChevronDownIcon,
   Select,
-  SelectBackdrop,
-  SelectContent,
-  SelectDragIndicator,
-  SelectDragIndicatorWrapper,
-  SelectIcon,
-  SelectInput,
-  SelectItem,
-  SelectPortal,
-  SelectTrigger,
   Icon,
   FormControl,
   AlertCircleIcon,
@@ -28,8 +19,10 @@ const colors = [
 const SelectStory = ({ size, variant, ...props }: any) => {
   const items = colors.map((c) => {
     return (
-      <SelectItem
+      <Select.Item
         key={c.value}
+        variant={variant}
+        size={size}
         label={c.label}
         value={c.value}
         isDisabled={c.isDisabled}
@@ -41,32 +34,19 @@ const SelectStory = ({ size, variant, ...props }: any) => {
     <FormControl {...props}>
       <FormControl.Label>Choose your favorite color</FormControl.Label>
       <Select
+        // dropdownOpenIcon={AddIcon}
         selectedValue={selected.value}
         selectedLabel={selected.label}
         onValueChange={(value) => {
           setSelected(colors.filter((c) => c.value === value)[0]);
         }}
       >
-        <SelectTrigger size={size} variant={variant}>
-          <SelectInput placeholder="Select option" />
-          <SelectIcon mr="$3">
-            <Icon as={ChevronDownIcon} />
-          </SelectIcon>
-        </SelectTrigger>
-        <SelectPortal>
-          <SelectBackdrop />
-          <SelectContent>
-            <SelectDragIndicatorWrapper>
-              <SelectDragIndicator />
-            </SelectDragIndicatorWrapper>
-            {items}
-          </SelectContent>
-        </SelectPortal>
+        {items}
       </Select>
       <FormControl.HelperText>
         You can only select one option
       </FormControl.HelperText>
-      <FormControl.ErrorMessage leftIcon={AlertCircleIcon}>
+      <FormControl.ErrorMessage leftIcon={<AlertCircleIcon size="xs" />}>
         Mandatory field
       </FormControl.ErrorMessage>
     </FormControl>
