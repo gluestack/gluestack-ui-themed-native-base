@@ -1,19 +1,10 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import {
   Center,
   ChevronDownIcon,
   Select,
-  SelectBackdrop,
-  SelectContent,
-  SelectDragIndicator,
-  SelectDragIndicatorWrapper,
-  SelectIcon,
-  SelectInput,
-  SelectItem,
-  SelectPortal,
-  SelectFlatList,
-  SelectTrigger,
+  FlatList,
   Icon,
 } from '@gluestack-ui/themed';
 
@@ -33,32 +24,15 @@ const SelectStory = ({ isDisabled, isInvalid, ...props }: any) => {
     },
   ];
 
-  const Item = useCallback(
-    ({ title }: any) => <SelectItem label={title} value={title} />,
-    []
-  );
-
   return (
     <Select isDisabled={isDisabled} isInvalid={isInvalid} {...props}>
-      <SelectTrigger>
-        <SelectInput placeholder="Select option" />
-        <SelectIcon mr="$3">
-          <Icon as={ChevronDownIcon} />
-        </SelectIcon>
-      </SelectTrigger>
-      <SelectPortal>
-        <SelectBackdrop />
-        <SelectContent>
-          <SelectDragIndicatorWrapper>
-            <SelectDragIndicator />
-          </SelectDragIndicatorWrapper>
-          <SelectFlatList
-            data={DATA}
-            renderItem={({ item }: any) => <Item title={item.title} />}
-            keyExtractor={(item: any) => item.id}
-          />
-        </SelectContent>
-      </SelectPortal>
+      <FlatList
+        data={DATA}
+        renderItem={({ item }: any) => (
+          <Select.Item label={item.title} value={item.title} />
+        )}
+        keyExtractor={(item: any) => item.id}
+      />
     </Select>
   );
 };
