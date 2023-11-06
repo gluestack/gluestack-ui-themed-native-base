@@ -2290,7 +2290,23 @@
   resolved "https://registry.yarnpkg.com/@gluestack-style/legend-motion-animation-driver/-/legend-motion-animation-driver-1.0.2.tgz#051c26b0d501e03b12e4dbfe01b292eee5c29c8f"
   integrity sha512-rB5HIhVzpgPQ9C1JJvY30a1bP0sQRWWFgUHVaiefH8dA/XRAQpmAIMF48JDctrvoBi/tKp5xN10mLE5CtnDRHg==
 
-"@gluestack-style/react@^1.0.10", "@gluestack-style/react@^1.0.9-alpha.6":
+"@gluestack-style/react@1.0.9-alpha.6":
+  version "1.0.9-alpha.6"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.9-alpha.6.tgz#e33efebe9e21284a741e60801ec6eb3704339c51"
+  integrity sha512-IYt6zTpRRh3YIcoeabTJcIptjhjgV4j5kMGD+d6QQUezVh7JzCH4fDCfVr/mPE1Z2h8MK8TpITaqlZV6IatTeQ==
+  dependencies:
+    inline-style-prefixer "^6.0.1"
+    normalize-css-color "^1.0.2"
+
+"@gluestack-style/react@^0.2.16":
+  version "0.2.51"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-0.2.51.tgz#0cfcca4f97f908ed3a352bd7e2336d436cc22415"
+  integrity sha512-21TLr+e7KneP8N1d1iMKG6npMdYb/oPN/t5KZ/2kns2mg9NVCrfVmVuuMYKo+Xcej95BFOHuGuomskzLwdK1HQ==
+  dependencies:
+    inline-style-prefixer "^6.0.1"
+    normalize-css-color "^1.0.2"
+
+"@gluestack-style/react@^1.0.10":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.11.tgz#9cc8ce9956bad1cfdabbb37626e36c916f260f26"
   integrity sha512-EP/pciHm9IaYzXYQVkcwAE4PDuXXvivvk4Lfjsr/ox0QGPtxc+MTBXJlhJoUf+hvosTBv42ElzD+wzW9G2DD0g==
@@ -6052,11 +6068,6 @@
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.9.tgz#1481a4236267dd2d0ca2a637adb90f0ccb3d69c4"
   integrity sha512-fOHIwZua0sRltqWzODGUM6b4ffZrf/vzGUmNXdR+4DzuJP42PMbM5dLKcdzlYvv8bMJ3GALOzkk1q7cDm2zPyA==
-
-"@types/tinycolor2@^1.4.5":
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/@types/tinycolor2/-/tinycolor2-1.4.5.tgz#f6da74c161150bcd2f3dc1bbbcede43590dec2d3"
-  integrity sha512-uLJijDHN5E6j5n1qefF9oaeplgszXglWXWTviMoFr/YxgvbyrkFil20yDT7ljhCiTQ/BfCYtxfJS81LdTro5DQ==
 
 "@types/tinycolor2@^1.4.5":
   version "1.4.5"
