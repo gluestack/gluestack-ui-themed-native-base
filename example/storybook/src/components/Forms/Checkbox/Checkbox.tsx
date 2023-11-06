@@ -29,7 +29,7 @@ const CheckboxStory = ({ ...props }: any) => {
         }
         nativeID="checkbox-1"
         {...props}
-      />
+      ></Checkbox>
       <Checkbox
         size={props.size}
         isInvalid={props.isInvalid}
