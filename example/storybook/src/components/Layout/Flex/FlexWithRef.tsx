@@ -18,7 +18,7 @@ const FlexWithRefExample: MyCustomFlexStory = ({ ...props }: any) => {
     });
   }, [myRef]);
 
-  return <Flex {...props} sx={{ h: 100, w: 100, bg: 'red.500' }} ref={myRef} />;
+  return <Flex {...props} h={100} w={100} bg="red.500" ref={myRef} />;
 };
 
 export default FlexWithRefExample;

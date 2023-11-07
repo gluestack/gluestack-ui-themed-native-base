@@ -2,15 +2,9 @@ import React, { useCallback, useEffect } from 'react';
 
 import {
   Actionsheet,
-  ActionsheetBackdrop,
-  ActionsheetContent,
-  ActionsheetDragIndicator,
-  ActionsheetDragIndicatorWrapper,
-  ActionsheetItem,
-  ActionsheetItemText,
+  Button,
   ActionsheetSectionList,
   ActionsheetSectionHeaderText,
-  Button,
 } from '@gluestack-ui/themed';
 
 function ActionsheetExample({
@@ -55,18 +49,12 @@ function ActionsheetExample({
       onClose={handleClose}
       {...props}
     >
-      <ActionsheetBackdrop />
-      <ActionsheetContent>
-        <ActionsheetDragIndicatorWrapper>
-          <ActionsheetDragIndicator />
-        </ActionsheetDragIndicatorWrapper>
+      <Actionsheet.Content>
         <ActionsheetSectionList
           sections={DATA}
           keyExtractor={(item: any, index: any) => item + index}
           renderItem={({ item }: any) => (
-            <ActionsheetItem onPress={handleClose}>
-              <ActionsheetItemText>{item}</ActionsheetItemText>
-            </ActionsheetItem>
+            <Actionsheet.Item onPress={handleClose}>{item}</Actionsheet.Item>
           )}
           renderSectionHeader={({ section: { title, data } }: any) => (
             <ActionsheetSectionHeaderText>
@@ -74,7 +62,7 @@ function ActionsheetExample({
             </ActionsheetSectionHeaderText>
           )}
         />
-      </ActionsheetContent>
+      </Actionsheet.Content>
     </Actionsheet>
   );
 }

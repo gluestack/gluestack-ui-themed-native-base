@@ -9,10 +9,10 @@ type MyHStackStory = ComponentStory<typeof HStack>;
 const HStackReversedExample: MyHStackStory = ({ space, ...props }) => {
   return (
     <HStack space={space} mt="$5" {...props} reversed>
-      <Box sx={{ w: 100, h: 100, bg: '$blue300' }} />
-      <Box sx={{ w: 100, h: 100, bg: '$blue400' }} />
-      <Box sx={{ w: 100, h: 100, bg: '$blue500' }} />
-      <Box sx={{ w: 100, h: 100, bg: '$blue600' }} />
+      <Box w={100} h={100} bg="blue.300" />
+      <Box w={100} h={100} bg="blue.400" />
+      <Box w={100} h={100} bg="blue.500" />
+      <Box w={100} h={100} bg="blue.600" />
     </HStack>
   );
 };

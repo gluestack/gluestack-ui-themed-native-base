@@ -18,9 +18,7 @@ const ContainerWithRefExample: MyCustomContainerStory = ({ ...props }: any) => {
     });
   }, [myRef]);
 
-  return (
-    <Container {...props} sx={{ h: 100, w: 100, bg: 'red.500' }} ref={myRef} />
-  );
+  return <Container {...props} h={100} w={100} bg="red.500" ref={myRef} />;
 };
 
 export default ContainerWithRefExample;

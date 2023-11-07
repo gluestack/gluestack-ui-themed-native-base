@@ -2,13 +2,6 @@ import React from 'react';
 
 import {
   Actionsheet,
-  ActionsheetBackdrop,
-  ActionsheetContent,
-  ActionsheetDragIndicator,
-  ActionsheetDragIndicatorWrapper,
-  ActionsheetItem,
-  ActionsheetItemText,
-  ActionsheetIcon,
   Button,
   Icon,
   TrashIcon,
@@ -39,42 +32,38 @@ function ActionsheetExample({
       onClose={handleClose}
       {...props}
     >
-      <ActionsheetBackdrop />
-      <ActionsheetContent>
-        <ActionsheetDragIndicatorWrapper>
-          <ActionsheetDragIndicator />
-        </ActionsheetDragIndicatorWrapper>
-        <ActionsheetItem onPress={handleClose}>
-          <ActionsheetIcon>
-            <Icon as={TrashIcon} />
-          </ActionsheetIcon>
-          <ActionsheetItemText>Delete</ActionsheetItemText>
-        </ActionsheetItem>
-        <ActionsheetItem onPress={handleClose}>
-          <ActionsheetIcon>
-            <Icon as={ShareIcon} />
-          </ActionsheetIcon>
-          <ActionsheetItemText>Share</ActionsheetItemText>
-        </ActionsheetItem>
-        <ActionsheetItem onPress={handleClose}>
-          <ActionsheetIcon>
-            <Icon as={PlayIcon} />
-          </ActionsheetIcon>
-          <ActionsheetItemText>Play</ActionsheetItemText>
-        </ActionsheetItem>
-        <ActionsheetItem onPress={handleClose}>
-          <ActionsheetIcon>
-            <Icon as={FavouriteIcon} />
-          </ActionsheetIcon>
-          <ActionsheetItemText>Favourite</ActionsheetItemText>
-        </ActionsheetItem>
-        <ActionsheetItem onPress={handleClose}>
-          <ActionsheetIcon>
-            <Icon as={CloseIcon} />
-          </ActionsheetIcon>
-          <ActionsheetItemText>Cancel</ActionsheetItemText>
-        </ActionsheetItem>
-      </ActionsheetContent>
+      <Actionsheet.Content>
+        <Actionsheet.Item
+          startIcon={<Icon as={TrashIcon} mx="$3" />}
+          onPress={handleClose}
+        >
+          Delete
+        </Actionsheet.Item>
+        <Actionsheet.Item
+          startIcon={<Icon as={ShareIcon} mx="$3" />}
+          onPress={handleClose}
+        >
+          Share
+        </Actionsheet.Item>
+        <Actionsheet.Item
+          startIcon={<Icon as={PlayIcon} mx="$3" />}
+          onPress={handleClose}
+        >
+          Play
+        </Actionsheet.Item>
+        <Actionsheet.Item
+          startIcon={<Icon as={FavouriteIcon} mx="$3" />}
+          onPress={handleClose}
+        >
+          Favourite
+        </Actionsheet.Item>
+        <Actionsheet.Item
+          startIcon={<Icon as={CloseIcon} mx="$3" />}
+          onPress={handleClose}
+        >
+          Cancel
+        </Actionsheet.Item>
+      </Actionsheet.Content>
     </Actionsheet>
   );
 }

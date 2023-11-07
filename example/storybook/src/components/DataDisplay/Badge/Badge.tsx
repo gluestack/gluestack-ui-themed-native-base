@@ -3,7 +3,13 @@ import { Badge, GlobeIcon } from '@gluestack-ui/themed';
 
 const BadgeStory = ({ text = 'New feature', ...props }: any) => {
   return (
-    <Badge {...props} colorScheme="success" endIcon={<GlobeIcon size="2xs" />}>
+    <Badge
+      {...props}
+      colorScheme="success"
+      _icon={{ color: 'red.500' }}
+      _text={{ color: 'red.500' }}
+      startIcon={<GlobeIcon size="2xs" />}
+    >
       {text}
     </Badge>
   );

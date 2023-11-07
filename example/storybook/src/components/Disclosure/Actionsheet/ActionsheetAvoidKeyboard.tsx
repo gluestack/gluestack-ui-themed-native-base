@@ -2,15 +2,9 @@ import React, { useEffect } from 'react';
 
 import {
   Actionsheet,
-  ActionsheetBackdrop,
-  ActionsheetContent,
-  ActionsheetDragIndicator,
-  ActionsheetDragIndicatorWrapper,
   Button,
   VStack,
   Input,
-  InputIcon,
-  InputInput,
   FormControl,
   HStack,
   Image,
@@ -81,11 +75,7 @@ function ActionsheetExample({
         onClose={handleClose}
         {...props}
       >
-        <ActionsheetBackdrop />
-        <ActionsheetContent maxHeight="75%">
-          <ActionsheetDragIndicatorWrapper>
-            <ActionsheetDragIndicator />
-          </ActionsheetDragIndicatorWrapper>
+        <Actionsheet.Content maxHeight="75%">
           <VStack w="$full" p={20}>
             <HStack justifyContent="center" alignItems="center" space="md">
               <Box
@@ -104,24 +94,26 @@ function ActionsheetExample({
                 />
               </Box>
               <VStack flex={1}>
-                <Text fontWeight="$bold">Mastercard</Text>
+                <Text fontWeight="bold">Mastercard</Text>
                 <Text>Card ending in 2345</Text>
               </VStack>
             </HStack>
             <FormControl mt={36}>
               <FormControl.Label>Confirm security code</FormControl.Label>
-              <Input isFullWidth={true} {...props}>
-                <InputIcon>
-                  <Icon as={LeadingIcon} ml="$3" />
-                </InputIcon>
-                <InputInput placeholder="CVC/CVV" />
-              </Input>
+              <Input
+                isFullWidth={true}
+                placeholder="CVC/CVV"
+                {...props}
+
+                // InputLeftElement={<Icon as={<MaterialIcons name="person" />}}
+              />
+
               <Button onPress={handleClose} mt={20}>
                 Pay $1000
               </Button>
             </FormControl>
           </VStack>
-        </ActionsheetContent>
+        </Actionsheet.Content>
       </Actionsheet>
     </KeyboardAvoidingView>
   );

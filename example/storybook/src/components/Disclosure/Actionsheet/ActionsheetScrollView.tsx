@@ -1,16 +1,6 @@
 import React, { useMemo, useCallback } from 'react';
 
-import {
-  Actionsheet,
-  ActionsheetBackdrop,
-  ActionsheetContent,
-  ActionsheetDragIndicator,
-  ActionsheetDragIndicatorWrapper,
-  ActionsheetItem,
-  ActionsheetItemText,
-  ActionsheetScrollView,
-  Button,
-} from '@gluestack-ui/themed';
+import { Actionsheet, ScrollView, Button } from '@gluestack-ui/themed';
 import { useEffect } from 'react';
 
 function ActionsheetExample({
@@ -39,14 +29,11 @@ function ActionsheetExample({
     []
   );
 
-  const renderItem = useCallback(
-    (item: any) => (
-      <ActionsheetItem onPress={handleClose} key={item}>
-        <ActionsheetItemText>{item}</ActionsheetItemText>
-      </ActionsheetItem>
-    ),
-    [handleClose]
-  );
+  // const renderItem = (item: any) => (return(
+  //   <Actionsheet.Item onPress={handleClose} key={item}>
+  //     {item}
+  //   </Actionsheet.Item>)
+  // );
 
   return (
     <Actionsheet
@@ -54,13 +41,13 @@ function ActionsheetExample({
       onClose={handleClose}
       {...props}
     >
-      <ActionsheetBackdrop />
-      <ActionsheetContent>
-        <ActionsheetDragIndicatorWrapper>
-          <ActionsheetDragIndicator />
-        </ActionsheetDragIndicatorWrapper>
-        <ActionsheetScrollView>{data.map(renderItem)}</ActionsheetScrollView>
-      </ActionsheetContent>
+      <Actionsheet.Content>
+        <ScrollView>
+          {data.map((item) => {
+            return <Actionsheet.Item>{JSON.stringify(item)}</Actionsheet.Item>;
+          })}
+        </ScrollView>
+      </Actionsheet.Content>
     </Actionsheet>
   );
 }
