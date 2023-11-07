@@ -12,7 +12,6 @@ const ButtonSizesExample: MyButtonStory = ({}) => {
         return (
           <Button mt="$4" size={size} key={size}>
             Button
-            {/* <Button.Icon as={AddIcon} ml="$2" /> */}
           </Button>
         );
       })}

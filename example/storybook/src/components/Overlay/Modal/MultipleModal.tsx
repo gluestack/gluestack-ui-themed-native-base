@@ -21,7 +21,7 @@ const MultipleModalStory = ({ ...props }: any) => {
           <Modal.CloseButton />
           <Modal.Header>Order</Modal.Header>
           <Modal.Body>
-            <VStack space="sm" flex={1}>
+            <VStack space="2" flex={1}>
               <HStack alignItems="center" justifyContent="space-between">
                 <Text fontWeight="$medium">Sub Total</Text>
                 <Text color="$blueGray400">$298.77</Text>
