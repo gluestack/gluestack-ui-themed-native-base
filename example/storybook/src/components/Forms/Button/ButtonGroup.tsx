@@ -1,5 +1,5 @@
 import type { ComponentStory } from '@storybook/react-native';
-import { Button, ButtonGroup, ButtonText } from '@gluestack-ui/themed';
+import { Button } from '@gluestack-ui/themed';
 
 import React from 'react';
 
@@ -8,17 +8,11 @@ type MyButtonStory = ComponentStory<typeof Button>;
 const ButtonGroupStory: MyButtonStory = ({ ...props }) => {
   return (
     // @ts-ignore
-    <ButtonGroup {...props}>
-      <Button>
-        <ButtonText>Button 1</ButtonText>
-      </Button>
-      <Button>
-        <ButtonText>Button 2</ButtonText>
-      </Button>
-      <Button>
-        <ButtonText>Button 3</ButtonText>
-      </Button>
-    </ButtonGroup>
+    <Button.Group {...props}>
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
+    </Button.Group>
   );
 };
 
