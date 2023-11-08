@@ -29,12 +29,13 @@ const CheckboxStory = ({ ...props }: any) => {
         }
         nativeID="checkbox-1"
         {...props}
-      ></Checkbox>
+      >
+        Label 1
+      </Checkbox>
       <Checkbox
         size={props.size}
         isInvalid={props.isInvalid}
         isIndeterminate
-        colorScheme="success"
         value="Label 2"
         aria-label="Label 2"
         accessibilityLabel="Checkbox"

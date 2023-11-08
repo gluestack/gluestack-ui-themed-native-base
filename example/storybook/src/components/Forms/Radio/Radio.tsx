@@ -18,41 +18,54 @@ const RadioStory = ({
       isInvalid={isInvalid}
       value={values}
       onChange={setValues}
+      colorScheme="red"
+      _radio={{
+        _text: {
+          color: 'green.500',
+        },
+      }}
+      size={size}
     >
       <Radio
-        size={size}
+        // size={size}
+        _interactionBox={{
+          _text: {
+            color: 'red.600',
+            fontWeight: 'bold',
+          },
+        }}
         value="Label 1"
         isInvalid={isInvalid}
         accessibilityLabel="Radio"
         aria-label="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
-        colorScheme="primary"
+        // colorScheme="primary"
       >
         Label 1
       </Radio>
 
       <Radio
-        size={size}
+        // size={size}
         value="Label 2"
         isInvalid={isInvalid}
         accessibilityLabel="Radio"
         aria-label="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
-        colorScheme="primary"
+        // colorScheme="primary"
       >
         Label 2
       </Radio>
       <Radio
-        size={size}
+        // size={size}
         value="Label 3"
         isInvalid={isInvalid}
         accessibilityLabel="Radio"
         aria-label="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
-        colorScheme="primary"
+        // colorScheme="primary"
       >
         Label 3
       </Radio>

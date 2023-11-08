@@ -3,7 +3,7 @@ import React from 'react';
 import Wrapper from '../../Wrapper';
 
 const BoxStory: any = ({
-  bg = 'red500',
+  // bg = 'red500',
   w = '100',
   h = '100',
   ...props

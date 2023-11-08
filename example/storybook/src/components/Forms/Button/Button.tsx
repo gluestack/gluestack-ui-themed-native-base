@@ -1,7 +1,8 @@
 import type { ComponentStory } from '@storybook/react-native';
 import React from 'react';
 
-import { AddIcon, Button } from '@gluestack-ui/themed';
+import { Button, Icon } from '@gluestack-ui/themed';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 type MyButtonStory = ComponentStory<typeof Button>;
 
@@ -17,9 +18,19 @@ const ButtonStory: MyButtonStory = ({
       isLoadingText="loading"
       spinnerPlacement="start"
       // _icon={{ color: 'red.500' }}
-      leftIcon={<AddIcon />}
-    // bg="red.500"
-    // _text={{ color: "$white" }}
+      // isPressed
+      _focus={{
+        // bg: 'red.500',
+        _text: {
+          color: 'red.500',
+        },
+        _icon: {
+          color: 'red.500',
+        },
+      }}
+      leftIcon={<Icon as={MaterialCommunityIcons} name="chess-knight" />}
+      // variant="outline"
+      // _text={{ color: 'red.500' }}
     >
       {text}
     </Button>

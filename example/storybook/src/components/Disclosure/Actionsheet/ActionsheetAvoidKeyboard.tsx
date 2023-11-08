@@ -104,8 +104,7 @@ function ActionsheetExample({
                 isFullWidth={true}
                 placeholder="CVC/CVV"
                 {...props}
-
-                // InputLeftElement={<Icon as={<MaterialIcons name="person" />}}
+                InputLeftElement={<Icon as={LeadingIcon} />}
               />
 
               <Button onPress={handleClose} mt={20}>
