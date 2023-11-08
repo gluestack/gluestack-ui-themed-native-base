@@ -18,18 +18,19 @@ function ActionsheetStory({
       >
         Open
       </Button>
-      <Button
+      {/* <Button
         onPress={() => {
           setHideDragIndicator(!hideDragIndicator);
         }}
       >
         {`${hideDragIndicator ? 'show' : 'hide'} DragIndicator`}
-      </Button>
+      </Button> */}
       <Actionsheet
         isOpen={showActionsheet}
         onClose={handleClose}
-        hideDragIndicator={hideDragIndicator}
-        disableOverlay={false}
+        disableOverlay
+        // hideDragIndicator
+        // hideDragIndicator={hideDragIndicator}
       >
         <Actionsheet.Content>
           <Box w="100%" h={60} px={4} justifyContent="center">
@@ -43,11 +44,13 @@ function ActionsheetStory({
               Albums
             </Text>
           </Box>
-          <Actionsheet.Item isLoading _text={{ color: 'red.500' }}>
-            Delete
-          </Actionsheet.Item>
+          <Actionsheet.Item
+            isLoading
+            _text={{ color: 'red.500' }}
+            isLoadingText="Delete"
+          ></Actionsheet.Item>
           <Actionsheet.Item isDisabled>Share</Actionsheet.Item>
-          <Actionsheet.Item isLoading>Play</Actionsheet.Item>
+          <Actionsheet.Item isLoading isLoadingText="Play"></Actionsheet.Item>
           <Actionsheet.Item>Favourite</Actionsheet.Item>
           <Actionsheet.Item>Cancel</Actionsheet.Item>
         </Actionsheet.Content>
