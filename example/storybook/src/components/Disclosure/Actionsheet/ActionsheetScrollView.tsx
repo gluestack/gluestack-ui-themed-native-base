@@ -2,14 +2,11 @@ import React, { useMemo, useCallback } from 'react';
 
 import {
   Actionsheet,
-  ActionsheetBackdrop,
-  ActionsheetContent,
-  ActionsheetDragIndicator,
-  ActionsheetDragIndicatorWrapper,
-  ActionsheetItem,
-  ActionsheetItemText,
-  ActionsheetScrollView,
+  Box,
   Button,
+  Center,
+  Text,
+  useDisclose,
 } from '@gluestack-ui/themed';
 import { useEffect } from 'react';
 
@@ -39,29 +36,29 @@ function ActionsheetExample({
     []
   );
 
-  const renderItem = useCallback(
-    (item: any) => (
-      <ActionsheetItem onPress={handleClose} key={item}>
-        <ActionsheetItemText>{item}</ActionsheetItemText>
-      </ActionsheetItem>
-    ),
-    [handleClose]
-  );
-
+  const { isOpen, onOpen, onClose } = useDisclose();
   return (
-    <Actionsheet
-      isOpen={showActionsheet || showActionsheetProp}
-      onClose={handleClose}
-      {...props}
-    >
-      <ActionsheetBackdrop />
-      <ActionsheetContent>
-        <ActionsheetDragIndicatorWrapper>
-          <ActionsheetDragIndicator />
-        </ActionsheetDragIndicatorWrapper>
-        <ActionsheetScrollView>{data.map(renderItem)}</ActionsheetScrollView>
-      </ActionsheetContent>
-    </Actionsheet>
+    <Center>
+      <Button onPress={onOpen}>Actionsheet</Button>
+      <Actionsheet isOpen={isOpen} onClose={onClose}>
+        <Actionsheet.Content>
+          <Box w="100%" h={60} px={4} justifyContent="center">
+            <Text
+              fontSize="16"
+              color="gray.500"
+              _dark={{
+                color: 'gray.300',
+              }}
+            >
+              Albums
+            </Text>
+          </Box>
+          {data.map((item) => {
+            return <Actionsheet.Item>{JSON.stringify(item)}</Actionsheet.Item>;
+          })}
+        </Actionsheet.Content>
+      </Actionsheet>
+    </Center>
   );
 }
 
