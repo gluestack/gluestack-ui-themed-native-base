@@ -61,6 +61,24 @@ export default styled(
             fontSize: '$md',
           },
         },
+        xl: {
+          _labelText: {
+            // @ts-ignore
+            fontSize: '$xl',
+          },
+          _labelAstrick: {
+            // @ts-ignore
+            fontSize: '$xl',
+          },
+          _helperText: {
+            // @ts-ignore
+            fontSize: '$lg',
+          },
+          _errorText: {
+            // @ts-ignore
+            fontSize: '$lg',
+          },
+        },
       },
     },
 

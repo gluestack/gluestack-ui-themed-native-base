@@ -5,7 +5,8 @@ const SwitchStory = ({ isDisabled = false, ...props }: any) => {
   const [isEnabled, setIsEnabled] = useState(true);
   return (
     <Switch
-      defaultValue={true}
+      // defaultIsChecked={true}
+      // isChecked
       // onThumbColor="$red.500"
       value={isEnabled}
       onValueChange={(val: any) => setIsEnabled(val)}

@@ -49,6 +49,7 @@ const SkeletonTextNew = forwardRef(
   (
     {
       children,
+      speed,
       startColor,
       endColor,
       lines = 3,
@@ -74,6 +75,7 @@ const SkeletonTextNew = forwardRef(
         isLoaded={isLoaded}
         {...resolvedProps}
         ref={ref}
+        speed={speed}
       />
     );
   }

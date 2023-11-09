@@ -5,7 +5,7 @@ function ActionsheetStory({
   showActionsheet: _showActionsheetProp = true,
 }: any) {
   const [showActionsheet, setShowActionsheet] = useState(false);
-  const [hideDragIndicator, setHideDragIndicator] = useState(true);
+  // const [hideDragIndicator, setHideDragIndicator] = useState(true);
 
   const handleClose = () => setShowActionsheet(false);
 

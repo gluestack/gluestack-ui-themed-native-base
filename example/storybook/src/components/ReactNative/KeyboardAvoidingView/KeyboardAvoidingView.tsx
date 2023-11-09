@@ -2,14 +2,12 @@ import React from 'react';
 import {
   Text,
   Heading,
-  View,
   KeyboardAvoidingView,
   Center,
   VStack,
   Input,
   Button,
 } from '@gluestack-ui/themed';
-import { config } from '@gluestack-ui/themed';
 import { Platform } from 'react-native';
 export const Example = () => {
   return (

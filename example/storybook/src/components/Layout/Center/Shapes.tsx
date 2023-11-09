@@ -6,13 +6,15 @@ type MyCenterStory = ComponentStory<typeof Center>;
 
 const ShapeExample: MyCenterStory = ({ ...props }: any) => {
   return (
-    <HStack space={'md'}>
-      <Center bg="$pink800" h={60} w={60} borderRadius={999} {...props}>
-        <Text color="white" fontWeight="$bold">
-          Circle
-        </Text>
-      </Center>
-    </HStack>
+    <>
+      <HStack space={'md'}>
+        <Center bg="pink.800" h={60} w={60} borderRadius={999} {...props}>
+          <Text color="white" fontWeight="$bold">
+            Circle
+          </Text>
+        </Center>
+      </HStack>
+    </>
   );
 };
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, Heading, View } from '@gluestack-ui/themed-native-base';
-import { config } from '@gluestack-ui/themed-native-base';
+import { Text, Heading, View } from '@gluestack-ui/themed';
 export const Example = () => {
   return (
     <View>

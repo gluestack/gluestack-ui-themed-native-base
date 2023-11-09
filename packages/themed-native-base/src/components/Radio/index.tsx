@@ -39,7 +39,7 @@ const RadioTemp = forwardRef(
                 <AccessibleRadio.Icon as={CircleIcon} />
               )}
             </AccessibleRadio.Indicator>
-            <AccessibleRadio.Label>Label 1</AccessibleRadio.Label>
+            <AccessibleRadio.Label>{children}</AccessibleRadio.Label>
           </>
         )}
       </AccessibleRadio>

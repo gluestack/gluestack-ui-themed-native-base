@@ -9,10 +9,10 @@ type MyVStackStory = ComponentStory<typeof VStack>;
 const VStackReversedExample: MyVStackStory = ({ space, ...props }) => {
   return (
     <VStack space={space} mt="$5" {...props} reversed>
-      <Box sx={{ w: 100, h: 100, rounded: '$sm', bg: '$blue300' }} />
-      <Box sx={{ w: 100, h: 100, rounded: '$sm', bg: '$blue400' }} />
-      <Box sx={{ w: 100, h: 100, rounded: '$sm', bg: '$blue500' }} />
-      <Box sx={{ w: 100, h: 100, rounded: '$sm', bg: '$blue600' }} />
+      <Box w={100} h={100} rounded="$sm" bg="blue.300" />
+      <Box w={100} h={100} rounded="$sm" bg="blue.400" />
+      <Box w={100} h={100} rounded="$sm" bg="blue.500" />
+      <Box w={100} h={100} rounded="$sm" bg="blue.600" />
     </VStack>
   );
 };

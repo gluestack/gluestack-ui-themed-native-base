@@ -15,7 +15,7 @@ const InputStory = ({ ...props }: any) => {
   const [value, setValue] = React.useState('');
 
   return (
-    <InputGroup>
+    <InputGroup size="xl">
       <InputLeftAddon>leftAddon</InputLeftAddon>
       <Input
         {...props}

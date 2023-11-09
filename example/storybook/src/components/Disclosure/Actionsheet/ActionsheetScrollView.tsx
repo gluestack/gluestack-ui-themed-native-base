@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo } from 'react';
 
 import {
   Actionsheet,
@@ -8,24 +8,21 @@ import {
   Text,
   useDisclose,
 } from '@gluestack-ui/themed';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
-function ActionsheetExample({
-  showActionsheet: showActionsheetProp = true,
-  ...props
-}) {
-  const [showActionsheet, setShowActionsheet] = React.useState(
-    props.showActionsheet
-  );
+function ActionsheetExample(
+  {
+    // showActionsheet: showActionsheetProp = true,
+    // ...props
+  }
+) {
+  // const [showActionsheet, setShowActionsheet] = React.useState(
+  //   props.showActionsheet
+  // );
 
-  useEffect(() => {
-    setShowActionsheet(props.showActionsheet);
-  }, [props.showActionsheet]);
-
-  const handleClose = useCallback(
-    () => setShowActionsheet(false),
-    [setShowActionsheet]
-  );
+  // useEffect(() => {
+  //   setShowActionsheet(props.showActionsheet);
+  // }, [props.showActionsheet]);
 
   // variables
   const data = useMemo(

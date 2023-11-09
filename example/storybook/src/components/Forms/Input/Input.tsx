@@ -11,8 +11,11 @@ const InputStory = ({ ...props }: any) => {
         setValue(e.nativeEvent.text);
       }}
       value={value}
+      // invalidOutlineColor="green.500"
       placeholder="Enter Text here"
       InputLeftElement={<SearchIcon />}
+      // InputRightElement={<SearchIcon />}
+      // leftElement={<SearchIcon />}
     />
   );
 };

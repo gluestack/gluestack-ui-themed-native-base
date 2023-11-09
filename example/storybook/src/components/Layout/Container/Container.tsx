@@ -2,7 +2,7 @@ import { Text, Container } from '@gluestack-ui/themed';
 import React from 'react';
 
 const ContainerStory: any = ({
-  bg = 'red500',
+  // bg = 'red500',
   w = '100',
   h = '100',
   ...props
@@ -10,7 +10,7 @@ const ContainerStory: any = ({
   return (
     <Container
       {...props}
-      bg={`${bg}`}
+      // bg={`${bg}`}
       h={h}
       w={w}
       justifyContent="center"

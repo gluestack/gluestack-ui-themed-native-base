@@ -2,12 +2,6 @@ import React, { useMemo, useCallback } from 'react';
 
 import {
   Actionsheet,
-  ActionsheetBackdrop,
-  ActionsheetContent,
-  ActionsheetDragIndicator,
-  ActionsheetDragIndicatorWrapper,
-  ActionsheetItem,
-  ActionsheetItemText,
   ActionsheetVirtualizedList,
   Button,
 } from '@gluestack-ui/themed';
@@ -39,9 +33,7 @@ function ActionsheetExample({
 
   const Item = useCallback(
     ({ title }: any) => (
-      <ActionsheetItem onPress={handleClose}>
-        <ActionsheetItemText>{title}</ActionsheetItemText>
-      </ActionsheetItem>
+      <Actionsheet.Item onPress={handleClose}>{title}</Actionsheet.Item>
     ),
     [handleClose]
   );
@@ -60,11 +52,7 @@ function ActionsheetExample({
       onClose={handleClose}
       {...props}
     >
-      <ActionsheetBackdrop />
-      <ActionsheetContent>
-        <ActionsheetDragIndicatorWrapper>
-          <ActionsheetDragIndicator />
-        </ActionsheetDragIndicatorWrapper>
+      <Actionsheet.Content>
         <ActionsheetVirtualizedList
           data={data}
           initialNumToRender={5}
@@ -73,7 +61,7 @@ function ActionsheetExample({
           getItemCount={getItemCount}
           getItem={getItem}
         />
-      </ActionsheetContent>
+      </Actionsheet.Content>
     </Actionsheet>
   );
 }

@@ -1,16 +1,6 @@
 import React, { useCallback } from 'react';
 
-import {
-  Actionsheet,
-  ActionsheetBackdrop,
-  ActionsheetContent,
-  ActionsheetDragIndicator,
-  ActionsheetDragIndicatorWrapper,
-  ActionsheetItem,
-  ActionsheetItemText,
-  ActionsheetFlatList,
-  Button,
-} from '@gluestack-ui/themed';
+import { Actionsheet, FlatList, Button } from '@gluestack-ui/themed';
 import { useEffect } from 'react';
 
 function ActionsheetExample({
@@ -47,9 +37,7 @@ function ActionsheetExample({
 
   const Item = useCallback(
     ({ title }: any) => (
-      <ActionsheetItem onPress={handleClose}>
-        <ActionsheetItemText>{title}</ActionsheetItemText>
-      </ActionsheetItem>
+      <Actionsheet.Item onPress={handleClose}>{title}</Actionsheet.Item>
     ),
     [handleClose]
   );
@@ -60,17 +48,13 @@ function ActionsheetExample({
       onClose={handleClose}
       {...props}
     >
-      <ActionsheetBackdrop />
-      <ActionsheetContent>
-        <ActionsheetDragIndicatorWrapper>
-          <ActionsheetDragIndicator />
-        </ActionsheetDragIndicatorWrapper>
-        <ActionsheetFlatList
+      <Actionsheet.Content>
+        <FlatList
           data={DATA}
           renderItem={({ item }: any) => <Item title={item.title} />}
           keyExtractor={(item: any) => item.id}
         />
-      </ActionsheetContent>
+      </Actionsheet.Content>
     </Actionsheet>
   );
 }

@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { ZStack, Box } from '@gluestack-ui/themed';
+import { ZStack, Box, Center } from '@gluestack-ui/themed';
 
 const ZStackStory = () => {
   return (
-    <ZStack>
-      <Box w={100} h={100} bg="success.400" ml="20px" mt="20px" rounded="lg" />
-      <Box w={100} h={100} bg="blue.400" ml="40px" mt="40px" rounded="lg" />
-      <Box w={100} h={100} bg="yellow.400" ml="60px" mt="60px" rounded="lg" />
-      <Box w={100} h={100} bg="red.400" ml="80px" mt="80px" rounded="lg" />
-    </ZStack>
+    <Center h="96">
+      <ZStack reversed={true}>
+        <Box bg="red.700" h={400} w={400} rounded="lg" />
+        <Box bg="yellow.500" h={200} w={200} rounded="lg" shadow={8} />
+        <Box bg="green.300" h={50} w={50} rounded="lg" shadow={8} />
+      </ZStack>
+    </Center>
   );
 };
 

@@ -40,7 +40,6 @@ const NewButton = forwardRef(
   ) => {
     const resolvedPropForGluestack = usePropResolution(props);
     const loadingProps = resolvedPropForGluestack['sx']['_loading'];
-
     return (
       <AccessibleButton
         colorScheme={colorScheme}
