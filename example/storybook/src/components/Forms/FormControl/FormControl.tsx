@@ -37,6 +37,8 @@ const FormControlStory = ({ ...props }) => {
         // endIcon={AlertCircleIcon}
       >
         Atleast 6 characters are required.
+        {/*  */}
+        mmm
       </FormControl.ErrorMessage>
     </FormControl>
   );

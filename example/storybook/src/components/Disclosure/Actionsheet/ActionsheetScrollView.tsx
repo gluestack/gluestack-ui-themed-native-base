@@ -1,24 +1,28 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo } from 'react';
 
-import { Actionsheet, ScrollView, Button } from '@gluestack-ui/themed';
-import { useEffect } from 'react';
+import {
+  Actionsheet,
+  Box,
+  Button,
+  Center,
+  Text,
+  useDisclose,
+} from '@gluestack-ui/themed';
+// import { useEffect } from 'react';
 
-function ActionsheetExample({
-  showActionsheet: showActionsheetProp = true,
-  ...props
-}) {
-  const [showActionsheet, setShowActionsheet] = React.useState(
-    props.showActionsheet
-  );
+function ActionsheetExample(
+  {
+    // showActionsheet: showActionsheetProp = true,
+    // ...props
+  }
+) {
+  // const [showActionsheet, setShowActionsheet] = React.useState(
+  //   props.showActionsheet
+  // );
 
-  useEffect(() => {
-    setShowActionsheet(props.showActionsheet);
-  }, [props.showActionsheet]);
-
-  const handleClose = useCallback(
-    () => setShowActionsheet(false),
-    [setShowActionsheet]
-  );
+  // useEffect(() => {
+  //   setShowActionsheet(props.showActionsheet);
+  // }, [props.showActionsheet]);
 
   // variables
   const data = useMemo(
@@ -29,26 +33,29 @@ function ActionsheetExample({
     []
   );
 
-  // const renderItem = (item: any) => (return(
-  //   <Actionsheet.Item onPress={handleClose} key={item}>
-  //     {item}
-  //   </Actionsheet.Item>)
-  // );
-
+  const { isOpen, onOpen, onClose } = useDisclose();
   return (
-    <Actionsheet
-      isOpen={showActionsheet || showActionsheetProp}
-      onClose={handleClose}
-      {...props}
-    >
-      <Actionsheet.Content>
-        <ScrollView>
+    <Center>
+      <Button onPress={onOpen}>Actionsheet</Button>
+      <Actionsheet isOpen={isOpen} onClose={onClose}>
+        <Actionsheet.Content>
+          <Box w="100%" h={60} px={4} justifyContent="center">
+            <Text
+              fontSize="16"
+              color="gray.500"
+              _dark={{
+                color: 'gray.300',
+              }}
+            >
+              Albums
+            </Text>
+          </Box>
           {data.map((item) => {
             return <Actionsheet.Item>{JSON.stringify(item)}</Actionsheet.Item>;
           })}
-        </ScrollView>
-      </Actionsheet.Content>
-    </Actionsheet>
+        </Actionsheet.Content>
+      </Actionsheet>
+    </Center>
   );
 }
 

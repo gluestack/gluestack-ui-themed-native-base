@@ -9,7 +9,13 @@ type MyButtonStory = ComponentStory<typeof Button>;
 const ButtonIsLoadingExample: MyButtonStory = ({}) => {
   return (
     <HStack space="md">
-      <Button isLoading isLoadingText="loading">
+      <Button
+        isLoading
+        isLoadingText="loading"
+        _loading={{
+          bg: 'red.500',
+        }}
+      >
         something
       </Button>
     </HStack>

@@ -39,6 +39,7 @@ const NewButton = forwardRef(
     ref?: any
   ) => {
     const resolvedPropForGluestack = usePropResolution(props);
+    const loadingProps = resolvedPropForGluestack['sx']['_loading'];
     return (
       <AccessibleButton
         colorScheme={colorScheme}
@@ -46,6 +47,7 @@ const NewButton = forwardRef(
         {...resolvedPropForGluestack}
         ref={ref}
         isDisabled={isLoading || isDisabled}
+        {...(isLoading && loadingProps ? { loadingProps } : {})}
       >
         {!isLoading && ((leftIcon && leftIcon) ?? (startIcon && startIcon))}
         {isLoading && spinnerPlacement === 'start' && (
@@ -79,6 +81,7 @@ const NewGroupButton = forwardRef(({ children, ...props }: any, ref?: any) => {
 });
 
 const ButtonTemp = NewButton as any;
+
 ButtonTemp.Group = NewGroupButton;
 
 export type IButtonComponentType<Button, Group> = GenericComponentType<

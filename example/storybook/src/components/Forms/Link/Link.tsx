@@ -7,6 +7,7 @@ const LinkStory = () => {
     <Link
       isHovered
       href="https://ui.gluestack.io"
+      isUnderlined={true}
       _hover={{
         _text: {
           _light: {
@@ -17,7 +18,8 @@ const LinkStory = () => {
       }}
       isExternal
     >
-      Gluestack
+      Gluestack No
+      {/*  */}
     </Link>
   );
 };

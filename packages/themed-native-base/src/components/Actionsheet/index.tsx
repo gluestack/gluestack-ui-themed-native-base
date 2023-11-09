@@ -19,7 +19,6 @@ import {
 import { forwardRef } from 'react';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType } from '../../types';
-import { Box } from '../Box';
 import { Button } from '../Button';
 
 export const AccessibleActionsheet = createActionsheet({
@@ -88,26 +87,26 @@ const AccessibleActionsheetContent = forwardRef(
     }: any,
     ref?: any
   ) => {
-    const { hideDragIndicator } = useContext(ActionSheetContext);
     const resolvedProps = usePropResolution(props);
-    const resolvedPropsForDragIndicator = usePropResolution(_dragIndicator);
-    const resolvedPropsForDragIndicatorWrapper = usePropResolution(
-      _dragIndicatorWrapper
-    );
+    // const resolvedPropsForDragIndicator = usePropResolution(_dragIndicator);
+    // const resolvedPropsForDragIndicatorWrapper = usePropResolution( _dragIndicatorWrapper);
+    const { hideDragIndicator } = useContext(ActionSheetContext);
+    // console.log(hideDragIndicator);
     return (
       <AccessibleActionsheet.Content {...resolvedProps} ref={ref}>
         {!hideDragIndicator && (
           <>
-            {_dragIndicatorWrapperOffSet && (
+            Hello
+            {/* {_dragIndicatorWrapperOffSet && (
               <Box py="2" {..._dragIndicatorWrapperOffSet} />
-            )}
-            <AccessibleActionsheet.DragIndicatorWrapper
+            )} */}
+            {/* <AccessibleActionsheet.DragIndicatorWrapper
               {...resolvedPropsForDragIndicatorWrapper}
             >
               <AccessibleActionsheet.DragIndicator
                 {...resolvedPropsForDragIndicator}
               />
-            </AccessibleActionsheet.DragIndicatorWrapper>
+            </AccessibleActionsheet.DragIndicatorWrapper> */}
           </>
         )}
         {children}

@@ -34,7 +34,7 @@ function SkeletonStory() {
           <Skeleton size="20" rounded="full" />
           <Skeleton size="20" rounded="full" />
         </HStack>
-        <Skeleton.Text lines={3} alignItems="center" px="12" />
+        <Skeleton.Text speed={300} lines={3} alignItems="center" px="12" />
         <Skeleton mb="3" w="40" rounded="20" />
       </VStack>
     </Center>

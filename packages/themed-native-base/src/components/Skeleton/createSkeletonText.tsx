@@ -17,6 +17,7 @@ export default function createSkeletonText(Skeleton: any) {
     (
       {
         children,
+        speed,
         startColor,
         endColor,
         lines,
@@ -36,6 +37,7 @@ export default function createSkeletonText(Skeleton: any) {
             //Using Skeleton component with required props
             <Skeleton
               key={i}
+              speed={speed}
               endColor={endColor}
               startColor={startColor}
               w="75%"
@@ -48,6 +50,7 @@ export default function createSkeletonText(Skeleton: any) {
           computedChildren.push(
             <Skeleton
               key={i}
+              speed={speed}
               endColor={endColor}
               startColor={startColor}
               {...defaultProps._line}

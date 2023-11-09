@@ -1,5 +1,4 @@
-import { Root } from './styled-components';
-import { Text } from '../Text';
+import { Root, Text } from './styled-components';
 import { createLink } from '@gluestack-ui/link';
 import { forwardRef } from 'react';
 import React from 'react';
@@ -17,10 +16,19 @@ export const Link = forwardRef(
     ref?: any
   ) => {
     const resolvedProps = usePropResolution(props);
+    const isUnderlineText = resolvedProps['isUnderlined'];
     return (
       <AccessibleLink {...resolvedProps} ref={ref}>
         {typeof children === 'string' ? (
-          <AccessibleLink.Text>{children}</AccessibleLink.Text>
+          <AccessibleLink.Text
+            textDecorationLine={
+              isUnderlineText !== undefined && isUnderlineText == false
+                ? 'none'
+                : 'underline'
+            }
+          >
+            {children}
+          </AccessibleLink.Text>
         ) : (
           children
         )}
