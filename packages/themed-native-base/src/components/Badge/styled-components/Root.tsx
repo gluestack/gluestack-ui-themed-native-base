@@ -8,16 +8,14 @@ export default styled(
     'flexDirection': 'row',
     'justifyContent': 'center',
     'alignItems': 'center',
+    // @ts-ignore
     'borderRadius': '$xs',
+    // @ts-ignore
     'borderWidth': '$1',
     'px': '$2',
     'py': '$0.5',
     //@ts-ignore
-    'gap': 4,
-    '_web': {
-      //@ts-ignore
-      gap: '0.25rem',
-    },
+    'gap': '$1',
 
     ':disabled': {
       opacity: 0.5,
@@ -33,31 +31,37 @@ export default styled(
       size: {
         sm: {
           _icon: {
-            h: 12,
-            w: 12,
+            height: 12,
+            width: 12,
           },
           _text: {
+            // @ts-ignore
             fontSize: '$2xs',
+            // @ts-ignore
             lineHeight: '$2xs',
           },
         },
         md: {
           _icon: {
-            h: 14,
-            w: 14,
+            height: 14,
+            width: 14,
           },
           _text: {
+            // @ts-ignore
             fontSize: '$xs',
+            // @ts-ignore
             lineHeight: '$sm',
           },
         },
         lg: {
           _icon: {
-            h: 16,
-            w: 16,
+            height: 16,
+            width: 16,
           },
           _text: {
+            // @ts-ignore
             fontSize: '$sm',
+            // @ts-ignore
             lineHeight: '$sm',
           },
         },
@@ -94,7 +98,7 @@ function colorSchemeResolveFn({ ...props }: any) {
             color: '$text.50',
             fontWeight: '$medium',
           },
-          bg: `$${color}.600`,
+          backgroundColor: `$${color}.600`,
           borderColor: 'transparent',
         };
         break;
@@ -130,9 +134,9 @@ function colorSchemeResolveFn({ ...props }: any) {
             color: `$${color}.900`,
             fontWeight: '$medium',
           },
-          bg: `$${color}.100`,
+          backgroundColor: `$${color}.100`,
           _dark: {
-            bg: `$${color}.300`,
+            backgroundColor: `$${color}.300`,
           },
           borderColor: 'transparent',
         };

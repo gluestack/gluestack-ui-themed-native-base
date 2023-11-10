@@ -28,5 +28,13 @@ function getAliases() {
       __dirname,
       '../../packages/themed-native-base/src'
     ),
+    '@gluestack-ui/themed-default': path.join(
+      __dirname,
+      '../../node_modules/@gluestack-ui/themed'
+    ),
+    // '@gluestack-style/react': path.join(
+    //   __dirname,
+    //   '../../../dank-style/packages/react/src'
+    // ),
   };
 }

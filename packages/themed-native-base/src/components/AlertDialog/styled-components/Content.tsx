@@ -1,11 +1,18 @@
-import { AnimationResolver } from '@gluestack-style/animation-plugin';
+// import { AnimationResolver } from '@gluestack-style/animation-plugin';
 import { styled } from '@gluestack-style/react';
 import { Motion } from '@legendapp/motion';
+import {
+  AnimationResolver,
+  AnimatedView,
+} from '@gluestack-style/animation-resolver';
+import { MotionAnimationDriver } from '@gluestack-style/legend-motion-animation-driver';
 
 export default styled(
-  Motion.View,
+  AnimatedView,
   {
+    // @ts-ignore
     'bg': '$muted.50',
+    // @ts-ignore
     'rounded': '$lg',
     'overflow': 'hidden',
     //@ts-ignore
@@ -32,7 +39,7 @@ export default styled(
     },
 
     '_dark': {
-      bg: '$muted.800',
+      backgroundColor: '$muted.800',
     },
     'defaultProps': {
       shadow: '1',
@@ -43,6 +50,6 @@ export default styled(
     ancestorStyle: ['_content'],
   } as const,
   {
-    plugins: [new AnimationResolver({})],
+    plugins: [new AnimationResolver(MotionAnimationDriver)],
   }
 );

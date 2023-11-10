@@ -1,14 +1,12 @@
-import { Pressable } from 'react-native';
-import { createMotionAnimatedComponent, Motion } from '@legendapp/motion';
 import { styled } from '@gluestack-style/react';
-import { AnimationResolver } from '@gluestack-style/animation-plugin';
-
-const MotionPressable = createMotionAnimatedComponent(
-  Pressable
-) as typeof Motion.Pressable;
+import {
+  AnimationResolver,
+  AnimatedPressable,
+} from '@gluestack-style/animation-resolver';
+import { MotionAnimationDriver } from '@gluestack-style/legend-motion-animation-driver';
 
 export default styled(
-  MotionPressable,
+  AnimatedPressable,
   {
     //@ts-ignore
     ':initial': {
@@ -34,9 +32,10 @@ export default styled(
     'top': 0,
     'right': 0,
     'bottom': 0,
-    'bg': '$light.900',
+    // @ts-ignore
+    'bg': '$light.100',
     '_dark': {
-      bg: '$light.900',
+      backgroundColor: '$light.900',
     },
     '_web': {
       cursor: 'default',
@@ -46,6 +45,6 @@ export default styled(
     componentName: 'ModalBackdrop',
   } as const,
   {
-    plugins: [new AnimationResolver({})],
+    plugins: [new AnimationResolver(MotionAnimationDriver)],
   }
 );

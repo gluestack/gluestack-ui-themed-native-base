@@ -23,8 +23,13 @@ import {
   Input as StyledSelectInput,
   Icon as StyledSelectIcon,
 } from './styled-components';
+import { createContext, forwardRef, useContext, useState } from 'react';
+import { usePropResolution } from '../../hooks/usePropResolution';
+import React from 'react';
+import { GenericComponentType } from '../../types';
+import { ChevronDownIcon } from '../Icons';
 
-const Actionsheet = createActionsheet({
+const AccessibleActionsheet = createActionsheet({
   Root,
   Backdrop,
   Content,
@@ -42,7 +47,7 @@ const Actionsheet = createActionsheet({
   AnimatePresence: Content.AnimatePresence,
 });
 
-export const Select = createSelect(
+const AccessibleSelect = createSelect(
   {
     Root: StyledSelectRoot,
     Trigger: StyledSelectTrigger,
@@ -50,32 +55,178 @@ export const Select = createSelect(
     Icon: StyledSelectIcon,
   },
   {
-    Portal: Actionsheet,
-    Backdrop: Actionsheet.Backdrop,
-    Content: Actionsheet.Content,
-    DragIndicator: Actionsheet.DragIndicator,
-    DragIndicatorWrapper: Actionsheet.DragIndicatorWrapper,
-    Item: Actionsheet.Item,
-    ItemText: Actionsheet.ItemText,
-    ScrollView: Actionsheet.ScrollView,
-    VirtualizedList: Actionsheet.VirtualizedList,
-    FlatList: Actionsheet.FlatList,
-    SectionList: Actionsheet.SectionList,
-    SectionHeaderText: Actionsheet.SectionHeaderText,
+    Portal: AccessibleActionsheet,
+    Backdrop: AccessibleActionsheet.Backdrop,
+    Content: AccessibleActionsheet.Content,
+    DragIndicator: AccessibleActionsheet.DragIndicator,
+    DragIndicatorWrapper: AccessibleActionsheet.DragIndicatorWrapper,
+    Item: AccessibleActionsheet.Item,
+    ItemText: AccessibleActionsheet.ItemText,
+    ScrollView: AccessibleActionsheet.ScrollView,
+    VirtualizedList: AccessibleActionsheet.VirtualizedList,
+    FlatList: AccessibleActionsheet.FlatList,
+    SectionList: AccessibleActionsheet.SectionList,
+    SectionHeaderText: AccessibleActionsheet.SectionHeaderText,
   }
 );
-// export const SelectTrigger = Select.Trigger;
-// export const SelectInput = Select.Input;
-// export const SelectIcon = Select.Icon;
-// export const SelectPortal = Select.Portal;
-// export const SelectBackdrop = Select.Backdrop;
-// export const SelectContent = Select.Content;
-// export const SelectDragIndicator = Select.DragIndicator;
-// export const SelectDragIndicatorWrapper = Select.DragIndicatorWrapper;
-// export const SelectItem = Select.Item;
-// // export const SelectItemText = Select.ItemText;
-// export const SelectScrollView = Select.ScrollView;
-// export const SelectVirtualizedList = Select.VirtualizedList;
-// export const SelectFlatList = Select.FlatList;
-// export const SelectSectionList = Select.SectionList;
-// export const SelectSectionHeaderText = Select.SectionHeaderText;
+
+const SelectContext = createContext<any>({});
+
+const NewSelect = forwardRef(
+  (
+    {
+      children,
+
+      placeholder,
+      color,
+      placeholderTextColor,
+      //
+      _item,
+      _selectedItem,
+      _actionSheet,
+      _actionSheetContent,
+      _actionSheetBody,
+      //
+      selectedValue,
+      defaultValue,
+      onValueChange,
+
+      isInvalid,
+      isDisabled,
+      isHovered,
+      isFocused,
+      isFocusVisible,
+
+      dropdownIcon,
+      dropdownOpenIcon,
+      dropdownCloseIcon,
+
+      onOpen,
+      onClose,
+
+      wrapperRef,
+
+      variant,
+
+      ...props
+    }: any,
+    ref?: any
+  ) => {
+    const contextValue = { itemProps: _item, selectedItemProp: _selectedItem };
+    const [isOpen, setIsOpen] = useState(false);
+    const handleOpen = () => {
+      setIsOpen(true);
+      if (onOpen) onOpen();
+    };
+    const handleClose = () => {
+      setIsOpen(false);
+      if (onClose) onClose();
+    };
+    const resolvedPropForGluestack = usePropResolution(props);
+    let inputStyle = {};
+    if (placeholderTextColor)
+      inputStyle = {
+        props: { placeholderTextColor: `$${placeholderTextColor}` },
+      };
+    return (
+      <AccessibleSelect
+        defaultValue={defaultValue}
+        onValueChange={onValueChange}
+        selectedValue={selectedValue}
+        isInvalid={isInvalid}
+        isDisabled={isDisabled}
+        isHovered={isHovered}
+        isFocused={isFocused}
+        isFocusVisible={isFocusVisible}
+        onOpen={handleOpen}
+        onClose={handleClose}
+        {...resolvedPropForGluestack}
+        ref={wrapperRef}
+      >
+        <AccessibleSelect.Trigger>
+          <AccessibleSelect.Input
+            variant={variant}
+            color={`${color}`}
+            sx={inputStyle}
+            placeholder={placeholder}
+            ref={ref}
+          />
+          <AccessibleSelect.Icon>
+            {isOpen
+              ? dropdownOpenIcon ??
+                dropdownIcon ?? <Icon as={ChevronDownIcon} />
+              : dropdownCloseIcon ??
+                dropdownIcon ?? <Icon as={ChevronDownIcon} />}
+          </AccessibleSelect.Icon>
+        </AccessibleSelect.Trigger>
+
+        <AccessibleSelect.Portal>
+          <AccessibleSelect.Backdrop onPress={handleClose} />
+          <AccessibleSelect.Content {..._actionSheetContent}>
+            <AccessibleSelect.DragIndicatorWrapper>
+              <AccessibleSelect.DragIndicator />
+            </AccessibleSelect.DragIndicatorWrapper>
+            <SelectContext.Provider value={contextValue}>
+              {children}
+            </SelectContext.Provider>
+          </AccessibleSelect.Content>
+        </AccessibleSelect.Portal>
+      </AccessibleSelect>
+    );
+  }
+);
+
+export const AccessibleSelectIte = forwardRef(
+  ({ children, label, value, ...props }: any, ref?: any) => {
+    const {
+      itemProps,
+      // selectedItemProp
+      // TODO: this will be incorporated later
+    } = useContext(SelectContext);
+    return (
+      <AccessibleSelect.Item
+        label={label}
+        value={value}
+        {...itemProps}
+        {...props}
+        ref={ref}
+      >
+        <AccessibleSelect.ItemText>{children}</AccessibleSelect.ItemText>
+      </AccessibleSelect.Item>
+    );
+  }
+);
+
+const AccessibleSelectItem = forwardRef(
+  ({ children, label, value, ...props }: any, ref?: any) => {
+    const {
+      itemProps,
+      // selectedItemProp
+      // TODO: this will be incorporated later
+    } = useContext(SelectContext);
+    return (
+      <AccessibleSelect.Item
+        label={label}
+        value={value}
+        {...itemProps}
+        {...props}
+        ref={ref}
+      >
+        <AccessibleSelect.ItemText>{children}</AccessibleSelect.ItemText>
+      </AccessibleSelect.Item>
+    );
+  }
+);
+
+const SelectNew = NewSelect as any;
+SelectNew.Item = AccessibleSelectItem;
+
+export type ISelectComponentType<Select, Item> =
+  GenericComponentType<Select> & {
+    Item: GenericComponentType<Item>;
+  };
+
+export const Select = SelectNew as ISelectComponentType<
+  typeof AccessibleSelect,
+  typeof AccessibleSelect.Item
+>;

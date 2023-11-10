@@ -3,39 +3,40 @@ import { Pressable } from 'react-native';
 export const Item = styled(
   Pressable,
   {
+    // @ts-ignore
     'p': '$3',
     'flexDirection': 'row',
     'alignItems': 'center',
     ':hover': {
-      bg: '$backgroundLight100',
+      backgroundColor: '$backgroundLight.100',
     },
 
     ':active': {
-      bg: '$backgroundLight200',
+      backgroundColor: '$backgroundLight.200',
     },
 
     ':focus': {
-      bg: '$backgroundLight100',
+      backgroundColor: '$backgroundLight.100',
     },
 
     '_dark': {
       ':hover': {
-        bg: '$backgroundDark800',
+        backgroundColor: '$backgroundDark.800',
       },
 
       ':active': {
-        bg: '$backgroundDark700',
+        backgroundColor: '$backgroundDark.700',
       },
 
       ':focus': {
-        bg: '$backgroundDark800',
+        backgroundColor: '$backgroundDark.800',
       },
     },
 
     ':disabled': {
       'opacity': 0.4,
       ':focus': {
-        bg: 'transparent',
+        backgroundColor: 'transparent',
       },
     },
   },

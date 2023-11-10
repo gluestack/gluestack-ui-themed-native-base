@@ -4,10 +4,13 @@ import { Pressable } from 'react-native';
 export default styled(
   Pressable,
   {
+    // @ts-ignore
     'p': '$3',
     'flexDirection': 'row',
     'alignItems': 'center',
+    // @ts-ignore
     'rounded': '$sm',
+    // @ts-ignore
     'w': '100%',
 
     ':disabled': {
@@ -21,42 +24,41 @@ export default styled(
     },
 
     ':hover': {
-      bg: '$backgroundLight50',
+      backgroundColor: '$backgroundLight.50',
     },
 
     ':active': {
-      bg: '$backgroundLight100',
+      backgroundColor: '$backgroundLight.100',
     },
 
     ':focus': {
-      bg: '$backgroundLight100',
+      backgroundColor: '$backgroundLight.100',
     },
 
     '_dark': {
       ':hover': {
-        bg: '$backgroundDark800',
+        backgroundColor: '$backgroundDark.800',
       },
 
       ':active': {
-        bg: '$backgroundDark700',
+        backgroundColor: '$backgroundDark.700',
       },
 
       ':focus': {
-        bg: '$backgroundDark700',
+        backgroundColor: '$backgroundDark.700',
       },
     },
 
     '_web': {
       ':focusVisible': {
-        bg: '$backgroundLight100',
+        backgroundColor: '$backgroundLight.100',
         _dark: {
-          bg: '$backgroundDark700',
+          backgroundColor: '$backgroundDark.700',
         },
       },
     },
   },
   {
     descendantStyle: ['_text'],
-    DEBUG: 'ACTIONSHEET_ITEM',
   }
 );

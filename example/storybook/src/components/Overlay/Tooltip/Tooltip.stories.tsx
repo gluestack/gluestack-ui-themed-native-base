@@ -22,15 +22,10 @@ const TooltipMeta: ComponentMeta<typeof Tooltip> = {
         'right bottom',
       ],
     },
-    showTooltip: {
-      control: 'boolean',
-      options: [true, false],
-    },
   },
   args: {
     text: 'Hello world',
     placement: 'bottom',
-    showTooltip: false,
   },
   parameters: {
     docs: {

@@ -12,7 +12,7 @@ export default styled(
     'p': '$1',
     'bg': '$muted.50',
     'borderColor': '$muted.400',
-    'my': '0.25rem',
+    'my': '$1',
   },
   {
     componentName: 'RadioIndicator',

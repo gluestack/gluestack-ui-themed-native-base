@@ -5,13 +5,15 @@ export default styled(
   Text,
   {
     mx: '$2',
+    // @ts-ignore
     fontSize: '$md',
     fontFamily: '$body',
     fontWeight: '$normal',
+    // @ts-ignore
     lineHeight: '$md',
-    color: '$textLight800',
+    color: '$textLight.800',
     _dark: {
-      color: '$textDark100',
+      color: '$textDark.100',
     },
   },
   { ancestorStyle: ['_text'] }

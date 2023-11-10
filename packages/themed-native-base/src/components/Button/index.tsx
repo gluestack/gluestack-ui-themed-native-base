@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import { createButton } from '@gluestack-ui/button';
 import { Root, Text, Group, Spinner, Icon } from './styled-components';
-
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType, IColorSchemes } from '../../types';
 

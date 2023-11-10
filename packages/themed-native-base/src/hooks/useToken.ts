@@ -1,24 +1,11 @@
-import { useTheme } from './useTheme';
-// @ts-ignore
-import get from 'lodash.get';
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useToken as useTokenStyle } from '@gluestack-style/react';
 
-export function useToken<T extends string | number>(
-  property: string,
-  token: T | T[],
-  fallback?: T | T[]
-) {
-  const theme = useTheme().config.tokens;
-  if (Array.isArray(token)) {
-    let fallbackArr: T[] = [];
-    if (fallback) {
-      fallbackArr = Array.isArray(fallback) ? fallback : [fallback];
-    }
-    return token.map((innerToken, index) => {
-      const path = `${property}['${innerToken}']`;
-      return get(theme, path, fallbackArr[index] ?? innerToken);
-    });
-  }
-
-  const path = `${property}.${token}`;
-  return get(theme, path, fallback ?? token);
-}
+export const useToken = (tokenScale: string, token: string | string[]) => {
+  return typeof token === 'string'
+    ? (useTokenStyle(tokenScale, token) as string)
+    : token &&
+        (token.map((singleToken) =>
+          useTokenStyle(tokenScale, singleToken)
+        ) as string[]);
+};

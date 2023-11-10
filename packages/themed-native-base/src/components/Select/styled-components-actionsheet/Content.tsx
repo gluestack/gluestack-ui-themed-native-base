@@ -1,23 +1,28 @@
-import { Motion } from '@legendapp/motion';
 import { styled } from '@gluestack-style/react';
-import { AnimationResolver } from '@gluestack-style/animation-plugin';
+import {
+  AnimationResolver,
+  AnimatedView,
+} from '@gluestack-style/animation-resolver';
+import { MotionAnimationDriver } from '@gluestack-style/legend-motion-animation-driver';
 
 export default styled(
-  Motion.View,
+  AnimatedView,
   {
     alignItems: 'center',
+    // @ts-ignore
     borderTopLeftRadius: '$3xl',
+    // @ts-ignore
     borderTopRightRadius: '$3xl',
     maxHeight: '70%',
-    p: '$2',
-    bg: '$backgroundLight0',
+    padding: '$2',
+    backgroundColor: '$backgroundLight.0',
     _sectionHeaderBackground: {
-      bg: '$backgroundLight0',
+      backgroundColor: '$backgroundLight.0',
     },
     _dark: {
-      bg: '$backgroundDark900',
+      backgroundColor: '$backgroundDark.900',
       _sectionHeaderBackground: {
-        bg: '$backgroundDark900',
+        backgroundColor: '$backgroundDark.900',
       },
     },
     _web: {
@@ -32,6 +37,6 @@ export default styled(
     descendantStyle: ['_sectionHeaderBackground'],
   } as const,
   {
-    plugins: [new AnimationResolver({})],
+    plugins: [new AnimationResolver(MotionAnimationDriver)],
   }
 );

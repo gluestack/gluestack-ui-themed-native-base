@@ -32,7 +32,6 @@ const InputTemp = forwardRef(
     ref?: any
   ) => {
     const resolvedProps = usePropResolution(props);
-    // const stateProps = {};
     return (
       <AccessibleInput ref={ref} {...resolvedProps}>
         {InputLeftElement && InputLeftElement}
@@ -64,6 +63,7 @@ const InputGroupTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
       });
 
     return cloneElement(child, {
+      // @ts-ignore
       borderRadius: 0,
     });
   });

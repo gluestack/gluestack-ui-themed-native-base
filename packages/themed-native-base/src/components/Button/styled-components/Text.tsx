@@ -8,7 +8,8 @@ export default styled(
     fontFamily: '$body',
     userSelect: 'none',
     //@ts-ignore
+    // @ts-ignore
     lineHeight: '1.5em',
   },
-  { ancestorStyle: ['_text'], DEBUG: 'STYLEDBUTTONTEXT' }
+  { ancestorStyle: ['_text'] }
 );

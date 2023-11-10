@@ -1,5 +1,6 @@
 import { UL } from '@expo/html-elements';
-import { AnimationResolver } from '@gluestack-style/animation-plugin';
+import { AnimationResolver } from '@gluestack-style/animation-resolver';
+import { MotionAnimationDriver } from '@gluestack-style/legend-motion-animation-driver';
 import { styled } from '@gluestack-style/react';
 import { createMotionAnimatedComponent } from '@legendapp/motion';
 const MotionUL = createMotionAnimatedComponent(UL);
@@ -27,10 +28,12 @@ export const Root = styled(
     },
     'minWidth': 200,
     'py': '$2',
+    // @ts-ignore
     'rounded': '$sm',
-    'bg': '$backgroundLight0',
+    // @ts-ignore
+    'bg': '$backgroundLight.0',
     '_dark': {
-      bg: '$backgroundDark900',
+      backgroundColor: '$backgroundDark.900',
     },
     'defaultProps': {
       softShadow: '3',
@@ -40,6 +43,6 @@ export const Root = styled(
     componentName: 'Menu',
   } as const,
   {
-    plugins: [new AnimationResolver({})],
+    plugins: [new AnimationResolver(MotionAnimationDriver)],
   }
 );

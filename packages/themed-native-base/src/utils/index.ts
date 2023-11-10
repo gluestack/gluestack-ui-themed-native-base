@@ -1,3 +1,9 @@
+import { Platform } from 'react-native';
+import get from 'lodash.get';
+import cloneDeep from 'lodash.clonedeep';
+// @ts-ignore
+import Color from 'tinycolor2';
+
 export const CSSPropertiesMap = {
   alignContent: 'stretch',
   alignItems: 'stretch',
@@ -322,7 +328,7 @@ export const convertRemToAbsolute = (rem: number) => {
   return rem * BASE_FONT_SIZE;
 };
 
-export const platformSpecificSpaceUnits = (theme: any, platform: string) => {
+export const platformSpecificSpaceUnits = (theme: any) => {
   const scales = [
     'space',
     'sizes',
@@ -333,15 +339,10 @@ export const platformSpecificSpaceUnits = (theme: any, platform: string) => {
     'letterSpacings',
   ];
 
-  const newTheme = { ...theme };
-
-  const isWeb = platform === 'web';
+  const newTheme = cloneDeep(theme);
+  const isWeb = Platform.OS === 'web';
   scales.forEach((key) => {
-    // const scale = get(theme, key, {});
-    //TODO: fix this ts-ignore
-    //@ts-ignore
-    const scale = theme?.tokens?.[key] ?? {};
-
+    const scale = get(theme.tokens, key, {});
     const newScale = { ...scale };
     for (const scaleKey in scale) {
       const val = scale[scaleKey];
@@ -349,17 +350,11 @@ export const platformSpecificSpaceUnits = (theme: any, platform: string) => {
         const isAbsolute = typeof val === 'number';
         const isPx = !isAbsolute && val.endsWith('px');
         const isRem = !isAbsolute && val.endsWith('rem');
-        // const isEm = !isAbsolute && !isRem && val.endsWith('em');
-
-        // console.log(isRem, key, val, isAbsolute, 'scale here');
 
         // If platform is web, we need to convert absolute unit to rem. e.g. 16 to 1rem
         if (isWeb) {
-          // if (isAbsolute) {
-          //   newScale[scaleKey] = convertAbsoluteToRem(val);
-          // }
           if (isAbsolute) {
-            newScale[scaleKey] = convertAbsoluteToPx(val);
+            newScale[scaleKey] = convertAbsoluteToRem(val);
           }
         }
         // If platform is not web, we need to convert px unit to absolute and rem unit to absolute. e.g. 16px to 16. 1rem to 16.
@@ -372,16 +367,10 @@ export const platformSpecificSpaceUnits = (theme: any, platform: string) => {
         }
       }
     }
-    if (newTheme.tokens) {
-      //TODO: fix this ts-ignore
-      //@ts-ignore
-      newTheme.tokens[key] = newScale;
-    } else {
-      console.warn(
-        'No tokens found in config! Please pass config in Provider to resolve styles!'
-      );
-    }
+    //@ts-ignore
+    newTheme.tokens[key] = newScale;
   });
+
   return newTheme;
 };
 
@@ -496,9 +485,47 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
   }
 }
 
+export type Dict = Record<string, any>;
+
+export const transparentize =
+  (color: string, opacity: number) => (theme: Dict) => {
+    const raw = getTransparentColor(theme, color);
+    return Color(raw).setAlpha(opacity).toRgbString();
+  };
+
+export const getTransparentColor = (
+  theme: Dict,
+  color: string,
+  fallback?: string
+) => {
+  const hex = get(theme, `colors.${color}`, color);
+  const isValid = Color(hex).isValid();
+  return isValid ? hex : fallback;
+};
+
+export const getColor = (rawValue: any, scale: any, theme: any) => {
+  const alphaMatched =
+    typeof rawValue === 'string' ? rawValue?.match(/:alpha\.\d\d?\d?/) : false;
+
+  if (alphaMatched) {
+    const colorMatched = rawValue?.match(/^.*?(?=:alpha)/);
+    const color = colorMatched ? colorMatched[0] : colorMatched;
+    const alphaValue = alphaMatched[0].split('.')[1];
+    const alphaFromToken = get(theme.opacity, alphaValue, alphaValue);
+    const alpha = alphaFromToken ? parseFloat(alphaFromToken) : 1;
+    const newColor = transparentize(color, alpha)(theme);
+    return newColor;
+  } else {
+    return get(scale, rawValue, rawValue);
+  }
+};
+
 export function addDollarSignsToProps(obj: any, config: any) {
   const newObj: any = {};
-
+  if (!(Object.keys(obj).length > 0)) {
+    return;
+  }
+  // console.log(config);
   for (const key in obj) {
     let propertyName = key;
     const propValue = obj[key];
@@ -520,17 +547,18 @@ export function addDollarSignsToProps(obj: any, config: any) {
       newObj[key] = addDollarSignsToProps(obj[key], config);
     } else if (typeof propValue === 'object') {
       const newPropValue = {};
-
-      Object.keys(propValue).forEach((keyProp) => {
-        //TODO: fix this ts-ignore
-        //@ts-ignore
-        newPropValue[keyProp] = addDollarSign(
-          propertyName,
-          propValue[keyProp],
-          config
-        );
-      });
-      newObj[key] = newPropValue;
+      if (propValue) {
+        Object.keys(propValue).forEach((keyProp) => {
+          //TODO: fix this ts-ignore
+          //@ts-ignore
+          newPropValue[keyProp] = addDollarSign(
+            propertyName,
+            propValue[keyProp],
+            config
+          );
+        });
+        newObj[key] = newPropValue;
+      }
     } else {
       newObj[key] = addDollarSign(propertyName, propValue, config);
     }
@@ -573,3 +601,77 @@ function checkIfPropIsStyle(key: any, theme: any) {
     return true;
   return false;
 }
+
+export const transformTheme = (componentTheme: any, config: any) => {
+  const { baseStyle, variants, sizes, defaultProps, ...rest } = componentTheme;
+  let sxProps = addDollarSignsToProps(rest, config.theme);
+
+  const transformedTheme: any = {
+    variants: {
+      variant: {},
+      size: {},
+    },
+    defaultProps: {},
+    ...sxProps,
+  };
+
+  if (baseStyle) {
+    const propsWithDollarSigns = addDollarSignsToProps(baseStyle, config.theme);
+    sxProps = convertToSXForStateColorModeMediaQuery(
+      propsWithDollarSigns,
+      config
+    );
+  }
+  // const baseStylePropsWithDollarSigns = addDollarSignsToProps(
+  //   propsWithDollarSigns,
+  //   config
+  // );
+
+  // Transforms NativeBase Properties to Gluestack
+
+  // transformedTheme = { ...transformedTheme, ...sxProps };
+
+  // Mapping variants
+  if (componentTheme.variants) {
+    Object.keys(variants).forEach((variant) => {
+      const propsWithDollarSigns = addDollarSignsToProps(
+        variants[variant],
+        config.theme
+      );
+      const sxProps = convertToSXForStateColorModeMediaQuery(
+        propsWithDollarSigns,
+        config.theme
+      );
+      transformedTheme.variants.variant[variant] = sxProps;
+    });
+  }
+
+  // Mapping Sizes
+  if (componentTheme.sizes) {
+    Object.keys(sizes).forEach((size) => {
+      const propsWithDollarSigns = addDollarSignsToProps(
+        sizes[size],
+        config.theme
+      );
+      const sxProps = convertToSXForStateColorModeMediaQuery(
+        propsWithDollarSigns,
+        config.theme
+      );
+      transformedTheme.variants.size[size] = sxProps;
+    });
+  }
+
+  // Mapping Default Props
+  if (componentTheme.defaultProps) {
+    const propsWithDollarSigns = addDollarSignsToProps(
+      defaultProps,
+      config.theme
+    );
+    const sxProps = convertToSXForStateColorModeMediaQuery(
+      propsWithDollarSigns,
+      config.theme
+    );
+    transformedTheme.defaultProps = sxProps;
+  }
+  return transformedTheme;
+};
