@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   Center,
+  ScrollView,
   Text,
   useDisclose,
 } from '@gluestack-ui/themed';
@@ -53,9 +54,12 @@ function ActionsheetExample({
               Albums
             </Text>
           </Box>
-          {data.map((item) => {
-            return <Actionsheet.Item>{JSON.stringify(item)}</Actionsheet.Item>;
-          })}
+
+          <ScrollView>
+            {data.map((item) => {
+              return <Actionsheet.Item>{item}</Actionsheet.Item>;
+            })}
+          </ScrollView>
         </Actionsheet.Content>
       </Actionsheet>
     </Center>
