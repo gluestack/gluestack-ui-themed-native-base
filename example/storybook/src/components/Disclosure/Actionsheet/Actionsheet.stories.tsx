@@ -6,6 +6,7 @@ import ActionsheetVirtualizedList from './ActionsheetVirtualizedList';
 import ActionsheetSectionList from './ActionsheetSectionList';
 import ActionsheetIcon from './ActionsheetIcon';
 import ActionsheetAvoidKeyboard from './ActionsheetAvoidKeyboard';
+import ActionsheetDisableOverlay from './ActionsheetDisableOverlay';
 
 const ActionsheetMeta: ComponentMeta<typeof Actionsheet> = {
   title: 'stories/DISCLOSURE/Actionsheet',
@@ -32,10 +33,11 @@ export default ActionsheetMeta;
 
 export {
   Actionsheet,
-  ActionsheetIcon,
-  ActionsheetScrollView,
+  // ActionsheetIcon,
+  // ActionsheetScrollView,
   ActionsheetFlatList,
-  ActionsheetVirtualizedList,
-  ActionsheetSectionList,
-  ActionsheetAvoidKeyboard,
+  // ActionsheetVirtualizedList,
+  // ActionsheetSectionList,
+  // ActionsheetAvoidKeyboard,
+  ActionsheetDisableOverlay,
 };
