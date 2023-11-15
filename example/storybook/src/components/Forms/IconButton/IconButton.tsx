@@ -8,10 +8,7 @@ type MyButtonStory = ComponentStory<typeof IconButton>;
 
 const ButtonStory: MyButtonStory = ({ ...props }: any) => {
   return (
-    <IconButton
-      {...props}
-      icon={<Icon as={Entypo} name="minus" size="xs" color="trueGray.400" />}
-    />
+    <IconButton {...props} icon={<Icon as={Entypo} name="minus" size="xs" />} />
   );
 };
 

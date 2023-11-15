@@ -18,6 +18,7 @@ module.exports = function (api) {
             },
           ],
       '@babel/plugin-transform-modules-commonjs',
+      'react-native-reanimated/plugin',
     ],
   };
 };
