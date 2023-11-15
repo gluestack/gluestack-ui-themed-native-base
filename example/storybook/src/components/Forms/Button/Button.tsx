@@ -18,8 +18,8 @@ const ButtonStory: MyButtonStory = ({
       spinnerPlacement="start"
       // _icon={{ color: 'red.500' }}
       leftIcon={<AddIcon />}
-    // bg="red.500"
-    // _text={{ color: "$white" }}
+      // bg="red.500"
+      // _text={{ color: "$white" }}
     >
       {text}
     </Button>
