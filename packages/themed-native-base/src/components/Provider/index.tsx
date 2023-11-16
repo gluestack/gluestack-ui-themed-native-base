@@ -39,6 +39,12 @@ const NativeBaseProvider = ({
     }
     return mergedTheme;
   }, [_enableRem, mergedTheme]);
+
+  newTheme.tokens.sizes = {
+    ...newTheme.tokens.space,
+    ...newTheme.tokens.sizes,
+  };
+
   return (
     <HooksContext.Provider
       value={{

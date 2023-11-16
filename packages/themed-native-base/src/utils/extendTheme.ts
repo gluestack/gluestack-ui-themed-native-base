@@ -26,10 +26,11 @@ export const convertTheme = (theme: any = {}) => {
       gluestackTheme.components = theme[key];
     } else if (key === 'config') {
     } else {
+      console.log(key, '****', gluestackTheme);
       gluestackTheme.tokens[key] = flattenTokens(theme[key]);
     }
   });
-
+  console.log(gluestackTheme, '####');
   // console.log(gluestackTheme, 'gluestack theme');
   return gluestackTheme;
 };

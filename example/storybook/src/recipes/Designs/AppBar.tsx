@@ -78,8 +78,8 @@ function Example() {
 
 export default () => {
   return (
-    <Center flex={1} px="3">
-      <Example />
-    </Center>
+    // <Center flex={1} px="3">
+    <Example />
+    // </Center>
   );
 };

@@ -261,6 +261,7 @@ export const propertyTokenMap = {
   inlineSize: space,
   minInlineSize: space,
   maxInlineSize: space,
+  // TODO: is width mapped to sizes or space ?
   width: sizes,
   minWidth: sizes,
   maxWidth: sizes,
@@ -468,14 +469,24 @@ export function convertToSXForStateColorModeMediaQuery(
 function addDollarSign(propertyName: any, propValue: any, config: any) {
   if (CSSPropertiesMap.hasOwnProperty(propertyName)) {
     //@ts-ignore
+    console.log(propertyName);
+    if (propertyName == 'maxWidth') {
+      console.log(
+        config.tokens,
+        '===',
+        config.tokens[propertyTokenMap[propertyName][propValue]]
+      );
+    }
     const tokenAvailable = config.tokens[propertyTokenMap[propertyName]]
       ? //@ts-ignore
         config.tokens[propertyTokenMap[propertyName]][propValue]
       : undefined;
-    // console.log(tokenAvailable, 'TOLEN AVAILABLE', propertyName);
+    // console.log(tokenAvailable, 'TOKEN AVAILABLE', propertyName);
     if (tokenAvailable === undefined) {
+      // console.log(propValue, ' prop value');
       return propValue;
     } else {
+      // console.log(`$${propValue}`, ' else');
       return `$${propValue}`;
     }
   } else {

@@ -4,7 +4,16 @@ import {
   addDollarSignsToProps,
   convertToSXForStateColorModeMediaQuery,
 } from '../utils';
-
+function convertStringToNumber(obj: any) {
+  const result: any = {};
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      const value = obj[key];
+      result[key] = !isNaN(value) ? parseFloat(value) : value;
+    }
+  }
+  return result;
+}
 export function usePropResolution(props: any) {
   const styledContext = useStyled();
   if (props) {
@@ -13,11 +22,12 @@ export function usePropResolution(props: any) {
       sizeProp = { height: props.size, width: props.size };
     }
     props = { ...props, ...sizeProp };
+
     const propsWithDollarSigns = addDollarSignsToProps(
       props,
       styledContext.config
     );
-
+    // console.log(props, propsWithDollarSigns, '===');
     const sxProps = convertToSXForStateColorModeMediaQuery(
       propsWithDollarSigns,
       styledContext.config
@@ -51,8 +61,9 @@ export function usePropResolution(props: any) {
         delete sxProps[propName];
       }
     });
-
+    return convertStringToNumber(sxProps);
     return sxProps;
   }
+
   return props;
 }
