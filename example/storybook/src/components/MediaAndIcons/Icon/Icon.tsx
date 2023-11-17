@@ -116,15 +116,17 @@ const IconStory = () => {
       <Icon
         as={<MaterialCommunityIcons name="chess-knight" />}
         ab="react"
-        color="red.500"
-        h="3"
-        w="3"
+        color="blue.500"
+        h="$3"
+        w="$3"
       />
       <Icon
         as={MaterialCommunityIcons}
         name="chess-knight"
         ab="normal"
         color="red.500"
+        h="$3"
+        w="$3"
       />
     </>
   );
