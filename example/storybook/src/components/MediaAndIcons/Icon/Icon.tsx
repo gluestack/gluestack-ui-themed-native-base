@@ -1,4 +1,3 @@
-/* eslint-disable no-unreachable */
 import React from 'react';
 
 import {
@@ -38,41 +37,7 @@ import {
   WarningTwoIcon,
   WarningOutlineIcon,
 } from '@gluestack-ui/themed';
-// import {
-//   AtSignIcon,
-//   AlertCircleIcon,
-//   PaperclipIcon,
-//   BellIcon,
-//   MenuIcon,
-//   CalendarDaysIcon,
-//   MessageCircleIcon,
-//   CopyIcon,
-//   TrashIcon,
-//   DownloadIcon,
-//   GripVerticalIcon,
-//   EditIcon,
-//   MailIcon,
-//   LinkIcon,
-//   ExternalLinkIcon,
-//   LockIcon,
-//   RemoveIcon,
-//   SlashIcon,
-//   PhoneIcon,
-//   HelpCircleIcon,
-//   RepeatIcon,
-//   Repeat1Icon,
-//   SettingsIcon,
-//   LoaderIcon,
-//   StarIcon,
-//   ClockIcon,
-//   UnlockIcon,
-//   EyeIcon,
-//   EyeOffIcon,
-//   CloseCircleIcon,
-//   GlobeIcon,
-// } from '@gluestack-ui/themed';
 import { G, Path } from 'react-native-svg';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const IconStory = () => {
   const iconsList = [
@@ -110,29 +75,10 @@ const IconStory = () => {
   ];
 
   return (
-    <>
-      {/* <Icon as={AddIcon} ab="normal" color="red.500" />
-      <Icon as={<AddIcon />} ab="react" color="red.500" /> */}
-      <Icon
-        as={<MaterialCommunityIcons name="chess-knight" />}
-        ab="react"
-        color="blue.500"
-        h="$3"
-        w="$3"
-      />
-      <Icon
-        as={MaterialCommunityIcons}
-        name="chess-knight"
-        ab="normal"
-        color="red.500"
-        h="$3"
-        w="$3"
-      />
-    </>
-  );
-  return (
     <HStack flexWrap="wrap" gap={5}>
       <VStack space="sm">
+        {/*
+        @ts-ignore */}
         <Icon w="4" h="$4" viewBox="0 0 900 900">
           <G fillRule="nonzero" stroke="none" strokeWidth={1} fill="none">
             <Path
