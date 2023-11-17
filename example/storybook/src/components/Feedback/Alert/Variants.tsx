@@ -13,13 +13,13 @@ function AlertVariants({ variant }: any) {
   return (
     <Center>
       <Alert status="info" variant={variant} mb={4}>
-        <Alert.Icon as={InfoIcon} mr="$3" />
+        <Alert.Icon as={InfoIcon} mr="3" />
         <Text>
           Unlock the power of knowledge with the following information.
         </Text>
       </Alert>
       <Alert status="success" variant={variant} mb={4}>
-        <Alert.Icon as={CheckCircle2Icon} mr="$3" />
+        <Alert.Icon as={CheckCircle2Icon} mr="3" />
         <Text>
           Boom! You did it! Please take a moment to pat yourself on the back.
           You've earned it! Boom! You did it! Please take a moment to pat

@@ -13,27 +13,18 @@ import {
 } from '@gluestack-ui/themed';
 // import { PaintBucket, PuzzleIcon } from 'lucide-react-native';
 
-const MenuStory = ({ _placement = 'bottom' }: any) => {
+const MenuStory = ({ props }: any) => {
   return (
     <Menu
       w="190"
-      // trigger={(triggerProps) => {
-      //   return (
-      //     <Pressable accessibilityLabel="More options menu" {...triggerProps}>
-      //       <HamburgerIcon />
-      //     </Pressable>
-      //   );
-      // }}
-      // trigger={({ ...triggerProps }) => {
-      //   return <Button {...triggerProps}>Menu</Button>;
-      // }}
-      trigger={(triggerProps) => {
+      trigger={(triggerProps: any) => {
         return (
           <Pressable accessibilityLabel="More options menu" {...triggerProps}>
             <Text>Hello</Text>
           </Pressable>
         );
       }}
+      {...props}
     >
       <Menu.Item>Arial</Menu.Item>
       <Menu.Item>Nunito Sans</Menu.Item>
