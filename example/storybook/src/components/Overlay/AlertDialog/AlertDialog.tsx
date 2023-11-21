@@ -1,52 +1,58 @@
-//@ts-nocheck
 import React, { useState } from 'react';
-import { AlertDialog, Button, Center } from '@gluestack-ui/themed';
+import {
+  AlertDialog,
+  Button,
+  Center,
+  CloseIcon,
+  Heading,
+  Icon,
+  Text,
+} from '@gluestack-ui/themed-native-base/src';
 
-const AlertDialogStory = ({
-  showAlertDialog: showAlertDialogProp = false,
-  ...props
-}) => {
-  const [showAlertDialog, setShowAlertDialog] = useState(false);
-  const handleClose = () => setShowAlertDialog(!showAlertDialog);
+function AlertDialogStory() {
+  const [showAlertDialog, setShowAlertDialog] = React.useState(false);
   return (
-    <Center h="100vh" w="100vw" bg="pink">
+    <Center>
       <Button
-        onPress={() => {
-          setShowAlertDialog(true);
-        }}
+        colorScheme="danger"
+        onPress={() => setShowAlertDialog(!showAlertDialog)}
       >
-        click me
+        Delete Customer
       </Button>
       <AlertDialog
-        isOpen={showAlertDialog || showAlertDialogProp}
-        onClose={handleClose}
-        {...props}
+        // leastDestructiveRef={cancelRef}
+        isOpen={showAlertDialog}
+        onClose={() => setShowAlertDialog(false)}
       >
         <AlertDialog.Content>
           <AlertDialog.CloseButton />
-          <AlertDialog.Header>Return Policy</AlertDialog.Header>
+          <AlertDialog.Header>Delete Customer</AlertDialog.Header>
           <AlertDialog.Body>
-            Whoa, slow down there! This modal is like a red light at an
-            intersection, reminding you to stop and think before you proceed. Is
-            deleting this folder the right choice?
+            This will remove all data relating to Alex. This action cannot be
+            reversed. Deleted data can not be recovered.
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <Button
-              variant="solid"
-              action="secondary"
-              onPress={handleClose}
-              mr="$3"
-            >
-              Cancel
-            </Button>
-            <Button action="negative" onPress={handleClose}>
-              Delete
-            </Button>
+            <Button.Group space={2}>
+              <Button
+                variant="unstyled"
+                colorScheme="coolGray"
+                onPress={() => setShowAlertDialog(!showAlertDialog)}
+                // ref={cancelRef}
+              >
+                Cancel
+              </Button>
+              <Button
+                colorScheme="danger"
+                onPress={() => setShowAlertDialog(!showAlertDialog)}
+              >
+                Delete
+              </Button>
+            </Button.Group>
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>
     </Center>
   );
-};
+}
 
 export default AlertDialogStory;
