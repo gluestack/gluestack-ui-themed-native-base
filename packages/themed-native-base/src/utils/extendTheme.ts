@@ -23,7 +23,7 @@ export const convertTheme = (theme: any = {}) => {
   };
   Object.keys(theme ?? {}).forEach((key) => {
     if (key === 'components') {
-      gluestackTheme.components = theme[key];
+      gluestackTheme.components = { ...theme[key] };
     } else if (key === 'config') {
     } else {
       gluestackTheme.tokens[key] = flattenTokens(theme[key]);

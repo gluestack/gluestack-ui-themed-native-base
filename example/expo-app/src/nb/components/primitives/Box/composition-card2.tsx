@@ -1,0 +1,49 @@
+import React from 'react';
+import { Box, Heading, Image, Text, Stack } from '@gluestack-ui/themed-native-base';
+export const Example = () => {
+  return (
+    <Box
+      rounded="25"
+      w="100%"
+      _ios={{ shadow: 4 }}
+      _android={{ borderWidth: 1 }}
+      _light={{ borderColor: 'gray.300' }}
+      _dark={{ borderColor: 'gray.400' }}
+      mx={{ base: 'auto', md: 0 }}
+    >
+      <Image
+        h='$64'
+        // roundedTop="25"
+        borderTopLeftRadius={25}
+        borderTopRightRadius={25}
+        source={{
+          uri:
+            'https://image.freepik.com/free-photo/silhouette-person-standing-top-hill-beautiful-colorful-sky-morning_181624-24501.jpg',
+        }}
+        alt="NativeBase Card"
+      />
+      <Stack p={4} space={2}>
+        <Heading
+          _light={{ color: 'blueGray.700' }}
+          _dark={{ color: 'blueGray.100' }}
+        >
+          Adventure
+        </Heading>
+        <Text
+          _light={{ color: 'blueGray.500' }}
+          _dark={{ color: 'blueGray.200' }}
+        >
+          An exciting experience that is typically bold, sometimes risky,
+          undertaking...
+          <Text
+            bold
+            _light={{ color: 'blueGray.500' }}
+            _dark={{ color: 'blueGray.200' }}
+          >
+            more
+          </Text>
+        </Text>
+      </Stack>
+    </Box>
+  );
+};

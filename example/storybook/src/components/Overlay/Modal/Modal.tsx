@@ -1,73 +1,45 @@
-import React from 'react';
-import { Button } from '@gluestack-ui/themed';
+import React, { useState } from 'react';
+import { Button, FormControl, Input } from '@gluestack-ui/themed';
 import { Modal, Center } from '@gluestack-ui/themed';
 
 const ModalStory = ({ showModal: showModalProp = false, ...props }) => {
-  const [showModal, setShowModal] = React.useState(false);
-  const ref = React.useRef(null);
+  const [showModal, setShowModal] = useState(false);
   return (
-    <Center height="100vh" w="100vw" bg="pink">
-      <Button
-        onPress={() => {
-          setShowModal(true);
-        }}
-      >
-        click me
-      </Button>
-      <Modal
-        isOpen={showModal || showModalProp}
-        onClose={() => {
-          setShowModal(false);
-        }}
-        {...props}
-        finalFocusRef={ref}
-      >
-        <Modal.Content>
+    <Center>
+      <Button onPress={() => setShowModal(true)}>Button</Button>
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)} {...props}>
+        <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
-          <Modal.Header>Engage with Modals</Modal.Header>
+          <Modal.Header>Contact Us</Modal.Header>
           <Modal.Body>
-            Elevate user interactions with our versatile modals. Seamlessly
-            integrate notifications, forms, and media displays. Make an impact
-            effortlessly.
+            <FormControl>
+              <FormControl.Label>Name</FormControl.Label>
+              <Input />
+            </FormControl>
+            <FormControl mt="3">
+              <FormControl.Label>Email</FormControl.Label>
+              <Input />
+            </FormControl>
           </Modal.Body>
           <Modal.Footer>
-            <Button
-              variant="outline"
-              size="sm"
-              mr="$3"
-              onPress={() => {
-                setShowModal(false);
-              }}
-            >
-              Cancel
-            </Button>
-            <Button
-              size="sm"
-              action="positive"
-              onPress={() => {
-                setShowModal(false);
-              }}
-              sx={{
-                'bg': '$success700',
-                ':hover': {
-                  bg: '$success800',
-                },
-                ':active': {
-                  bg: '$success900',
-                },
-                '_dark': {
-                  'bg': '$success600',
-                  ':hover': {
-                    bg: '$success700',
-                  },
-                  ':active': {
-                    bg: '$success800',
-                  },
-                },
-              }}
-            >
-              Explore
-            </Button>
+            <Button.Group space={2}>
+              <Button
+                variant="ghost"
+                colorScheme="blueGray"
+                onPress={() => {
+                  setShowModal(false);
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onPress={() => {
+                  setShowModal(false);
+                }}
+              >
+                Save
+              </Button>
+            </Button.Group>
           </Modal.Footer>
         </Modal.Content>
       </Modal>
