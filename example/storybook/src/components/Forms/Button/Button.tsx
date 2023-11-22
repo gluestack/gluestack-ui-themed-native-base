@@ -21,6 +21,7 @@ const ButtonStory: MyButtonStory = ({
       spinnerPlacement="start"
       // _icon={{ color: 'red.500' }}
       leftIcon={<AddIcon />}
+<<<<<<< HEAD
       _loading={{
         bg: 'red.600',
         _text: {
@@ -32,6 +33,8 @@ const ButtonStory: MyButtonStory = ({
       }}
       // _icon={{ color: 'green.500' }}
       _hover={{ bg: 'red.800' }}
+=======
+>>>>>>> db58e581 (fix: button)
       // bg="red.500"
       // _text={{ color: "$white" }}
     >
