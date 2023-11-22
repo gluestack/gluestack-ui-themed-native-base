@@ -19,8 +19,10 @@ const BoxStory: any = ({
             end: [0, 1],
           },
         }}
-        h={h}
-        w={w}
+        // h={h}
+        // w={w}
+        h="21"
+        w={'24'}
         justifyContent="center"
         alignItems="center"
       >
