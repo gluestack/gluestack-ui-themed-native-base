@@ -6,7 +6,6 @@ import { RootStack } from '../../src/navigators/rootNavigator';
 
 const useColorModeValue = (prop1: string, prop2: string) => {
   const colorMode = useColorMode();
-  console.log(colorMode);
   if (colorMode === 'light') return prop1;
   return prop2;
 };

@@ -4,14 +4,11 @@ import { NativeBaseProvider as NBGUIProvider } from '@gluestack-ui/themed-native
 import { BaseTheme } from './src/theme';
 import config from './nativebase.config';
 import { Root } from './src/components/RootComponent';
-// import { NativeBaseProvider } from "native-base";
 
 export default function App() {
   return (
-    // <NativeBaseProvider>
-    <NBGUIProvider config={config} colorMode="dark">
+    <NBGUIProvider theme={BaseTheme} config={config} colorMode="light">
       <Root />
     </NBGUIProvider>
-    // </NativeBaseProvider>
   );
 }
