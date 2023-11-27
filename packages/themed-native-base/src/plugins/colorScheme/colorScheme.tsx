@@ -9,9 +9,10 @@ export class ColorSchemeResolver implements IStyledPlugin {
   // for debug purpose only
   from?: string;
   styledComponentConfig: any;
+  themed: any;
   // no other use
 
-  register() { }
+  register() {}
 
   constructor(callback: any, from?: any) {
     this.name = 'ColorSchemeResolver';
@@ -26,12 +27,14 @@ export class ColorSchemeResolver implements IStyledPlugin {
     Component: any,
     ...args: any
   ) {
+    if (_shouldUpdate) this.themed = _styledObj;
     delete args?.[1]?.plugins;
     this.styledComponentConfig = args;
     return [_styledObj, _shouldUpdate, _, Component];
   }
 
   componentMiddleWare({ Component }: any) {
+    console.log('themed', this.themed);
     const StyledComponent = styled(
       Component,
       {},
