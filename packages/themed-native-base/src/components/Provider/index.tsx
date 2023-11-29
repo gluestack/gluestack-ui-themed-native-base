@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import { createProvider } from '@gluestack-ui/provider';
 import { StyledProvider } from '@gluestack-style/react';
 import { OverlayProvider } from '@gluestack-ui/overlay';
@@ -25,11 +25,10 @@ const NativeBaseProvider = ({
   children,
   config = {},
   theme = {},
-  colorMode = 'light',
   ...props
 }: any) => {
   const _enableRem = config?.enableRem ?? true;
-  // const [colorMode, setColorMode] = useState(useColorMode());
+  const [colorModeNEW, setColorMode] = useState('light');
 
   const gluestackCompatibleTheme = convertTheme(theme);
   const mergedTheme = theme
@@ -46,12 +45,17 @@ const NativeBaseProvider = ({
   return (
     <HooksContext.Provider
       value={{
-        colorMode,
+        colorMode: colorModeNEW,
+        setColorMode: setColorMode,
         config: config?.dependencies ? config.dependencies : {},
         // newTheme,
       }}
     >
-      <GluestackUIProvider colorMode={colorMode} config={newTheme} {...props}>
+      <GluestackUIProvider
+        colorMode={colorModeNEW}
+        config={newTheme}
+        {...props}
+      >
         {children}
       </GluestackUIProvider>
     </HooksContext.Provider>

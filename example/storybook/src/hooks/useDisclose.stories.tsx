@@ -7,9 +7,12 @@ import {
   Modal,
 } from '@gluestack-ui/themed-native-base/src/components';
 // import { Modal } from "native-base"
-import { useDisclose } from '@gluestack-ui/themed-native-base/src/hooks';
+import { useDisclose } from '@gluestack-ui/themed';
+// import { useColorMode } from '@gluestack-ui/themed';
 
 const Example = () => {
+  // const x = useColorMode();
+  // console.log(x.colorMode);
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
     <Center>

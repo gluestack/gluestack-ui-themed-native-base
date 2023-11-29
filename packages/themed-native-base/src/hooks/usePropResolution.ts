@@ -8,6 +8,7 @@ import {
 } from '../utils';
 
 function resolveProps(props: any) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const styledContext = useStyled();
 
   if (props) {
@@ -17,7 +18,11 @@ function resolveProps(props: any) {
       ((typeof props.size === 'number' && !isNaN(props.size)) ||
         (typeof props.size === 'string' && !isNaN(Number(props.size))))
     ) {
-      sizeProp = { height: props.size, width: props.size };
+      sizeProp = {
+        height: props.size,
+        width: props.size,
+        fontSize: props.size,
+      };
     }
     props = { ...sizeProp, ...props };
     props = getFlattendMultiAliasesProps(props, styledContext.config); // Flattens aliases that contains array of strings, like roundedTop or roundedLeft etc.

@@ -14,14 +14,10 @@ const createIconNB = (props: IParameterTypes) => {
     size?: ISize | number;
   };
   //
-  const CreatedIcon = forwardRef(
-    ({ size, ...propsIcon }: IProps, ref?: any) => {
-      let sizeProp = {};
-      const resolvedProps = usePropResolution(propsIcon);
-      if (typeof size === 'number') sizeProp = { height: size, width: size };
-      return <Icon {...sizeProp} {...resolvedProps} ref={ref} />;
-    }
-  );
+  const CreatedIcon = forwardRef(({ ...propsIcon }: IProps, ref?: any) => {
+    const resolvedProps = usePropResolution(propsIcon);
+    return <Icon {...resolvedProps} ref={ref} />;
+  });
   return CreatedIcon;
 };
 

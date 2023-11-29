@@ -34,7 +34,7 @@ export class ColorSchemeResolver implements IStyledPlugin {
   }
 
   componentMiddleWare({ Component }: any) {
-    console.log('themed', this.themed);
+    // console.log('themed', this.themed);
     const StyledComponent = styled(
       Component,
       {},

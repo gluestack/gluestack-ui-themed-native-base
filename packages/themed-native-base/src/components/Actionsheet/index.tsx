@@ -22,7 +22,7 @@ import { GenericComponentType } from '../../types';
 import { Box } from '../Box';
 import { Button } from '../Button';
 
-export const AccessibleActionsheet = createActionsheet({
+const AccessibleActionsheet = createActionsheet({
   Root,
   Content,
   Item,
@@ -42,7 +42,7 @@ export const AccessibleActionsheet = createActionsheet({
 
 type IAccessibleActionsheet = typeof AccessibleActionsheet;
 
-interface Actionsheet extends IAccessibleActionsheet {
+export interface IActionsheet extends IAccessibleActionsheet {
   /**
    * @deprecated Use ActionsheetContent instead.
    */
@@ -143,6 +143,9 @@ const AccessibleActionsheetContent = forwardRef(
   ) => {
     const resolvedProps = usePropResolution(props);
     const resolvedPropsForDragIndicator = usePropResolution(_dragIndicator);
+    const resolvedPropsForDragIndicatorWrapperOffSet = usePropResolution(
+      _dragIndicatorWrapperOffSet
+    );
     const resolvedPropsForDragIndicatorWrapper = usePropResolution(
       _dragIndicatorWrapper
     );
@@ -153,7 +156,7 @@ const AccessibleActionsheetContent = forwardRef(
         {!hideDragIndicator && (
           <>
             {_dragIndicatorWrapperOffSet && (
-              <Box py="2" {..._dragIndicatorWrapperOffSet} />
+              <Box py="2" {...resolvedPropsForDragIndicatorWrapperOffSet} />
             )}
             <AccessibleActionsheet.DragIndicatorWrapper
               {...resolvedPropsForDragIndicatorWrapper}
@@ -189,6 +192,7 @@ const AccessibleActionsheetItem = forwardRef(
         ) : (
           children && { children }
         )}
+        {(rightIcon && rightIcon) ?? (endIcon && endIcon)}
       </AccessibleActionsheet.Item>
     );
   }

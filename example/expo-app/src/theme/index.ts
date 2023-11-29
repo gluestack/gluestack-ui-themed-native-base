@@ -1,18 +1,4 @@
-import { extendTheme, createVariant } from '@gluestack-ui/themed-native-base';
-import { Component } from 'react';
-
-class VariantStore {
-  store: {};
-  createVariant: any;
-  getVariant: any;
-
-  constructor(init) {
-    this.store = init ?? {};
-    this.getVariant = (Component) => {
-      this.store.Component
-    }
-  }
-}
+import { extendTheme } from '@gluestack-ui/themed-native-base';
 
 export const BaseTheme = extendTheme({
   components: {
@@ -23,9 +9,11 @@ export const BaseTheme = extendTheme({
       // },
       variants: {
         // size: (props) => {},
-        size: createVariant(['Text', 'size'], (props) => {
+        size: (props: any) => {
+          // console.log(props);
+          return props;
           // style based on props
-        }),
+        },
       },
     },
     Pressable: {
