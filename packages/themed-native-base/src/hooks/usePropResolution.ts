@@ -7,7 +7,9 @@ import {
   getFlattendMultiAliasesProps,
 } from '../utils';
 
-function resolveProps(props: any) {
+function resolveProps(props: any, flag: any) {
+  if (flag) return props;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const styledContext = useStyled();
 
   if (props) {
@@ -17,7 +19,11 @@ function resolveProps(props: any) {
       ((typeof props.size === 'number' && !isNaN(props.size)) ||
         (typeof props.size === 'string' && !isNaN(Number(props.size))))
     ) {
-      sizeProp = { height: props.size, width: props.size };
+      sizeProp = {
+        height: props.size,
+        width: props.size,
+        fontSize: props.size,
+      };
     }
     props = { ...sizeProp, ...props };
     props = getFlattendMultiAliasesProps(props, styledContext.config); // Flattens aliases that contains array of strings, like roundedTop or roundedLeft etc.
@@ -63,8 +69,8 @@ function resolveProps(props: any) {
   }
 }
 
-export function usePropResolution(props: any) {
+export function usePropResolution(props: any, flag: boolean = false) {
   return useMemo(() => {
-    return resolveProps(props);
-  }, [props]);
+    return resolveProps(props, flag);
+  }, [props, flag]);
 }

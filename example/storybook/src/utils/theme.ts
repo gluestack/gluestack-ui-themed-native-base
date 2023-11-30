@@ -13,6 +13,8 @@ export const BaseTheme = extendTheme({
       // },
     },
     Pressable: {
+      _pressed: {},
+      _hover: {},
       cursor: 'pointer',
     },
   },

@@ -7,6 +7,14 @@ export const BaseTheme = extendTheme({
       fontSize: 'lg',
       color: 'green.900',
       // },
+      variants: {
+        // size: (props) => {},
+        size: (props: any) => {
+          // console.log(props);
+          return props;
+          // style based on props
+        },
+      },
     },
     Pressable: {
       cursor: 'pointer',

@@ -9,9 +9,10 @@ export class ColorSchemeResolver implements IStyledPlugin {
   // for debug purpose only
   from?: string;
   styledComponentConfig: any;
+  themed: any;
   // no other use
 
-  register() { }
+  register() {}
 
   constructor(callback: any, from?: any) {
     this.name = 'ColorSchemeResolver';
@@ -26,12 +27,17 @@ export class ColorSchemeResolver implements IStyledPlugin {
     Component: any,
     ...args: any
   ) {
+    if (_shouldUpdate) this.themed = _styledObj;
     delete args?.[1]?.plugins;
     this.styledComponentConfig = args;
     return [_styledObj, _shouldUpdate, _, Component];
   }
 
   componentMiddleWare({ Component }: any) {
+    // console.log('themed', this.themed);
+    if (Component.displayName === 'COLOR_SCHEME_COMPONENT') {
+      return Component;
+    }
     const StyledComponent = styled(
       Component,
       {},
@@ -40,8 +46,6 @@ export class ColorSchemeResolver implements IStyledPlugin {
 
     const ColorSchemeResolvedComponent = forwardRef(
       ({ key, ...componentProps }: any, ref?: any) => {
-        // return <NewComp />;
-
         const colorSchemeSx: any = {};
         const colorSchemePassingPropsSx: any = {};
 
@@ -63,8 +67,8 @@ export class ColorSchemeResolver implements IStyledPlugin {
         }
 
         const toBeAppliedSx = {
-          ...sx,
           ...colorSchemeSx,
+          ...sx,
           props: {
             sx: colorSchemePassingPropsSx,
           },
@@ -83,6 +87,7 @@ export class ColorSchemeResolver implements IStyledPlugin {
 
     //@ts-ignore
     ColorSchemeResolvedComponent.isStyledComponent = true;
+    ColorSchemeResolvedComponent.displayName = 'COLOR_SCHEME_COMPONENT';
     return ColorSchemeResolvedComponent;
   }
 }

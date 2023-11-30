@@ -113,6 +113,9 @@ function colorSchemeResolveFn({ ...props }: any) {
       default:
         value = {};
     }
+    // check for size prop also
+    // const variantCallbacks? = getVariant('Text');
+    // value = variantCallbacks[variant](props);
   }
   return value;
 }
