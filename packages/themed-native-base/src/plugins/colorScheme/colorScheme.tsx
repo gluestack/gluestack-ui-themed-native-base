@@ -66,8 +66,8 @@ export class ColorSchemeResolver implements IStyledPlugin {
         }
 
         const toBeAppliedSx = {
-          ...sx,
           ...colorSchemeSx,
+          ...sx,
           props: {
             sx: colorSchemePassingPropsSx,
           },
