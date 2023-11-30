@@ -35,6 +35,9 @@ export class ColorSchemeResolver implements IStyledPlugin {
 
   componentMiddleWare({ Component }: any) {
     // console.log('themed', this.themed);
+    if (Component.displayName === 'COLOR_SCHEME_COMPONENT') {
+      return Component;
+    }
     const StyledComponent = styled(
       Component,
       {},
@@ -43,8 +46,6 @@ export class ColorSchemeResolver implements IStyledPlugin {
 
     const ColorSchemeResolvedComponent = forwardRef(
       ({ key, ...componentProps }: any, ref?: any) => {
-        // return <NewComp />;
-
         const colorSchemeSx: any = {};
         const colorSchemePassingPropsSx: any = {};
 
@@ -86,6 +87,7 @@ export class ColorSchemeResolver implements IStyledPlugin {
 
     //@ts-ignore
     ColorSchemeResolvedComponent.isStyledComponent = true;
+    ColorSchemeResolvedComponent.displayName = 'COLOR_SCHEME_COMPONENT';
     return ColorSchemeResolvedComponent;
   }
 }
