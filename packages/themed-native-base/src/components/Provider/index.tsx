@@ -9,7 +9,7 @@ import { deepMerge, platformSpecificSpaceUnits } from '../../utils';
 
 const GluestackUIStyledProvider = createProvider({ StyledProvider });
 
-export const HooksContext = createContext({});
+export const HooksContext = createContext<any>({});
 
 const GluestackUIProvider = ({ children, ...props }: any) => {
   return (
