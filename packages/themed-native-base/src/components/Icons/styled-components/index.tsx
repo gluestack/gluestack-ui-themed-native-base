@@ -5,7 +5,11 @@ import { usePropResolution } from '../../../hooks/usePropResolution';
 
 type IParameterTypes = Omit<Parameters<typeof createIcon>[0], 'Root'>;
 
-const createIconNB = (props: IParameterTypes) => {
+/*
+  Flag prop only to be used internally, when props are already resolved
+  pass flag = true in that case
+*/
+const createIconNB = (props: IParameterTypes, flag: boolean = false) => {
   const Icon = createIcon({ Root, ...props });
   // return Icon;
   //
@@ -15,13 +19,11 @@ const createIconNB = (props: IParameterTypes) => {
   };
   //
   const CreatedIcon = forwardRef(({ ...propsIcon }: IProps, ref?: any) => {
-    const resolvedProps = usePropResolution(propsIcon);
+    const resolvedProps = usePropResolution(propsIcon, flag);
     return <Icon {...resolvedProps} ref={ref} />;
   });
   return CreatedIcon;
 };
-
-// const createIconNB = (props: IParameterTypes) => createIcon({ Root, ...props });
 
 export { createIconNB as createIcon };
 

@@ -7,7 +7,8 @@ import {
   getFlattendMultiAliasesProps,
 } from '../utils';
 
-function resolveProps(props: any) {
+function resolveProps(props: any, flag: any) {
+  if (flag) return props;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const styledContext = useStyled();
 
@@ -68,8 +69,8 @@ function resolveProps(props: any) {
   }
 }
 
-export function usePropResolution(props: any) {
+export function usePropResolution(props: any, flag: boolean = false) {
   return useMemo(() => {
-    return resolveProps(props);
-  }, [props]);
+    return resolveProps(props, flag);
+  }, [props, flag]);
 }

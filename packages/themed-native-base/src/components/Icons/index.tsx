@@ -1,7 +1,6 @@
 import { createIcon as createIconUI } from '@gluestack-ui/icon';
 import React, { cloneElement, forwardRef, isValidElement } from 'react';
 import { Root, createIcon } from './styled-components';
-import { createIconNB } from './styled-components/createIconNB';
 import { GenericComponentType } from '../../types';
 import { usePropResolution } from '../../hooks/usePropResolution';
 
@@ -25,10 +24,13 @@ const IconTemp = forwardRef(
     if (as) {
       IconForward = as;
     } else if (typeof viewBox === 'string') {
-      const NewIcon = createIconNB({
-        viewBox: viewBox,
-        path: children,
-      });
+      const NewIcon = createIcon(
+        {
+          viewBox: viewBox,
+          path: children,
+        },
+        true
+      );
       IconForward = NewIcon;
     } else if (children) {
       IconForward = children;
