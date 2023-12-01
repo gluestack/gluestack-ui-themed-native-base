@@ -2260,7 +2260,7 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@gluestack-style/animation-plugin@^0.1.12", "@gluestack-style/animation-plugin@^0.1.7", "@gluestack-style/animation-plugin@latest":
+"@gluestack-style/animation-plugin@^0.1.7", "@gluestack-style/animation-plugin@latest":
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/@gluestack-style/animation-plugin/-/animation-plugin-0.1.12.tgz#887b57097397817c31fef25c8c53af381c11633e"
   integrity sha512-lkj8iY5JBnhroUkP5gWE1zEpocb5GAK/G9SxL8DdWYQrsWOFpXr/mF/K67Dbxiv/n4B9BVff7sNTAddju+4UAw==
@@ -2298,18 +2298,10 @@
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
 
-"@gluestack-style/react@^1.0.10":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.11.tgz#9cc8ce9956bad1cfdabbb37626e36c916f260f26"
-  integrity sha512-EP/pciHm9IaYzXYQVkcwAE4PDuXXvivvk4Lfjsr/ox0QGPtxc+MTBXJlhJoUf+hvosTBv42ElzD+wzW9G2DD0g==
-  dependencies:
-    inline-style-prefixer "^6.0.1"
-    normalize-css-color "^1.0.2"
-
-"@gluestack-style/react@^1.0.9-alpha.6":
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.18.tgz#ea3cec5fcdb2d9474030734ec1ef82318c2f89c7"
-  integrity sha512-/Ym77vpHTwW4N4T3ImUm79Lewtq4CLjVaySYv4FyFjVp2lr+A7kgRlIRRH1AmQKPv5OptUJLN0jHFhBKCZ7yXg==
+"@gluestack-style/react@latest":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.19.tgz#556f5b660ad3b67e32a69b2706f7fc633103aeb9"
+  integrity sha512-d9BbmwDbYl0yzYZqgurnwmD0PU4Ya9etXMGzzjHlEDKVx6fv6wdOwqTTMQMumwP4mxFw++8f3xNEVadwquYJnw==
   dependencies:
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
