@@ -170,6 +170,8 @@ export function extendTheme<Theme>(tempTheme: Theme) {
     { tokens: gluestackStyles }
   );
 
+  mergedTheme.config = finalTheme?.config;
+
   return mergedTheme as 'components' extends keyof Theme
     ? MergeTwoObjects<typeof clonedConfig.theme, GSConvertedConfig<Theme>> & {
         components: {
