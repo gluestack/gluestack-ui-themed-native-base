@@ -27,6 +27,7 @@ const IconTemp = forwardRef(
       const NewIcon = createIcon(
         {
           viewBox: viewBox,
+          // @ts-ignore
           path: children,
         },
         true
@@ -62,8 +63,5 @@ export type IIconComponentType<Icon> = GenericComponentType<
 >;
 
 export const Icon = IconTemp as IIconComponentType<typeof Root>;
-// export const Icon = () => {
-//   return <></>;
-// };
 
 export { createIcon };

@@ -2290,26 +2290,18 @@
   resolved "https://registry.yarnpkg.com/@gluestack-style/legend-motion-animation-driver/-/legend-motion-animation-driver-1.0.2.tgz#051c26b0d501e03b12e4dbfe01b292eee5c29c8f"
   integrity sha512-rB5HIhVzpgPQ9C1JJvY30a1bP0sQRWWFgUHVaiefH8dA/XRAQpmAIMF48JDctrvoBi/tKp5xN10mLE5CtnDRHg==
 
+"@gluestack-style/react@1.0.19", "@gluestack-style/react@latest":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.19.tgz#556f5b660ad3b67e32a69b2706f7fc633103aeb9"
+  integrity sha512-d9BbmwDbYl0yzYZqgurnwmD0PU4Ya9etXMGzzjHlEDKVx6fv6wdOwqTTMQMumwP4mxFw++8f3xNEVadwquYJnw==
+  dependencies:
+    inline-style-prefixer "^6.0.1"
+    normalize-css-color "^1.0.2"
+
 "@gluestack-style/react@^0.2.16":
   version "0.2.51"
   resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-0.2.51.tgz#0cfcca4f97f908ed3a352bd7e2336d436cc22415"
   integrity sha512-21TLr+e7KneP8N1d1iMKG6npMdYb/oPN/t5KZ/2kns2mg9NVCrfVmVuuMYKo+Xcej95BFOHuGuomskzLwdK1HQ==
-  dependencies:
-    inline-style-prefixer "^6.0.1"
-    normalize-css-color "^1.0.2"
-
-"@gluestack-style/react@^1.0.19":
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.20.tgz#0632f731d991d75e8050525d908c8efbf4a02eca"
-  integrity sha512-0nlH4gUPBJipPwNChytrksJ8DKsTWwAABKQzCgS2kQhVdpOcEnejdhW7aGVqqO1hqP4LRb8bKTStXKYhs+1baA==
-  dependencies:
-    inline-style-prefixer "^6.0.1"
-    normalize-css-color "^1.0.2"
-
-"@gluestack-style/react@latest":
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/@gluestack-style/react/-/react-1.0.19.tgz#556f5b660ad3b67e32a69b2706f7fc633103aeb9"
-  integrity sha512-d9BbmwDbYl0yzYZqgurnwmD0PU4Ya9etXMGzzjHlEDKVx6fv6wdOwqTTMQMumwP4mxFw++8f3xNEVadwquYJnw==
   dependencies:
     inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
@@ -4078,14 +4070,6 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/polyfills/-/polyfills-2.0.0.tgz#4c40b74655c83982c8cf47530ee7dc13d957b6aa"
   integrity sha512-K0aGNn1TjalKj+65D7ycc1//H9roAQ51GJVk5ZJQFb2teECGmzd86bYDC0aYdbRf7gtovescq4Zt6FR0tgXiHQ==
-
-"@react-native/virtualized-lists@^0.72.4":
-  version "0.72.8"
-  resolved "https://registry.yarnpkg.com/@react-native/virtualized-lists/-/virtualized-lists-0.72.8.tgz#a2c6a91ea0f1d40eb5a122fb063daedb92ed1dc3"
-  integrity sha512-J3Q4Bkuo99k7mu+jPS9gSUSgq+lLRSI/+ahXNwV92XgJ/8UgOTxu2LPwhJnBk/sQKxq7E8WkZBnBiozukQMqrw==
-  dependencies:
-    invariant "^2.2.4"
-    nullthrows "^1.1.1"
 
 "@react-stately/calendar@^3.4.1":
   version "3.4.1"
@@ -6002,12 +5986,11 @@
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.6.tgz#7cb33992049fd7340d5b10c0098e104184dfcd2a"
   integrity sha512-+0autS93xyXizIYiyL02FCY8N+KkKPhILhcUSA276HxzreZ16kl+cmwvV2qAM/PuCCwPXzOXOWhiPcw20uSFcA==
 
-"@types/react-native@^0.72.2":
-  version "0.72.8"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.72.8.tgz#eb6238fab289f5f132f7ccf138bdfe6f21ed93e1"
-  integrity sha512-St6xA7+EoHN5mEYfdWnfYt0e8u6k2FR0P9s2arYgakQGFgU1f9FlPrIEcj0X24pLCF5c5i3WVuLCUdiCYHmOoA==
+"@types/react-native@^0.71.6":
+  version "0.71.13"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.71.13.tgz#5d9f154aa7808fbff8d5ad399812e21f434fd7da"
+  integrity sha512-UBYrqo7AFmQdABbx0yuygRkLpTUsoWaERgvFCU4OxsY8SnYmS+n6ACbWV+GuUY8eBIcbfgrbPAVuwTW/1fpRYQ==
   dependencies:
-    "@react-native/virtualized-lists" "^0.72.4"
     "@types/react" "*"
 
 "@types/react-native@~0.70.6":

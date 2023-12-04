@@ -1,14 +1,11 @@
 import React, { Children, forwardRef, useContext } from 'react';
 
-// import { Root as AccessibleLinearGradient } from './styled-components';
-
+import { Root as AccessibleLinearGradient } from './styled-components';
 import { Text } from '../Text';
 
-import { GenericComponentType } from '../../types';
-import { Root as AccessibleLinearGradient } from './styled-components';
 import { HooksContext } from '../Provider';
 
-const LinearGradientTemp = forwardRef(
+export const LinearGradient = forwardRef(
   ({ children, ...props }: any, ref?: any) => {
     const { config } = useContext(HooksContext);
 
@@ -28,12 +25,3 @@ const LinearGradientTemp = forwardRef(
     );
   }
 );
-
-const LinearGradientNew = LinearGradientTemp as any;
-
-export type ILinearGradientComponentType<LinearGradient> =
-  GenericComponentType<LinearGradient>;
-
-export const LinearGradient = LinearGradientNew as ILinearGradientComponentType<
-  typeof AccessibleLinearGradient
->;
