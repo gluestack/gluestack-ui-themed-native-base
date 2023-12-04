@@ -327,15 +327,7 @@ export const convertRemToAbsolute = (rem: number) => {
 };
 
 export const platformSpecificSpaceUnits = (theme: any) => {
-  const scales = [
-    'space',
-    'sizes',
-    'fontSizes',
-    'radii',
-    'borderWidths',
-    'lineHeights',
-    'letterSpacings',
-  ];
+  const scales = ['space', 'sizes', 'fontSizes'];
 
   const newTheme = cloneDeep(theme);
   const isWeb = Platform.OS === 'web';
@@ -348,6 +340,7 @@ export const platformSpecificSpaceUnits = (theme: any) => {
         const isAbsolute = typeof val === 'number';
         const isPx = !isAbsolute && val.endsWith('px');
         const isRem = !isAbsolute && val.endsWith('rem');
+        const isEm = !isAbsolute && val.endsWith('em');
 
         // If platform is web, we need to convert absolute unit to rem. e.g. 16 to 1rem
         if (isWeb) {
@@ -357,7 +350,7 @@ export const platformSpecificSpaceUnits = (theme: any) => {
         }
         // If platform is not web, we need to convert px unit to absolute and rem unit to absolute. e.g. 16px to 16. 1rem to 16.
         else {
-          if (isRem) {
+          if (isRem || isEm) {
             newScale[scaleKey] = convertRemToAbsolute(parseFloat(val));
           } else if (isPx) {
             newScale[scaleKey] = parseFloat(val);
