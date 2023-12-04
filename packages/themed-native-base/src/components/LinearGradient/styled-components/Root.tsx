@@ -1,8 +1,8 @@
-import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
+import { View } from 'react-native';
 import { styled } from '@gluestack-style/react';
 
 export default styled(
-  ExpoLinearGradient,
+  View,
   {},
   {
     componentName: 'LinearGradient',
