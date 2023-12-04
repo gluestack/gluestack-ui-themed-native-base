@@ -4,21 +4,19 @@ export default styled(
   H3,
   {
     color: '$text.900',
-    // @ts-ignore
-    letterSpacing: '$sm',
-    fontWeight: '$bold',
-    fontFamily: '$heading',
-
-    // Overrides expo-html default styling
-    marginVertical: 0,
     _dark: {
       color: '$text.50',
     },
+    fontWeight: '$bold',
+    fontFamily: '$heading',
+    lineHeight: '$sm',
+
+    // Overrides expo-html default styling
+    marginVertical: 0,
     variants: {
       isTruncated: {
         true: {
           props: {
-            // @ts-ignore
             numberOfLines: 1,
             ellipsizeMode: 'tail',
           },
@@ -41,9 +39,8 @@ export default styled(
       },
       sub: {
         true: {
-          // @ts-ignore
           fontSize: '$xs',
-          // @ts-ignore
+
           lineHeight: '$xs',
         },
       },
@@ -58,84 +55,77 @@ export default styled(
         },
       },
       size: {
-        '5xl': {
-          //@ts-ignore
-          props: { as: H1 },
-          // @ts-ignore
-          fontSize: '$6xl',
-          // @ts-ignore
-          lineHeight: '$7xl',
-        },
         '4xl': {
           //@ts-ignore
-          props: { as: H1 },
-          // @ts-ignore
-          fontSize: '$5xl',
-          // @ts-ignore
-          lineHeight: '$6xl',
+          'props': { as: H1 },
+          '@base': {
+            fontSize: '$6xl',
+          },
+          '@md': {
+            fontSize: '$7xl',
+          },
+          'letterSpacing': '$xl',
         },
 
         '3xl': {
           //@ts-ignore
-          props: { as: H1 },
-          // @ts-ignore
-          fontSize: '$4xl',
-          // @ts-ignore
-          lineHeight: '$5xl',
+          'props': { as: H1 },
+          '@base': {
+            fontSize: '$5xl',
+          },
+          '@md': {
+            fontSize: '$6xl',
+          },
+          'letterSpacing': '$xl',
         },
 
         '2xl': {
           //@ts-ignore
-          props: { as: H2 },
-          // @ts-ignore
-          fontSize: '$3xl',
-          // @ts-ignore
-          lineHeight: '$3xl',
+          'props': { as: H2 },
+          '@base': {
+            fontSize: '$4xl',
+          },
+          '@md': {
+            fontSize: '$5xl',
+          },
         },
 
         'xl': {
-          //@ts-ignore
-          props: { as: H3 },
-          // @ts-ignore
-          fontSize: '$2xl',
-          // @ts-ignore
-          lineHeight: '$3xl',
+          'props': { as: H3 },
+          '@base': {
+            fontSize: '$3xl',
+          },
+          '@md': {
+            fontSize: '$4xl',
+          },
         },
 
         'lg': {
-          //@ts-ignore
-          props: { as: H4 },
-          // @ts-ignore
-          fontSize: '$xl',
-          // @ts-ignore
-          lineHeight: '$2xl',
+          'props': { as: H4 },
+          '@base': {
+            fontSize: '$2xl',
+          },
+          '@md': {
+            fontSize: '$3xl',
+          },
         },
 
         'md': {
           //@ts-ignore
           props: { as: H5 },
-          // @ts-ignore
-          fontSize: '$lg',
-          // @ts-ignore
-          lineHeight: '$lg',
+          fontSize: '$xl',
         },
 
         'sm': {
           //@ts-ignore
           props: { as: H6 },
-          // @ts-ignore
           fontSize: '$md',
-          // @ts-ignore
-          lineHeight: '$lg',
         },
 
         'xs': {
           //@ts-ignore
           props: { as: H6 },
-          // @ts-ignore
           fontSize: '$sm',
-          // @ts-ignore
-          lineHeight: '$xs',
         },
       },
     },
