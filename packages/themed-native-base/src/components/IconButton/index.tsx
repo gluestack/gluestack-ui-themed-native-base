@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React, { forwardRef } from 'react';
 import { createButton } from '@gluestack-ui/button';
 import { Root, Group, Spinner, Text, Icon } from './styled-components';
@@ -5,7 +7,6 @@ import { Icon as IconComp } from '../Icons';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType, IColorSchemes } from '../../types';
 
-// @ts-ignore
 const AccessibleIconButton = createButton({
   Root,
   Text,
