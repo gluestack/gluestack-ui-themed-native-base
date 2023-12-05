@@ -1,6 +1,6 @@
 import React, { Children, forwardRef } from 'react';
 
-import { Root as AccessibleBox } from './styled-components';
+import { Root as AccessibleSquare } from './styled-components';
 
 import { Text } from '../Text';
 
@@ -8,15 +8,15 @@ import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType } from '../../types';
 import { HooksContext } from '../Provider';
 
-const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
+const SquareTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
   const GUIChildren = Children.map(children, (child) => {
     if (typeof child === 'string') return <Text>{child}</Text>;
     return child;
   });
-  const resolvedPropForGluestack = usePropResolution(props);
-
   const { config }: any = React.useContext<any>(HooksContext);
+
   const Gradient = config?.['linear-gradient'];
+  const resolvedPropForGluestack = usePropResolution(props);
   if (
     props.bg?.linearGradient ||
     props.background?.linearGradient ||
@@ -48,7 +48,7 @@ const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
       }
 
       return (
-        <AccessibleBox
+        <AccessibleSquare
           as={Gradient}
           colors={lgrad.colors}
           start={startObj}
@@ -58,18 +58,20 @@ const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
           ref={ref}
         >
           {GUIChildren}
-        </AccessibleBox>
+        </AccessibleSquare>
       );
     }
   }
   return (
-    <AccessibleBox {...resolvedPropForGluestack} ref={ref}>
+    <AccessibleSquare {...resolvedPropForGluestack} ref={ref}>
       {GUIChildren}
-    </AccessibleBox>
+    </AccessibleSquare>
   );
 });
 
-const BoxNew = BoxTemp as any;
-export type IBoxComponentType<Box> = GenericComponentType<Box>;
+const SquareNew = SquareTemp as any;
+export type ISquareComponentType<Square> = GenericComponentType<Square>;
 
-export const Box = BoxNew as IBoxComponentType<typeof AccessibleBox>;
+export const Square = SquareNew as ISquareComponentType<
+  typeof AccessibleSquare
+>;

@@ -44,6 +44,7 @@ export * from './Select';
 export * from './Skeleton';
 export * from './Slider';
 export * from './Spinner';
+export * from './Square';
 export * from './Stack';
 export * from './StatusBar';
 export * from './Switch';
