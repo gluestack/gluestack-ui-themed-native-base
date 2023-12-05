@@ -4,6 +4,7 @@ import React, { Children, forwardRef } from 'react';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { AnimatePresence } from '@gluestack-style/animation-resolver';
 import { GenericComponentType } from '../../types';
+import { Box } from '../Box';
 // import { View, Pressable } from 'react-native';
 
 export const AccessibleMenu = createMenu({
@@ -49,7 +50,7 @@ const NewMenu = forwardRef(
   }
 );
 
-const AccessibleMenuItemLabel = forwardRef(
+const AccessibleMenuItem = forwardRef(
   ({ children, ...props }: any, ref?: any) => {
     return (
       <AccessibleMenu.ItemLabel {...props} ref={ref}>
@@ -59,11 +60,29 @@ const AccessibleMenuItemLabel = forwardRef(
   }
 );
 
+const AccessibleMenuGroup = forwardRef(({ ...props }: any, ref?: any) => {
+  return <Box {...props} ref={ref} />;
+});
+
+const AccessibleMenuOptionGroup = forwardRef(({ ...props }: any, ref?: any) => {
+  return <Box {...props} ref={ref} />;
+});
+
+const AccessibleMenuItemOption = forwardRef(({ ...props }: any, ref?: any) => {
+  return <Box {...props} ref={ref} />;
+});
+
 const MenuNew = NewMenu as any;
-MenuNew.Item = AccessibleMenuItemLabel;
+MenuNew.Item = AccessibleMenuItem;
+MenuNew.Group = AccessibleMenuGroup;
+MenuNew.OptionGroup = AccessibleMenuOptionGroup;
+MenuNew.ItemOption = AccessibleMenuItemOption;
 
 export type IMenuComponentType<Menu, Item> = GenericComponentType<Menu> & {
   Item: GenericComponentType<Item>;
+  Group: any;
+  OptionGroup: any;
+  ItemOption: any;
 };
 
 export const Menu = MenuNew as IMenuComponentType<

@@ -15,6 +15,7 @@ import { CloseIcon } from '../Icons';
 import React, { forwardRef } from 'react';
 import { GenericComponentType } from '../../types';
 import { AnimatePresence } from '@gluestack-style/animation-resolver';
+import { Box } from '../Box';
 
 const AccessiblePopover = createPopover({
   Root,
@@ -98,11 +99,16 @@ const AccessiblePopoverBody = forwardRef(
   }
 );
 
+const AccessiblePopoverArrow = forwardRef(({ ...props }: any, ref?: any) => {
+  return <Box {...props} ref={ref} />;
+});
+
 PopoverNew.Content = AccessiblePopoverContent as any;
 PopoverNew.CloseButton = AccessiblePopoverCloseButton as any;
 PopoverNew.Header = AccessiblePopoverHeader as any;
 PopoverNew.Footer = AccessiblePopoverFooter as any;
 PopoverNew.Body = AccessiblePopoverBody as any;
+PopoverNew.Arrow = AccessiblePopoverArrow as any;
 
 export type IPopoverComponentType<
   Popover,
@@ -117,6 +123,7 @@ export type IPopoverComponentType<
   Header: GenericComponentType<Header>;
   Footer: GenericComponentType<Footer>;
   Body: GenericComponentType<Body>;
+  Arrow: any;
 };
 
 export const Popover = PopoverNew as IPopoverComponentType<
