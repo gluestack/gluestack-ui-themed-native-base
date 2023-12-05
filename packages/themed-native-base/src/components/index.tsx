@@ -10,6 +10,7 @@ export * from './Box';
 export * from './Button';
 export * from './Center';
 export * from './Checkbox';
+export * from './Circle';
 export * from './Container';
 export * from './Divider';
 export * from './Fab';
