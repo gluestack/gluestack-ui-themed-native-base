@@ -24,6 +24,7 @@ export const StyledIcon = styled(
 export default styled(
   StyledIcon,
   {
+    textAlign: 'center',
     color: '$muted.500',
     _dark: {
       color: '$muted.400',
