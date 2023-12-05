@@ -1,9 +1,9 @@
-import { Box } from '@gluestack-ui/themed';
+import { Circle } from '@gluestack-ui/themed';
 import React from 'react';
 
-const BoxStory: any = ({}: any) => {
+const CircleStory: any = ({}: any) => {
   return (
-    <Box
+    <Circle
       bg={{
         linearGradient: {
           colors: ['lightBlue.300', 'violet.800'],
@@ -12,8 +12,6 @@ const BoxStory: any = ({}: any) => {
         },
       }}
       p="12"
-      w="72"
-      rounded="xl"
       _text={{
         fontSize: 'md',
         fontWeight: 'medium',
@@ -21,9 +19,9 @@ const BoxStory: any = ({}: any) => {
         textAlign: 'center',
       }}
     >
-      This is a Box with Linear Gradient
-    </Box>
+      This is a Circle with Linear Gradient
+    </Circle>
   );
 };
 
-export default BoxStory;
+export default CircleStory;

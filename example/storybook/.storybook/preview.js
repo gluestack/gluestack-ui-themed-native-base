@@ -104,7 +104,11 @@ export const decorators = [
 
     return (
       <NativeBaseProvider
-        config={config.theme}
+        config={{
+          dependencies: {
+            'linear-gradient': require('expo-linear-gradient').LinearGradient,
+          },
+        }}
         theme={extendTheme({
           colors: {
             // Add new color

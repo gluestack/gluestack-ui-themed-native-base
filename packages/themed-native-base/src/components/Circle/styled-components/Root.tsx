@@ -35,9 +35,24 @@ export default styled(
         },
       },
     },
+    defaultProps: { size: 'lg' },
   },
   {
     componentName: 'Circle',
     descendantStyle: ['_text'],
-  } as const
+    resolveProps: ['colors'],
+  } as const,
+  {
+    propertyTokenMap: {
+      colors: 'colors',
+    },
+    propertyResolver: {
+      colors: (rawValue: any, resolver: any) => {
+        rawValue.forEach((color: any, index: number) => {
+          rawValue[index] = resolver(`$${color}`);
+        });
+        return rawValue;
+      },
+    },
+  }
 );

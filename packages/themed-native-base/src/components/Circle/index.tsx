@@ -7,17 +7,15 @@ import { Text } from '../Text';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType } from '../../types';
 import { HooksContext } from '../Provider';
-import { LinearGradient } from '../LinearGradient';
 
 const CircleTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
   const GUIChildren = Children.map(children, (child) => {
     if (typeof child === 'string') return <Text>{child}</Text>;
     return child;
   });
-  const { config: configDependencies }: any =
-    React.useContext<any>(HooksContext);
+  const { config }: any = React.useContext<any>(HooksContext);
 
-  const Gradient = configDependencies?.['linear-gradient'];
+  const Gradient = config?.['linear-gradient'];
   const resolvedPropForGluestack = usePropResolution(props);
   if (
     props.bg?.linearGradient ||
@@ -50,7 +48,8 @@ const CircleTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
       }
 
       return (
-        <LinearGradient
+        <AccessibleCircle
+          as={Gradient}
           colors={lgrad.colors}
           start={startObj}
           end={endObj}
@@ -59,7 +58,7 @@ const CircleTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
           ref={ref}
         >
           {GUIChildren}
-        </LinearGradient>
+        </AccessibleCircle>
       );
     }
   }
