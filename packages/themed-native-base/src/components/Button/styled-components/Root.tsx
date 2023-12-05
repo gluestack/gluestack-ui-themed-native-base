@@ -57,7 +57,7 @@ export default styled(
           },
           _icon: {
             // @ts-ignore
-            fontSize: 'xl',
+            fontSize: '$xl',
             height: '$5',
             width: '$5',
           },
