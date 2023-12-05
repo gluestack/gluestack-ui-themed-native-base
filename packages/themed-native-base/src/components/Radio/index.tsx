@@ -16,8 +16,10 @@ const AccessibleRadio = createRadio({
 
 const AccessibleRadioGroup = forwardRef(
   ({ children, ...props }: any, ref?: any) => {
-    // const resolvedProps = usePropResolution(props);
-    return <AccessibleRadio.Group children={children} {...props} ref={ref} />;
+    const resolvedProps = usePropResolution(props);
+    return (
+      <AccessibleRadio.Group children={children} {...resolvedProps} ref={ref} />
+    );
   }
 ) as any;
 
@@ -33,11 +35,7 @@ const RadioTemp = forwardRef(
               alignItems="center"
               justifyContent="center"
             >
-              {icon ? (
-                <AccessibleRadio.Icon as={icon} />
-              ) : (
-                <AccessibleRadio.Icon as={CircleIcon} />
-              )}
+              {icon ? icon : <AccessibleRadio.Icon as={CircleIcon} />}
             </AccessibleRadio.Indicator>
             <AccessibleRadio.Label>Label 1</AccessibleRadio.Label>
           </>
