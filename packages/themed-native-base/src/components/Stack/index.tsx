@@ -7,16 +7,16 @@ import { Text } from '../Text';
 type IProps = Omit<React.ComponentProps<typeof AccessibleStack>, 'direction'>;
 
 type StackProps = {
+  divider?: any;
   direction?: React.ComponentProps<typeof AccessibleStack>['flexDirection'];
   space?: React.ComponentProps<typeof AccessibleStack>['gap'];
 };
 
 const StackTemp = forwardRef(
-  ({ children, direction, ...props }: IProps & StackProps, ref?: any) => {
-    const GUIChildren = Children.map(children, (child) => {
-      if (typeof child === 'string') return <Text>{child}</Text>;
-      return child;
-    });
+  (
+    { children, divider, direction, ...props }: IProps & StackProps,
+    ref?: any
+  ) => {
     const resolvedPropForGluestack = usePropResolution(props);
     return (
       <AccessibleStack
@@ -25,7 +25,16 @@ const StackTemp = forwardRef(
         {...resolvedPropForGluestack}
         ref={ref}
       >
-        {GUIChildren}
+        {Children.map(children, (child, index) => {
+          if (index !== 0)
+            return (
+              <>
+                {divider && divider}
+                {typeof child === 'string' ? <Text>{child}</Text> : child}
+              </>
+            );
+          return <>{child}</>;
+        })}
       </AccessibleStack>
     );
   }
