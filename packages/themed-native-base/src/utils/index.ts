@@ -467,8 +467,8 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
     // console.log(tokenAvailable, 'TOKEN AVAILABLE', propertyName);
     if (tokenAvailable === undefined) {
       if (
-        (typeof tokenAvailable === 'number' && !isNaN(tokenAvailable)) ||
-        (typeof tokenAvailable === 'string' && !isNaN(Number(tokenAvailable)))
+        (typeof propValue === 'number' && !isNaN(propValue)) ||
+        (typeof propValue === 'string' && !isNaN(Number(propValue)))
       )
         return Number(propValue);
       return propValue;
