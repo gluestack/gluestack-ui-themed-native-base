@@ -30,6 +30,10 @@ export const config = {
       maxW: 'maxWidth',
       rounded: 'borderRadius',
       space: 'gap',
+      borderTopLeftRadius: 'borderTopLeftRadius',
+      borderTopRightRadius: 'borderTopRightRadius',
+      borderBottomLeftRadius: 'borderBottomLeftRadius',
+      borderBottomRightRadius: 'borderBottomRightRadius',
       roundedTop: ['borderTopLeftRadius', 'borderTopRightRadius'] as any,
       roundedBottom: [
         'borderBottomLeftRadius',
