@@ -57,9 +57,7 @@ export default styled(
             fontSize: '$md',
           },
           _icon: {
-            fontSize: '$xl',
-            height: '$6',
-            width: '$6',
+            props: { size: 'lg' },
           },
         },
         md: {
@@ -69,23 +67,16 @@ export default styled(
             fontSize: '$sm',
           },
           _icon: {
-            // @ts-ignore
-            fontSize: '$md',
-            height: '$5',
-            width: '$5',
+            props: { size: 'md' },
           },
         },
         sm: {
           p: '$2',
           _text: {
-            // @ts-ignore
             fontSize: '$xs',
           },
           _icon: {
-            // @ts-ignore
-            fontSize: '$md',
-            height: '$4',
-            width: '$4',
+            props: { size: 'sm' },
           },
         },
         xs: {
@@ -95,10 +86,7 @@ export default styled(
             fontSize: '$xs',
           },
           _icon: {
-            // @ts-ignore
-            fontSize: '$xs',
-            height: '$3',
-            width: '$3',
+            props: { size: 'xs' },
           },
         },
       },
