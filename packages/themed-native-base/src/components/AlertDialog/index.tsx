@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { forwardRef } from 'react';
 import { createAlertDialog } from '@gluestack-ui/alert-dialog';
 import {

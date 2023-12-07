@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { forwardRef } from 'react';
 import { createModal } from '@gluestack-ui/modal';
 import {

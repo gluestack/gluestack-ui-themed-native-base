@@ -13,6 +13,7 @@ const createIconNB = (props: IParameterTypes, flag: boolean = false) => {
   const Icon = createIcon({ Root, ...props });
   // return Icon;
   //
+  // @ts-ignore
   type ISize = React.ComponentProps<typeof Icon>['size'];
   type IProps = Omit<React.ComponentProps<typeof Icon>, 'size'> & {
     size?: ISize | number;

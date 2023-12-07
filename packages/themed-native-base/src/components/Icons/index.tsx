@@ -12,6 +12,7 @@ const IconTemp = forwardRef(
   (
     {
       children,
+      // @ts-ignore
       as,
       viewBox,
       ...props
