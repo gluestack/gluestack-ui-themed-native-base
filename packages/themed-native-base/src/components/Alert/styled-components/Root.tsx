@@ -5,12 +5,13 @@ import { ColorSchemeResolver } from '../../../plugins/colorScheme/colorScheme';
 export default styled(
   View,
   {
-    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'flex-start',
+    space: 3,
     flexShrink: 1,
-    // @ts-ignore
     borderRadius: '$sm',
     padding: '$3',
+    _icon: { props: { size: 'sm' } },
 
     variants: {
       variant: {

@@ -1,46 +1,63 @@
 import React from 'react';
-import { Center } from '@gluestack-ui/themed';
 
-import { Alert, Text } from '@gluestack-ui/themed';
 import {
-  AlertCircleIcon,
-  InfoIcon,
-  CheckCircle2Icon,
-  XCircleIcon,
-} from 'lucide-react-native';
+  Alert,
+  Text,
+  Stack,
+  VStack,
+  HStack,
+  IconButton,
+  CloseIcon,
+} from '@gluestack-ui/themed';
 
-function AlertVariants({ variant }: any) {
+function AlertVariants() {
+  const statusArray = [
+    {
+      status: 'success',
+      title: 'Selection successfully moved!',
+    },
+    {
+      status: 'error',
+      title: 'Please try again later!',
+    },
+    {
+      status: 'info',
+      title: 'We are going live in July!',
+    },
+    {
+      status: 'warning',
+      title: 'Poor internet connection.',
+    },
+  ];
   return (
-    <Center>
-      <Alert status="info" variant={variant} mb={4}>
-        <Alert.Icon as={InfoIcon} mr="3" />
-        <Text>
-          Unlock the power of knowledge with the following information.
-        </Text>
-      </Alert>
-      <Alert status="success" variant={variant} mb={4}>
-        <Alert.Icon as={CheckCircle2Icon} mr="3" />
-        <Text>
-          Boom! You did it! Please take a moment to pat yourself on the back.
-          You've earned it! Boom! You did it! Please take a moment to pat
-          yourself on the back. You've earned it!
-        </Text>
-      </Alert>
-      <Alert status="error" variant={variant} mb={4}>
-        <Alert.Icon as={XCircleIcon} mr="$3" />
-        <Text>
-          Uh-oh! It looks like the matrix has glitched. Our team of tech ninjas
-          are already on the case. Please hold tight while we fix the issue
-        </Text>
-      </Alert>
-      <Alert status="warning" variant={variant} mb={4}>
-        <Alert.Icon as={AlertCircleIcon} mr="$3" />
-        <Text>
-          Warning: Reading the following content may cause spontaneous outbursts
-          of 'aha!' moments
-        </Text>
-      </Alert>
-    </Center>
+    <Stack space={3} w="100%" maxW="400">
+      {statusArray.map((status) => {
+        return (
+          <Alert w="100%" status={status.status}>
+            <VStack space={2} flexShrink={1} w="100%">
+              <HStack flexShrink={1} space={2} justifyContent="space-between">
+                <HStack space={2} flexShrink={1}>
+                  <Alert.Icon mt="1" />
+                  <Text fontSize="md" color="coolGray.800">
+                    {status.title}
+                  </Text>
+                </HStack>
+                <IconButton
+                  variant="unstyled"
+                  _focus={{
+                    borderWidth: 0,
+                  }}
+                  icon={<CloseIcon size="3" />}
+                  _icon={{
+                    color: 'coolGray.600',
+                  }}
+                />
+              </HStack>
+            </VStack>
+          </Alert>
+        );
+      })}
+    </Stack>
   );
 }
 
