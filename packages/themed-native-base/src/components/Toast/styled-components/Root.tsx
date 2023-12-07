@@ -5,9 +5,7 @@ export default styled(
   View,
   {
     padding: '$2',
-    // @ts-ignore
     rounded: '$sm',
-    m: '$3',
     backgroundColor: `$muted.700`,
     _dark: {
       backgroundColor: `$muted.600`,
@@ -17,9 +15,6 @@ export default styled(
       props: {
         pointerEvents: 'auto',
       },
-    },
-    defaultProps: {
-      shadow: '6',
     },
   },
   {

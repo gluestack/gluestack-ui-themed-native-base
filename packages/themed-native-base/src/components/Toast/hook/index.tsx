@@ -2,6 +2,8 @@ import { createToastHook } from '@gluestack-ui/toast';
 import { Root } from '../../Box/styled-components';
 import React from 'react';
 import { Toast } from '..';
+import { AnimatePresence } from '@gluestack-style/animation-resolver';
+import { AnimationWrapper } from '../styled-components';
 
 export function useToast() {
   type IShowParams = Parameters<typeof useOldToast.show>[0] & {
@@ -11,7 +13,7 @@ export function useToast() {
 
   type ISXProps = React.ComponentProps<typeof Root>['sx'];
 
-  const useOldToast = createToastHook()();
+  const useOldToast = createToastHook(AnimationWrapper, AnimatePresence)();
 
   const close = useOldToast.close;
   const closeAll = useOldToast.closeAll;
