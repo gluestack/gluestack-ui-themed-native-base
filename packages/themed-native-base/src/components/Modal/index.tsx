@@ -14,7 +14,6 @@ import { Text } from '../Text';
 import { CloseIcon } from '../Icons';
 import { GenericComponentType } from '../../types';
 import { AnimatePresence } from '@gluestack-style/animation-resolver';
-import { Button } from '../Button';
 
 const AccessibleModal = createModal({
   Root,
