@@ -155,15 +155,15 @@ function colorSchemeResolveFn({ ...props }: any) {
     const color = props.colorScheme;
 
     const value = {
-      'props': { trackColor: { true: `${color}.600` } },
+      'props': { trackColor: { true: `$${color}.600` } },
       ':hover': {
-        props: { trackColor: { true: `${color}.700` } },
+        props: { trackColor: { true: `$${color}.700` } },
       },
 
       '_dark': {
-        'props': { trackColor: { true: `${color}.500` } },
+        'props': { trackColor: { true: `$${color}.500` } },
         ':hover': {
-          props: { trackColor: { true: `${color}.400` } },
+          props: { trackColor: { true: `$${color}.400` } },
         },
       },
     };

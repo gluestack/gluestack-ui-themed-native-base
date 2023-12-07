@@ -1,30 +1,20 @@
 import React from 'react';
-import {
-  Button,
-  ButtonText,
-  Toast,
-  ToastTitle,
-  useToast,
-} from '@gluestack-ui/themed';
+import { Button, useToast } from '@gluestack-ui/themed';
 
-const Basic = ({ placement = 'top', ...props }: any) => {
+const Basic = ({ placement = 'top' }: any) => {
   const toast = useToast();
   return (
     <Button
       onPress={() => {
         toast.show({
+          id: 'idTest',
+          title: 'ID: idTest',
+          description: 'Hello World Toast idTest',
           placement: placement,
-          render: ({ id }) => {
-            return (
-              <Toast nativeId={id} {...props}>
-                <ToastTitle>Hello World Toast {id}</ToastTitle>
-              </Toast>
-            );
-          },
         });
       }}
     >
-      <ButtonText>Press Me</ButtonText>
+      Press Me
     </Button>
   );
 };

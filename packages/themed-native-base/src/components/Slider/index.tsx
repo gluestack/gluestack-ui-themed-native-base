@@ -30,9 +30,13 @@ const SliderTemp = forwardRef(
   }
 ) as any;
 
-const SliderThumbTemp = forwardRef(({ ...props }: any, ref?: any) => {
+const SliderThumbTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
   const resolvedProps = usePropResolution(props);
-  return <AccessibleSlider.Thumb {...resolvedProps} ref={ref} />;
+  return (
+    <AccessibleSlider.Thumb {...resolvedProps} ref={ref}>
+      {children}
+    </AccessibleSlider.Thumb>
+  );
 }) as any;
 
 const SliderTrackTemp = forwardRef(({ children, ...props }: any, ref?: any) => {

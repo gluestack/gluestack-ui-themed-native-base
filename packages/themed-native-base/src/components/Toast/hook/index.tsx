@@ -2,20 +2,22 @@ import { createToastHook } from '@gluestack-ui/toast';
 import { Root } from '../../Box/styled-components';
 import React from 'react';
 import { Toast } from '..';
+import { AnimatePresence } from '@gluestack-style/animation-resolver';
+import { AnimationWrapper } from '../styled-components';
 
 export function useToast() {
-  type IShowParams = Parameters<typeof useOldToast.show>[0] & {
+  type IShowParams = Parameters<typeof toast.show>[0] & {
     title?: string;
     description?: string;
   };
 
   type ISXProps = React.ComponentProps<typeof Root>['sx'];
 
-  const useOldToast = createToastHook()();
+  const toast = createToastHook(AnimationWrapper, AnimatePresence)();
 
-  const close = useOldToast.close;
-  const closeAll = useOldToast.closeAll;
-  const isActive = useOldToast.isActive;
+  const close = toast.close;
+  const closeAll = toast.closeAll;
+  const isActive = toast.isActive;
   const show = ({
     title,
     description,
@@ -28,7 +30,8 @@ export function useToast() {
   }: IShowParams &
     ISXProps & { _title?: ISXProps; _description?: ISXProps }) => {
     if (render)
-      useOldToast.show({
+      toast.show({
+        containerStyle: { ...props },
         duration,
         id: IDbyUser,
         onCloseComplete,
@@ -46,8 +49,9 @@ export function useToast() {
           </Toast>
         );
       };
-      useOldToast.show({
+      toast.show({
         duration,
+        containerStyle: { ...props },
         id: IDbyUser,
         onCloseComplete,
         placement,

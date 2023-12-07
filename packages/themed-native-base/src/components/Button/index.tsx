@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React, { forwardRef } from 'react';
 import { createButton } from '@gluestack-ui/button';
-import { Root, Text, Group, Spinner, Icon } from './styled-components';
+import { Root, Group, Spinner, Text, Icon } from './styled-components';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType, IColorSchemes } from '../../types';
 
@@ -29,15 +30,6 @@ function getLoadingProps(props: any) {
   }
 }
 
-function getActiveStateProps(props: any) {
-  const sxProps = props?.sx;
-  if (sxProps[':pressed']) {
-    return sxProps[':pressed'];
-  } else {
-    return {};
-  }
-}
-
 const NewButton = forwardRef(
   (
     {
@@ -58,7 +50,6 @@ const NewButton = forwardRef(
   ) => {
     const resolvedPropForGluestack = usePropResolution(props);
     const loadingProps = getLoadingProps(resolvedPropForGluestack);
-    // const activeStateProps = getActiveStateProps(resolvedPropForGluestack);
     return (
       <AccessibleButton
         colorScheme={colorScheme}
@@ -67,7 +58,6 @@ const NewButton = forwardRef(
         ref={ref}
         isDisabled={isLoading || isDisabled}
         {...(isLoading && loadingProps)}
-        // {...(activeStateProps && { ':active': activeStateProps })}
       >
         {!isLoading && ((leftIcon && leftIcon) ?? (startIcon && startIcon))}
         {isLoading && spinnerPlacement === 'start' && (
@@ -76,7 +66,7 @@ const NewButton = forwardRef(
         {isLoading ? (
           isLoadingText && (
             <AccessibleButton.Text
-              {...(loadingProps['_text'] && loadingProps['_text'])}
+              {...(loadingProps._text && loadingProps._text)}
             >
               {isLoadingText}
             </AccessibleButton.Text>

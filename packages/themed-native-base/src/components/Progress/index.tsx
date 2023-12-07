@@ -10,7 +10,7 @@ const AccessibleProgress = createProgress({
 });
 
 const ProgressTemp = forwardRef(
-  ({ colorScheme = 'primary', ...props }: any, ref?: any) => {
+  ({ children, colorScheme = 'primary', ...props }: any, ref?: any) => {
     const resolvedProps = usePropResolution(props);
     return (
       <AccessibleProgress
@@ -18,7 +18,9 @@ const ProgressTemp = forwardRef(
         {...resolvedProps}
         ref={ref}
       >
-        <AccessibleProgress.FilledTrack />
+        <AccessibleProgress.FilledTrack>
+          {children}
+        </AccessibleProgress.FilledTrack>
       </AccessibleProgress>
     );
   }

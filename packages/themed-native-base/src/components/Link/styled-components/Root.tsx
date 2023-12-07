@@ -4,7 +4,8 @@ import { Pressable } from 'react-native';
 export default styled(
   Pressable,
   {
-    _text: {
+    flexDirection: 'row',
+    _textLink: {
       textDecorationLine: 'underline',
     },
     _web: {
@@ -14,7 +15,7 @@ export default styled(
     },
   },
   {
-    componentName: 'Link',
-    descendantStyle: ['_text'],
+    componentName: 'LinkText',
+    descendantStyle: ['_textLink'],
   } as const
 );

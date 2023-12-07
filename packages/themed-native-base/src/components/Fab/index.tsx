@@ -10,7 +10,14 @@ type IFabProps = { label?: string; icon?: any };
 
 const FabTemp = forwardRef(
   (
-    { colorScheme = 'primary', variant = 'solid', icon, label, ...props }: any,
+    {
+      colorScheme = 'primary',
+      variant = 'solid',
+      placement,
+      icon,
+      label,
+      ...props
+    }: any,
     ref?: any
   ) => {
     const resolvedPropForGluestack = usePropResolution(props);
@@ -18,6 +25,7 @@ const FabTemp = forwardRef(
       <AccessibleFab
         colorScheme={colorScheme}
         variant={variant}
+        placement={placement}
         {...resolvedPropForGluestack}
         ref={ref}
       >

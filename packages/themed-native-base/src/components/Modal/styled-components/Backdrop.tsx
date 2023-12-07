@@ -32,11 +32,7 @@ export default styled(
     'top': 0,
     'right': 0,
     'bottom': 0,
-    // @ts-ignore
-    'bg': '$light.100',
-    '_dark': {
-      backgroundColor: '$light.900',
-    },
+    'bg': 'black',
     '_web': {
       cursor: 'default',
     },

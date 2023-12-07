@@ -1,5 +1,4 @@
-import { Root } from './styled-components';
-import { Text } from '../Text';
+import { Root, Text } from './styled-components';
 import { createLink } from '@gluestack-ui/link';
 import { forwardRef } from 'react';
 import React from 'react';
@@ -12,15 +11,15 @@ const AccessibleLink = createLink({
 });
 
 export const Link = forwardRef(
-  (
-    { children, ...props }: React.ComponentProps<typeof AccessibleLink>,
-    ref?: any
-  ) => {
+  ({ children, _text, ...props }: any, ref?: any) => {
     const resolvedProps = usePropResolution(props);
+    const resolvedPropsText = usePropResolution(_text);
     return (
       <AccessibleLink {...resolvedProps} ref={ref}>
         {typeof children === 'string' ? (
-          <AccessibleLink.Text>{children}</AccessibleLink.Text>
+          <AccessibleLink.Text {...resolvedPropsText}>
+            {children}
+          </AccessibleLink.Text>
         ) : (
           children
         )}

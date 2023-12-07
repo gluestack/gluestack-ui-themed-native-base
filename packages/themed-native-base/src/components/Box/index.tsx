@@ -7,20 +7,16 @@ import { Text } from '../Text';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType } from '../../types';
 import { HooksContext } from '../Provider';
-// import { getColor } from '../../utils';
-// import { styled } from '@gluestack-style/react';
-import { LinearGradient } from '../LinearGradient';
 
 const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
   const GUIChildren = Children.map(children, (child) => {
     if (typeof child === 'string') return <Text>{child}</Text>;
     return child;
   });
-  const { config: configDependencies }: any =
-    React.useContext<any>(HooksContext);
-
-  const Gradient = configDependencies?.['linear-gradient'];
   const resolvedPropForGluestack = usePropResolution(props);
+
+  const { config }: any = React.useContext<any>(HooksContext);
+  const Gradient = config?.['linear-gradient'];
   if (
     props.bg?.linearGradient ||
     props.background?.linearGradient ||
@@ -33,7 +29,7 @@ const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
       props.bgColor?.linearGradient ||
       props.backgroundColor?.linearGradient;
 
-    delete resolvedPropForGluestack['sx']['@linearGradient'];
+    delete resolvedPropForGluestack.sx['@linearGradient'];
 
     if (Gradient) {
       let startObj = { x: 0, y: 0 };
@@ -52,7 +48,8 @@ const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
       }
 
       return (
-        <LinearGradient
+        <AccessibleBox
+          as={Gradient}
           colors={lgrad.colors}
           start={startObj}
           end={endObj}
@@ -61,7 +58,7 @@ const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
           ref={ref}
         >
           {GUIChildren}
-        </LinearGradient>
+        </AccessibleBox>
       );
     }
   }

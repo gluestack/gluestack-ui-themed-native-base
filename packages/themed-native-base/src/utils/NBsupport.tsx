@@ -54,7 +54,7 @@ function hexToRgba(hex: any, alpha: any) {
 export function resolveAlphaColors(rawValue: any, resolver: any) {
   if (typeof rawValue === 'string' && rawValue.includes(':alpha.')) {
     const opacity = resolver(rawValue.split(':alpha.')[1], 'opacity');
-    const value = rawValue.split(':alpha-')[0];
+    const value = rawValue.split(':alpha.')[0];
     return hexToRgba(resolver(value), opacity);
   } else {
     return resolver(rawValue);

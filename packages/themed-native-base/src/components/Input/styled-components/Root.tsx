@@ -128,7 +128,7 @@ export default styled(
           // height: '$12',
           _input: {
             // @ts-ignore
-            fontSize: '$2xl',
+            fontSize: '$xl',
           },
           _icon: {
             height: '$6',
@@ -139,7 +139,7 @@ export default styled(
           // height: '$12',
           _input: {
             // @ts-ignore
-            fontSize: '$xl',
+            fontSize: '$lg',
           },
           _icon: {
             height: '$6',
@@ -150,7 +150,7 @@ export default styled(
           // height: '$11',
           _input: {
             // @ts-ignore
-            fontSize: '$lg',
+            fontSize: '$md',
           },
           _icon: {
             height: '$5',
@@ -161,7 +161,7 @@ export default styled(
           // height: '$10',
           _input: {
             // @ts-ignore
-            fontSize: '$md',
+            fontSize: '$sm',
           },
           _icon: {
             height: '$4',
@@ -172,7 +172,7 @@ export default styled(
           // height: '$9',
           _input: {
             // @ts-ignore
-            fontSize: '$sm',
+            fontSize: '$xs',
           },
           _icon: {
             height: '$3.5',
@@ -183,7 +183,7 @@ export default styled(
           // height: '$9',
           _input: {
             // @ts-ignore
-            fontSize: '$xs',
+            fontSize: '$2xs',
           },
           _icon: {
             height: '$3',
@@ -293,7 +293,7 @@ export default styled(
     },
 
     'defaultProps': {
-      size: 'md',
+      size: 'sm',
       variant: 'outline',
     },
   },

@@ -28,7 +28,9 @@ const NativeBaseProvider = ({
   ...props
 }: any) => {
   const _enableRem = config?.enableRem ?? true;
-  const [colorModeNEW, setColorMode] = useState('light');
+  const [colorModeNEW, setColorMode] = useState(
+    theme?.config?.initialColorMode ?? 'light'
+  );
 
   const gluestackCompatibleTheme = convertTheme(theme);
   const mergedTheme = theme
@@ -41,7 +43,6 @@ const NativeBaseProvider = ({
     }
     return mergedTheme;
   }, [_enableRem, mergedTheme]);
-
   return (
     <HooksContext.Provider
       value={{

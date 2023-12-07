@@ -18,7 +18,9 @@ const SizeTextStory = () => {
   return (
     <Center>
       {sizes.map((size: any) => (
-        <Text size={size}>{size}</Text>
+        <Text fontSize={size} key={size}>
+          {size}
+        </Text>
       ))}
     </Center>
   );

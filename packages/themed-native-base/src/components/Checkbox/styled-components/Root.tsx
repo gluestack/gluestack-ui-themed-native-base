@@ -5,12 +5,20 @@ import { ColorSchemeResolver } from '../../../plugins/colorScheme/colorScheme';
 export default styled(
   Pressable,
   {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    gap: 16,
+    'flexDirection': 'row',
+    'justifyContent': 'flex-start',
+    'alignItems': 'center',
+    'gap': '$4',
+    ':checked': {
+      _icon: {
+        color: '$muted.50',
+        _dark: {
+          color: '$muted.900',
+        },
+      },
+    },
 
-    variants: {
+    'variants': {
       size: {
         lg: {
           _text: {
@@ -52,7 +60,7 @@ export default styled(
         },
       },
     },
-    defaultProps: {
+    'defaultProps': {
       size: 'md',
     },
   },

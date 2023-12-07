@@ -5,7 +5,7 @@ export default styled(
   StyledIcon,
   {
     props: {
-      size: 'md',
+      size: 'sm',
     },
   },
   {

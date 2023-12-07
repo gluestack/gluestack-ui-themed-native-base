@@ -25,7 +25,7 @@ function resolveProps(props: any, flag: any) {
         fontSize: props.size,
       };
     }
-    props = { ...sizeProp, ...props };
+    props = { ...props, ...sizeProp };
     props = getFlattendMultiAliasesProps(props, styledContext.config); // Flattens aliases that contains array of strings, like roundedTop or roundedLeft etc.
     const propsWithDollarSigns = addDollarSignsToProps(
       props,

@@ -4,6 +4,8 @@ import { View } from 'react-native';
 export default styled(
   View,
   {
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '$primary.600',
     _dark: {
       backgroundColor: '$primary.400',

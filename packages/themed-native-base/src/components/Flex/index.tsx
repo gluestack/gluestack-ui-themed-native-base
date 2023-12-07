@@ -43,3 +43,7 @@ export type IFlexComponentType<Flex> = GenericComponentType<
 >;
 
 export const Flex = FlexTemp as IFlexComponentType<typeof AccessibleFlex>;
+
+export const Spacer = forwardRef(({ ...props }: any, ref?: any) => (
+  <Flex flexGrow={1} {...props} ref={ref} />
+));

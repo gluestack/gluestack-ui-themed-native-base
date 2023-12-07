@@ -17,7 +17,7 @@ export default styled(
     },
     '_dark': {
       ':checked': {
-        color: `muted.900`,
+        color: `$muted.900`,
       },
       ':disabled': {
         opacity: 0.4,

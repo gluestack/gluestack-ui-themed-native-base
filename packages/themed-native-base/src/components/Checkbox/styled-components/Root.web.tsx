@@ -8,8 +8,15 @@ export default styled(
     'flexDirection': 'row',
     'justifyContent': 'flex-start',
     'alignItems': 'center',
-    //@ts-ignore
     'gap': '$4',
+    ':checked': {
+      _icon: {
+        color: '$muted.50',
+        _dark: {
+          color: '$muted.900',
+        },
+      },
+    },
 
     ':disabled': {
       _web: {
