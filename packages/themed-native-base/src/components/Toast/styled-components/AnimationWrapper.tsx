@@ -1,10 +1,20 @@
 import { styled } from '@gluestack-style/react';
-import { AnimatedView } from '@gluestack-style/animation-resolver';
+import { MotionAnimationDriver } from '@gluestack-style/legend-motion-animation-driver';
+import {
+  AnimationResolver,
+  AnimatedView,
+} from '@gluestack-style/animation-resolver';
+
 export default styled(
   AnimatedView,
   {
     m: '$3',
-    backgroundColor: 'white',
+    padding: '$2',
+    backgroundColor: `$muted.700`,
+    _dark: {
+      backgroundColor: `$muted.600`,
+    },
+
     borderRadius: '$sm',
     flexDirection: 'row',
     _web: {
@@ -16,5 +26,8 @@ export default styled(
   },
   {
     componentName: 'ToastAnimationWrapper',
-  } as const
+  } as const,
+  {
+    plugins: [new AnimationResolver(MotionAnimationDriver)],
+  }
 );
