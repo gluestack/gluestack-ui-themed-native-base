@@ -99,16 +99,26 @@ const IconStory = () => {
         </Icon>
         <Text color="grey">svg-Child</Text>
       </VStack>
-      <VStack space="sm">
-        <Icon w="$4" h="$4">
-          {AddIcon}
-        </Icon>
-        <Text color="grey">Icon-Child</Text>
-      </VStack>
-      {iconsList.map((child, index) => (
+      <HStack space="sm">
+        <VStack space="sm">
+          <Icon w="$4" h="$4">
+            <AddIcon />
+          </Icon>
+          <Text color="grey">Icon-Child</Text>
+        </VStack>
+        <VStack space="sm">
+          <Icon as={<AddIcon />} w="$4" h="$4" />
+          <Text color="grey">Icon-Child</Text>
+        </VStack>
+        <VStack space="sm">
+          <AddIcon w="$10" h="$10" />
+          <Text color="grey">Icon-Child</Text>
+        </VStack>
+      </HStack>
+      {iconsList.map((Child, index) => (
         <VStack space="sm" key={index}>
-          <Icon as={child} w="$4" h="$4" />
-          <Text color="grey">{child.displayName}</Text>
+          <Child w="$4" h="$4" />
+          <Text color="grey">{Child.displayName}</Text>
         </VStack>
       ))}
     </HStack>
