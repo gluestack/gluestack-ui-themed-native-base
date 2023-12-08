@@ -61,6 +61,7 @@ const IconTemp = forwardRef(
         return cloneElement(IconForward, {
           ...propsResolved,
           ...sizeStyle,
+          ...sizeProp,
         });
       };
     }
