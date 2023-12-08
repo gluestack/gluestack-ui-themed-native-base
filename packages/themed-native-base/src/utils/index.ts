@@ -3,6 +3,7 @@ import get from 'lodash.get';
 import cloneDeep from 'lodash.clonedeep';
 // @ts-ignore
 import Color from 'tinycolor2';
+export * from './stablehash';
 
 export const CSSPropertiesMap = {
   alignContent: 'stretch',
