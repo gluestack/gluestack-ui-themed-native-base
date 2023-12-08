@@ -9,7 +9,8 @@ const StackStory = ({ space, reversed, direction }: any) => {
       space={space}
       mt="5"
       //@ts-ignore
-      direction={flexDirection}
+      // direction={flexDirection}
+      direction={['column', 'row', flexDirection]}
     >
       <Box w={100} h={100} bg="success.500" />
       <Box w={100} h={100} bg="blue.400" />

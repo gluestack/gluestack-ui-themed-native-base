@@ -1,11 +1,11 @@
 import { useStyled } from '@gluestack-style/react';
-import { useMemo } from 'react';
+// import { useMemo } from 'react';
 
 import {
   addDollarSignsToProps,
   convertToSXForStateColorModeMediaQuery,
   getFlattendMultiAliasesProps,
-  stableHash,
+  // stableHash,
 } from '../utils';
 
 function resolveProps(props: any, flag: any, styledContext: any) {
@@ -69,9 +69,8 @@ function resolveProps(props: any, flag: any, styledContext: any) {
 
 export function usePropResolution(props: any, flag: boolean = false) {
   const styledContext = useStyled();
-  const check = stableHash(props);
-  return useMemo(() => {
-    return resolveProps(props, flag, styledContext);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [check, props, flag, styledContext]);
+  // const check = stableHash(props);
+  // return useMemo(() => {
+  return resolveProps(props, flag, styledContext);
+  // }, [, props, flag, styledContext]);
 }

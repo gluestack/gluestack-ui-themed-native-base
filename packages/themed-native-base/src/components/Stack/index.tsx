@@ -17,10 +17,10 @@ const StackTemp = forwardRef(
     { children, divider, direction, ...props }: IProps & StackProps,
     ref?: any
   ) => {
+    props.flexDirection = props.flexDirection ?? direction;
     const resolvedPropForGluestack = usePropResolution(props);
     return (
       <AccessibleStack
-        flexDirection={direction}
         gap={resolvedPropForGluestack.space}
         {...resolvedPropForGluestack}
         ref={ref}
