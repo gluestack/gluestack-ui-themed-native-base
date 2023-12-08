@@ -23,6 +23,20 @@ const IconTemp = forwardRef(
     const resolvedProps = usePropResolution(props);
     const { size } = resolvedProps;
     const tokenizedFontSize = useToken('space', size);
+    let sizeStyle = {};
+    let sizeProp = {};
+    if (
+      size &&
+      ((typeof size === 'number' && !isNaN(size)) ||
+        (typeof size === 'string' && !isNaN(Number(size))))
+    ) {
+      sizeStyle = {
+        fontSize: tokenizedFontSize,
+        lineHeight: tokenizedFontSize,
+      };
+    } else {
+      sizeProp = { size: size };
+    }
 
     let IconForward: any;
     let ClonedIcon: any;
@@ -46,8 +60,7 @@ const IconTemp = forwardRef(
       ClonedIcon = (propsResolved: any) => {
         return cloneElement(IconForward, {
           ...propsResolved,
-          fontSize: tokenizedFontSize,
-          lineHeight: tokenizedFontSize,
+          ...sizeStyle,
         });
       };
     }
@@ -56,10 +69,8 @@ const IconTemp = forwardRef(
       <AccessibleIcon
         as={ClonedIcon ?? IconForward}
         {...resolvedProps}
-        style={{
-          fontSize: tokenizedFontSize,
-          lineHeight: tokenizedFontSize,
-        }}
+        {...sizeProp}
+        style={sizeStyle}
         ref={ref}
       />
     );
