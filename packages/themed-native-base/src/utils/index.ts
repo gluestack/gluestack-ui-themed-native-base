@@ -382,7 +382,6 @@ export function renamePseudoClasses(obj: any) {
 function convertResponsiveToPseudoClasses(obj: any, config: any) {
   const newObj = {};
   //@ts-ignore
-  // newObj.props = {};
   for (const key in obj) {
     const propName = key;
     const propValue = obj[key];
@@ -395,8 +394,10 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
           //TODO: fix this ts-ignore
           //@ts-ignore
           if (newObj[`@${breakPointsKeys[index]}`]) {
+            //@ts-ignore
             newObj[`@${breakPointsKeys[index]}`][propName] = value;
           } else {
+            //@ts-ignore
             newObj[`@${breakPointsKeys[index]}`] = { [propName]: value };
           }
         });
@@ -406,10 +407,11 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
         Object.keys(propValue).forEach((value) => {
           //TODO: fix this ts-ignore
           //@ts-ignore
-
           if (newObj[`@${value}`]) {
+            //@ts-ignore
             newObj[`@${value}`][propName] = propValue[value];
           } else {
+            //@ts-ignore
             newObj[`@${value}`] = { [propName]: propValue[value] };
           }
         });
