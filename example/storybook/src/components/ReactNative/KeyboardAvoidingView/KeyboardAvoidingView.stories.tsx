@@ -5,7 +5,7 @@ export const KeyboardAvoidingView = () => {
   return <Example />;
 };
 const KeyboardAvoidingViewMeta: ComponentMeta<typeof KeyboardAvoidingView> = {
-  title: 'stories/React Native/KeyboardAvoidingView',
+  title: 'stories/REACT NATIVE/KeyboardAvoidingView',
   component: KeyboardAvoidingView,
 };
 

@@ -5,7 +5,7 @@ export const View = () => {
   return <Example />;
 };
 const ViewMeta: ComponentMeta<typeof View> = {
-  title: 'stories/React Native/View',
+  title: 'stories/REACT NATIVE/View',
   component: View,
 };
 

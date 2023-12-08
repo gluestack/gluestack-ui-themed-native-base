@@ -5,7 +5,7 @@ export const ScrollView = () => {
   return <Example />;
 };
 const ScrollViewMeta: ComponentMeta<typeof ScrollView> = {
-  title: 'stories/React Native/ScrollView',
+  title: 'stories/REACT NATIVE/ScrollView',
   component: ScrollView,
 };
 
