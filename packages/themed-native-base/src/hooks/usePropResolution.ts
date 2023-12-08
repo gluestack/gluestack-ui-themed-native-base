@@ -69,8 +69,9 @@ function resolveProps(props: any, flag: any, styledContext: any) {
 
 export function usePropResolution(props: any, flag: boolean = false) {
   const styledContext = useStyled();
+  const check = stableHash(props);
   return useMemo(() => {
     return resolveProps(props, flag, styledContext);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stableHash(props), flag, styledContext]);
+  }, [check, props, flag, styledContext]);
 }
