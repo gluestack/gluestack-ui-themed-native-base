@@ -5,12 +5,11 @@ import {
   addDollarSignsToProps,
   convertToSXForStateColorModeMediaQuery,
   getFlattendMultiAliasesProps,
+  stableHash,
 } from '../utils';
 
-function resolveProps(props: any, flag: any) {
+function resolveProps(props: any, flag: any, styledContext: any) {
   if (flag) return props;
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const styledContext = useStyled();
 
   if (props) {
     let sizeProp = {};
@@ -22,7 +21,6 @@ function resolveProps(props: any, flag: any) {
       sizeProp = {
         height: props.size,
         width: props.size,
-        fontSize: props.size,
       };
     }
     props = { ...props, ...sizeProp };
@@ -70,7 +68,9 @@ function resolveProps(props: any, flag: any) {
 }
 
 export function usePropResolution(props: any, flag: boolean = false) {
+  const styledContext = useStyled();
   return useMemo(() => {
-    return resolveProps(props, flag);
-  }, [props, flag]);
+    return resolveProps(props, flag, styledContext);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stableHash(props), flag, styledContext]);
 }

@@ -3,6 +3,7 @@ import get from 'lodash.get';
 import cloneDeep from 'lodash.clonedeep';
 // @ts-ignore
 import Color from 'tinycolor2';
+export * from './stablehash';
 
 export const CSSPropertiesMap = {
   alignContent: 'stretch',
@@ -381,7 +382,6 @@ export function renamePseudoClasses(obj: any) {
 function convertResponsiveToPseudoClasses(obj: any, config: any) {
   const newObj = {};
   //@ts-ignore
-  // newObj.props = {};
   for (const key in obj) {
     const propName = key;
     const propValue = obj[key];
@@ -393,7 +393,13 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
         propValue.forEach((value, index) => {
           //TODO: fix this ts-ignore
           //@ts-ignore
-          newObj[`@${breakPointsKeys[index]}`] = { [propName]: value };
+          if (newObj[`@${breakPointsKeys[index]}`]) {
+            //@ts-ignore
+            newObj[`@${breakPointsKeys[index]}`][propName] = value;
+          } else {
+            //@ts-ignore
+            newObj[`@${breakPointsKeys[index]}`] = { [propName]: value };
+          }
         });
       } else if (typeof propValue === 'object' && !propName.startsWith('_')) {
         // const breakPoints = config.tokens.breakpoints;
@@ -401,7 +407,13 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
         Object.keys(propValue).forEach((value) => {
           //TODO: fix this ts-ignore
           //@ts-ignore
-          newObj[`@${value}`] = { [propName]: propValue[value] };
+          if (newObj[`@${value}`]) {
+            //@ts-ignore
+            newObj[`@${value}`][propName] = propValue[value];
+          } else {
+            //@ts-ignore
+            newObj[`@${value}`] = { [propName]: propValue[value] };
+          }
         });
       } else if (typeof propValue === 'object') {
         //TODO: fix this ts-ignore

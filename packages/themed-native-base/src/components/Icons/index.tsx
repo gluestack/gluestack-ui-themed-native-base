@@ -3,6 +3,7 @@ import React, { cloneElement, forwardRef, isValidElement } from 'react';
 import { Root, createIcon } from './styled-components';
 import { GenericComponentType } from '../../types';
 import { usePropResolution } from '../../hooks/usePropResolution';
+import { useToken } from '../../hooks';
 
 const AccessibleIcon = createIconUI({
   Root: Root,
@@ -20,6 +21,9 @@ const IconTemp = forwardRef(
     ref?: any
   ) => {
     const resolvedProps = usePropResolution(props);
+    const { size } = resolvedProps;
+    const tokenizedFontSize = useToken('space', size);
+
     let IconForward: any;
     let ClonedIcon: any;
     if (as) {
@@ -42,13 +46,20 @@ const IconTemp = forwardRef(
       ClonedIcon = (propsResolved: any) => {
         return cloneElement(IconForward, {
           ...propsResolved,
+          fontSize: tokenizedFontSize,
+          lineHeight: tokenizedFontSize,
         });
       };
     }
+
     return (
       <AccessibleIcon
         as={ClonedIcon ?? IconForward}
         {...resolvedProps}
+        style={{
+          fontSize: tokenizedFontSize,
+          lineHeight: tokenizedFontSize,
+        }}
         ref={ref}
       />
     );
