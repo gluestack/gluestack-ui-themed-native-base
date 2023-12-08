@@ -394,7 +394,11 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
         propValue.forEach((value, index) => {
           //TODO: fix this ts-ignore
           //@ts-ignore
-          newObj[`@${breakPointsKeys[index]}`] = { [propName]: value };
+          if (newObj[`@${breakPointsKeys[index]}`]) {
+            newObj[`@${breakPointsKeys[index]}`][propName] = value;
+          } else {
+            newObj[`@${breakPointsKeys[index]}`] = { [propName]: value };
+          }
         });
       } else if (typeof propValue === 'object' && !propName.startsWith('_')) {
         // const breakPoints = config.tokens.breakpoints;
@@ -402,7 +406,12 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
         Object.keys(propValue).forEach((value) => {
           //TODO: fix this ts-ignore
           //@ts-ignore
-          newObj[`@${value}`] = { [propName]: propValue[value] };
+
+          if (newObj[`@${value}`]) {
+            newObj[`@${value}`][propName] = propValue[value];
+          } else {
+            newObj[`@${value}`] = { [propName]: propValue[value] };
+          }
         });
       } else if (typeof propValue === 'object') {
         //TODO: fix this ts-ignore

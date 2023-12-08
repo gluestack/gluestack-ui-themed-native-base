@@ -21,7 +21,6 @@ function resolveProps(props: any, flag: any, styledContext: any) {
       sizeProp = {
         height: props.size,
         width: props.size,
-        fontSize: props.size,
       };
     }
     props = { ...props, ...sizeProp };

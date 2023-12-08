@@ -27,7 +27,7 @@ const NativeBaseProvider = ({
   theme = {},
   ...props
 }: any) => {
-  const _enableRem = config?.enableRem ?? true;
+  const _enableRem = config?.enableRem ?? false;
   const [colorModeNEW, setColorMode] = useState(
     theme?.config?.initialColorMode ?? 'light'
   );
@@ -49,7 +49,6 @@ const NativeBaseProvider = ({
         colorMode: colorModeNEW,
         setColorMode: setColorMode,
         config: config?.dependencies ? config.dependencies : {},
-        // newTheme,
       }}
     >
       <GluestackUIProvider
