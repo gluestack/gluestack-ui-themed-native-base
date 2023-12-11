@@ -4,8 +4,14 @@ import { Text, Center } from '@gluestack-ui/themed';
 const TextStory = ({ size = 'md', text = 'Hello world', ...props }: any) => {
   return (
     <>
-      <Text size={size} {...props}>
-        {text}
+      <Text fontSize={size} {...props} color="red.900">
+        {text + '1'}
+        <Text fontSize={size} {...props} color="blue.900">
+          {text + '2'}
+          <Text fontSize={size} {...props}>
+            {text + '3'}
+          </Text>
+        </Text>
       </Text>
     </>
   );

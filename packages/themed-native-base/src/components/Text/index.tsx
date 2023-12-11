@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { createContext, useContext } from 'react';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { Root as AccessibleText } from './styled-components';
 import { GenericComponentType } from '../../types';
+import { deepMerge } from '../../utils';
+
+const TextAncestorContext = createContext({
+  propsPassed: {},
+});
 
 const TextTemp = ({ children, ...props }: any) => {
-  const resolvedPropForGluestack = usePropResolution(props);
+  const { propsPassed } = useContext(TextAncestorContext);
+  const finalProps = deepMerge(propsPassed, props);
+  const resolvedPropForGluestack = usePropResolution(finalProps);
+
   return (
-    <AccessibleText {...resolvedPropForGluestack}>{children}</AccessibleText>
+    <TextAncestorContext.Provider
+      value={{
+        propsPassed: finalProps,
+      }}
+    >
+      <AccessibleText {...resolvedPropForGluestack}>{children}</AccessibleText>
+    </TextAncestorContext.Provider>
   );
 };
 
