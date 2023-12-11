@@ -5,17 +5,22 @@ import { GenericComponentType } from '../../types';
 import { deepMerge } from '../../utils';
 
 const TextAncestorContext = createContext({
+  hasTextAncestor: false,
   propsPassed: {},
 });
 
 const TextTemp = ({ children, ...props }: any) => {
-  const { propsPassed } = useContext(TextAncestorContext);
-  const finalProps = deepMerge(propsPassed, props);
+  const { hasTextAncestor, propsPassed } = useContext(TextAncestorContext);
+  let finalProps = props;
+  if (hasTextAncestor) {
+    finalProps = deepMerge(propsPassed, props);
+  }
   const resolvedPropForGluestack = usePropResolution(finalProps);
 
   return (
     <TextAncestorContext.Provider
       value={{
+        hasTextAncestor: true,
         propsPassed: finalProps,
       }}
     >
