@@ -226,5 +226,12 @@ export default styled(
   },
   {
     ancestorStyle: ['_icon'],
-  } as const
+    resolveProps: ['stroke', 'fill'],
+  } as const,
+  {
+    propertyTokenMap: {
+      stroke: 'colors',
+      fill: 'colors',
+    },
+  }
 );
