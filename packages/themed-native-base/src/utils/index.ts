@@ -483,6 +483,9 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
         (typeof propValue === 'string' && !isNaN(Number(propValue)))
       )
         return Number(propValue);
+      if (typeof propValue === 'string' && propValue.includes(':alpha.')) {
+        return `$${propValue}`;
+      }
       return propValue;
     } else {
       return `$${propValue}`;
