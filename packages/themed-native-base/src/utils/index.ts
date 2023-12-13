@@ -5,6 +5,8 @@ import cloneDeep from 'lodash.clonedeep';
 import Color from 'tinycolor2';
 export * from './stablehash';
 
+const dontResolveFromToken = ['top', 'left', 'right', 'bottom'];
+
 export const CSSPropertiesMap = {
   alignContent: 'stretch',
   alignItems: 'stretch',
@@ -489,7 +491,9 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
             String(propValue).slice(1)
           ]
         ) {
-          return `-$${String(propValue).slice(1)}`;
+          return dontResolveFromToken.includes(propertyName)
+            ? Number(propValue)
+            : `-$${String(propValue).slice(1)}`;
         }
         return Number(propValue);
       }
@@ -508,9 +512,9 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
 export type Dict = Record<string, any>;
 
 export const transparentize =
-  (color: string, opacity: number) => (theme: Dict) => {
+  (color: string, opacityValue: number) => (theme: Dict) => {
     const raw = getTransparentColor(theme, color);
-    return Color(raw).setAlpha(opacity).toRgbString();
+    return Color(raw).setAlpha(opacityValue).toRgbString();
   };
 
 export const getTransparentColor = (
@@ -656,11 +660,11 @@ export const transformTheme = (componentTheme: any, config: any) => {
         variants[variant],
         config.theme
       );
-      const sxProps = convertToSXForStateColorModeMediaQuery(
+      const sxPropsNew = convertToSXForStateColorModeMediaQuery(
         propsWithDollarSigns,
         config.theme
       );
-      transformedTheme.variants.variant[variant] = sxProps;
+      transformedTheme.variants.variant[variant] = sxPropsNew;
     });
   }
 
@@ -671,11 +675,11 @@ export const transformTheme = (componentTheme: any, config: any) => {
         sizes[size],
         config.theme
       );
-      const sxProps = convertToSXForStateColorModeMediaQuery(
+      const sxPropsNew = convertToSXForStateColorModeMediaQuery(
         propsWithDollarSigns,
         config.theme
       );
-      transformedTheme.variants.size[size] = sxProps;
+      transformedTheme.variants.size[size] = sxPropsNew;
     });
   }
 
@@ -685,11 +689,11 @@ export const transformTheme = (componentTheme: any, config: any) => {
       defaultProps,
       config.theme
     );
-    const sxProps = convertToSXForStateColorModeMediaQuery(
+    const sxPropsNew = convertToSXForStateColorModeMediaQuery(
       propsWithDollarSigns,
       config.theme
     );
-    transformedTheme.defaultProps = sxProps;
+    transformedTheme.defaultProps = sxPropsNew;
   }
   return transformedTheme;
 };
