@@ -7,6 +7,7 @@ const RadioStory = ({
   isDisabled,
   isInvalid,
   isReadOnly,
+  colorScheme,
   ...props
 }: any) => {
   const [values, setValues] = React.useState();
@@ -27,7 +28,7 @@ const RadioStory = ({
         aria-label="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
-        colorScheme="primary"
+        colorScheme={colorScheme}
       >
         Label 1
       </Radio>
@@ -40,7 +41,7 @@ const RadioStory = ({
         aria-label="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
-        colorScheme="primary"
+        colorScheme={colorScheme}
       >
         Label 2
       </Radio>
@@ -52,7 +53,7 @@ const RadioStory = ({
         aria-label="Radio"
         onChange={(nextValue: boolean) => console.log(nextValue, 'nextValue')}
         {...props}
-        colorScheme="primary"
+        colorScheme={colorScheme}
       >
         Label 3
       </Radio>
