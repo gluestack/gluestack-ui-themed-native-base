@@ -18,9 +18,15 @@ export const config = {
       m: 'margin',
       mx: 'marginHorizontal',
       my: 'marginVertical',
-      // @ts-ignore
       mt: 'marginTop',
-      // @ts-ignore
+      align: 'alignItems',
+      justify: 'justifyContent',
+      wrap: 'flexWrap',
+      basis: 'flexBasis',
+      grow: 'flexGrow',
+      shrink: 'flexShrink',
+      direction: 'flexDirection',
+      flexDir: 'flexDirection',
       mb: 'marginBottom',
       mr: 'marginRight',
       ml: 'marginLeft',
