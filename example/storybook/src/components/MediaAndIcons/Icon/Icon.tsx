@@ -76,7 +76,7 @@ const IconStory = () => {
   ];
 
   return (
-    <HStack flexWrap="wrap" gap={5} bg="$backgroundDark.500:alpha.50">
+    <HStack flexWrap="wrap" gap={5} bg="backgroundDark.500:alpha.50">
       <VStack space="sm">
         {/*
         @ts-ignore */}
