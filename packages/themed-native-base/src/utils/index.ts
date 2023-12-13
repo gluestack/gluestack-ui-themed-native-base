@@ -481,8 +481,18 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
       if (
         (typeof propValue === 'number' && !isNaN(propValue)) ||
         (typeof propValue === 'string' && !isNaN(Number(propValue)))
-      )
+      ) {
+        if (
+          Number(propValue) < 0 &&
+          // @ts-ignore
+          config?.tokens[propertyTokenMap[propertyName]][
+            String(propValue).slice(1)
+          ]
+        ) {
+          return `-$${String(propValue).slice(1)}`;
+        }
         return Number(propValue);
+      }
       if (typeof propValue === 'string' && propValue.includes(':alpha.')) {
         return `$${propValue}`;
       }
