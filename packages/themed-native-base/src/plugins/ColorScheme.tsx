@@ -1,9 +1,8 @@
 import React, { forwardRef } from 'react';
 import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
-import { StyleSheet } from 'react-native';
 
-export class ColorSchemeResolver implements IStyledPlugin {
+class ColorSchemeResolver implements IStyledPlugin {
   name: string;
   callback: any;
 
@@ -34,24 +33,7 @@ export class ColorSchemeResolver implements IStyledPlugin {
     return [_styledObj, _shouldUpdate, _, Component];
   }
 
-  componentMiddleWare({ Component, styleCSSIds, GluestackStyleSheet }: any) {
-    const styles: any = [];
-
-    const nativeStyleMap = GluestackStyleSheet.getStyleMap();
-    styleCSSIds.forEach((cssId: any) => {
-      const nativeStyle = nativeStyleMap.get(cssId);
-
-      if (nativeStyle) {
-        const styleSheet = nativeStyle?.resolved;
-        styles.push(styleSheet);
-      }
-    });
-    const stylesObj = StyleSheet.flatten(styles);
-
-    // eslint-disable-next-line no-console
-    console.log('stylesObj', stylesObj);
-
-    // console.log('themed', this.themed);
+  componentMiddleWare({ Component }: any) {
     if (Component.displayName === 'COLOR_SCHEME_COMPONENT') {
       return Component;
     }
@@ -108,3 +90,4 @@ export class ColorSchemeResolver implements IStyledPlugin {
     return ColorSchemeResolvedComponent;
   }
 }
+export { ColorSchemeResolver };
