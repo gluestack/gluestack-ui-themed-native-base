@@ -1,2 +1,2 @@
 export * from './ColorScheme';
-export * from './TextChild';
+export * from './TextChildStyle';

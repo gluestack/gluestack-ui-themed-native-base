@@ -6,9 +6,9 @@ const TextStory = ({ size = 'md', text = 'Hello world', ...props }: any) => {
     <>
       <Text fontSize={size} {...props} color="red.900" bold>
         {text + '1'}
-        <Text fontSize={size} {...props} color="blue.900" italic>
+        <Text fontSize={size} {...props} color="blue.900" italic ml="2">
           {text + '2'}
-          <Text fontSize={size} {...props}>
+          <Text fontSize={'xs'} {...props} ml="2">
             {text + '3'}
           </Text>
         </Text>
