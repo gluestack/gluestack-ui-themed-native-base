@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { createProvider } from '@gluestack-ui/provider';
 import { StyledProvider } from '@gluestack-style/react';
 import { OverlayProvider } from '@gluestack-ui/overlay';
@@ -28,8 +28,10 @@ const NativeBaseProvider = ({
   ...props
 }: any) => {
   const _enableRem = config?.enableRem ?? false;
+  const { colorMode: colorModeFromParent } =
+    useContext(HooksContext) ?? undefined;
   const [colorModeNEW, setColorMode] = useState(
-    theme?.config?.initialColorMode ?? 'light'
+    colorModeFromParent ?? theme?.config?.initialColorMode ?? 'light'
   );
 
   const gluestackCompatibleTheme = convertTheme(theme);
