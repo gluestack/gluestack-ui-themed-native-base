@@ -1,6 +1,6 @@
 import { styled } from '@gluestack-style/react';
 import { Pressable } from 'react-native';
-import { ColorSchemeResolver } from '../../../plugins/colorScheme/colorScheme';
+import { ColorSchemeResolver } from '../../../plugins';
 
 export default styled(
   Pressable,

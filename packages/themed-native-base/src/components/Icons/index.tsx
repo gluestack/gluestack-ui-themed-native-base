@@ -1,5 +1,12 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+// @ts-nocheck
+import React, {
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  Children,
+} from 'react';
 import { createIcon as createIconUI } from '@gluestack-ui/icon';
-import React, { cloneElement, forwardRef, isValidElement } from 'react';
 import { Root, createIcon } from './styled-components';
 import { GenericComponentType } from '../../types';
 import { usePropResolution } from '../../hooks/usePropResolution';
@@ -20,11 +27,25 @@ const IconTemp = forwardRef(
     }: React.ComponentProps<typeof AccessibleIcon> & { viewBox?: string },
     ref?: any
   ) => {
+    const GuiChildren = Children.map(children, (child, index) =>
+      cloneElement(child, {
+        fill: useToken('colors', child?.props?.fill && `${child?.props?.fill}`),
+        stroke: useToken(
+          'colors',
+          child?.props?.stroke && `${child?.props?.stroke}`
+        ),
+        key: index,
+      })
+    );
+
     const resolvedProps = usePropResolution(props);
+
     const { size } = resolvedProps;
     const tokenizedFontSize = useToken('space', size);
+
     let sizeStyle = {};
     let sizeProp = {};
+
     if (
       size &&
       ((typeof size === 'number' && !isNaN(size)) ||
@@ -47,7 +68,7 @@ const IconTemp = forwardRef(
         {
           viewBox: viewBox,
           // @ts-ignore
-          path: children,
+          path: GuiChildren,
         },
         true
       );

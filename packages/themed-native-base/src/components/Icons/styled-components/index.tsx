@@ -18,7 +18,7 @@ const createIconNB = (props: IParameterTypes, flag: boolean = false) => {
   type IProps = Omit<React.ComponentProps<typeof Icon>, 'size'> & {
     size?: ISize | number;
   };
-  //
+  // @ts-ignore
   const CreatedIcon = forwardRef(({ ...propsIcon }: IProps, ref?: any) => {
     const resolvedProps = usePropResolution(propsIcon, flag);
     return <Icon {...resolvedProps} ref={ref} />;

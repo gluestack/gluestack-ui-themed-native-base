@@ -9,7 +9,17 @@ const AccessiblePressable = createPressable({ Root });
 const PressableTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
   const resolvedProps = usePropResolution(props);
   return (
-    <AccessiblePressable {...resolvedProps} children={children} ref={ref} />
+    <AccessiblePressable {...resolvedProps} ref={ref}>
+      {typeof children === 'function'
+        ? (propsFN: any) => {
+            return children({
+              isPressed: propsFN.pressed,
+              isHovered: propsFN.hovered,
+              isFocused: propsFN.focused,
+            });
+          }
+        : children}
+    </AccessiblePressable>
   );
 });
 

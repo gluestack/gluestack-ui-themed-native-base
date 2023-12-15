@@ -17,8 +17,9 @@ const BoxWithRefExample: MyCustomBoxStory = ({ ...props }: any) => {
       style: styleObj,
     });
   }, [myRef]);
+  const sx = { h: 100, w: 100, bg: 'red.900:alpha.90' };
 
-  return <Box {...props} sx={{ h: 100, w: 100, bg: 'red.500' }} ref={myRef} />;
+  return <Box {...props} {...sx} ref={myRef} />;
 };
 
 export default BoxWithRefExample;

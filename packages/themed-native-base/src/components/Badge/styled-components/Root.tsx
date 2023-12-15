@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { styled } from '@gluestack-style/react';
-import { ColorSchemeResolver } from '../../../plugins/colorScheme/colorScheme';
+import { ColorSchemeResolver } from '../../../plugins';
 
 export default styled(
   View,
@@ -78,7 +78,7 @@ export default styled(
     descendantStyle: ['_text', '_icon'],
   } as const,
   {
-    plugins: [new ColorSchemeResolver(colorSchemeResolveFn, 'badge')],
+    plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
   }
 );
 

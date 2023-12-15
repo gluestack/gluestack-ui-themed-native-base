@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
 
-export class ColorSchemeResolver implements IStyledPlugin {
+class ColorSchemeResolver implements IStyledPlugin {
   name: string;
   callback: any;
 
@@ -34,7 +34,6 @@ export class ColorSchemeResolver implements IStyledPlugin {
   }
 
   componentMiddleWare({ Component }: any) {
-    // console.log('themed', this.themed);
     if (Component.displayName === 'COLOR_SCHEME_COMPONENT') {
       return Component;
     }
@@ -91,3 +90,4 @@ export class ColorSchemeResolver implements IStyledPlugin {
     return ColorSchemeResolvedComponent;
   }
 }
+export { ColorSchemeResolver };
