@@ -3,6 +3,7 @@ import { usePropResolution } from '../../hooks/usePropResolution';
 import { Root as AccessibleText } from './styled-components';
 import { GenericComponentType } from '../../types';
 import { deepMerge } from '../../utils';
+import { filterProps } from '../../plugins';
 
 const TextAncestorContext = createContext({
   hasTextAncestor: false,
@@ -11,17 +12,19 @@ const TextAncestorContext = createContext({
 
 const TextTemp = ({ children, ...props }: any) => {
   const { hasTextAncestor, propsPassed } = useContext(TextAncestorContext);
-  let finalProps = props;
+  let finalPropsToApply = props;
   if (hasTextAncestor) {
-    finalProps = deepMerge(propsPassed, props);
+    finalPropsToApply = deepMerge(propsPassed, props);
   }
-  const resolvedPropForGluestack = usePropResolution(finalProps);
+  const resolvedPropForGluestack = usePropResolution(finalPropsToApply);
+
+  const finalPropsToPassDown = filterProps(finalPropsToApply);
 
   return (
     <TextAncestorContext.Provider
       value={{
         hasTextAncestor: true,
-        propsPassed: finalProps,
+        propsPassed: finalPropsToPassDown,
       }}
     >
       <AccessibleText {...resolvedPropForGluestack}>{children}</AccessibleText>

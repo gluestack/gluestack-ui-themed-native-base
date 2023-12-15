@@ -3,7 +3,8 @@ import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
 import { StyleSheet } from 'react-native';
 
-const textStyles = [
+const permittedProps = [
+  // text style props
   'color',
   'fontFamily',
   'fontSize',
@@ -25,7 +26,33 @@ const textStyles = [
   'verticalAlignAndroid',
   'writingDirectioniOS',
   'userSelect',
+  // variants
+  // TODO : change this flow so it automatically taked variants from the config
+  'isTruncated',
+  'bold',
+  'underline',
+  'strikeThrough',
+  'sub',
+  'italic',
+  'highlight',
 ];
+
+export function filterProps(obj: any) {
+  const filteredObj: any = {};
+
+  for (const key of Object.keys(obj)) {
+    if (permittedProps.includes(key)) {
+      filteredObj[key] = obj[key];
+    } else if (typeof obj[key] === 'object') {
+      const filteredNested = filterProps(obj[key]);
+      if (Object.keys(filteredNested).length > 0) {
+        filteredObj[key] = filteredNested;
+      }
+    }
+  }
+
+  return filteredObj;
+}
 
 const ignoreStyleType = ['boot-base', 'global'];
 
@@ -63,7 +90,7 @@ class TextStyleResolver implements IStyledPlugin {
   }
 
   componentMiddleWare({ Component, styleCSSIds, GluestackStyleSheet }: any) {
-    if (Component.displayName === 'TEXT_PLUGIN_COMPONENT') {
+    if (Component?.displayName === 'TEXT_PLUGIN_COMPONENT') {
       return Component;
     }
     const styles: any = [];
@@ -76,7 +103,7 @@ class TextStyleResolver implements IStyledPlugin {
         if (styleSheet) {
           const textStyleSheet = Object.fromEntries(
             Object.keys(styleSheet)
-              .filter((key) => textStyles.includes(key))
+              .filter((key) => permittedProps.includes(key))
               .map((key) => [key, styleSheet[key]])
           );
           styles.push(textStyleSheet);
@@ -95,25 +122,19 @@ class TextStyleResolver implements IStyledPlugin {
       ({ key, children, ...componentProps }: any, ref?: any) => {
         const { stylesPassed } = useContext(TextAncestorContext);
         const finalStyle = { ...stylesPassed, ...stylesObj };
-        // console.log(
-        //   'finalStyle',
-        //   JSON.stringify(finalStyle),
-        //   JSON.stringify(componentProps)
-        // );
 
         return (
           <TextAncestorContext.Provider
             value={{
               hasTextAncestor: true,
-              stylesPassed: JSON.parse(JSON.stringify(finalStyle)),
+              stylesPassed: finalStyle,
             }}
           >
             <StyledComponent
               {...componentProps}
               key={key}
               ref={ref}
-              // style={hasTextAncestor ? { color: 'red' } : { color: 'blue' }}
-              style={JSON.parse(JSON.stringify(finalStyle))}
+              style={finalStyle}
             >
               {children}
             </StyledComponent>
