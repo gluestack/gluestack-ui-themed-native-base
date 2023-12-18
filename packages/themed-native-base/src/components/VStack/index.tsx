@@ -12,7 +12,7 @@ const AccessibleVStack = createVStack({
 const VStackTemp = forwardRef(
   ({ children, divider, direction, ...props }: any, ref?: any) => {
     props.flexDirection =
-      props.flexDirection ?? props.flexDir ?? direction ?? 'row';
+      props.flexDirection ?? props.flexDir ?? direction ?? 'column';
     const resolvedPropForGluestack = usePropResolution(props);
     return (
       <AccessibleVStack {...resolvedPropForGluestack} ref={ref}>
