@@ -1,3 +1,5 @@
+import { usePropResolution } from '../hooks/usePropResolution';
+
 export const colorScheme = [
   'rose',
   'pink',
@@ -59,4 +61,65 @@ export function resolveAlphaColors(rawValue: any, resolver: any) {
   } else {
     return resolver(rawValue);
   }
+}
+
+export function transformFactoryToStyled(factoryStyle?: any) {
+  let transformedTheme: any = {
+    variants: {
+      variant: {},
+      size: {},
+    },
+    defaultProps: {},
+  };
+
+  Object.keys(factoryStyle).forEach((key) => {
+    switch (key) {
+      case 'baseStyle':
+        const { sx: sxBS, ...baseStyle } = usePropResolution(
+          factoryStyle.baseStyle
+        );
+        transformedTheme = { ...transformedTheme, ...baseStyle, ...sxBS };
+        break;
+
+      case 'defaultProps':
+        const { sx: sxDP, ...defaultProps } = usePropResolution(
+          factoryStyle.defaultProps
+        );
+        transformedTheme = {
+          ...transformedTheme,
+          defaultProps: { ...defaultProps, ...sxDP },
+        };
+        break;
+
+      case 'variants':
+        const Variants = factoryStyle.variants;
+        Object.keys(Variants).forEach((variant) => {
+          const { sx: sxVariant, ...styleVariant } = usePropResolution(
+            Variants[variant]
+          );
+          transformedTheme.variants.variant[variant] = {
+            ...styleVariant,
+            ...sxVariant,
+          };
+        });
+        break;
+
+      case 'sizes':
+        const Sizes = factoryStyle.sizes;
+        Object.keys(Sizes).forEach((size) => {
+          const { sx: sxStyle, ...styleSize } = usePropResolution(
+            Variants[size]
+          );
+          transformedTheme.variants.variant[size] = {
+            ...styleSize,
+            ...sxStyle,
+          };
+        });
+        break;
+
+      default:
+      // nothing
+    }
+  });
+  return transformedTheme;
 }
