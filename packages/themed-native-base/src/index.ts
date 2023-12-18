@@ -17,3 +17,7 @@ export { Factory } from './factory';
 
 // modified createIcon will be exported which will not require root as an argument
 // export { createIcon } from '@gluestack-ui/icon';
+
+// TODO: remove this with proper functions
+const themeTools: any = {};
+export { themeTools };
