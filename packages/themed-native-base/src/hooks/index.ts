@@ -8,3 +8,4 @@ export * from './useTheme';
 export * from './useToken';
 export * from './useAccessibleColor';
 export * from './useContrastText';
+export * from './useSafeArea';

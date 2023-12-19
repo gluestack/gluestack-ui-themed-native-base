@@ -20,6 +20,5 @@ export { Factory } from './factory';
 
 // TODO: remove this with proper functions
 const themeTools: any = {};
-const useSafeArea: any = {};
 
-export { themeTools, useSafeArea };
+export { themeTools };
