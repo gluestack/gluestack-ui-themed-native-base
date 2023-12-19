@@ -4,15 +4,20 @@ import { Root as AccessibleAspectRatio } from './styled-components';
 import { Text } from '../Text';
 
 type IRatio = {
-  ratio: React.ComponentProps<typeof AccessibleAspectRatio>['aspectRatio'];
+  ratio:
+    | React.ComponentProps<typeof AccessibleAspectRatio>['aspectRatio']
+    | Array<number | string>
+    | {};
 };
 
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType } from '../../types';
+import { useBreakpointValue } from '../../hooks';
 
 const AspectRatioTemp = forwardRef(
   ({ children, ratio, ...props }: any, ref?: any) => {
     const resolvedPropForGluestack = usePropResolution(props);
+    const aspectRatio = useBreakpointValue(ratio);
 
     const GUIChildren = Children.map(children, (child) => {
       if (typeof child === 'string') return <Text>{child}</Text>;
@@ -20,7 +25,7 @@ const AspectRatioTemp = forwardRef(
     });
     return (
       <AccessibleAspectRatio
-        aspectRatio={ratio}
+        aspectRatio={aspectRatio}
         {...resolvedPropForGluestack}
         ref={ref}
       >
