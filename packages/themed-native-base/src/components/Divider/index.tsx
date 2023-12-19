@@ -14,8 +14,9 @@ const DividerTemp = forwardRef(
   ({ thickness, orientation, ...props }: any, ref?: any) => {
     let thicknessProp = {};
     if (thickness) {
-      if (orientation === 'vertical') thicknessProp = { width: thickness };
-      else thicknessProp = { height: thickness };
+      if (orientation === 'vertical')
+        thicknessProp = { width: Number(thickness) };
+      else thicknessProp = { height: Number(thickness) };
     }
     const resolvedProps = usePropResolution(props);
     return (

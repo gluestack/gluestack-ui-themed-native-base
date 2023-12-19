@@ -7,6 +7,7 @@ export default styled(
     // @ts-ignore
     fontSize: '$xs',
     fontWeight: '$medium',
+    lineHeight: '$lg',
   },
   {
     componentName: 'BadgeText',

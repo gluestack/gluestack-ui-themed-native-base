@@ -1,4 +1,4 @@
-import React, { Children, forwardRef } from 'react';
+import React, { Children, cloneElement, forwardRef } from 'react';
 import { Root as AccessibleStack } from './styled-components';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType } from '../../types';
@@ -17,8 +17,17 @@ const StackTemp = forwardRef(
     { children, divider, direction, ...props }: IProps & StackProps,
     ref?: any
   ) => {
-    props.flexDirection = props.flexDirection ?? direction;
+    // @ts-ignore
+    props.flexDirection = props.flexDirection ?? props.flexDir ?? direction;
     const resolvedPropForGluestack = usePropResolution(props);
+    const Divider =
+      divider &&
+      cloneElement(divider, {
+        orientation:
+          props?.flexDirection && props?.flexDirection[0] === 'r'
+            ? 'vertical'
+            : 'horizontal',
+      });
     return (
       <AccessibleStack
         gap={resolvedPropForGluestack.space}
@@ -29,11 +38,11 @@ const StackTemp = forwardRef(
           if (index !== 0)
             return (
               <>
-                {divider && divider}
+                {Divider && Divider}
                 {typeof child === 'string' ? <Text>{child}</Text> : child}
               </>
             );
-          return <>{child}</>;
+          return child;
         })}
       </AccessibleStack>
     );

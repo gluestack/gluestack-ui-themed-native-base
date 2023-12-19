@@ -1,7 +1,7 @@
 import { createVStack } from '@gluestack-ui/vstack';
 import { Root } from './styled-components';
 import { usePropResolution } from '../../hooks/usePropResolution';
-import React, { Children, forwardRef } from 'react';
+import React, { Children, cloneElement, forwardRef } from 'react';
 import { GenericComponentType } from '../../types';
 import { Text } from '../Text';
 
@@ -10,7 +10,9 @@ const AccessibleVStack = createVStack({
 });
 
 const VStackTemp = forwardRef(
-  ({ children, divider, ...props }: any, ref?: any) => {
+  ({ children, divider, direction, ...props }: any, ref?: any) => {
+    props.flexDirection =
+      props.flexDirection ?? props.flexDir ?? direction ?? 'column';
     const resolvedPropForGluestack = usePropResolution(props);
     return (
       <AccessibleVStack {...resolvedPropForGluestack} ref={ref}>
@@ -18,7 +20,13 @@ const VStackTemp = forwardRef(
           if (index !== 0)
             return (
               <>
-                {divider && divider}
+                {divider &&
+                  cloneElement(divider, {
+                    orientation:
+                      props?.flexDirection && props?.flexDirection[0] === 'r'
+                        ? 'vertical'
+                        : 'horizontal',
+                  })}
                 {typeof child === 'string' ? <Text>{child}</Text> : child}
               </>
             );
@@ -29,7 +37,11 @@ const VStackTemp = forwardRef(
   }
 );
 
-export type IVStackComponentType<VStack> = GenericComponentType<VStack>;
+export type IVStackComponentType<VStack> = GenericComponentType<
+  VStack,
+  {},
+  { direction: React.ComponentProps<typeof AccessibleVStack>['flexDirection'] }
+>;
 
 export const VStack = VStackTemp as IVStackComponentType<
   typeof AccessibleVStack

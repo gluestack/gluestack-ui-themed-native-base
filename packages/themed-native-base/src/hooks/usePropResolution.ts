@@ -5,7 +5,6 @@ import {
   addDollarSignsToProps,
   convertToSXForStateColorModeMediaQuery,
   getFlattendMultiAliasesProps,
-  // stableHash,
 } from '../utils';
 
 function resolveProps(props: any, flag: any, styledContext: any) {
@@ -69,8 +68,5 @@ function resolveProps(props: any, flag: any, styledContext: any) {
 
 export function usePropResolution(props: any, flag: boolean = false) {
   const styledContext = useStyled();
-  // const check = stableHash(props);
-  // return useMemo(() => {
   return resolveProps(props, flag, styledContext);
-  // }, [, props, flag, styledContext]);
 }
