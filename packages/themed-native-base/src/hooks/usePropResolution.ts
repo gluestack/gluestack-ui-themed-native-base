@@ -15,7 +15,8 @@ function resolveProps(props: any, flag: any, styledContext: any) {
     if (
       props.size &&
       ((typeof props.size === 'number' && !isNaN(props.size)) ||
-        (typeof props.size === 'string' && !isNaN(Number(props.size))))
+        (typeof props.size === 'string' &&
+          (!isNaN(Number(props.size)) || /(px|rem|em)$/.test(props.size))))
     ) {
       sizeProp = {
         height: props.size,
