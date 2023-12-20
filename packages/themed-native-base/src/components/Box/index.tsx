@@ -50,11 +50,11 @@ const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
       return (
         <AccessibleBox
           as={Gradient}
+          {...resolvedPropForGluestack}
           colors={lgrad.colors}
           start={startObj}
           end={endObj}
           locations={lgrad.locations}
-          {...resolvedPropForGluestack}
           ref={ref}
         >
           {GUIChildren}

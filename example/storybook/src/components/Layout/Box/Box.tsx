@@ -12,7 +12,6 @@ const BoxStory: any = ({}: any) => {
         },
       }}
       p="12"
-      w="72"
       rounded="xl"
       _text={{
         fontSize: 'md',
