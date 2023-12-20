@@ -6,6 +6,7 @@ export default styled(
   {
     justifyContent: 'center',
     alignItems: 'center',
+    mr: '$3',
     variants: {
       size: {
         xs: {
