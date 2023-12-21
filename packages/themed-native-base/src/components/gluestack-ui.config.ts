@@ -63,6 +63,7 @@ export const config = {
     } as const,
     tokens: {
       colors: {
+        'contrastThreshold': 7,
         //
         'rose.50': '#fff1f2',
         'rose.100': '#ffe4e6',

@@ -4,13 +4,14 @@ import { useToken } from './useToken';
 import { useAccessibleColors } from './useAccessibleColor';
 
 export function useContrastText(bg: string, color?: string) {
-  const contrastThreshold = 7;
-  const [trueDarkText, trueLightText, trueBg, trueColor] = useToken('colors', [
-    'darkText',
-    'lightText',
-    bg,
-    color ?? '',
-  ]);
+  const [contrastThreshold, trueDarkText, trueLightText, trueBg, trueColor] =
+    useToken('colors', [
+      'contrastThreshold',
+      'darkText',
+      'lightText',
+      bg,
+      color ?? '',
+    ]);
 
   const suppressColorAccessibilityWarning = false;
 

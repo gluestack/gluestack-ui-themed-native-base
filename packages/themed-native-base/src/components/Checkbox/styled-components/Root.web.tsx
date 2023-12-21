@@ -8,6 +8,7 @@ export default styled(
     'flexDirection': 'row',
     'justifyContent': 'flex-start',
     'alignItems': 'center',
+    //@ts-ignore
     'gap': '$4',
     ':checked': {
       _icon: {

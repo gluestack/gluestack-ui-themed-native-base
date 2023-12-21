@@ -14,6 +14,6 @@
     "allowJs": true,
     "jsx": "react"
   },
-  "exclude": ["node_modules", "src/components"],
+  "exclude": ["node_modules"],
   "include": ["src"]
 }
