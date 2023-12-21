@@ -127,6 +127,7 @@ export default styled(
     // },
 
     variants: {
+      colorScheme: {},
       size: {
         lg: {
           _text: {
