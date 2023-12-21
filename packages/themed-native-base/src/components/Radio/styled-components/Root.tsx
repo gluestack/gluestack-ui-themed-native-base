@@ -10,9 +10,7 @@ export default styled(
     alignItems: 'center',
     gap: 8,
 
-    // @ts-ignore
     borderWidth: 2,
-    // @ts-ignore
     borderRadius: '$full',
     padding: 1,
 
@@ -129,6 +127,7 @@ export default styled(
     // },
 
     variants: {
+      colorScheme: {},
       size: {
         lg: {
           _text: {

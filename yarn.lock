@@ -2455,15 +2455,25 @@
   dependencies:
     "@legendapp/motion" "^2.2.0"
 
-"@gluestack-style/animation-resolver@^1.0.1", "@gluestack-style/animation-resolver@^1.0.2":
+"@gluestack-style/animation-resolver@^1.0.1":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@gluestack-style/animation-resolver/-/animation-resolver-1.0.2.tgz#c889d82dbe99d6280c7c074fcd21e68b232a74ef"
   integrity sha512-eWHm092eP4Z0DH4C1sxPkivBou89ZEG6zBUDEHtQsrW9xf9XN8wunda+ahsTvV2HkI8SsZ2sl/M38HkrKrcmtw==
 
-"@gluestack-style/legend-motion-animation-driver@^1.0.1", "@gluestack-style/legend-motion-animation-driver@^1.0.2":
+"@gluestack-style/animation-resolver@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/animation-resolver/-/animation-resolver-1.0.3.tgz#88ed314cf2e6f15b888cb09f5a7d970b0fe9ee30"
+  integrity sha512-SfBHBBY0PVlLDpYRMz0KKEcyc6GtZJpbt1yYlaaErVaRqPKI1cbBcgWAS29e23i2Q7iwLLRhRZnbnELigcp55w==
+
+"@gluestack-style/legend-motion-animation-driver@^1.0.1":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@gluestack-style/legend-motion-animation-driver/-/legend-motion-animation-driver-1.0.2.tgz#051c26b0d501e03b12e4dbfe01b292eee5c29c8f"
   integrity sha512-rB5HIhVzpgPQ9C1JJvY30a1bP0sQRWWFgUHVaiefH8dA/XRAQpmAIMF48JDctrvoBi/tKp5xN10mLE5CtnDRHg==
+
+"@gluestack-style/legend-motion-animation-driver@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@gluestack-style/legend-motion-animation-driver/-/legend-motion-animation-driver-1.0.3.tgz#e2408ff8515ced92cb75f096f5eeff1f9636a0da"
+  integrity sha512-sD6aFS6Tq5XpyjrboFEIc8LrRY4TA4kodFYHzk6mDchvbkdLODijtjnaDQB1UqihOkMRg49e7ANRAOzc7eymaQ==
 
 "@gluestack-style/react@^1.0.22":
   version "1.0.26"

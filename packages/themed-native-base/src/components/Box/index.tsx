@@ -7,6 +7,7 @@ import { Text } from '../Text';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType } from '../../types';
 import { HooksContext } from '../Provider';
+import { useColorModeValue } from '../../hooks';
 
 const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
   const GUIChildren = Children.map(children, (child) => {
@@ -17,17 +18,32 @@ const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
 
   const { config }: any = React.useContext<any>(HooksContext);
   const Gradient = config?.['linear-gradient'];
-  if (
-    props.bg?.linearGradient ||
-    props.background?.linearGradient ||
-    props.bgColor?.linearGradient ||
-    props.backgroundColor?.linearGradient
-  ) {
-    const lgrad =
-      props.bg?.linearGradient ||
-      props.background?.linearGradient ||
-      props.bgColor?.linearGradient ||
-      props.backgroundColor?.linearGradient;
+
+  const lightModeGradient =
+    props?._light?.bg?.linearGradient ||
+    props?._light?.background?.linearGradient ||
+    props?._light?.bgColor?.linearGradient ||
+    props?._light?.backgroundColor?.linearGradient;
+
+  const darkModeGradient =
+    props?._dark?.bg?.linearGradient ||
+    props?._dark?.background?.linearGradient ||
+    props?._dark?.bgColor?.linearGradient ||
+    props?._dark?.backgroundColor?.linearGradient;
+
+  const neutralGradient =
+    props?.bg?.linearGradient ||
+    props?.background?.linearGradient ||
+    props?.bgColor?.linearGradient ||
+    props?.backgroundColor?.linearGradient;
+
+  const colorModeGradient = useColorModeValue(
+    lightModeGradient || neutralGradient,
+    darkModeGradient || neutralGradient
+  );
+
+  if (colorModeGradient) {
+    const lgrad = colorModeGradient;
 
     delete resolvedPropForGluestack.sx['@linearGradient'];
 
