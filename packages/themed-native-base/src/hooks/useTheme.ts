@@ -1,6 +1,8 @@
 import { useStyled } from '@gluestack-style/react';
+import { modifyConfig } from '../utils';
 
 export const useTheme = () => {
   const { config } = useStyled();
-  return config.tokens;
+  const theme = modifyConfig(config);
+  return theme;
 };
