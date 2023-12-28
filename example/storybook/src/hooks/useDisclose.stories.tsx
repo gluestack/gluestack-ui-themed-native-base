@@ -1,11 +1,7 @@
 import React from 'react';
 import type { ComponentMeta } from '@storybook/react-native';
 import DocsContainer from '@storybook/addon-docs';
-import {
-  Button,
-  Center,
-  Modal,
-} from '@gluestack-ui/themed-native-base/src/components';
+import { Button, Center, Modal } from '@gluestack-ui/themed-native-base';
 // import { Modal } from "native-base"
 import { useDisclose } from '@gluestack-ui/themed';
 // import { useColorMode } from '@gluestack-ui/themed';

@@ -32,9 +32,9 @@ function getAliases() {
       __dirname,
       '../../node_modules/@gluestack-ui/themed'
     ),
-    // '@gluestack-style/react': path.join(
-    //   __dirname,
-    //   '../../../dank-style/packages/react/src'
-    // ),
+    '@gluestack-ui/themed-native-base': path.join(
+      __dirname,
+      '../../packages/themed-native-base/src'
+    ),
   };
 }

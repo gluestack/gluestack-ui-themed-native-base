@@ -92,7 +92,7 @@ export const decorators = [
         })}
         colorMode={getColorMode()}
       >
-        <Center>
+        <Center flex={1}>
           <Story />
         </Center>
       </NativeBaseProvider>

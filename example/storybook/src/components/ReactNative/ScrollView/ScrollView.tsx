@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  ScrollView,
-  VStack,
-  Center,
-  useTheme,
-  Heading,
-} from '@gluestack-ui/themed-native-base';
-import { config } from '@gluestack-ui/themed-native-base';
+import { ScrollView, VStack, Center, Heading } from '@gluestack-ui/themed';
+import { config } from '@gluestack-ui/themed';
 export const Example = () => {
   return (
     <ScrollView w={['400', '500']} h="80">
@@ -14,7 +8,7 @@ export const Example = () => {
         <Heading fontSize="xl">Cyan</Heading>
       </Center>
       <VStack flex="1">
-        {Object.keys(config.theme.tokens.colors).map((key, index) => {
+        {Object.keys(config.theme.tokens.colors).map((key) => {
           if (
             key.includes('primary') &&
             !(
@@ -36,7 +30,7 @@ export const Example = () => {
         <Heading fontSize="xl">Yellow</Heading>
       </Center>
       <VStack flex="1">
-        {Object.keys(config.theme.tokens.colors).map((key, index) => {
+        {Object.keys(config.theme.tokens.colors).map((key) => {
           if (
             key.includes('yellow') &&
             !(
@@ -58,7 +52,7 @@ export const Example = () => {
         <Heading fontSize="xl"> Violet</Heading>
       </Center>
       <VStack flex="1">
-        {Object.keys(config.theme.tokens.colors).map((key, index) => {
+        {Object.keys(config.theme.tokens.colors).map((key) => {
           if (
             key.includes('violet') &&
             !(

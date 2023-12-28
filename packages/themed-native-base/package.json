@@ -70,7 +70,6 @@
     "@types/lodash.clonedeep": "^4.5.8",
     "@types/lodash.get": "^4.4.8",
     "@types/tinycolor2": "^1.4.5",
-    "expo-clipboard": "^4.5.0",
     "file-loader": "^6.2.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
@@ -91,8 +90,8 @@
     "@types/react-native": "^0.72.2",
     "react": "17.0.1",
     "react-dom": ">=16",
-    "react-native": "^0.72.3",
-    "react-native-web": "^0.19.7"
+    "react-native": "0.72.3",
+    "react-native-web": "0.19.9"
   },
   "release-it": {
     "git": {
