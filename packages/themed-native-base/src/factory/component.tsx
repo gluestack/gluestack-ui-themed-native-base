@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { styled } from '@gluestack-style/react';
-import { transformFactoryToStyled } from '../utils';
+import { transformFactoryToStyled } from '../utils/NBsupport';
 import { usePropResolution } from '../hooks/usePropResolution';
 
 export default function Factory<P>(

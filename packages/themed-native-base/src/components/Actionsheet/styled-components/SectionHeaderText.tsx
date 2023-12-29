@@ -1,5 +1,6 @@
 import { Text } from 'react-native';
 import { styled } from '@gluestack-style/react';
+import { TextStyleResolver } from '../../../plugins';
 
 export default styled(
   Text,
@@ -18,6 +19,10 @@ export default styled(
     },
   },
   {
-    ancestorStyle: ['_sectionHeaderBackground'],
+    componentName: 'ActionsheetSectionHeaderText',
+    ancestorStyle: ['_sectionHeaderText'],
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
   }
 );

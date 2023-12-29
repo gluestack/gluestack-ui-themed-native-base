@@ -1,4 +1,4 @@
-import { resolveAlphaColors } from '../utils';
+import { resolveAlphaColors } from '../utils/NBsupport';
 
 export const config = {
   componentPath: '/components',
@@ -923,6 +923,12 @@ export const config = {
         'lg': '0.025em',
         'xl': '0.05em',
         '2xl': '0.1em',
+        // 'xs': -0.8,
+        // 'sm': -0.4,
+        // 'md': 0,
+        // 'lg': 0.4,
+        // 'xl': 0.8,
+        // '2xl': 1.6,
       },
       lineHeights: {
         '2xs': '1em',

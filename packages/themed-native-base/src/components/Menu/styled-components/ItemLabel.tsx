@@ -1,5 +1,6 @@
 import { Text } from 'react-native';
 import { styled } from '@gluestack-style/react';
+import { TextStyleResolver } from '../../../plugins';
 
 export const Label = styled(
   Text,
@@ -95,5 +96,8 @@ export const Label = styled(
   },
   {
     ancestorStyle: ['_text'],
+  },
+  {
+    plugins: [new TextStyleResolver()],
   }
 );

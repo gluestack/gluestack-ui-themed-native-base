@@ -1,5 +1,6 @@
 import { styled } from '@gluestack-style/react';
 import { Text } from 'react-native';
+import { TextStyleResolver } from '../../../plugins';
 
 export default styled(
   Text,
@@ -16,5 +17,8 @@ export default styled(
   {
     componentName: 'FormControlLabelText',
     ancestorStyle: ['_labelText'],
-  } as const
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
+  }
 );

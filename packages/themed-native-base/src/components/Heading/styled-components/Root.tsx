@@ -1,5 +1,7 @@
 import { styled } from '@gluestack-style/react';
 import { H1, H2, H3, H4, H5, H6 } from '@expo/html-elements';
+import { TextStyleResolver } from '../../../plugins';
+
 export default styled(
   H3,
   {
@@ -136,5 +138,8 @@ export default styled(
   },
   {
     componentName: 'Heading',
-  } as const
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
+  }
 );

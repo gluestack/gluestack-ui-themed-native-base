@@ -3,7 +3,7 @@ import { usePropResolution } from '../../hooks/usePropResolution';
 import { Root as AccessibleText } from './styled-components';
 import { GenericComponentType } from '../../types';
 import { deepMerge } from '../../utils';
-import { filterProps } from '../../plugins';
+import { filterProps } from '../../utils/NBsupport';
 
 const TextAncestorContext = createContext({
   hasTextAncestor: false,

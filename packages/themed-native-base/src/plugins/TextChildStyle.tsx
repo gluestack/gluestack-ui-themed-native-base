@@ -1,67 +1,9 @@
-import React, { createContext, forwardRef, useContext } from 'react';
+import React, { forwardRef } from 'react';
 import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
-const permittedProps = [
-  // text style props
-  'color',
-  'fontFamily',
-  'fontSize',
-  'fontStyle',
-  'fontWeight',
-  'includeFontPaddingAndroid',
-  'fontVariant',
-  'letterSpacing',
-  'lineHeight',
-  'textAlign',
-  'textAlignVerticalAndroid',
-  'textDecorationColoriOS',
-  'textDecorationLine',
-  'textDecorationStyleiOS',
-  'textShadowColor',
-  'textShadowOffset',
-  'textShadowRadius',
-  'textTransform',
-  'verticalAlignAndroid',
-  'writingDirectioniOS',
-  'userSelect',
-  // variants
-  // TODO : change this flow so it automatically taked variants from the config
-  'isTruncated',
-  'bold',
-  'underline',
-  'strikeThrough',
-  'sub',
-  'italic',
-  'highlight',
-];
-
-export function filterProps(obj: any) {
-  const filteredObj: any = {};
-
-  for (const key of Object.keys(obj)) {
-    if (permittedProps.includes(key)) {
-      filteredObj[key] = obj[key];
-    } else if (typeof obj[key] === 'object') {
-      const filteredNested = filterProps(obj[key]);
-      if (Object.keys(filteredNested).length > 0) {
-        filteredObj[key] = filteredNested;
-      }
-    }
-  }
-
-  return filteredObj;
-}
-
-const ignoreStyleType = ['boot-base', 'global'];
-
-const TextAncestorContext = createContext({
-  hasTextAncestor: false,
-  stylesPassed: {},
-});
-
-class TextStyleResolver implements IStyledPlugin {
+export class TextStyleResolver implements IStyledPlugin {
   name: string;
 
   // for debug purpose only
@@ -90,23 +32,15 @@ class TextStyleResolver implements IStyledPlugin {
   }
 
   componentMiddleWare({ Component, styleCSSIds, GluestackStyleSheet }: any) {
-    if (Component?.displayName === 'TEXT_PLUGIN_COMPONENT') {
-      return Component;
-    }
     const styles: any = [];
     const nativeStyleMap = GluestackStyleSheet.getStyleMap();
     styleCSSIds.forEach((cssId: any) => {
       const nativeStyle = nativeStyleMap.get(cssId);
 
-      if (nativeStyle && !ignoreStyleType.includes(nativeStyle.type)) {
+      if (nativeStyle) {
         const styleSheet = nativeStyle?.resolved;
         if (styleSheet) {
-          const textStyleSheet = Object.fromEntries(
-            Object.keys(styleSheet)
-              .filter((key) => permittedProps.includes(key))
-              .map((key) => [key, styleSheet[key]])
-          );
-          styles.push(textStyleSheet);
+          styles.push(styleSheet);
         }
       }
     });
@@ -120,25 +54,17 @@ class TextStyleResolver implements IStyledPlugin {
 
     const TextStyledResolvedComponent = forwardRef(
       ({ key, children, ...componentProps }: any, ref?: any) => {
-        const { stylesPassed } = useContext(TextAncestorContext);
-        const finalStyle = { ...stylesPassed, ...stylesObj };
+        const resolvedStyle = resolveStyleForNative(stylesObj);
 
         return (
-          <TextAncestorContext.Provider
-            value={{
-              hasTextAncestor: true,
-              stylesPassed: finalStyle,
-            }}
+          <StyledComponent
+            {...componentProps}
+            key={key}
+            ref={ref}
+            style={resolvedStyle}
           >
-            <StyledComponent
-              {...componentProps}
-              key={key}
-              ref={ref}
-              style={finalStyle}
-            >
-              {children}
-            </StyledComponent>
-          </TextAncestorContext.Provider>
+            {children}
+          </StyledComponent>
         );
       }
     );
@@ -151,4 +77,23 @@ class TextStyleResolver implements IStyledPlugin {
   }
 }
 
-export { TextStyleResolver };
+function resolveStyleForNative(stylesObj: any) {
+  if (Platform.OS === 'web') {
+    return stylesObj;
+  }
+  let { fontSize, lineHeight, letterSpacing } = stylesObj;
+  if (String(fontSize).endsWith('rem')) {
+    fontSize = parseFloat(fontSize) * 16;
+  }
+  if (String(lineHeight).endsWith('rem')) {
+    lineHeight = parseFloat(lineHeight) * 16;
+  } else if (String(lineHeight).endsWith('em')) {
+    lineHeight = parseFloat(lineHeight) * fontSize;
+  }
+  if (String(letterSpacing).endsWith('rem')) {
+    letterSpacing = parseFloat(letterSpacing) * 16;
+  } else if (String(letterSpacing).endsWith('em')) {
+    letterSpacing = parseFloat(letterSpacing) * fontSize;
+  }
+  return { ...stylesObj, fontSize, lineHeight, letterSpacing };
+}

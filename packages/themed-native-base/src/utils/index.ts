@@ -113,8 +113,6 @@ export const CSSPropertiesMap = {
   borderTopStartRadius: '0',
 };
 
-export * from './NBsupport';
-
 const borderStyles = 'borderStyles';
 const borderWidths = 'borderWidths';
 const colors = 'colors';
