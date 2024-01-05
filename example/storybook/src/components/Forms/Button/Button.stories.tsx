@@ -7,7 +7,7 @@ import ButtonSizesExample from './ButtonSizes';
 import ButtonStylesExample from './ButtonStyles';
 import ButtonWithIconsTemp from './ButtonWithIcon';
 
-import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils';
+import { colorScheme } from '../../../../../../packages/themed-native-base/src/utils/NBsupport';
 
 const ButtonMeta: ComponentMeta<any> = {
   title: 'stories/FORMS/Button',
