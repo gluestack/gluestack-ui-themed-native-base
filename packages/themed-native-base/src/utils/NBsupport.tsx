@@ -125,7 +125,24 @@ export function transformFactoryToStyled(factoryStyle?: any) {
   return transformedTheme;
 }
 
-const permittedProps = ['fontSize', 'letterSpacing', 'lineHeight'];
+const permittedProps = [
+  'color',
+  'fontSize',
+  'fontFamily',
+  'fontStyle',
+  'fontWeight',
+  'letterSpacing',
+  'lineHeight',
+  'isTruncated',
+  'bold',
+  'italic',
+  'underline',
+  'strikeThrough',
+  'sub',
+  'highlight',
+  'textAlign',
+  'textDecorationLine',
+];
 export function filterProps(obj: any) {
   const filteredObj: any = {};
 

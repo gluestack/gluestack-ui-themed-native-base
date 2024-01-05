@@ -61,7 +61,8 @@ export class TextStyleResolver implements IStyledPlugin {
             {...componentProps}
             key={key}
             ref={ref}
-            style={resolvedStyle}
+            sx={{ props: { style: resolvedStyle } }}
+            // style={resolvedStyle}
           >
             {children}
           </StyledComponent>
