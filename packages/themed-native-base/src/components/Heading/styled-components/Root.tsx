@@ -1,6 +1,6 @@
 import { styled } from '@gluestack-style/react';
 import { H1, H2, H3, H4, H5, H6 } from '@expo/html-elements';
-import { TextStyleResolver } from '../../../plugins';
+import { TextChildStyleResolver } from '../../../plugins';
 
 export default styled(
   H3,
@@ -42,7 +42,6 @@ export default styled(
       sub: {
         true: {
           fontSize: '$xs',
-
           lineHeight: '$xs',
         },
       },
@@ -138,8 +137,9 @@ export default styled(
   },
   {
     componentName: 'Heading',
+    descendantStyle: ['_text'],
   } as const,
   {
-    plugins: [new TextStyleResolver()],
+    plugins: [new TextChildStyleResolver()],
   }
 );

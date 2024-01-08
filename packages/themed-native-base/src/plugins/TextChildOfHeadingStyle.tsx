@@ -3,7 +3,7 @@ import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
 import { StyleSheet } from 'react-native';
 
-export class TextStyleResolver implements IStyledPlugin {
+export class TextChildStyleResolver implements IStyledPlugin {
   name: string;
 
   // for debug purpose only
@@ -31,23 +31,20 @@ export class TextStyleResolver implements IStyledPlugin {
     return [_styledObj, _shouldUpdate, _, Component];
   }
 
-  componentMiddleWare({
-    Component,
-  }: //  styleCSSIds, GluestackStyleSheet
-  any) {
-    // const styles: any = [];
-    // const nativeStyleMap = GluestackStyleSheet.getStyleMap();
-    // styleCSSIds.forEach((cssId: any) => {
-    //   const nativeStyle = nativeStyleMap.get(cssId);
+  componentMiddleWare({ Component, styleCSSIds, GluestackStyleSheet }: any) {
+    const styles: any = [];
+    const nativeStyleMap = GluestackStyleSheet.getStyleMap();
+    styleCSSIds.forEach((cssId: any) => {
+      const nativeStyle = nativeStyleMap.get(cssId);
 
-    //   if (nativeStyle) {
-    //     const styleSheet = nativeStyle?.resolved;
-    //     if (styleSheet) {
-    //       styles.push(styleSheet);
-    //     }
-    //   }
-    // });
-    // const stylesObj = StyleSheet.flatten(styles);
+      if (nativeStyle) {
+        const styleSheet = nativeStyle?.resolved;
+        if (styleSheet) {
+          styles.push(styleSheet);
+        }
+      }
+    });
+    const stylesObj = StyleSheet.flatten(styles);
 
     const StyledComponent = styled(
       Component,
@@ -59,10 +56,11 @@ export class TextStyleResolver implements IStyledPlugin {
       ({ key, children, style, ...componentProps }: any, ref?: any) => {
         const styleObj = StyleSheet.flatten(style);
         const resolvedStyle = resolveStyleForNative(styleObj);
+
         return (
           <StyledComponent
             {...componentProps}
-            sx={{ props: { style: resolvedStyle } }}
+            sx={{ props: { style: resolvedStyle }, _text: stylesObj }}
             key={key}
             ref={ref}
           >

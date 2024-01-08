@@ -145,6 +145,7 @@ export default styled(
   {
     componentName: 'Text',
     ancestorStyle: ['_text'],
+    // descendantStyle: ['_text'],
   } as const,
   {
     plugins: [new TextStyleResolver()],
