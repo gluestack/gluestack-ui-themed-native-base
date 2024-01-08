@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
 import { StyleSheet } from 'react-native';
+import { filterProps } from '../utils/NBsupport';
 
 export class TextChildStyleResolver implements IStyledPlugin {
   name: string;
@@ -55,12 +56,19 @@ export class TextChildStyleResolver implements IStyledPlugin {
     const TextStyledResolvedComponent = forwardRef(
       ({ key, children, style, ...componentProps }: any, ref?: any) => {
         const styleObj = StyleSheet.flatten(style);
-        const resolvedStyle = resolveStyleForNative(styleObj);
+        const resolvedStyle = resolveStyleForNative({
+          ...styleObj,
+          ...stylesObj,
+        });
 
         return (
           <StyledComponent
             {...componentProps}
-            sx={{ props: { style: resolvedStyle }, _text: stylesObj }}
+            sx={{
+              ...stylesObj,
+              props: { style: resolvedStyle },
+              _text: filterProps(stylesObj),
+            }}
             key={key}
             ref={ref}
           >

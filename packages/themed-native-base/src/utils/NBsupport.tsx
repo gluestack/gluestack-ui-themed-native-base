@@ -143,6 +143,7 @@ const permittedProps = [
   'textAlign',
   'textDecorationLine',
 ];
+
 export function filterProps(obj: any) {
   const filteredObj: any = {};
 
