@@ -64,13 +64,13 @@ const FormControlTempError = forwardRef(
     const resolvedProps = usePropResolution(props);
     return (
       <AccessibleFormControl.Error {...resolvedProps} ref={ref}>
-        {leftIcon ? leftIcon : startIcon && startIcon}
+        {leftIcon ?? (startIcon && startIcon)}
         {typeof children === 'string' && (
           <AccessibleFormControl.Error.Text>
             {children}
           </AccessibleFormControl.Error.Text>
         )}
-        {rightIcon ? rightIcon : endIcon && endIcon}
+        {rightIcon ?? (endIcon && endIcon)}
       </AccessibleFormControl.Error>
     );
   }
