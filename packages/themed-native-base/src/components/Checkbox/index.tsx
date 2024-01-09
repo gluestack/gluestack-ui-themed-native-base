@@ -14,7 +14,10 @@ const AccessibleCheckbox = createCheckbox({
 });
 
 const CheckboxTemp = forwardRef(
-  ({ colorScheme = 'primary', children, icon, ...props }: any, ref?: any) => {
+  (
+    { colorScheme = 'primary', children, icon: IconPassed, ...props }: any,
+    ref?: any
+  ) => {
     const resolvedProps = usePropResolution(props);
     return (
       <AccessibleCheckbox
@@ -23,7 +26,9 @@ const CheckboxTemp = forwardRef(
         ref={ref}
       >
         <AccessibleCheckbox.Indicator>
-          {icon ? icon : <AccessibleCheckbox.Icon as={CheckIcon} />}
+          <AccessibleCheckbox.Icon
+            as={IconPassed ? () => IconPassed : CheckIcon}
+          />
         </AccessibleCheckbox.Indicator>
         {children ? (
           <AccessibleCheckbox.Label>{children}</AccessibleCheckbox.Label>
