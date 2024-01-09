@@ -31,8 +31,8 @@ const FormControlTemp = forwardRef(({ ...props }: any, ref?: any) => {
 });
 
 const FormControlTempLabel = forwardRef(
-  ({ children, ...props }: any, ref?: any) => {
-    const resolvedProps = usePropResolution(props);
+  ({ children, _astrick, ...props }: any, ref?: any) => {
+    const resolvedProps = usePropResolution({ ...props, _labelText: _astrick });
     return (
       <AccessibleFormControl.Label {...resolvedProps} ref={ref}>
         <AccessibleFormControl.Label.Text>
@@ -58,10 +58,18 @@ const FormControlTempHelper = forwardRef(
 
 const FormControlTempError = forwardRef(
   (
-    { children, leftIcon, rightIcon, startIcon, endIcon, ...props }: any,
+    {
+      children,
+      leftIcon,
+      rightIcon,
+      startIcon,
+      endIcon,
+      _stack,
+      ...props
+    }: any,
     ref?: any
   ) => {
-    const resolvedProps = usePropResolution(props);
+    const resolvedProps = usePropResolution({ ...props, ..._stack });
     return (
       <AccessibleFormControl.Error {...resolvedProps} ref={ref}>
         {leftIcon ?? (startIcon && startIcon)}

@@ -3,6 +3,10 @@ import { AsForwarder, styled } from '@gluestack-style/react';
 export const StyledIcon = styled(
   AsForwarder,
   {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
     color: '$muted.500',
     _dark: {
       color: '$muted.400',

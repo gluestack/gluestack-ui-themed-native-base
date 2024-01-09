@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import React, { cloneElement, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { createButton } from '@gluestack-ui/button';
 import { Root, Group, Spinner, Text, Icon } from './styled-components';
 import { Icon as IconComp } from '../Icons';
@@ -43,7 +43,7 @@ const NewIconButton = forwardRef(
         isDisabled={isDisabled}
       >
         {icon ? (
-          cloneElement(icon, { ..._icon })
+          <IconComp as={() => icon} {..._icon} />
         ) : (
           <IconComp {..._icon}>{children}</IconComp>
         )}
