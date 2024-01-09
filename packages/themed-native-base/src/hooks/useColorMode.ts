@@ -11,5 +11,5 @@ export function useColorMode() {
       prevColorMode === 'light' ? 'dark' : 'light'
     );
   };
-  return { colorMode, toggleColorMode };
+  return { colorMode: colorMode, toggleColorMode: toggleColorMode };
 }

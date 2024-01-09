@@ -9,7 +9,9 @@ import { HooksContext } from '../Provider';
 const CenterTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
   const resolvedPropForGluestack = usePropResolution(props);
   const GUIChildren = Children.map(children, (child) => {
-    if (typeof child === 'string') return <Text>{child}</Text>;
+    if (typeof child === 'string') {
+      return <Text>{child}</Text>;
+    }
     return child;
   });
 
