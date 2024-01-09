@@ -1,3 +1,4 @@
+import { TextStyleResolver } from '../../../plugins';
 import { Root as Text } from '../../Text/styled-components';
 import { styled } from '@gluestack-style/react';
 
@@ -18,14 +19,6 @@ export default styled(
     // @ts-ignore
     lineHeight: '$lg',
 
-    variants: {
-      IsUnderline: {
-        true: {
-          textDecorationLine: 'underline',
-        },
-      },
-    },
-
     defaultProps: {
       size: 'md',
     },
@@ -33,5 +26,8 @@ export default styled(
   {
     componentName: 'LinkText',
     ancestorStyle: ['_textLink'],
-  } as const
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
+  }
 );
