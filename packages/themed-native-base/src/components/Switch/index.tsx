@@ -3,13 +3,14 @@ import { Root } from './styled-components';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import React, { forwardRef } from 'react';
 import { GenericComponentType, IColorSchemes } from '../../types';
+import { deepMerge } from '../../utils';
 
 const AccessibleSwitch = createSwitch({
   Root,
 });
 
 type ISwitchProps = React.ComponentProps<typeof AccessibleSwitch>;
-// @ts-ignore
+
 type IColorProps = React.ComponentProps<typeof AccessibleSwitch>['bgColor'];
 
 type IExtraProps = {
@@ -23,29 +24,37 @@ type IExtraProps = {
 const SwitchTemp = forwardRef(
   (
     {
-      colorScheme = 'primary',
-      // offTrackColor,
-      // onTrackColor,
-      // onThumbColor,
-      // offThumbColor,
+      colorScheme,
+      offTrackColor,
+      onTrackColor,
+      onThumbColor,
+      offThumbColor,
+      isChecked,
+      defaultIsChecked,
       ...props
     }: ISwitchProps & IExtraProps,
     ref?: any
   ) => {
     const resolvedProps = usePropResolution(props);
-    // const sx = {
-    //   _web: {
-    //     props: {
-    //       trackColor: { false: offTrackColor, true: onTrackColor },
-    //       thumbColor: offThumbColor,
-    //       activeThumbColor: onThumbColor,
-    //     },
-    //   },
-    // };
+    const sx = {
+      props: {
+        trackColor: {
+          false: offTrackColor ? `$${offTrackColor}` : '',
+          true: onTrackColor ? `$${onTrackColor}` : '',
+        },
+        thumbColor: offThumbColor ? `$${offThumbColor}` : '',
+        activeThumbColor: onThumbColor ? `$${onThumbColor}` : '',
+        ios_backgroundColor: offTrackColor ? `$${offTrackColor}` : '',
+      },
+    };
+    resolvedProps.sx = deepMerge(resolvedProps.sx, sx);
     return (
       <AccessibleSwitch
-        colorScheme={colorScheme}
+        value={isChecked}
+        defaultValue={defaultIsChecked}
+        colorScheme={colorScheme ?? 'primary'}
         {...resolvedProps}
+        componentName="switch"
         ref={ref}
       />
     );
