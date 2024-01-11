@@ -3,6 +3,7 @@ import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
 import { StyleSheet } from 'react-native';
 import { filterProps } from '../utils/NBsupport';
+import { stableHash } from '../utils';
 
 export class TextChildStyleResolver implements IStyledPlugin {
   name: string;
@@ -32,20 +33,20 @@ export class TextChildStyleResolver implements IStyledPlugin {
     return [_styledObj, _shouldUpdate, _, Component];
   }
 
-  componentMiddleWare({ Component, styleCSSIds, GluestackStyleSheet }: any) {
-    const styles: any = [];
-    const nativeStyleMap = GluestackStyleSheet.getStyleMap();
-    styleCSSIds.forEach((cssId: any) => {
-      const nativeStyle = nativeStyleMap.get(cssId);
+  componentMiddleWare({ Component, GluestackStyleSheet }: any) {
+    // const styles: any = [];
+    // const nativeStyleMap = GluestackStyleSheet.getStyleMap();
+    // styleCSSIds.forEach((cssId: any) => {
+    //   const nativeStyle = nativeStyleMap.get(cssId);
 
-      if (nativeStyle) {
-        const styleSheet = nativeStyle?.resolved;
-        if (styleSheet) {
-          styles.push(styleSheet);
-        }
-      }
-    });
-    const stylesObj = StyleSheet.flatten(styles);
+    //   if (nativeStyle) {
+    //     const styleSheet = nativeStyle?.resolved;
+    //     if (styleSheet) {
+    //       styles.push(styleSheet);
+    //     }
+    //   }
+    // });
+    // const stylesObj = StyleSheet.flatten(styles);
 
     const StyledComponent = styled(
       Component,
@@ -55,6 +56,20 @@ export class TextChildStyleResolver implements IStyledPlugin {
 
     const TextStyledResolvedComponent = forwardRef(
       ({ key, children, style, ...componentProps }: any, ref?: any) => {
+        const styles: any = [];
+        const nativeStyleMap = GluestackStyleSheet.getStyleMap();
+        componentProps['data-style'].split(' ').forEach((cssId: any) => {
+          const nativeStyle = nativeStyleMap.get(cssId);
+
+          if (nativeStyle) {
+            const styleSheet = nativeStyle?.resolved;
+            if (styleSheet) {
+              styles.push(styleSheet);
+            }
+          }
+        });
+        delete componentProps['data-style'];
+        const stylesObj = StyleSheet.flatten(styles);
         const styleObj = StyleSheet.flatten(style);
         const resolvedStyle = resolveStyleForNative({
           ...styleObj,
@@ -67,9 +82,9 @@ export class TextChildStyleResolver implements IStyledPlugin {
             sx={{
               ...stylesObj,
               props: { style: resolvedStyle },
-              _text: filterProps(stylesObj),
+              _text: filterProps(resolvedStyle),
             }}
-            key={key}
+            key={key + stableHash(resolvedStyle)}
             ref={ref}
           >
             {children}
