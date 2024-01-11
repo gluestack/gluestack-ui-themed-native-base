@@ -26,13 +26,33 @@ const AccessibleRadioGroup = forwardRef(
 ) as any;
 
 const RadioTemp = forwardRef(
-  ({ colorScheme = 'primary', icon, children, ...props }: any, ref?: any) => {
-    const resolvedProps = usePropResolution(props);
+  (
+    {
+      colorScheme = 'primary',
+      icon: IconPassed,
+      _stack,
+      children,
+      ...props
+    }: any,
+    ref?: any
+  ) => {
+    const resolvedPropsForIndicator = usePropResolution(props);
+    const resolvedPropsForRadio = usePropResolution(_stack);
 
     return (
-      <AccessibleRadio colorScheme={colorScheme} {...resolvedProps} ref={ref}>
-        <AccessibleRadio.Indicator alignItems="center" justifyContent="center">
-          {icon ? icon : <AccessibleRadio.Icon as={CircleIcon} />}
+      <AccessibleRadio
+        colorScheme={colorScheme}
+        {...resolvedPropsForRadio}
+        ref={ref}
+      >
+        <AccessibleRadio.Indicator
+          {...resolvedPropsForIndicator}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <AccessibleRadio.Icon
+            as={IconPassed ? () => IconPassed : CircleIcon}
+          />
         </AccessibleRadio.Indicator>
         {children && <AccessibleRadio.Label>{children}</AccessibleRadio.Label>}
       </AccessibleRadio>
