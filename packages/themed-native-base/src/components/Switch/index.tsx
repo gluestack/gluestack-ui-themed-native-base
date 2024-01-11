@@ -2,24 +2,24 @@ import { createSwitch } from '@gluestack-ui/switch';
 import { Root } from './styled-components';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import React, { forwardRef } from 'react';
-import { GenericComponentType, IColorSchemes } from '../../types';
+import { GenericComponentType } from '../../types';
 import { deepMerge } from '../../utils';
 
 const AccessibleSwitch = createSwitch({
   Root,
 });
 
-type ISwitchProps = React.ComponentProps<typeof AccessibleSwitch>;
+// type ISwitchProps = React.ComponentProps<typeof AccessibleSwitch>;
 
-type IColorProps = React.ComponentProps<typeof AccessibleSwitch>['bgColor'];
+// type IColorProps = React.ComponentProps<typeof AccessibleSwitch>['bgColor'];
 
-type IExtraProps = {
-  offTrackColor: IColorProps;
-  onTrackColor: IColorProps;
-  onThumbColor: IColorProps;
-  offThumbColor: IColorProps;
-  colorScheme: IColorSchemes;
-};
+// type IExtraProps = {
+//   offTrackColor: IColorProps;
+//   onTrackColor: IColorProps;
+//   onThumbColor: IColorProps;
+//   offThumbColor: IColorProps;
+//   colorScheme: IColorSchemes;
+// };
 
 const SwitchTemp = forwardRef(
   (
@@ -32,9 +32,12 @@ const SwitchTemp = forwardRef(
       isChecked,
       defaultIsChecked,
       ...props
-    }: ISwitchProps & IExtraProps,
+    }: any,
+    // }: ISwitchProps & IExtraProps,
     ref?: any
   ) => {
+    // TODO: make a better flow
+
     const resolvedProps = usePropResolution(props);
     const sx = {
       props: {
@@ -50,11 +53,11 @@ const SwitchTemp = forwardRef(
     resolvedProps.sx = deepMerge(resolvedProps.sx, sx);
     return (
       <AccessibleSwitch
+        componentName="switch"
         value={isChecked}
         defaultValue={defaultIsChecked}
         colorScheme={colorScheme ?? 'primary'}
         {...resolvedProps}
-        componentName="switch"
         ref={ref}
       />
     );
