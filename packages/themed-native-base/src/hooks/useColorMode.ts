@@ -2,14 +2,14 @@ import { useContext } from 'react';
 import { HooksContext } from '../components/Provider';
 
 export function useColorMode() {
-  const { colorMode, setColorMode } = useContext(HooksContext) as {
+  const { colorMode, toggleColorMode } = useContext(HooksContext) as {
     colorMode: string;
-    setColorMode: any;
+    toggleColorMode: any;
   };
-  const toggleColorMode = () => {
-    setColorMode((prevColorMode: string) =>
-      prevColorMode === 'light' ? 'dark' : 'light'
-    );
-  };
+  // const toggleColorMode = () => {
+  //   setColorMode((prevColorMode: string) => {
+  //     return prevColorMode === 'light' ? 'dark' : 'light';
+  //   });
+  // };
   return { colorMode: colorMode, toggleColorMode: toggleColorMode };
 }
