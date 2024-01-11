@@ -34,6 +34,10 @@ const NativeBaseProvider = ({
     colorModeFromParent ?? theme?.config?.initialColorMode ?? 'light'
   );
 
+  const toggleColorMode = () => {
+    setColorMode((prev: any) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
   const gluestackCompatibleTheme = convertTheme(theme);
   const mergedTheme = theme
     ? deepMerge(deepMerge(defaultConfig.theme, gluestackCompatibleTheme), theme)
@@ -49,7 +53,7 @@ const NativeBaseProvider = ({
     <HooksContext.Provider
       value={{
         colorMode: colorModeNEW,
-        setColorMode: setColorMode,
+        toggleColorMode: toggleColorMode,
         config: config?.dependencies ? config.dependencies : {},
       }}
     >
