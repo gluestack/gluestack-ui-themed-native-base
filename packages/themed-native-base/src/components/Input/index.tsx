@@ -28,14 +28,27 @@ type InputProps = {
 
 const InputTemp = forwardRef(
   (
-    { InputLeftElement, InputRightElement, placeholder, type, ...props }: any,
+    {
+      InputLeftElement,
+      InputRightElement,
+      placeholder,
+      type,
+      onChangeText,
+      value,
+      ...props
+    }: any,
     ref?: any
   ) => {
     const resolvedProps = usePropResolution(props);
     return (
       <AccessibleInput ref={ref} {...resolvedProps}>
         {InputLeftElement && InputLeftElement}
-        <AccessibleInput.Input placeholder={placeholder} type={type} />
+        <AccessibleInput.Input
+          placeholder={placeholder}
+          value={value}
+          type={type}
+          onChangeText={onChangeText}
+        />
         {InputRightElement && InputRightElement}
       </AccessibleInput>
     );
