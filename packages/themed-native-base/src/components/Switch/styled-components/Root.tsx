@@ -4,10 +4,7 @@ import { ColorSchemeResolver } from '../../../plugins';
 
 export default styled(
   Switch,
-  // @ts-ignore
   {
-    //
-    // @ts-ignore
     'borderRadius': '$full',
     ':disabled': {
       opacity: 0.4,
@@ -18,9 +15,7 @@ export default styled(
       },
       _android: {
         borderColor: '$error.600',
-        // @ts-ignore
         borderWidth: 2,
-        // @ts-ignore
         borderRadius: 12,
       },
     },
@@ -88,6 +83,7 @@ export default styled(
     },
 
     'variants': {
+      colorScheme: {},
       size: {
         sm: {
           transform: [
@@ -110,6 +106,7 @@ export default styled(
 
     'defaultProps': {
       size: 'md',
+      // @ts-ignore
       colorScheme: 'primary',
     },
   },
@@ -138,14 +135,6 @@ export default styled(
         return resolveColor;
       },
     },
-    //@ts-ignore
-    aliases: {
-      thumbColor: 'thumbColor',
-      activeThumbColor: 'activeThumbColor',
-      activeTrackColor: 'activeTrackColor',
-      trackColor: 'trackColor',
-      ios_backgroundColor: 'ios_backgroundColor',
-    },
     plugins: [new ColorSchemeResolver(colorSchemeResolveFn)],
   }
 );
@@ -155,15 +144,33 @@ function colorSchemeResolveFn({ ...props }: any) {
     const color = props.colorScheme;
 
     const value = {
-      'props': { trackColor: { true: `$${color}.600` } },
+      'props': {
+        thumbColor: '$muted.50',
+        activeThumbColor: '$muted.50',
+        trackColor: { false: '$muted.300', true: `$${color}.600` },
+        // for ios specifically in unchecked state
+        ios_backgroundColor: '$muted.300',
+      },
       ':hover': {
-        props: { trackColor: { true: `$${color}.700` } },
+        props: {
+          trackColor: { false: '$muted.400', true: `$${color}.700` },
+          // for ios specifically in unchecked state
+          ios_backgroundColor: '$muted.400',
+        },
       },
 
       '_dark': {
-        'props': { trackColor: { true: `$${color}.500` } },
+        'props': {
+          trackColor: { false: '$muted.700', true: `$${color}.500` },
+          // for ios specifically in unchecked state
+          ios_backgroundColor: '$muted.700',
+        },
         ':hover': {
-          props: { trackColor: { true: `$${color}.400` } },
+          props: {
+            trackColor: { false: '$muted.600', true: `$${color}.400` },
+            // for ios specifically in unchecked state
+            ios_backgroundColor: '$muted.600',
+          },
         },
       },
     };

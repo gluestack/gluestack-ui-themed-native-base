@@ -1,4 +1,4 @@
-import { resolveAlphaColors } from '../utils';
+import { resolveAlphaColors } from '../utils/NBsupport';
 
 export const config = {
   componentPath: '/components',
@@ -19,6 +19,9 @@ export const config = {
       mx: 'marginHorizontal',
       my: 'marginVertical',
       mt: 'marginTop',
+      mb: 'marginBottom',
+      mr: 'marginRight',
+      ml: 'marginLeft',
       align: 'alignItems',
       justify: 'justifyContent',
       wrap: 'flexWrap',
@@ -27,9 +30,6 @@ export const config = {
       shrink: 'flexShrink',
       direction: 'flexDirection',
       flexDir: 'flexDirection',
-      mb: 'marginBottom',
-      mr: 'marginRight',
-      ml: 'marginLeft',
       minH: 'minHeight',
       minW: 'minWidth',
       maxH: 'maxHeight',
@@ -923,6 +923,12 @@ export const config = {
         'lg': '0.025em',
         'xl': '0.05em',
         '2xl': '0.1em',
+        // 'xs': -0.8,
+        // 'sm': -0.4,
+        // 'md': 0,
+        // 'lg': 0.4,
+        // 'xl': 0.8,
+        // '2xl': 1.6,
       },
       lineHeights: {
         '2xs': '1em',

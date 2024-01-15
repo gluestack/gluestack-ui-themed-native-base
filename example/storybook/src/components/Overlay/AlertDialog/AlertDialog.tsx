@@ -1,13 +1,5 @@
-import React, { useState } from 'react';
-import {
-  AlertDialog,
-  Button,
-  Center,
-  CloseIcon,
-  Heading,
-  Icon,
-  Text,
-} from '@gluestack-ui/themed-native-base/src';
+import React from 'react';
+import { AlertDialog, Button, Center } from '@gluestack-ui/themed';
 
 function AlertDialogStory() {
   const [showAlertDialog, setShowAlertDialog] = React.useState(false);

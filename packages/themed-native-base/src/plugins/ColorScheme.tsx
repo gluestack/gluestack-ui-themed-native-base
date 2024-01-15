@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
+import { deepMerge } from '../utils';
 
 class ColorSchemeResolver implements IStyledPlugin {
   name: string;
@@ -65,9 +66,47 @@ class ColorSchemeResolver implements IStyledPlugin {
           });
         }
 
+        if (restProps?.componentName === 'switch') {
+          const {
+            thumbColor,
+            activeThumbColor,
+            trackColor,
+            ios_backgroundColor,
+            ...restModifiedProps
+          } = restProps;
+
+          delete restModifiedProps.componentName;
+
+          const sxPassed = {
+            props: {
+              trackColor,
+              thumbColor,
+              activeThumbColor,
+              ios_backgroundColor,
+            },
+          };
+
+          const finalStyle = deepMerge(deepMerge(colorSchemeSx, sxPassed), sx);
+
+          const toBeAppliedSx = deepMerge(
+            finalStyle,
+            colorSchemePassingPropsSx
+          );
+
+          return (
+            <StyledComponent
+              {...restModifiedProps}
+              key={key ?? key + '_' + colorScheme}
+              ref={ref}
+              sx={toBeAppliedSx}
+            />
+          );
+        }
+
+        const finalStyle = deepMerge(colorSchemeSx, sx);
+
         const toBeAppliedSx = {
-          ...colorSchemeSx,
-          ...sx,
+          ...finalStyle,
           props: {
             sx: colorSchemePassingPropsSx,
           },

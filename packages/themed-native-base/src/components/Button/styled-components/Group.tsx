@@ -127,6 +127,6 @@ export default styled(
   },
   {
     componentName: 'ButtonGroup',
-    descendantStyle: ['_button'],
+    descendantStyle: ['_button', '_icon', '_text'],
   } as const
 );

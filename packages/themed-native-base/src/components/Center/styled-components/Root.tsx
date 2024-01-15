@@ -9,5 +9,6 @@ export default styled(
   },
   {
     componentName: 'Center',
+    descendantStyle: ['_text'],
   } as const
 );

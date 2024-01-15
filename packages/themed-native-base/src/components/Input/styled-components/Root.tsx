@@ -4,9 +4,8 @@ import { View } from 'react-native';
 export default styled(
   View,
   {
-    //@ts-ignore
-    'fontFamily': '$body',
     // @ts-ignore
+    'fontFamily': 'body',
     'borderRadius': '$sm',
     'flexDirection': 'row',
     'alignItems': 'center',
@@ -21,7 +20,6 @@ export default styled(
     '_web': {
       outlineWidth: '$0',
       overflow: 'auto',
-      // @ts-ignore
       lineHeight: '$lg',
       outline: 'none',
       cursor: 'auto',
@@ -47,10 +45,10 @@ export default styled(
     ':focus': {
       'borderColor': '$primary.600',
       ':hover': { borderColor: '$primary.600' },
-      '_input': {
-        outlineWidth: '$0',
-      },
       '_web': {
+        _input: {
+          outlineWidth: '$0',
+        },
         outlineWidth: '$0',
         boxShadow: `0 0 0 1px $primary.600`,
       },
@@ -127,7 +125,6 @@ export default styled(
         '2xl': {
           // height: '$12',
           _input: {
-            // @ts-ignore
             fontSize: '$xl',
           },
           _icon: {
@@ -138,7 +135,6 @@ export default styled(
         'xl': {
           // height: '$12',
           _input: {
-            // @ts-ignore
             fontSize: '$lg',
           },
           _icon: {
@@ -149,7 +145,6 @@ export default styled(
         'lg': {
           // height: '$11',
           _input: {
-            // @ts-ignore
             fontSize: '$md',
           },
           _icon: {
@@ -160,7 +155,6 @@ export default styled(
         'md': {
           // height: '$10',
           _input: {
-            // @ts-ignore
             fontSize: '$sm',
           },
           _icon: {
@@ -171,7 +165,6 @@ export default styled(
         'sm': {
           // height: '$9',
           _input: {
-            // @ts-ignore
             fontSize: '$xs',
           },
           _icon: {
@@ -182,7 +175,6 @@ export default styled(
         'xs': {
           // height: '$9',
           _input: {
-            // @ts-ignore
             fontSize: '$2xs',
           },
           _icon: {
@@ -192,40 +184,30 @@ export default styled(
         },
       },
       variant: {
-        // @ts-ignore
         rounded: {
-          // @ts-ignore
           'borderRadius': '$full',
-          // @ts-ignore
           'borderWidth': '$1',
           ':focus': {
             backgroundColor: '$primary.600.alpha0.1',
           },
         },
-        // @ts-ignore
         outline: {
-          // @ts-ignore
           'borderWidth': '$1',
           ':focus': {
             backgroundColor: '$primary.600.alpha0.1',
           },
         },
         filled: {
-          // @ts-ignore
           'borderWidth': '$1',
           ':focus': {
             backgroundColor: '$primary.600.alpha0.1',
           },
-          // @ts-ignore
           ':hover': {
-            // @ts-ignore
             borderWidth: '$1',
             _disabled: {
-              // @ts-ignore
               borderWidth: '$0',
             },
           },
-          // @ts-ignore
           'bg': '$muted.100',
           'borderColor': '$muted.100',
 
@@ -234,9 +216,7 @@ export default styled(
             borderColor: '$muted.800',
           },
         },
-        // @ts-ignore
         unstyled: {
-          // @ts-ignore
           'borderWidth': '$0',
           ':focus': {
             backgroundColor: 'transparent',
@@ -253,9 +233,7 @@ export default styled(
             },
           },
         },
-        // @ts-ignore
         underlined: {
-          // @ts-ignore
           'borderWidth': '$0',
           'pl': '$0',
           'borderBottomWidth': '$1',
@@ -286,7 +264,6 @@ export default styled(
               },
             },
           },
-          // @ts-ignore
           'borderRadius': 0,
         },
       },

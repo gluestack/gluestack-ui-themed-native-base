@@ -28,14 +28,38 @@ type InputProps = {
 
 const InputTemp = forwardRef(
   (
-    { InputLeftElement, InputRightElement, placeholder, ...props }: any,
+    {
+      InputLeftElement,
+      InputRightElement,
+      placeholder,
+      type,
+      onChangeText,
+      value,
+      wrapperRef,
+      isFullWidth,
+      _input = {},
+      _stack = {},
+      ...props
+    }: any,
     ref?: any
   ) => {
-    const resolvedProps = usePropResolution(props);
+    const resolvedProps = usePropResolution({ ..._stack, ...props });
+    const resolvedPropsForInput = usePropResolution(_input);
     return (
-      <AccessibleInput ref={ref} {...resolvedProps}>
+      <AccessibleInput
+        ref={wrapperRef}
+        {...resolvedProps}
+        width={isFullWidth && '$full'}
+      >
         {InputLeftElement && InputLeftElement}
-        <AccessibleInput.Input placeholder={placeholder} />
+        <AccessibleInput.Input
+          {...resolvedPropsForInput}
+          placeholder={placeholder}
+          value={value}
+          type={type}
+          onChangeText={onChangeText}
+          ref={ref}
+        />
         {InputRightElement && InputRightElement}
       </AccessibleInput>
     );
@@ -51,6 +75,7 @@ export type IInputComponentType<Input> = GenericComponentType<
 export const Input = InputTemp as IInputComponentType<typeof AccessibleInput>;
 
 const InputGroupTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
+  const resolvedProps = usePropResolution(props);
   const ChildrenStyled = Children.map(children, (child, index) => {
     if (index === 0)
       return cloneElement(child, {
@@ -69,7 +94,7 @@ const InputGroupTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
     });
   });
   return (
-    <StyledInputGroup {...props} ref={ref}>
+    <StyledInputGroup {...resolvedProps} ref={ref}>
       {ChildrenStyled}
     </StyledInputGroup>
   );

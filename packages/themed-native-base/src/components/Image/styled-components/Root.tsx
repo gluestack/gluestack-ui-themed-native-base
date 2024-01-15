@@ -5,6 +5,7 @@ export default styled(
   Image,
   {
     maxWidth: '$full',
+    height: '$full',
 
     variants: {
       size: {

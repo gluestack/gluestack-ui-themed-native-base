@@ -25,5 +25,6 @@ export default styled(
   },
   {
     componentName: 'HStack',
+    descendantStyle: ['_text'],
   } as const
 );

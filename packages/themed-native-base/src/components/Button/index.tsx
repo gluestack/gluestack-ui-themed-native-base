@@ -34,6 +34,7 @@ const NewButton = forwardRef(
   (
     {
       children,
+      _stack,
       isLoading,
       isDisabled,
       isLoadingText,
@@ -48,7 +49,7 @@ const NewButton = forwardRef(
     }: any,
     ref?: any
   ) => {
-    const resolvedPropForGluestack = usePropResolution(props);
+    const resolvedPropForGluestack = usePropResolution({ ...props, ..._stack });
     const loadingProps = getLoadingProps(resolvedPropForGluestack);
     return (
       <AccessibleButton

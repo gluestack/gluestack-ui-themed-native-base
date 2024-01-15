@@ -3,7 +3,7 @@ import { usePropResolution } from '../../hooks/usePropResolution';
 import { Root as AccessibleText } from './styled-components';
 import { GenericComponentType } from '../../types';
 import { deepMerge } from '../../utils';
-import { filterProps } from '../../plugins';
+import { filterProps } from '../../utils/NBsupport';
 
 const TextAncestorContext = createContext({
   hasTextAncestor: false,
@@ -34,6 +34,7 @@ const TextTemp = ({ children, ...props }: any) => {
 
 export type ITextComponentType<Text> = GenericComponentType<Text>;
 
+// @ts-ignore
 export const Text = TextTemp as ITextComponentType<typeof AccessibleText>;
 
 export { AccessibleText };

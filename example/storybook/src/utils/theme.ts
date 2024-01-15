@@ -1,7 +1,7 @@
 // import { BaseTheme } from "./index";
 
 // import { extendTheme } from "native-base";
-import { extendTheme } from '@gluestack-ui/themed-native-base/src';
+import { extendTheme } from '@gluestack-ui/themed-native-base';
 
 // export const BaseTheme = extendTheme({});
 export const BaseTheme = extendTheme({

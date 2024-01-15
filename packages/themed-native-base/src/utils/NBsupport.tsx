@@ -124,3 +124,39 @@ export function transformFactoryToStyled(factoryStyle?: any) {
     });
   return transformedTheme;
 }
+
+const permittedProps = [
+  'color',
+  'fontSize',
+  'fontFamily',
+  'fontStyle',
+  'fontWeight',
+  'letterSpacing',
+  'lineHeight',
+  'isTruncated',
+  'bold',
+  'italic',
+  'underline',
+  'strikeThrough',
+  'sub',
+  'highlight',
+  'textAlign',
+  'textDecorationLine',
+];
+
+export function filterProps(obj: any) {
+  const filteredObj: any = {};
+
+  for (const key of Object.keys(obj)) {
+    if (permittedProps.includes(key)) {
+      filteredObj[key] = obj[key];
+    } else if (typeof obj[key] === 'object') {
+      const filteredNested = filterProps(obj[key]);
+      if (Object.keys(filteredNested).length > 0) {
+        filteredObj[key] = filteredNested;
+      }
+    }
+  }
+
+  return filteredObj;
+}

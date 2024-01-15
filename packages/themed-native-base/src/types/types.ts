@@ -48,14 +48,14 @@ export type RemoveDollarSign<T> = T extends `${'$'}${infer Rest}` ? Rest : T;
 // type NewType = RemoveDollarSign<IH>;
 // type NewType = RemoveDollarSign<IHExtract>;
 
-type ModifiedObject = {
-  [K in keyof IProps as K extends `${'$'}${infer Rest}`
-    ? `${Rest}`
-    : K]: IProps[K];
-  // [K in keyof IProps]: 'string'; // RemoveDollarSign<IProps[K]>;
-};
+// type ModifiedObject = {
+//   [K in keyof IProps as K extends `${'$'}${infer Rest}`
+//     ? `${Rest}`
+//     : K]: IProps[K];
+//   // [K in keyof IProps]: 'string'; // RemoveDollarSign<IProps[K]>;
+// };
 
-// let t: ModifiedObject = {};
-const height = { h: 'px', bg: '' } as ModifiedObject;
-// eslint-disable-next-line no-console
-console.log(height);
+// // let t: ModifiedObject = {};
+// const height = { h: 'px', bg: '' } as ModifiedObject;
+// // eslint-disable-next-line no-console
+// console.log(height);

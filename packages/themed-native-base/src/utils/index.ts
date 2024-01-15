@@ -4,6 +4,7 @@ import cloneDeep from 'lodash.clonedeep';
 // @ts-ignore
 import Color from 'tinycolor2';
 export * from './stablehash';
+export * from './modifyConfig';
 
 const dontResolveFromToken = ['top', 'left', 'right', 'bottom'];
 
@@ -111,8 +112,6 @@ export const CSSPropertiesMap = {
   borderTopEndRadius: '0',
   borderTopStartRadius: '0',
 };
-
-export * from './NBsupport';
 
 const borderStyles = 'borderStyles';
 const borderWidths = 'borderWidths';

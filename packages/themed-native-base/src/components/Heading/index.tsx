@@ -17,3 +17,5 @@ export type IHeadingComponentType<Heading> = GenericComponentType<Heading>;
 export const Heading = HeadingTemp as IHeadingComponentType<
   typeof AccessibleHeading
 >;
+
+export { AccessibleHeading };

@@ -2,7 +2,7 @@ import React from 'react';
 import type { ComponentStory } from '@storybook/react-native';
 import { AddIcon, InfoIcon, VStack } from '@gluestack-ui/themed';
 import { Button } from '@gluestack-ui/themed';
-import { Icon } from '@gluestack-ui/themed-native-base/src';
+import { Icon } from '@gluestack-ui/themed-native-base';
 
 type MyButtonStory = ComponentStory<typeof Button>;
 

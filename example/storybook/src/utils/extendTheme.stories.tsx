@@ -2,7 +2,7 @@ import React from 'react';
 import type { ComponentMeta } from '@storybook/react-native';
 import DocsContainer from '@storybook/addon-docs';
 
-import { NativeBaseProvider, Box } from '@gluestack-ui/themed-native-base/src';
+import { NativeBaseProvider, Box } from '@gluestack-ui/themed-native-base';
 import { BaseTheme } from './theme';
 
 const Example = () => {

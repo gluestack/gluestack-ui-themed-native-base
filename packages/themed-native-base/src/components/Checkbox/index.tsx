@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, cloneElement } from 'react';
 import { Root, Indicator, Icon, Label, Group } from './styled-components';
 import { createCheckbox } from '@gluestack-ui/checkbox';
 import { CheckIcon } from '../Icons';
@@ -14,7 +14,10 @@ const AccessibleCheckbox = createCheckbox({
 });
 
 const CheckboxTemp = forwardRef(
-  ({ colorScheme = 'primary', children, icon, ...props }: any, ref?: any) => {
+  (
+    { colorScheme = 'primary', children, icon: IconPassed, ...props }: any,
+    ref?: any
+  ) => {
     const resolvedProps = usePropResolution(props);
     return (
       <AccessibleCheckbox
@@ -23,7 +26,17 @@ const CheckboxTemp = forwardRef(
         ref={ref}
       >
         <AccessibleCheckbox.Indicator>
-          {icon ? icon : <AccessibleCheckbox.Icon as={CheckIcon} />}
+          <AccessibleCheckbox.Icon
+            as={
+              IconPassed
+                ? () =>
+                    cloneElement(IconPassed, {
+                      h: 'full',
+                      w: 'full',
+                    })
+                : CheckIcon
+            }
+          />
         </AccessibleCheckbox.Indicator>
         {children ? (
           <AccessibleCheckbox.Label>{children}</AccessibleCheckbox.Label>

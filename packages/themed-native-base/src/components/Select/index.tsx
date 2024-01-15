@@ -178,6 +178,7 @@ const NewSelect = forwardRef(
 
 export const AccessibleSelectIte = forwardRef(
   ({ children, label, value, ...props }: any, ref?: any) => {
+    const resolvedprops = usePropResolution(props);
     const {
       itemProps,
       // selectedItemProp
@@ -188,7 +189,7 @@ export const AccessibleSelectIte = forwardRef(
         label={label}
         value={value}
         {...itemProps}
-        {...props}
+        {...resolvedprops}
         ref={ref}
       >
         <AccessibleSelect.ItemText>{children}</AccessibleSelect.ItemText>
@@ -199,6 +200,7 @@ export const AccessibleSelectIte = forwardRef(
 
 const AccessibleSelectItem = forwardRef(
   ({ children, label, value, ...props }: any, ref?: any) => {
+    const resolvedprops = usePropResolution(props);
     const {
       itemProps,
       // selectedItemProp
@@ -209,7 +211,7 @@ const AccessibleSelectItem = forwardRef(
         label={label}
         value={value}
         {...itemProps}
-        {...props}
+        {...resolvedprops}
         ref={ref}
       >
         <AccessibleSelect.ItemText>{children}</AccessibleSelect.ItemText>

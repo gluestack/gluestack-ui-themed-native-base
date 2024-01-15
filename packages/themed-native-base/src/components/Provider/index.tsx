@@ -33,6 +33,11 @@ const NativeBaseProvider = ({
   const [colorModeNEW, setColorMode] = useState(
     colorModeFromParent ?? theme?.config?.initialColorMode ?? 'light'
   );
+  // delete props.colorMode;
+
+  const toggleColorMode = () => {
+    setColorMode((prev: any) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   const gluestackCompatibleTheme = convertTheme(theme);
   const mergedTheme = theme
@@ -45,11 +50,12 @@ const NativeBaseProvider = ({
     }
     return mergedTheme;
   }, [_enableRem, mergedTheme]);
+
   return (
     <HooksContext.Provider
       value={{
         colorMode: colorModeNEW,
-        setColorMode: setColorMode,
+        toggleColorMode: toggleColorMode,
         config: config?.dependencies ? config.dependencies : {},
       }}
     >

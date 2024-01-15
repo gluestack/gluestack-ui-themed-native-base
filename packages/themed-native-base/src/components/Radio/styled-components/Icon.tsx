@@ -10,6 +10,7 @@ export default styled(
   {
     componentName: 'RadioIcon',
     ancestorStyle: ['_icon'],
+    descendantStyle: ['_icon'],
     resolveProps: ['color'],
   } as const
 );

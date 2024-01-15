@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
 import { styled } from '@gluestack-style/react';
-// import { TextStyleResolver } from '../../../plugins';
+import { TextStyleResolver } from '../../../plugins';
 
 export default styled(
   Text,
@@ -145,8 +145,9 @@ export default styled(
   {
     componentName: 'Text',
     ancestorStyle: ['_text'],
-  } as const
-  // {
-  //   plugins: [new TextStyleResolver()],
-  // }
+    // descendantStyle: ['_text'],
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
+  }
 );

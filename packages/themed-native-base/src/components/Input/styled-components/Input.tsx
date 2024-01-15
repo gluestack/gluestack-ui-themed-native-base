@@ -22,13 +22,6 @@ export default styled(
         placeholderTextColor: '$text.600',
       },
     },
-    _web: {
-      'outlineWidth': '$0',
-      'cursor': 'text',
-      ':disabled': {
-        cursor: 'not-allowed',
-      },
-    },
   },
   {
     componentName: 'InputField',

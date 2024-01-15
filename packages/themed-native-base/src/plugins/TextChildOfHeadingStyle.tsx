@@ -2,9 +2,10 @@ import React, { forwardRef } from 'react';
 import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
 import { StyleSheet } from 'react-native';
+import { filterProps } from '../utils/NBsupport';
 import { stableHash } from '../utils';
 
-export class TextStyleResolver implements IStyledPlugin {
+export class TextChildStyleResolver implements IStyledPlugin {
   name: string;
 
   // for debug purpose only
@@ -57,7 +58,7 @@ export class TextStyleResolver implements IStyledPlugin {
       ({ key, children, style, ...componentProps }: any, ref?: any) => {
         const styles: any = [];
         const nativeStyleMap = GluestackStyleSheet.getStyleMap();
-        componentProps['data-style'].split(' ').forEach((cssId: any) => {
+        componentProps?.dataSet?.style.split(' ').forEach((cssId: any) => {
           const nativeStyle = nativeStyleMap.get(cssId);
 
           if (nativeStyle) {
@@ -67,7 +68,11 @@ export class TextStyleResolver implements IStyledPlugin {
             }
           }
         });
+
+        // console.log(componentProps['data-style'], '>>>>>');
+
         delete componentProps['data-style'];
+
         const stylesObj = StyleSheet.flatten(styles);
         const styleObj = StyleSheet.flatten(style);
         const resolvedStyle = resolveStyleForNative({
@@ -75,13 +80,19 @@ export class TextStyleResolver implements IStyledPlugin {
           ...stylesObj,
         });
 
+        // console.log({
+        //   ...stylesObj,
+        //   props: { style: resolvedStyle },
+        //   _text: filterProps(resolvedStyle),
+        // });
+
         return (
           <StyledComponent
             {...componentProps}
             sx={{
               ...stylesObj,
               props: { style: resolvedStyle },
-              // _text: filterProps(resolvedStyle),
+              _text: filterProps(resolvedStyle),
             }}
             key={key + stableHash(resolvedStyle)}
             ref={ref}

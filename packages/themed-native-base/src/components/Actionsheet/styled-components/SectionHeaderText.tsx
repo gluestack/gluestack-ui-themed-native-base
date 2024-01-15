@@ -1,15 +1,14 @@
-import { Text } from 'react-native';
 import { styled } from '@gluestack-style/react';
+import { TextStyleResolver } from '../../../plugins';
+import { AccessibleHeading } from '../../Heading';
 
 export default styled(
-  Text,
+  AccessibleHeading,
   {
     color: '$textLight500',
-    // @ts-ignore
     fontSize: '$sm',
     fontFamily: '$body',
     fontWeight: '$bold',
-    // @ts-ignore
     lineHeight: '$xs',
     textTransform: 'uppercase',
     padding: '$3',
@@ -18,6 +17,10 @@ export default styled(
     },
   },
   {
-    ancestorStyle: ['_sectionHeaderBackground'],
+    componentName: 'ActionsheetSectionHeaderText',
+    ancestorStyle: ['_sectionHeaderText'],
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
   }
 );

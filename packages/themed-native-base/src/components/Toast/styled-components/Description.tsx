@@ -1,5 +1,6 @@
 import { Text } from 'react-native';
 import { styled } from '@gluestack-style/react';
+import { TextStyleResolver } from '../../../plugins';
 
 export default styled(
   Text,
@@ -14,5 +15,8 @@ export default styled(
   {
     componentName: 'ToastDescription',
     ancestorStyle: ['_description'],
-  } as const
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
+  }
 );

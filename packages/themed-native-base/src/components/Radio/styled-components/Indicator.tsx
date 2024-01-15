@@ -13,6 +13,8 @@ export default styled(
     'bg': '$muted.50',
     'borderColor': '$muted.400',
     'my': '$1',
+    'justifyContent': 'center',
+    'alignItems': 'center',
   },
   {
     componentName: 'RadioIndicator',

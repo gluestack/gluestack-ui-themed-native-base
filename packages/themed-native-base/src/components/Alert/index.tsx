@@ -44,9 +44,15 @@ const AlertNew = forwardRef(
       status = { colorScheme: statusProp };
       contextValue = { status: statusProp };
     }
+    const resolvedProps = usePropResolution(props);
     return (
       <AlertContext.Provider value={contextValue}>
-        <AccessibleAlert {...props} ref={ref} {...status} variant={variant}>
+        <AccessibleAlert
+          {...resolvedProps}
+          ref={ref}
+          {...status}
+          variant={variant}
+        >
           {children}
         </AccessibleAlert>
       </AlertContext.Provider>

@@ -26,13 +26,18 @@ const AccessibleFormControl = createFormControl({
   HelperText,
 });
 
-const FormControlTemp = forwardRef(({ ...props }: any, ref?: any) => {
-  return <AccessibleFormControl {...props} ref={ref} />;
+const FormControlTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
+  const resolvedProps = usePropResolution(props);
+  return (
+    <AccessibleFormControl {...resolvedProps} ref={ref}>
+      {children}
+    </AccessibleFormControl>
+  );
 });
 
 const FormControlTempLabel = forwardRef(
-  ({ children, ...props }: any, ref?: any) => {
-    const resolvedProps = usePropResolution(props);
+  ({ children, _astrick, ...props }: any, ref?: any) => {
+    const resolvedProps = usePropResolution({ ...props, _labelText: _astrick });
     return (
       <AccessibleFormControl.Label {...resolvedProps} ref={ref}>
         <AccessibleFormControl.Label.Text>
@@ -58,19 +63,27 @@ const FormControlTempHelper = forwardRef(
 
 const FormControlTempError = forwardRef(
   (
-    { children, leftIcon, rightIcon, startIcon, endIcon, ...props }: any,
+    {
+      children,
+      leftIcon,
+      rightIcon,
+      startIcon,
+      endIcon,
+      _stack,
+      ...props
+    }: any,
     ref?: any
   ) => {
-    const resolvedProps = usePropResolution(props);
+    const resolvedProps = usePropResolution({ ...props, ..._stack });
     return (
       <AccessibleFormControl.Error {...resolvedProps} ref={ref}>
-        {leftIcon ? leftIcon : startIcon && startIcon}
+        {leftIcon ?? (startIcon && startIcon)}
         {typeof children === 'string' && (
           <AccessibleFormControl.Error.Text>
             {children}
           </AccessibleFormControl.Error.Text>
         )}
-        {rightIcon ? rightIcon : endIcon && endIcon}
+        {rightIcon ?? (endIcon && endIcon)}
       </AccessibleFormControl.Error>
     );
   }

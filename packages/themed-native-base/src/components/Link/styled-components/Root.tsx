@@ -8,14 +8,32 @@ export default styled(
     _textLink: {
       textDecorationLine: 'underline',
     },
+    _text: {
+      textDecorationLine: 'underline',
+    },
     _web: {
       ':disabled': {
         cursor: 'not-allowed',
       },
     },
+
+    variants: {
+      isUnderlined: {
+        true: {
+          _textLink: {
+            textDecorationLine: 'underline',
+          },
+        },
+        false: {
+          _textLink: {
+            textDecorationLine: 'none',
+          },
+        },
+      },
+    },
   },
   {
     componentName: 'LinkText',
-    descendantStyle: ['_textLink'],
+    descendantStyle: ['_textLink', '_text'],
   } as const
 );
