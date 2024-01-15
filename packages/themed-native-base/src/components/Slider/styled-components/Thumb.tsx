@@ -1,8 +1,8 @@
 import { styled } from '@gluestack-style/react';
-import { Pressable } from 'react-native';
+import { View } from 'react-native';
 
 export default styled(
-  Pressable,
+  View,
   {
     // @ts-ignore
     'borderRadius': '$full',

@@ -26,8 +26,13 @@ const AccessibleFormControl = createFormControl({
   HelperText,
 });
 
-const FormControlTemp = forwardRef(({ ...props }: any, ref?: any) => {
-  return <AccessibleFormControl {...props} ref={ref} />;
+const FormControlTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
+  const resolvedProps = usePropResolution(props);
+  return (
+    <AccessibleFormControl {...resolvedProps} ref={ref}>
+      {children}
+    </AccessibleFormControl>
+  );
 });
 
 const FormControlTempLabel = forwardRef(

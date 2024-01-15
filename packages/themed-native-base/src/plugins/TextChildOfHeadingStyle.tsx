@@ -58,7 +58,7 @@ export class TextChildStyleResolver implements IStyledPlugin {
       ({ key, children, style, ...componentProps }: any, ref?: any) => {
         const styles: any = [];
         const nativeStyleMap = GluestackStyleSheet.getStyleMap();
-        componentProps['data-style'].split(' ').forEach((cssId: any) => {
+        componentProps?.dataSet?.style.split(' ').forEach((cssId: any) => {
           const nativeStyle = nativeStyleMap.get(cssId);
 
           if (nativeStyle) {
@@ -68,13 +68,23 @@ export class TextChildStyleResolver implements IStyledPlugin {
             }
           }
         });
+
+        // console.log(componentProps['data-style'], '>>>>>');
+
         delete componentProps['data-style'];
+
         const stylesObj = StyleSheet.flatten(styles);
         const styleObj = StyleSheet.flatten(style);
         const resolvedStyle = resolveStyleForNative({
           ...styleObj,
           ...stylesObj,
         });
+
+        // console.log({
+        //   ...stylesObj,
+        //   props: { style: resolvedStyle },
+        //   _text: filterProps(resolvedStyle),
+        // });
 
         return (
           <StyledComponent

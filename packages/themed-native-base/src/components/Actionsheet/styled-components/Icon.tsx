@@ -1,8 +1,8 @@
 import { styled } from '@gluestack-style/react';
-import { View } from 'react-native';
+import { StyledIcon } from '../../Icons/styled-components';
 
 export default styled(
-  View,
+  StyledIcon,
   {
     width: '$4',
     height: '$4',

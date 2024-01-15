@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, cloneElement } from 'react';
 import { Root, Indicator, Icon, Label, Group } from './styled-components';
 import { createCheckbox } from '@gluestack-ui/checkbox';
 import { CheckIcon } from '../Icons';
@@ -27,7 +27,15 @@ const CheckboxTemp = forwardRef(
       >
         <AccessibleCheckbox.Indicator>
           <AccessibleCheckbox.Icon
-            as={IconPassed ? () => IconPassed : CheckIcon}
+            as={
+              IconPassed
+                ? () =>
+                    cloneElement(IconPassed, {
+                      h: 'full',
+                      w: 'full',
+                    })
+                : CheckIcon
+            }
           />
         </AccessibleCheckbox.Indicator>
         {children ? (

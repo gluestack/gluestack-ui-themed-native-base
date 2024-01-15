@@ -5,14 +5,14 @@ import { ColorSchemeResolver } from '../../../plugins';
 export default styled(
   Pressable,
   {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    gap: 8,
+    'flexDirection': 'row',
+    'justifyContent': 'flex-start',
+    'alignItems': 'center',
+    'gap': 8,
 
-    borderWidth: 2,
-    borderRadius: '$full',
-    padding: 1,
+    // borderWidth: 2,
+    'borderRadius': '$full',
+    'padding': 1,
 
     // '_indicator': {
     //   backgroundColor: '$muted.50',
@@ -75,7 +75,7 @@ export default styled(
 
     // '_dark': {
     //   // @ts-ignore
-    bg: '$muted.900',
+    // bg: '$muted.900',
     //   'borderColor': '$muted.500',
 
     //   ':checked': {
@@ -116,17 +116,14 @@ export default styled(
     // },
     // },
 
-    // ':disabled': {
-    //   _web: {
-    //     cursor: 'not-allowed',
-    //   },
-    //   opacity: 0.6,
-    //   _icon: {
-    //     backgroundColor: 'transparent',
-    //   },
-    // },
+    ':disabled': {
+      opacity: 0.6,
+      _icon: {
+        backgroundColor: 'transparent',
+      },
+    },
 
-    variants: {
+    'variants': {
       colorScheme: {},
       size: {
         lg: {
@@ -171,7 +168,7 @@ export default styled(
       },
     },
 
-    defaultProps: {
+    'defaultProps': {
       size: 'md',
     },
   },
