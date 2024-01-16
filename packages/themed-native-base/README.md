@@ -27,83 +27,53 @@ $ npm i @gluestack-ui/themed-native-base
 
 Just change your import from `native-base` to `Gluestack-ui/themed-native-base`, and all the components along with provider will work as is.
 
-If you want it to work with nextJS you will need to update the `next.config.js` file like this.
+If you want it to work with nextJS you will need to use the `withGluestackUI` adapter in NextJS.
+
+- install the `@gluestack/ui-next-adapter` package.
+- update the `next.config.js` file like this.
 
 ```
-const { withExpo } = require("@expo/next-adapter");
-const withPlugins = require("next-compose-plugins");
+/** @type {import('next').NextConfig} */
 
-const withTM = require("next-transpile-modules")([
-  "react-native-web",
-  "react-native",
+const { withGluestackUI } = require("@gluestack/ui-next-adapter")
 
-  "@expo/vector-icons",
+const nextConfig = {
+  reactStrictMode: true,
+  transpilePackages: ["@gluestack-ui/themed-native-base"],
+}
 
-  "@gluestack-style/react",
-  "@gluestack-style/legend-motion-animation-driver",
-  "@gluestack-style/animation-plugin",
-  "@gluestack-style/animation-resolver",
-  "@gluestack-style/legend-motion-animation-driver",
-  "@legendapp/motion",
+module.exports = withGluestackUI(nextConfig)
+```
 
-  "@expo/html-elements",
-  "expo-linear-gradient",
+- add flush function from `@gluestack-style/react` to your `_document` file like this
 
-  "react-native-svg",
-  "@react-native-aria/interactions",
-  "@react-native-aria/checkbox",
-  "@react-native-aria/focus",
-  "@react-native-aria/overlays",
-  "@react-native-aria/radio",
-  "@react-native-aria/slider",
-  "@react-stately/slider",
-  "@react-native-aria/toggle",
-  "@react-native-aria/utils",
-  "@react-native-aria/menu",
-  "@gluestack-ui/actionsheet",
-  "@gluestack-ui/form-control",
-  "@gluestack-ui/avatar",
-  "@gluestack-ui/modal",
-  "@gluestack-ui/button",
-  "@gluestack-ui/checkbox",
-  "@gluestack-ui/divider",
-  "@gluestack-ui/fab",
-  "@gluestack-ui/hooks",
-  "@gluestack-ui/hstack",
-  "@gluestack-ui/icon",
-  "@gluestack-ui/input",
-  "@gluestack-ui/link",
-  "@gluestack-ui/menu",
-  "@gluestack-ui/modal",
-  "@gluestack-ui/overlay",
-  "@gluestack-ui/popover",
-  "@gluestack-ui/progress",
-  "@gluestack-ui/provider",
-  "@gluestack-ui/radio",
-  "@gluestack-ui/select",
-  "@gluestack-ui/slider",
-  "@gluestack-ui/spinner",
+```
+import * as React from 'react';
+import { Html, Head, Main, NextScript } from 'next/document';
+import { AppRegistry } from 'react-native-web';
+import { flush } from '@gluestack-style/react';
 
-  "@gluestack-ui/switch",
-  "@gluestack-ui/textarea",
-  "@gluestack-ui/toast",
-  "@gluestack-ui/tooltip",
-  "@gluestack-ui/vstack",
-  "@gluestack-ui/transitions",
-  "@gluestack-ui/utils",
-  "@gluestack-ui/tabs",
-  "@gluestack-ui/react-native-aria",
-  "@gluestack-ui/alert-dialog",
-  "@gluestack-ui/pressable",
-  "@gluestack-ui/themed-native-base",
-]);
+function Document() {
+  return (
+    <Html className="gs" lang="en">
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+}
 
-module.exports = withPlugins(
-  [[withTM], [withExpo, { projectRoot: __dirname }]],
-  {
-    ...nextConfig
-  }
-);
+Document.getInitialProps = async ({ renderPage }: any) => {
+  AppRegistry.registerComponent('Main', () => Main);
+  const { getStyleElement } = AppRegistry.getApplication('Main');
+  const page = await renderPage();
+  const styles = [getStyleElement(), ...flush()];
+  return { ...page, styles: React.Children.toArray(styles) };
+};
+
+export default Document;
 ```
 
 <!--
