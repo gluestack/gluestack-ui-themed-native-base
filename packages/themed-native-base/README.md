@@ -27,7 +27,7 @@ $ npm i @gluestack-ui/themed-native-base
 
 Just change your import from `native-base` to `Gluestack-ui/themed-native-base`, and all the components along with provider will work as is.
 
-If you want it to work with nextJS you will need to use the `withGluestackUI` adapter in NextJS.
+If you want it to work with nextJS (page router) you will need to use the `withGluestackUI` adapter in NextJS.
 
 - install the `@gluestack/ui-next-adapter` package.
 - update the `next.config.js` file like this.
