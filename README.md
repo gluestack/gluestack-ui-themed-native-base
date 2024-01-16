@@ -1,7 +1,7 @@
-# gluestack-ui (beta)
+# @gluestack-ui/themed-native-base
 
 <h3 align="center">
-  <a href="https://github.com/gluestack/gluestack-ui">
+  <a href="https://github.com/gluestack/gluestack-ui-themed-native-base">
     <img src="https://raw.githubusercontent.com/gluestack/gluestack-ui/main/img/gluestack-ui-banner.svg" alt="gluestack-ui logo" >
   </a>
   <br>
@@ -9,77 +9,79 @@
 
 ## Introduction
 
-**gluestack-ui** is a universal UI library that provides optionally styled and accessible components. These components are designed for easy integration into applications developed with React and React Native.
+**@gluestack-ui/themed-native-base** is a drop-in replacement for `native-base`.
 
-## Documentation
+## Installation
 
-You can find detailed documentation for each component, including a list of props and examples, in https://ui.gluestack.io/docs website.
+To use `native-base` components with `gluestack-ui`, all you need to do is install the `@gluestack-ui/themed-native-base` package:
 
-## Features
+```sh
+$ yarn add @gluestack-ui/themed-native-base
 
-- **Customizable components:** Each component in the library comes with a set of customizable props that allow you to tailor its appearance and behavior to your specific needs.
+# or
 
-- **Responsive design:** The components are built using modern web design principles and are fully responsive, so they work seamlessly across a wide range of devices and screen sizes.
-
-- **Well-documented:** The comes with comprehensive documentation for each component, including a list of props and examples, to help you get up and running quickly.
-
-- **Easy to use:** The components are designed to be easy to use and integrate into your existing React applications. Simply install the library and import the components you need.
-
-- **Frequent updates:** We are constantly working on improving the library and adding new components. Follow us on GitHub to stay up-to-date on the latest releases and features.
-
-- **Community support:** Need help using the library or have a suggestion for a new feature? Join our [Discord](https://discord.com/invite/95qQ84nf6f) channel to connect with the community and get support.
-
-## Installing **gluestack-ui**
-
-To use gluestack-ui components, all you need to install `@gluestack-ui/themed-native-base` and its dependencies
-
-```bash
-npm i @gluestack-ui/themed-native-base react-native-svg@13.4.0
+$ npm i @gluestack-ui/themed-native-base
 ```
-
-## Tech Stack
-
-JavaScript, React, React Native, Styled System
 
 ## Usage
 
-To use the `gluestack-ui` in your project, follow these steps:
+Just change your import from `native-base` to `Gluestack-ui/themed-native-base`, and all the components along with provider will work as is.
 
-1. Wrap your application with the `GluestackUIProvider` provided by
-   **@gluestack-ui/themed-native-base**.
+If you want it to work with nextJS (page router) you will need to use the `withGluestackUI` adapter in NextJS.
 
-```jsx
-import { GluestackUIProvider, config } from '@gluestack-ui/themed-native-base';
+- install the `@gluestack/ui-next-adapter` package.
+- update the `next.config.js` file like this.
 
-// Write this code snippet at the root of your application
-function App({ children }) {
-  return (
-    <GluestackUIProvider config={config.theme}>{children}</GluestackUIProvider>
-  );
+```
+/** @type {import('next').NextConfig} */
+
+const { withGluestackUI } = require("@gluestack/ui-next-adapter")
+
+const nextConfig = {
+  reactStrictMode: true,
+  transpilePackages: ["@gluestack-ui/themed-native-base"],
 }
+
+module.exports = withGluestackUI(nextConfig)
 ```
 
-2. Now you can start using components!:
+- add flush function from `@gluestack-style/react` to your `_document` file like this
 
-```jsx
-import { Button } from '@gluestack-ui/themed-native-base';
+```
+import * as React from 'react';
+import { Html, Head, Main, NextScript } from 'next/document';
+import { AppRegistry } from 'react-native-web';
+import { flush } from '@gluestack-style/react';
 
-function Example() {
+function Document() {
   return (
-    <Button>
-      <ButtonText>Awesome Button!</ButtonText>
-    </Button>
+    <Html className="gs" lang="en">
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
   );
 }
+
+Document.getInitialProps = async ({ renderPage }: any) => {
+  AppRegistry.registerComponent('Main', () => Main);
+  const { getStyleElement } = AppRegistry.getApplication('Main');
+  const page = await renderPage();
+  const styles = [getStyleElement(), ...flush()];
+  return { ...page, styles: React.Children.toArray(styles) };
+};
+
+export default Document;
 ```
 
-More guides on how to get started are available
-[here](https://ui.gluestack.io/docs).
-
+<!--
 ## Contributing
 
-We welcome contributions to the `gluestack-ui`. If you have an idea for a new component or a bug fix, please read our [contributing guide](./CONTRIBUTING.md) instructions on how to submit a pull request.
+We welcome contributions to the `gluestack-ui/themed-native-base`. If you have an idea for a a bug fix or a better approach, please read our [contributing guide](./CONTRIBUTING.md) instructions on how to submit a pull request.
+-->
 
 ## License
 
-Licensed under the MIT License, Copyright © 2023 GeekyAnts. See [LICENSE](https://github.com/gluestack/ui/blob/master/LICENSE) for more information.
+Licensed under the MIT License, Copyright © 2023 GeekyAnts.
