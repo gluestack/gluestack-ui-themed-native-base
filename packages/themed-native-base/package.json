@@ -89,8 +89,8 @@
   },
   "peerDependencies": {
     "@types/react-native": "^0.72.2",
-    "react": "17.0.1",
-    "react-dom": ">=16",
+    "react": ">=18",
+    "react-dom": ">=18",
     "react-native": "0.72.3",
     "react-native-web": "0.19.9"
   },
