@@ -486,7 +486,7 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
         if (
           Number(propValue) < 0 &&
           // @ts-ignore
-          config?.tokens[propertyTokenMap[propertyName]][
+          config?.tokens?.[propertyTokenMap?.[propertyName]]?.[
             String(propValue).slice(1)
           ]
         ) {

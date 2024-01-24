@@ -78,6 +78,7 @@ const BoxTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
       );
     }
   }
+
   return (
     <AccessibleBox {...resolvedPropForGluestack} ref={ref}>
       {GUIChildren}

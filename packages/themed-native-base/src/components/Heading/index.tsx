@@ -14,6 +14,7 @@ const HeadingTemp = forwardRef(({ children, ...props }: any, ref?: any) => {
 
 export type IHeadingComponentType<Heading> = GenericComponentType<Heading>;
 
+// @ts-ignore
 export const Heading = HeadingTemp as IHeadingComponentType<
   typeof AccessibleHeading
 >;

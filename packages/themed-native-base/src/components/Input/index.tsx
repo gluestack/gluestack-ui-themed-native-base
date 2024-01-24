@@ -43,8 +43,8 @@ const InputTemp = forwardRef(
     }: any,
     ref?: any
   ) => {
-    const resolvedProps = usePropResolution({ ..._stack, ...props });
-    const resolvedPropsForInput = usePropResolution(_input);
+    const resolvedProps = usePropResolution(_stack);
+    const resolvedPropsForInput = usePropResolution({ ..._input, ...props });
     return (
       <AccessibleInput
         ref={wrapperRef}
