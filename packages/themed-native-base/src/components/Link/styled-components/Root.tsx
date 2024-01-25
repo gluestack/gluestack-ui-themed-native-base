@@ -17,17 +17,11 @@ export default styled(
           _linkText: {
             textDecorationLine: 'underline',
           },
-          // _text: {
-          //   textDecorationLine: 'underline',
-          // },
         },
         false: {
           _linkText: {
             textDecorationLine: 'none',
           },
-          // _text: {
-          //   textDecorationLine: 'none',
-          // },
         },
       },
     },
