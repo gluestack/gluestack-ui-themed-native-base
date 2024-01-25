@@ -31,6 +31,8 @@ const InputTemp = forwardRef(
     {
       InputLeftElement,
       InputRightElement,
+      leftElement,
+      rightElement,
       placeholder,
       type,
       onChangeText,
@@ -52,6 +54,7 @@ const InputTemp = forwardRef(
         width={isFullWidth && '$full'}
       >
         {InputLeftElement && InputLeftElement}
+        {leftElement && leftElement}
         <AccessibleInput.Input
           {...resolvedPropsForInput}
           placeholder={placeholder}
@@ -61,6 +64,7 @@ const InputTemp = forwardRef(
           ref={ref}
         />
         {InputRightElement && InputRightElement}
+        {rightElement && rightElement}
       </AccessibleInput>
     );
   }
