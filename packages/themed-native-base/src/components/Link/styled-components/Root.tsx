@@ -14,20 +14,20 @@ export default styled(
     variants: {
       isUnderlined: {
         true: {
-          _textLink: {
+          _linkText: {
             textDecorationLine: 'underline',
           },
-          _text: {
-            textDecorationLine: 'underline',
-          },
+          // _text: {
+          //   textDecorationLine: 'underline',
+          // },
         },
         false: {
-          _textLink: {
+          _linkText: {
             textDecorationLine: 'none',
           },
-          _text: {
-            textDecorationLine: 'none',
-          },
+          // _text: {
+          //   textDecorationLine: 'none',
+          // },
         },
       },
     },

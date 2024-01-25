@@ -12,11 +12,8 @@ export default styled(
     fontWeight: '$normal',
     fontFamily: '$body',
     fontStyle: 'normal',
-    // @ts-ignore
     letterSpacing: '$md',
-    // @ts-ignore
     fontSize: '$sm',
-    // @ts-ignore
     lineHeight: '$lg',
 
     defaultProps: {
