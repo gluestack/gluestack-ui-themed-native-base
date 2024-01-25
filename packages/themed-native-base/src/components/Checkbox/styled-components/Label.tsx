@@ -1,4 +1,5 @@
-import { AccessibleText as Text } from '../../Text';
+import { TextStyleResolver } from '../../../plugins';
+import { Text } from 'react-native';
 import { styled } from '@gluestack-style/react';
 
 export default styled(
@@ -68,5 +69,8 @@ export default styled(
   {
     componentName: 'CheckboxLabel',
     ancestorStyle: ['_text'],
-  } as const
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
+  }
 );

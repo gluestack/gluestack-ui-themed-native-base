@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
-import { styled } from '@gluestack-style/react';
 import { TextStyleResolver } from '../../../plugins';
+import { styled } from '@gluestack-style/react';
 
 export const Label = styled(
   Text,
@@ -95,8 +95,9 @@ export const Label = styled(
     },
   },
   {
+    componentName: 'MenuItemLabel',
     ancestorStyle: ['_text'],
-  },
+  } as const,
   {
     plugins: [new TextStyleResolver()],
   }

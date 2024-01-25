@@ -36,5 +36,3 @@ export type ITextComponentType<Text> = GenericComponentType<Text>;
 
 // @ts-ignore
 export const Text = TextTemp as ITextComponentType<typeof AccessibleText>;
-
-export { AccessibleText };

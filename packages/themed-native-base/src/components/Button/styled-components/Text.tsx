@@ -1,4 +1,5 @@
-import { AccessibleText as Text } from '../../Text';
+import { TextStyleResolver } from '../../../plugins';
+import { Text } from 'react-native';
 import { styled } from '@gluestack-style/react';
 
 export default styled(
@@ -11,5 +12,11 @@ export default styled(
     // @ts-ignore
     lineHeight: '1.5em',
   },
-  { ancestorStyle: ['_text'] }
+  {
+    componentName: 'ButtonText',
+    ancestorStyle: ['_text'],
+  } as const,
+  {
+    plugins: [new TextStyleResolver()],
+  }
 );
