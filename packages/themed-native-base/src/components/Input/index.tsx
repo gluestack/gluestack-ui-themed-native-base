@@ -12,6 +12,7 @@ import {
 import { Text } from '../Text';
 import { usePropResolution } from '../../hooks/usePropResolution';
 import { GenericComponentType } from '../../types';
+import { splitObject } from '../../utils';
 
 const AccessibleInput = createInput({
   Root,
@@ -29,6 +30,13 @@ type InputProps = {
 const InputTemp = forwardRef(
   (
     {
+      variant,
+      isHovered,
+      isFocused,
+      isDisabled,
+      isInvalid,
+      isRequired,
+      isReadonly,
       InputLeftElement,
       InputRightElement,
       leftElement,
@@ -36,6 +44,7 @@ const InputTemp = forwardRef(
       placeholder,
       type,
       onChangeText,
+      onChange,
       value,
       wrapperRef,
       isFullWidth,
@@ -45,12 +54,23 @@ const InputTemp = forwardRef(
     }: any,
     ref?: any
   ) => {
-    const resolvedProps = usePropResolution(_stack);
-    const resolvedPropsForInput = usePropResolution({ ..._input, ...props });
+    const [stackProps, inputProps] = splitObject({ ...props });
+    const resolvedProps = usePropResolution({ ..._stack, ...stackProps });
+    const resolvedPropsForInput = usePropResolution({
+      ..._input,
+      ...inputProps,
+    });
     return (
       <AccessibleInput
         ref={wrapperRef}
         {...resolvedProps}
+        variant={variant}
+        isHovered={isHovered}
+        isFocused={isFocused}
+        isDisabled={isDisabled}
+        isInvalid={isInvalid}
+        isRequired={isRequired}
+        isReadonly={isReadonly}
         width={isFullWidth && '$full'}
       >
         {InputLeftElement && InputLeftElement}
@@ -60,7 +80,9 @@ const InputTemp = forwardRef(
           placeholder={placeholder}
           value={value}
           type={type}
-          onChangeText={onChangeText}
+          onChangeText={
+            (onChangeText && onChangeText) ?? (onChange && onChange)
+          }
           ref={ref}
         />
         {InputRightElement && InputRightElement}
