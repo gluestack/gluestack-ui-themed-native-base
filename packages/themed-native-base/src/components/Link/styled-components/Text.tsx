@@ -1,5 +1,5 @@
+import { Text } from 'react-native';
 import { TextStyleResolver } from '../../../plugins';
-import { Root as Text } from '../../Text/styled-components';
 import { styled } from '@gluestack-style/react';
 
 export default styled(
@@ -12,11 +12,8 @@ export default styled(
     fontWeight: '$normal',
     fontFamily: '$body',
     fontStyle: 'normal',
-    // @ts-ignore
     letterSpacing: '$md',
-    // @ts-ignore
     fontSize: '$sm',
-    // @ts-ignore
     lineHeight: '$lg',
 
     defaultProps: {
@@ -25,7 +22,7 @@ export default styled(
   },
   {
     componentName: 'LinkText',
-    ancestorStyle: ['_textLink'],
+    ancestorStyle: ['_linkText'],
   } as const,
   {
     plugins: [new TextStyleResolver()],

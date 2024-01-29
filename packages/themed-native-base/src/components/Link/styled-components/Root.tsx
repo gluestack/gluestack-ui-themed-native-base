@@ -5,12 +5,6 @@ export default styled(
   Pressable,
   {
     flexDirection: 'row',
-    _textLink: {
-      textDecorationLine: 'underline',
-    },
-    _text: {
-      textDecorationLine: 'underline',
-    },
     _web: {
       ':disabled': {
         cursor: 'not-allowed',
@@ -20,20 +14,23 @@ export default styled(
     variants: {
       isUnderlined: {
         true: {
-          _textLink: {
+          _linkText: {
             textDecorationLine: 'underline',
           },
         },
         false: {
-          _textLink: {
+          _linkText: {
             textDecorationLine: 'none',
           },
         },
       },
     },
+    defaultProps: {
+      isUnderlined: 'true',
+    },
   },
   {
-    componentName: 'LinkText',
-    descendantStyle: ['_textLink', '_text'],
+    componentName: 'Link',
+    descendantStyle: ['_linkText', '_text'],
   } as const
 );

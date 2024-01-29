@@ -16,6 +16,8 @@ export default styled(
     _dark: {
       color: '$textDark.100',
     },
+    fontStyle: 'normal',
+    letterSpacing: '$md',
   },
   {
     componentName: 'ActionsheetItemText',

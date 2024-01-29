@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React from 'react';
 import { useBreakpointValue, useColorMode } from '@gluestack-style/react';
 import IHiddenProps from './types';
 import { useStyled } from '@gluestack-style/react';
@@ -61,6 +61,7 @@ export const Hidden = ({
         }
         if (key === till) {
           flag = 1;
+          breakPointTill[key] = true;
         }
       }
     }
@@ -103,6 +104,6 @@ export const Hidden = ({
     children ? (
     <>{children}</>
   ) : (
-    <>{cloneElement(children, { display: 'none' })}</>
+    <></>
   );
 };

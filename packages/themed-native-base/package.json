@@ -1,6 +1,6 @@
 {
   "name": "@gluestack-ui/themed-native-base",
-  "version": "0.1.81",
+  "version": "0.1.100",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "description": "A universal themed components for React Native, Next.js & React",
@@ -74,7 +74,6 @@
     "file-loader": "^6.2.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
-    "react-native-svg": "13.4.0",
     "tinycolor2": "^1.6.0",
     "ts-loader": "^9.4.4",
     "typescript": "^5.1.6",
@@ -88,11 +87,12 @@
     "react-native-web": "^0.18.12"
   },
   "peerDependencies": {
-    "@types/react-native": "^0.72.2",
-    "react": ">=18",
-    "react-dom": ">=18",
-    "react-native": "0.72.3",
-    "react-native-web": "0.19.9"
+    "@types/react-native": ">=0.72",
+    "react": ">=16",
+    "react-dom": ">=16",
+    "react-native": ">=0.72",
+    "react-native-svg": ">=13.4.0",
+    "react-native-web": ">=0.19"
   },
   "release-it": {
     "git": {

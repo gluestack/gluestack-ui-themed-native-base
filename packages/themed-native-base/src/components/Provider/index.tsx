@@ -25,6 +25,7 @@ const NativeBaseProvider = ({
   children,
   config = {},
   theme = {},
+  disableContrastText,
   ...props
 }: any) => {
   const _enableRem = config?.enableRem ?? false;
@@ -57,6 +58,7 @@ const NativeBaseProvider = ({
         colorMode: colorModeNEW,
         toggleColorMode: toggleColorMode,
         config: config?.dependencies ? config.dependencies : {},
+        disableContrastText: disableContrastText,
       }}
     >
       <GluestackUIProvider

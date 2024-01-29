@@ -35,7 +35,7 @@ export default styled(
         },
       },
     },
-    defaultProps: { size: 'lg' },
+    // defaultProps: { size: 'lg' },
   },
   {
     componentName: 'Circle',

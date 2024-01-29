@@ -122,7 +122,7 @@ const HStackTemp = forwardRef(
 export type IHStackComponentType<HStack> = GenericComponentType<
   HStack,
   {},
-  { direction: React.ComponentProps<typeof AccessibleHStack>['flexDirection'] }
+  { direction?: React.ComponentProps<typeof AccessibleHStack>['flexDirection'] }
 >;
 
 export const HStack = HStackTemp as IHStackComponentType<

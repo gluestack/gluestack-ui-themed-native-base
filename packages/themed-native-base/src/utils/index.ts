@@ -486,7 +486,7 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
         if (
           Number(propValue) < 0 &&
           // @ts-ignore
-          config?.tokens[propertyTokenMap[propertyName]][
+          config?.tokens?.[propertyTokenMap?.[propertyName]]?.[
             String(propValue).slice(1)
           ]
         ) {
@@ -715,3 +715,44 @@ export function getFlattendMultiAliasesProps(props: any, config: any) {
   });
   return flattenedProps;
 }
+
+export function splitObject(obj: any) {
+  const newObj = {};
+  const remainingObj = {};
+
+  for (const key in obj) {
+    const matchingKey = stackArr.find((stackKey) => key.includes(stackKey));
+
+    if (matchingKey) {
+      // @ts-ignore
+      newObj[key] = obj[key];
+    } else if (typeof obj[key] === 'object') {
+      const [selected, remaining] = splitObject(obj[key]);
+      if (Object.keys(selected).length > 0) {
+        // @ts-ignore
+        newObj[key] = { ...newObj[key], ...selected };
+      }
+      if (Object.keys(remaining).length > 0) {
+        // @ts-ignore
+        remainingObj[key] = remaining;
+      }
+    } else {
+      // @ts-ignore
+      remainingObj[key] = obj[key];
+    }
+  }
+
+  return [newObj, remainingObj];
+}
+
+const stackArr = [
+  'margin',
+  'mx',
+  'my',
+  'mt',
+  'mb',
+  'mr',
+  'ml',
+  'border',
+  'flex',
+];

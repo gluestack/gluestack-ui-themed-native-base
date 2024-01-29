@@ -6,6 +6,9 @@ export default styled(
   Text,
   {
     color: '$text.50',
+    _dark: {
+      color: '$text.50',
+    },
     fontFamily: '$body',
     fontWeight: '$semibold',
     // @ts-ignore
@@ -15,6 +18,9 @@ export default styled(
     _web: {
       cursor: 'default',
     },
+    fontStyle: 'normal',
+    letterSpacing: '$md',
+    lineHeight: '$lg',
   },
   {
     componentName: 'AvatarFallbackText',

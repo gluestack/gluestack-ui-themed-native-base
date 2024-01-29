@@ -11,7 +11,11 @@ const AccessibleLink = createLink({
 
 export const Link = forwardRef(
   ({ children, _text, ...props }: any, ref?: any) => {
-    const resolvedProps = usePropResolution({ ...props, _linkText: _text });
+    const resolvedProps = usePropResolution({
+      ...props,
+      _linkText: { ..._text },
+      _text: { ..._text },
+    });
 
     return (
       <AccessibleLink {...resolvedProps} ref={ref}>
