@@ -1,7 +1,8 @@
+// @ts-nocheck
+
 import { Platform } from 'react-native';
 import get from 'lodash.get';
 import cloneDeep from 'lodash.clonedeep';
-// @ts-ignore
 import Color from 'tinycolor2';
 export * from './stablehash';
 export * from './modifyConfig';
@@ -360,7 +361,6 @@ export const platformSpecificSpaceUnits = (theme: any) => {
         }
       }
     }
-    //@ts-ignore
     newTheme.tokens[key] = newScale;
   });
 
@@ -382,7 +382,6 @@ export function renamePseudoClasses(obj: any) {
 
 function convertResponsiveToPseudoClasses(obj: any, config: any) {
   const newObj = {};
-  //@ts-ignore
   for (const key in obj) {
     const propName = key;
     const propValue = obj[key];
@@ -393,12 +392,9 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
         const breakPointsKeys = Object.keys(breakPoints);
         propValue.forEach((value, index) => {
           //TODO: fix this ts-ignore
-          //@ts-ignore
           if (newObj[`@${breakPointsKeys[index]}`]) {
-            //@ts-ignore
             newObj[`@${breakPointsKeys[index]}`][propName] = value;
           } else {
-            //@ts-ignore
             newObj[`@${breakPointsKeys[index]}`] = { [propName]: value };
           }
         });
@@ -407,28 +403,21 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
         // const breakPointsKeys = Object.keys(breakPoints);
         Object.keys(propValue).forEach((value) => {
           //TODO: fix this ts-ignore
-          //@ts-ignore
           if (newObj[`@${value}`]) {
-            //@ts-ignore
             newObj[`@${value}`][propName] = propValue[value];
           } else {
-            //@ts-ignore
             newObj[`@${value}`] = { [propName]: propValue[value] };
           }
         });
       } else if (typeof propValue === 'object') {
         //TODO: fix this ts-ignore
-        //@ts-ignore
         newObj[key] = convertResponsiveToPseudoClasses(propValue, config);
       } else {
         //TODO: fix this ts-ignore
-        //@ts-ignore
         newObj[key] = propValue;
       }
     } else {
-      //@ts-ignore
       newObj[key] = propValue;
-      //@ts-ignore
       // newObj.props = { ...newObj.props, [key]: propValue };
       // console.log('------', { ...newObj.props, [key]: propValue });
     }
@@ -451,7 +440,6 @@ export function convertToSXForStateColorModeMediaQuery(
   for (const key in newPseudoClass) {
     const propName = key;
     //TODO: fix this ts-ignore
-    //@ts-ignore
     const propValue = obj[key];
     if (
       propName.startsWith('_') ||
@@ -472,12 +460,9 @@ export function convertToSXForStateColorModeMediaQuery(
 
 function addDollarSign(propertyName: any, propValue: any, config: any) {
   if (CSSPropertiesMap.hasOwnProperty(propertyName)) {
-    //@ts-ignore
     const tokenAvailable = config.tokens[propertyTokenMap[propertyName]]
-      ? //@ts-ignore
-        config.tokens[propertyTokenMap[propertyName]][propValue]
+      ? config.tokens[propertyTokenMap[propertyName]][propValue]
       : undefined;
-    // console.log(tokenAvailable, 'TOKEN AVAILABLE', propertyName);
     if (tokenAvailable === undefined) {
       if (
         (typeof propValue === 'number' && !isNaN(propValue)) ||
@@ -485,7 +470,6 @@ function addDollarSign(propertyName: any, propValue: any, config: any) {
       ) {
         if (
           Number(propValue) < 0 &&
-          // @ts-ignore
           config?.tokens?.[propertyTokenMap?.[propertyName]]?.[
             String(propValue).slice(1)
           ]
@@ -548,7 +532,6 @@ export function addDollarSignsToProps(obj: any, config: any) {
   if (!(Object.keys(obj).length > 0)) {
     return;
   }
-  // console.log(config);
   for (const key in obj) {
     let propertyName = key;
     const propValue = obj[key];
@@ -557,13 +540,11 @@ export function addDollarSignsToProps(obj: any, config: any) {
     }
     if (Array.isArray(propValue)) {
       //TODO: fix this ts-ignore
-      //@ts-ignore
       const newPropValue = [];
       propValue.forEach((value) => {
         newPropValue.push(addDollarSign(propertyName, value, config));
       });
       //TODO: fix this ts-ignore
-      //@ts-ignore
       newObj[key] = newPropValue;
     } else if (typeof propValue === 'object' && key.startsWith('_')) {
       newObj[key] = addDollarSignsToProps(obj[key], config);
@@ -572,7 +553,6 @@ export function addDollarSignsToProps(obj: any, config: any) {
       if (propValue) {
         Object.keys(propValue).forEach((keyProp) => {
           //TODO: fix this ts-ignore
-          //@ts-ignore
           newPropValue[keyProp] = addDollarSign(
             propertyName,
             propValue[keyProp],
@@ -724,20 +704,16 @@ export function splitObject(obj: any) {
     const matchingKey = stackArr.find((stackKey) => key.includes(stackKey));
 
     if (matchingKey) {
-      // @ts-ignore
       newObj[key] = obj[key];
     } else if (typeof obj[key] === 'object') {
       const [selected, remaining] = splitObject(obj[key]);
       if (Object.keys(selected).length > 0) {
-        // @ts-ignore
         newObj[key] = { ...newObj[key], ...selected };
       }
       if (Object.keys(remaining).length > 0) {
-        // @ts-ignore
         remainingObj[key] = remaining;
       }
     } else {
-      // @ts-ignore
       remainingObj[key] = obj[key];
     }
   }
