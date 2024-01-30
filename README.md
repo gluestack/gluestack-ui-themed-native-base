@@ -7,31 +7,37 @@
   <br>
 </h3>
 
-## Introduction
+### Introduction
 
 **@gluestack-ui/themed-native-base** is a drop-in replacement for `native-base`.
 
-## Installation
+### Installation
 
 To use `native-base` components with `gluestack-ui`, all you need to do is install the `@gluestack-ui/themed-native-base` package:
 
 ```sh
-$ yarn add @gluestack-ui/themed-native-base
+$ yarn add @gluestack-ui/themed-native-base react-native-svg@13.4.0
 
 # or
 
-$ npm i @gluestack-ui/themed-native-base
+$ npm i @gluestack-ui/themed-native-base react-native-svg@13.4.0
 ```
 
-## Usage
+#### Supported versions
+
+- react >= 18
+- react-dom >= 18
+- react-native >= 0.69
+- react-native-web >= 0.18
+
+### Usage
 
 Just change your import from `native-base` to `@gluestack-ui/themed-native-base`, and all the components along with provider will work as is.
 You could also use babel for this.
 
 If you want it to work with nextJS (page router) you will need to
 
-- update the `next.config.js` file like this.
-- from this
+- update the `next.config.js` file from something like this
 
 ```
 const { withNativebase } = require("@native-base/next-adapter");
@@ -66,7 +72,7 @@ module.exports = withNativebase({
 });
 ```
 
-- to this
+-> to this
 
 ```
 const path = require("path");
@@ -165,7 +171,6 @@ const nextConfig = {
   images: {
     domains: ["https://b.zmtcdn.com/web_assets", "upload.wikimedia.org/"],
   },
-  // },
 };
 
 module.exports = withPlugins(
@@ -177,19 +182,59 @@ module.exports = withPlugins(
 
 ```
 
-- add flush function from `@gluestack-style/react` to your `_document` file like this
+- add `gs` className to Html tag and add flush function from `@gluestack-style/react` in your `_document` file from something like this
 
 ```
-import * as React from 'react';
-import { Html, Head, Main, NextScript } from 'next/document';
-import { AppRegistry } from 'react-native-web';
-import { flush } from '@gluestack-style/react';
 
-// If you are using Class Components,
-// convert them to function component (only for Document)
-// as it might have some issues with older versions
+import { default as NativebaseDocument } from "@native-base/next-adapter/document";
+import fontsCSS from "@native-base/icons/FontsCSS";
+import { AppRegistry } from "react-native";
+import { Main } from "next/document";
+import * as React from "react";
+import NextDocument, { Html, Head, NextScript } from "next/document";
 
-function Document() {
+class Document extends NativebaseDocument {
+  // render() {
+  //   return (
+  //     <Html>
+  //       <Head />
+  //       <body>
+  //         <Main />
+  //         <NextScript />
+  //       </body>
+  //     </Html>
+  //   );
+  // }
+}
+
+async function getInitialProps({ renderPage }) {
+  AppRegistry.registerComponent("Main", () => Main);
+  const { getStyleElement } = AppRegistry.getApplication("Main");
+  const page = await renderPage();
+  const styles = [
+    <style dangerouslySetInnerHTML={{ __html: fontsCSS }} />,
+    getStyleElement(),
+  ];
+  return { ...page, styles: React.Children.toArray(styles) };
+}
+
+Document.getInitialProps = getInitialProps;
+
+export default Document;
+
+```
+
+-> to this
+
+```
+import fontsCSS from "@native-base/icons/FontsCSS";
+import { AppRegistry } from "react-native-web"
+import { flush } from "@gluestack-style/react"
+import { Main } from "next/document";
+import * as React from "react";
+import NextDocument, { Html, Head, NextScript } from "next/document";
+
+function Document(){
   return (
     <Html className="gs" lang="en">
       <Head />
@@ -201,15 +246,23 @@ function Document() {
   );
 }
 
-Document.getInitialProps = async ({ renderPage }: any) => {
-  AppRegistry.registerComponent('Main', () => Main);
-  const { getStyleElement } = AppRegistry.getApplication('Main');
+async function getInitialProps({ renderPage }) {
+  AppRegistry.registerComponent("Main", () => Main);
+  const { getStyleElement } = AppRegistry.getApplication("Main");
   const page = await renderPage();
-  const styles = [getStyleElement(), ...flush()];
+  const styles = [
+    // eslint-disable-next-line react/jsx-key
+    <style dangerouslySetInnerHTML={{ __html: fontsCSS }} />,
+    getStyleElement(),
+    ...flush()
+  ];
   return { ...page, styles: React.Children.toArray(styles) };
-};
+}
+
+Document.getInitialProps = getInitialProps;
 
 export default Document;
+
 ```
 
 ## Contributing
