@@ -388,7 +388,7 @@ function convertResponsiveToPseudoClasses(obj: any, config: any) {
 
     if (checkIfPropIsStyle(key, config)) {
       if (Array.isArray(propValue)) {
-        const breakPoints = config.tokens.breakpoints;
+        const breakPoints = config?.tokens?.breakpoints;
         const breakPointsKeys = Object.keys(breakPoints);
         propValue.forEach((value, index) => {
           //TODO: fix this ts-ignore
@@ -460,8 +460,8 @@ export function convertToSXForStateColorModeMediaQuery(
 
 function addDollarSign(propertyName: any, propValue: any, config: any) {
   if (CSSPropertiesMap.hasOwnProperty(propertyName)) {
-    const tokenAvailable = config.tokens[propertyTokenMap[propertyName]]
-      ? config.tokens[propertyTokenMap[propertyName]][propValue]
+    const tokenAvailable = config?.tokens[propertyTokenMap[propertyName]]
+      ? config?.tokens[propertyTokenMap[propertyName]][propValue]
       : undefined;
     if (tokenAvailable === undefined) {
       if (
@@ -535,8 +535,8 @@ export function addDollarSignsToProps(obj: any, config: any) {
   for (const key in obj) {
     let propertyName = key;
     const propValue = obj[key];
-    if (config.aliases.hasOwnProperty(key)) {
-      propertyName = config.aliases[key];
+    if (config?.aliases?.hasOwnProperty(key)) {
+      propertyName = config?.aliases[key];
     }
     if (Array.isArray(propValue)) {
       //TODO: fix this ts-ignore
@@ -605,7 +605,7 @@ function checkIfPropIsStyle(key: any, theme: any) {
 
 export const transformTheme = (componentTheme: any, config: any) => {
   const { baseStyle, variants, sizes, defaultProps, ...rest } = componentTheme;
-  let sxProps = addDollarSignsToProps(rest, config.theme);
+  let sxProps = addDollarSignsToProps(rest, config?.theme);
 
   const transformedTheme: any = {
     variants: {
@@ -617,7 +617,10 @@ export const transformTheme = (componentTheme: any, config: any) => {
   };
 
   if (baseStyle) {
-    const propsWithDollarSigns = addDollarSignsToProps(baseStyle, config.theme);
+    const propsWithDollarSigns = addDollarSignsToProps(
+      baseStyle,
+      config?.theme
+    );
     sxProps = convertToSXForStateColorModeMediaQuery(
       propsWithDollarSigns,
       config
@@ -637,11 +640,11 @@ export const transformTheme = (componentTheme: any, config: any) => {
     Object.keys(variants).forEach((variant) => {
       const propsWithDollarSigns = addDollarSignsToProps(
         variants[variant],
-        config.theme
+        config?.theme
       );
       const sxPropsNew = convertToSXForStateColorModeMediaQuery(
         propsWithDollarSigns,
-        config.theme
+        config?.theme
       );
       transformedTheme.variants.variant[variant] = sxPropsNew;
     });
@@ -652,11 +655,11 @@ export const transformTheme = (componentTheme: any, config: any) => {
     Object.keys(sizes).forEach((size) => {
       const propsWithDollarSigns = addDollarSignsToProps(
         sizes[size],
-        config.theme
+        config?.theme
       );
       const sxPropsNew = convertToSXForStateColorModeMediaQuery(
         propsWithDollarSigns,
-        config.theme
+        config?.theme
       );
       transformedTheme.variants.size[size] = sxPropsNew;
     });
@@ -666,11 +669,11 @@ export const transformTheme = (componentTheme: any, config: any) => {
   if (componentTheme.defaultProps) {
     const propsWithDollarSigns = addDollarSignsToProps(
       defaultProps,
-      config.theme
+      config?.theme
     );
     const sxPropsNew = convertToSXForStateColorModeMediaQuery(
       propsWithDollarSigns,
-      config.theme
+      config?.theme
     );
     transformedTheme.defaultProps = sxPropsNew;
   }
@@ -683,12 +686,12 @@ export function getFlattendMultiAliasesProps(props: any, config: any) {
   Object.keys(props).forEach((key) => {
     const propValue = props[key];
     if (config?.aliases?.[key] && Array.isArray(config?.aliases?.[key])) {
-      const aliases = config.aliases[key];
+      const aliases = config?.aliases[key];
       aliases.forEach((alias: string) => {
         flattenedProps[alias] = propValue;
       });
     } else if (config?.aliases?.[key]) {
-      flattenedProps[config.aliases[key]] = propValue;
+      flattenedProps[config?.aliases[key]] = propValue;
     } else {
       flattenedProps[key] = props[key];
     }
