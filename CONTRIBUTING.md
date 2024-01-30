@@ -1,9 +1,9 @@
-# Contributing to `gluestack/gluestack-ui`
+# Contributing to `@gluestack-ui/themed-native-base`
 
-We'd love for you to contribute to our source code and to make `gluestack-style` even better than it is
+We'd love for you to contribute to our source code and to make `@gluestack-ui/themed-native-base` even better than it is
 today! Here are some guidelines we'd like you to follow:
 
-- [Contributing to `gluestack/gluestack-ui`](#contributing-to-gluestack-ui)
+- [Contributing to `@gluestack-ui/themed-native-base`](#contributing-to-gluestack-ui)
   - [ Code of Conduct](#-code-of-conduct)
   - [ Ways to Contribute](#-ways-to-contribute)
   - [ Questions, Bugs, Features](#-questions-bugs-features)
@@ -17,11 +17,11 @@ today! Here are some guidelines we'd like you to follow:
 
 ## <a name="coc"></a> Code of Conduct
 
-Help us keep `gluestack/gluestack-ui` open and inclusive. Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+Help us keep `@gluestack-ui/themed-native-base` open and inclusive. Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## <a name="wtc"></a> Ways to Contribute
 
-If you are eager to start contributing code right away, you can go through [`gluestack/gluestack-ui-themed-native-base` Bugs](https://github.com/gluestack/gluestack-ui-themed-native-base/issues?q=is%3Aopen+is%3Aissue) that contain bugs.
+If you are eager to start contributing code right away, you can go through [`@gluestack-ui/themed-native-base` Bugs](https://github.com/gluestack/gluestack-ui-themed-native-base/issues?q=is%3Aopen+is%3Aissue) that contain bugs.
 
 There are other ways you can contribute without writing a single line of code. Here are a few things you can do to help out:
 
@@ -33,8 +33,7 @@ Each of these tasks is highly impactful, and maintainers will greatly appreciate
 
 ### <a name="issue"></a> Found an Issue or Bug?
 
-If you find a bug in the source code, you can help us by submitting an issue to our
-[GitHub Repository](https://github.com/gluestack/gluestack-ui-themed-native-base/issues). Even better, you can submit a Pull Request with a fix.
+If you find a bug in the source code, you can help us by submitting an issue to our [GitHub Repository](https://github.com/gluestack/gluestack-ui-themed-native-base/issues). Even better, you can submit a Pull Request with a fix.
 
 **Please see the [Submission Guidelines](#submit) below.**
 
@@ -46,8 +45,7 @@ If you would like to implement a new feature then consider what kind of change i
 
 - **Major Changes** that you wish to contribute to the project should be discussed first in an
   [GitHub issue](https://github.com/gluestack/gluestack-ui-themed-native-base/issues) that clearly outlines the changes and benefits of the feature.
-- **Small Changes** can directly be crafted and submitted to the [GitHub Repository](https://github.com/gluestack/gluestack-ui-themed-native-base)
-  as a Pull Request. See the section about [Contributing Code](#submit-pr).
+- **Small Changes** can directly be crafted and submitted to the [GitHub Repository](https://github.com/gluestack/gluestack-ui-themed-native-base) as a Pull Request. See the section about [Contributing Code](#submit-pr).
 
 ## <a name="submit"></a> Issue Submission Guidelines
 
@@ -56,17 +54,16 @@ Before you submit your issue search the archive, maybe your question was already
 If your issue appears to be a bug, and hasn't been reported, open a new issue. Help us to maximize
 the effort we can spend fixing issues and adding new features, by not reporting duplicate issues.
 
-The "[new issue](https://github.com/gluestack/gluestack-ui-themed-native-base/issues/new)" form contains a number of prompts that you should fill out to
-make it easier to understand and categorize the issue.
+The "[new issue](https://github.com/gluestack/gluestack-ui-themed-native-base/issues/new?assignees=&labels=v3%2Cbug%2Ctriage&projects=&template=bug_report.yml)" form contains a number of prompts that you should fill out to make it easier to understand and categorize the issue.
 
 In general, providing the following information will increase the chances of your issue being dealt
 with quickly:
 
 - **Issue Description** - if an error is being thrown a non-minified stack trace helps
 - **Motivation for or Use Case** - explain why this is a bug for you
-- **`gluestack-ui/themed-antive-base` Version(s)** - is it a regression?
+- **`@gluestack-ui/themed-native-base` Version(s)** - is it a regression?
 - **Browsers and Operating System** - is this a problem with all browsers or only specific ones?
-- **Reproduce the Error** - provide a live example (using [expo snack template](https://snack.expo.dev/) or an unambiguous set of steps.
+- **Reproduce the Error** - provide a live example (using [expo snack](https://snack.expo.dev/) or an unambiguous set of steps).
 - **Related Issues** - has a similar issue been reported before?
 - **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
   causing the problem (line of code or commit)
@@ -75,22 +72,10 @@ with quickly:
 
 - Fork this repository.
 
-- Clone your fork of `gluestack/gluestack-ui-themed-native-base`:
+- Clone your fork of `@gluestack-ui/themed-native-base`:
 
   ```git
   git clone git@github.com:${YOUR_USERNAME}/gluestack/gluestack-ui-themed-native-base.git
-  ```
-
-- Navigate to gluestack-style
-
-  ```
-  cd gluestack-ui
-  ```
-
-- Add main repo remote:
-
-  ```git
-  git remote add origin git@github.com:gluestack/gluestack-ui-themed-native-base.git
   ```
 
 - Install dependencies:
@@ -107,35 +92,43 @@ with quickly:
 
 - Start the storybook, local aliasing of packages has been created.
 
-```bash
-yarn storybook
-```
+  ```bash
+  yarn storybook
+  ```
 
-- To start app directly on IOS
+- To start app directly on IOS.
+
   ```bash
   yarn ios
   ```
-- To start app directly on Android
+
+- To start app directly on Android.
+
   ```bash
   yarn android
   ```
 
-and start making the changes in packages that gluestack-ui-themed-native-base provides and check the changes in storybook.
+- Navigate to gluestack-ui/themed-native-base
+
+  ```bash
+  cd packages/themed-native-base
+  ```
+
+and start making the changes in `@gluestack-ui/themed-native-base` provides and check the changes in storybook.
 
 ## <a name="submit-pr"></a> Contributing Code
 
-Code-level contributions to `gluestack/gluestack-ui-themed-native-base` come in the form of [pull requests](https://help.github.com/en/articles/about-pull-requests). These are done by forking the repo and making changes locally.
+Code-level contributions to `@gluestack-ui/themed-native-base` come in the form of [pull requests](https://help.github.com/en/articles/about-pull-requests). These are done by forking the repo and making changes locally.
 
-The process of proposing a change to `gluestack/gluestack-ui-themed-native-base` can be summarized as follows:
+The process of proposing a change to `@gluestack-ui/themed-native-base` can be summarized as follows:
 
 1. Fork the gluestack-ui repository and create your branch from `main`.
 2. Make the desired changes to gluestack-ui source. Use the `storybook` app to test them out.
 3. If you've added code that should be tested, add tests.
 4. If you've changed APIs, update the documentation, which is also available in the storybook.
-5. Ensure the test suite passes, either locally or on CI once you opened a pull request.
-6. Make sure your code lints. To keep project away from disputes we make use of **ESLint**, which is really a handy linting tool that enforces strict coding styles and makes sure your files are free from dead code. Each module of `gluestack/gluestack-ui-themed-native-base` has bundled ESLint as a dev dependency and checks your code everytime you commit.
-7. Push the changes to your fork.
-8. Create a pull request to the `gluestack/gluestack-ui-themed-native-base` repository.
-9. Review and address comments on your pull request.
+5. Make sure your code lints. To keep project away from disputes we make use of **ESLint**, which is really a handy linting tool that enforces strict coding styles and makes sure your files are free from dead code. Each module of `@gluestack-ui/themed-native-base` has bundled ESLint as a dev dependency and checks your code everytime you commit.
+6. Push the changes to your fork.
+7. Create a pull request to the `@gluestack-ui/themed-native-base` repository.
+8. Review and address comments on your pull request.
 
 If all goes well, your pull request will be merged. If it is not merged, maintainers will do their best to explain the reason why.

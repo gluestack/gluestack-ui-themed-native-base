@@ -182,7 +182,7 @@ module.exports = withPlugins(
 
 ```
 
-- add `gs` className to Html tag and add flush function from `@gluestack-style/react` in your `_document` file from something like this
+- add `gs` className to Html tag and add flush function from `@gluestack-style/react` in your `_document` file. Modify you file from something like this
 
 ```
 
