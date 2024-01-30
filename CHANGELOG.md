@@ -1,7 +1,5 @@
 # Changelog
 
-## Latest Release
+## Latest Beta Release (stable)
 
-### December 23, 2022: [v0.1.0](/.changelog/v1.0.0.mdx)
-
-## Previous Releases
+### january 29, 2022: [v0.1.100]
