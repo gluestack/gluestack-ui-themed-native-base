@@ -251,7 +251,6 @@ async function getInitialProps({ renderPage }) {
   const { getStyleElement } = AppRegistry.getApplication("Main");
   const page = await renderPage();
   const styles = [
-    // eslint-disable-next-line react/jsx-key
     <style dangerouslySetInnerHTML={{ __html: fontsCSS }} />,
     getStyleElement(),
     ...flush()
