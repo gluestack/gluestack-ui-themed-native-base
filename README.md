@@ -25,12 +25,11 @@ $ npm i @gluestack-ui/themed-native-base
 
 ## Usage
 
-Just change your import from `native-base` to `Gluestack-ui/themed-native-base`, and all the components along with provider will work as is.
+Just change your import from `native-base` to `@gluestack-ui/themed-native-base`, and all the components along with provider will work as is.
 You could also use babel for this.
 
-If you want it to work with nextJS (page router) you will need to use the `withGluestackUI` adapter in NextJS.
+If you want it to work with nextJS (page router) you will need to
 
-- install the `@gluestack/ui-next-adapter` package.
 - update the `next.config.js` file like this.
 - from this
 
@@ -213,11 +212,9 @@ Document.getInitialProps = async ({ renderPage }: any) => {
 export default Document;
 ```
 
-<!--
 ## Contributing
 
-We welcome contributions to the `gluestack-ui/themed-native-base`. If you have an idea for a a bug fix or a better approach, please read our [contributing guide](./CONTRIBUTING.md) instructions on how to submit a pull request.
--->
+We welcome contributions to the `@gluestack-ui/themed-native-base`. If you have an idea for a a bug fix or a better approach, please read our [contributing guide](./CONTRIBUTING.md) instructions on how to submit a pull request.
 
 ## License
 
