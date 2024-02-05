@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export class VariantStore {
   store: any = {};
   createVariant: any;

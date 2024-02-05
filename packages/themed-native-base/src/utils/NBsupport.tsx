@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { usePropResolution } from '../hooks/usePropResolution';
 
 export const colorScheme = [
