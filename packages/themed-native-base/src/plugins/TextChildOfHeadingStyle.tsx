@@ -69,8 +69,6 @@ export class TextChildStyleResolver implements IStyledPlugin {
           }
         });
 
-        // console.log(componentProps['data-style'], '>>>>>');
-
         delete componentProps['data-style'];
 
         const stylesObj = StyleSheet.flatten(styles);
@@ -79,12 +77,6 @@ export class TextChildStyleResolver implements IStyledPlugin {
           ...styleObj,
           ...stylesObj,
         });
-
-        // console.log({
-        //   ...stylesObj,
-        //   props: { style: resolvedStyle },
-        //   _text: filterProps(resolvedStyle),
-        // });
 
         return (
           <StyledComponent

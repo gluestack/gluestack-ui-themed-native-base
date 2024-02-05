@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import cloneDeep from 'lodash.clonedeep';
 
 // main modification function

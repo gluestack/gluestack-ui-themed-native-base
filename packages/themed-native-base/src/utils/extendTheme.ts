@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { deepMerge, transformTheme } from './index';
 import { config } from '../components/gluestack-ui.config';
 
@@ -30,7 +32,6 @@ export const convertTheme = (theme: any = {}) => {
     }
   });
 
-  // console.log(gluestackTheme, 'gluestack theme');
   return gluestackTheme;
 };
 

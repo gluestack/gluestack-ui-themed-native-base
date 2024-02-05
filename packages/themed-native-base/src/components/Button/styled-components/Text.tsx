@@ -5,7 +5,10 @@ import { styled } from '@gluestack-style/react';
 export default styled(
   Text,
   {
-    color: '$text.50',
+    color: '$text.900',
+    _dark: {
+      color: '$text.50',
+    },
     fontFamily: '$body',
     userSelect: 'none',
     //@ts-ignore
