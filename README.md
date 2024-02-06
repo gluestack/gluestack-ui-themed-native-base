@@ -23,6 +23,7 @@ react-dom >= 18
 react-native >= 0.72
 react-native-web >= 0.18
 react-native-svg >= 13.4.0
+native-base == 3.4.* (other versions will work, but styling and config will defer)
 ```
 
 - Make sure your project runs as it should after update.
