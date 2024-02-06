@@ -28,7 +28,7 @@ native-base == 3.4.* (other versions will work, but styling and config will defe
 
 - Make sure your project runs as it should after update.
 
-- install the `@gluestack-ui/themed-native-base` package:
+- Install the `@gluestack-ui/themed-native-base` package:
 
 ```sh
 $ yarn add @gluestack-ui/themed-native-base react-native-svg@13.4.0
@@ -80,7 +80,7 @@ module.exports = withNativebase({
 });
 ```
 
-- to this
+- To this
 
 ```
 const path = require("path");
@@ -190,7 +190,7 @@ module.exports = withPlugins(
 
 ```
 
-- add `gs` className to Html tag and add flush function from `@gluestack-style/react` in your `_document` file. Modify you file from something like this
+- Add `gs` className to Html tag and add flush function from `@gluestack-style/react` in your `_document` file. Modify you file from something like this
 
 ```
 
@@ -232,7 +232,7 @@ export default Document;
 
 ```
 
-- to this
+- To this
 
 ```
 import fontsCSS from "@native-base/icons/FontsCSS";
