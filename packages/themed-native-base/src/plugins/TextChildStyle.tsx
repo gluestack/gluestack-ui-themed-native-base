@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import type { IStyledPlugin } from '@gluestack-style/react';
 import { styled } from '@gluestack-style/react';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { stableHash } from '../utils';
 
 export class TextStyleResolver implements IStyledPlugin {
@@ -33,20 +33,6 @@ export class TextStyleResolver implements IStyledPlugin {
   }
 
   componentMiddleWare({ Component, GluestackStyleSheet }: any) {
-    // const styles: any = [];
-    // const nativeStyleMap = GluestackStyleSheet.getStyleMap();
-    // styleCSSIds.forEach((cssId: any) => {
-    //   const nativeStyle = nativeStyleMap.get(cssId);
-
-    //   if (nativeStyle) {
-    //     const styleSheet = nativeStyle?.resolved;
-    //     if (styleSheet) {
-    //       styles.push(styleSheet);
-    //     }
-    //   }
-    // });
-    // const stylesObj = StyleSheet.flatten(styles);
-
     const StyledComponent = styled(
       Component,
       {},
@@ -55,40 +41,48 @@ export class TextStyleResolver implements IStyledPlugin {
 
     const TextStyledResolvedComponent = forwardRef(
       ({ key, children, style, ...componentProps }: any, ref?: any) => {
-        const styles: any = [];
-        const nativeStyleMap = GluestackStyleSheet.getStyleMap();
-        componentProps['data-style'].split(' ').forEach((cssId: any) => {
-          const nativeStyle = nativeStyleMap.get(cssId);
+        if (Platform.OS !== 'web') {
+          const styles: any = [];
+          const nativeStyleMap = GluestackStyleSheet.getStyleMap();
+          componentProps['data-style'].split(' ').forEach((cssId: any) => {
+            const nativeStyle = nativeStyleMap.get(cssId);
 
-          if (nativeStyle) {
-            const styleSheet = nativeStyle?.resolved;
-            if (styleSheet) {
-              styles.push(styleSheet);
+            if (nativeStyle) {
+              const styleSheet = nativeStyle?.resolved;
+              if (styleSheet) {
+                styles.push(styleSheet);
+              }
             }
-          }
-        });
-        delete componentProps['data-style'];
-        const stylesObj = StyleSheet.flatten(styles);
-        const styleObj = StyleSheet.flatten(style);
-        const resolvedStyle = resolveStyleForNative({
-          ...styleObj,
-          ...stylesObj,
-        });
+          });
+          delete componentProps['data-style'];
+          const stylesObj = StyleSheet.flatten(styles);
+          const styleObj = StyleSheet.flatten(style);
+          const resolvedStyle = resolveStyleForNative({
+            ...styleObj,
+            ...stylesObj,
+          });
 
-        return (
-          <StyledComponent
-            {...componentProps}
-            sx={{
-              ...stylesObj,
-              props: { style: resolvedStyle },
-              // _text: filterProps(resolvedStyle),
-            }}
-            key={key + stableHash(resolvedStyle)}
-            ref={ref}
-          >
-            {children}
-          </StyledComponent>
-        );
+          return (
+            <StyledComponent
+              {...componentProps}
+              sx={{
+                ...stylesObj,
+                props: { style: resolvedStyle },
+                // _text: filterProps(resolvedStyle),
+              }}
+              key={key + stableHash(resolvedStyle)}
+              ref={ref}
+            >
+              {children}
+            </StyledComponent>
+          );
+        } else {
+          return (
+            <StyledComponent {...componentProps} ref={ref}>
+              {children}
+            </StyledComponent>
+          );
+        }
       }
     );
 
