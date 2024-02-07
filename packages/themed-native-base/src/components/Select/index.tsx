@@ -149,6 +149,8 @@ const NewSelect = forwardRef(
             color={`${color}`}
             sx={inputStyle}
             placeholder={placeholder}
+            // TODO: resolve this
+            // @ts-ignore
             ref={ref}
           />
           <AccessibleSelect.Icon>

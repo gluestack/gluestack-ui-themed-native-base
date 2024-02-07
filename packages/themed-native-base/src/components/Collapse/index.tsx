@@ -79,7 +79,6 @@ export const Collapse = forwardRef(
         ref={ref}
       >
         <Box
-          //@ts-ignore
           overflow={Platform.OS === 'web' ? 'auto' : 'scroll'}
           onLayout={(e: any) => provideSize(e.nativeEvent.layout)}
           {...props}
