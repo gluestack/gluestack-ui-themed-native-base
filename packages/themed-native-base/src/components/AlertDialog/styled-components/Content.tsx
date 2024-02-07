@@ -1,6 +1,4 @@
-// import { AnimationResolver } from '@gluestack-style/animation-plugin';
 import { styled } from '@gluestack-style/react';
-import { Motion } from '@legendapp/motion';
 import {
   AnimationResolver,
   AnimatedView,
