@@ -1,3 +1,7 @@
+# Changelog
+
 # @gluestack-ui/themed
 
-- Test Release
+## Latest Beta Release
+
+### january 29, 2022: [v0.1.105]

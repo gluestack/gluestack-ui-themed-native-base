@@ -13,7 +13,22 @@
 
 ### Installation
 
-To use `native-base` components with `gluestack-ui`, all you need to do is install the `@gluestack-ui/themed-native-base` package:
+To use `native-base` components with `gluestack-ui`,
+
+- First update these version listed below and update any other dependancy or dependants for these packages.
+
+```
+react >= 18
+react-dom >= 18
+react-native >= 0.72
+react-native-web >= 0.18
+react-native-svg >= 13.4.0
+native-base == 3.4.* (other versions will work, but styling and config will defer)
+```
+
+- Make sure your project runs as it should after update.
+
+- Install the `@gluestack-ui/themed-native-base` package:
 
 ```sh
 $ yarn add @gluestack-ui/themed-native-base react-native-svg@13.4.0
@@ -23,21 +38,14 @@ $ yarn add @gluestack-ui/themed-native-base react-native-svg@13.4.0
 $ npm i @gluestack-ui/themed-native-base react-native-svg@13.4.0
 ```
 
-#### Supported versions
-
-- react >= 18
-- react-dom >= 18
-- react-native >= 0.69
-- react-native-web >= 0.18
-
 ### Usage
 
 Just change your import from `native-base` to `@gluestack-ui/themed-native-base`, and all the components along with provider will work as is.
-You could also use babel for this.
+You could also use babel or any other webpack or bundler for this.
 
-If you want it to work with nextJS (page router) you will need to
+#### NextJS
 
-- update the `next.config.js` file from something like this
+- If you want it to work with nextJS (page router) you will need to update the `next.config.js` file from something like this
 
 ```
 const { withNativebase } = require("@native-base/next-adapter");
@@ -72,7 +80,7 @@ module.exports = withNativebase({
 });
 ```
 
--> to this
+- To this
 
 ```
 const path = require("path");
@@ -182,7 +190,7 @@ module.exports = withPlugins(
 
 ```
 
-- add `gs` className to Html tag and add flush function from `@gluestack-style/react` in your `_document` file. Modify you file from something like this
+- Add `gs` className to Html tag and add flush function from `@gluestack-style/react` in your `_document` file. Modify you file from something like this
 
 ```
 
@@ -224,7 +232,7 @@ export default Document;
 
 ```
 
--> to this
+- To this
 
 ```
 import fontsCSS from "@native-base/icons/FontsCSS";
@@ -264,9 +272,22 @@ export default Document;
 
 ```
 
+<!--
+### Using with @gluestack-ui/themed
+
+Follow the same instructions as above.
+
+- Add the `GluestackUIProvider` from `@gluestack-ui/themed`, and wrap it on top of `NativeBaseProvider` from `@gluestack-ui/themed-native-base`.
+- You don't need to pass config to the `GluestackUIProvider`, it will automatically take the config from the
+-->
+
+## Breaking Changes
+
+Functional variants in extendTheme is not supported yet and will be ignored if passed.
+
 ## Contributing
 
-We welcome contributions to the `@gluestack-ui/themed-native-base`. If you have an idea for a a bug fix or a better approach, please read our [contributing guide](./CONTRIBUTING.md) instructions on how to submit a pull request.
+We welcome contributions to the `@gluestack-ui/themed-native-base`. If you have an idea for a bug fix or a better approach, please read our [contributing guide](./CONTRIBUTING.md) instructions on how to submit a pull request.
 
 ## License
 
