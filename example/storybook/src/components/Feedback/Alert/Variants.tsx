@@ -31,7 +31,7 @@ function AlertVariants() {
   ];
   return (
     <Stack space={3} w="100%" maxW="400">
-      {statusArray.map((status) => {
+      {statusArray.map((status: any) => {
         return (
           <Alert w="100%" status={status.status}>
             <VStack space={2} flexShrink={1} w="100%">
